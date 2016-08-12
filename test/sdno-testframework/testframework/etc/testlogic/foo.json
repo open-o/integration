@@ -1,0 +1,29 @@
+[
+	{
+		"request" :
+		{
+			"method" : "post",
+			"uri" : "/controller/v2/tokens"
+		},
+		"response" :
+		{
+			"json": {
+					"data" : 
+					{
+						"token_id" : "MyTestTOKEN"
+					}
+				}
+		}
+	},
+	{
+		"request" :
+		{
+			"method" : "get",
+			"uri" : "/restconf/data/huawei-ac-network-topology:inetwork-topology-cfg/topologies"
+		},
+		"response" :
+		{
+			"text" : "<topologies xmlns=\"urn:huawei:yang:huawei-ac-inventory\"><topology><id>6f8c5127-f2d3-4ff1-a344-d42497e99633</id><name>topo1</name></topology><topology><id>6f8c5127-f2d3-4ff1-a344-d42497e99634</id><name>topo2</name></topology></topologies>"
+		}
+	}
+]
