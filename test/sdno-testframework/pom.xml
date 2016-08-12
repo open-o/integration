@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.openo.baseservice</groupId>
+        <artifactId>common-setting</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.openo.sdno</groupId>
+    <artifactId>org.openo.sdno.test</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>org.openo.sdno.test</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springfwk.version>3.1.0.RELEASE</springfwk.version>
+        <springfwk.ex.version>3.1.0.RELEASE.fixed.3500</springfwk.ex.version>
+        <cxf.version>3.1.6</cxf.version>
+        <slf4j.version>1.6.1</slf4j.version>
+    </properties>
+    <scm>
+        <tag>HEAD</tag>
+    </scm>
+
+    <modules>
+        <module>testframework</module>
+        <module>testcase</module>
+    </modules>
+
+</project>
