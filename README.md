@@ -12,7 +12,6 @@ See https://wiki.open-o.org/view/Integration for additional details.
 
 See respective directories for additional details about each sub-project.
 
-* Test
 * CI Builder
 * Autorelease
 * Distribution
@@ -21,5 +20,7 @@ See respective directories for additional details about each sub-project.
 * Performance
 * Infrastructure Specification
 * Bootstrap
+* Test case
+* Test framework
 
 
