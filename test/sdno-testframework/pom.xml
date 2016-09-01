@@ -7,10 +7,10 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.openo.sdno</groupId>
+    <groupId>org.openo.integration</groupId>
     <artifactId>org.openo.sdno.test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>org.openo.sdno.test</name>
+    <name>org.openo.integration.test</name>
     <packaging>pom</packaging>
 
     <properties>

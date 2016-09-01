@@ -7,7 +7,7 @@
     <name>org.openo.sdno.testcase</name>
 
     <parent>
-        <groupId>org.openo.sdno</groupId>
+        <groupId>org.openo.integration</groupId>
         <artifactId>org.openo.sdno.test</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -34,11 +34,6 @@
         </dependency>
         <dependency>
             <groupId>org.openo.common-services.common-utilities</groupId>
-            <artifactId>commonlib-remoteservice</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openo.common-services.common-utilities</groupId>
             <artifactId>commonlib-restclient</artifactId>
             <version>1.0.1-SNAPSHOT</version>
             <type>jar</type>
@@ -55,18 +50,12 @@
             <version>1.6</version>
         </dependency>
         <dependency>
-            <groupId>org.openo.sdno</groupId>
+            <groupId>org.openo.integration</groupId>
             <artifactId>org.openo.sdno.testframework</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.openo.sdno</groupId>
-            <artifactId>org.openo.sdno.overlayvpn-cbb</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.openo.sdno</groupId>
+            <groupId>org.openo.sdno.utils</groupId>
             <artifactId>org.openo.sdno.framework.base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>jar</type>
