@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.openo</groupId>
+  <artifactId>openo</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+    <module>common-services-auth</module>
+    <module>common-services-common-utilities</module>
+    <module>common-services-driver-mgr</module>
+    <module>common-services-external-system-registration</module>
+    <module>common-services-microservice-bus</module>
+    <module>common-services-protocol-stack</module>
+    <module>common-tosca-catalog</module>
+    <module>common-tosca-inventory</module>
+    <module>common-tosca-model-designer</module>
+    <!-- <module>gso-gui</module> -->
+    <module>gso</module>
+    <module>integration</module>
+    <module>nfvo</module>
+    <module>oparent</module>
+    <module>sdno-brs</module>
+    <!-- <module>sdno-driver-huawei-l3vpn</module> -->
+    <module>sdno-driver-huawei-openstack</module>
+    <!-- <module>sdno-driver-huawei-overlay</module> -->
+    <module>sdno-driver-zte-sptn</module>
+    <module>sdno-ipsec</module>
+    <module>sdno-l2vpn</module>
+    <module>sdno-l3vpn</module>
+    <module>sdno-overlay</module>
+    <!-- <module>sdno-servicechain</module> -->
+    <module>sdno-utils</module>
+    <!-- <module>sdno-vpc</module> -->
+    <module>sdno-vxlan</module>
+  </modules>
+</project>
