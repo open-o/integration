@@ -20,17 +20,17 @@
     <module>nfvo</module>
     <module>oparent</module>
     <module>sdno-brs</module>
-    <!-- <module>sdno-driver-huawei-l3vpn</module> -->
+    <module>sdno-driver-huawei-l3vpn</module>
     <module>sdno-driver-huawei-openstack</module>
-    <!-- <module>sdno-driver-huawei-overlay</module> -->
+    <module>sdno-driver-huawei-overlay</module>
     <module>sdno-driver-zte-sptn</module>
     <module>sdno-ipsec</module>
     <module>sdno-l2vpn</module>
     <module>sdno-l3vpn</module>
     <module>sdno-overlay</module>
-    <!-- <module>sdno-servicechain</module> -->
+    <module>sdno-servicechain</module>
     <module>sdno-utils</module>
-    <!-- <module>sdno-vpc</module> -->
+    <module>sdno-vpc</module>
     <module>sdno-vxlan</module>
   </modules>
 </project>
