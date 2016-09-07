@@ -1,0 +1,12 @@
+[
+	{
+		"name": "ControllerCommParam1",
+		"controllerName":"ACController1",
+		"hostName": "slsidn.ssaid.com",
+		"profileId": "ddd",
+		"protocol": "restful31",
+		"port": 23,
+		"metaModelId": "rest_csm-v1",
+		"commParams": "{\"userName\":\"op_user\", \"password\":\"Test_123\"}"
+	}
+]

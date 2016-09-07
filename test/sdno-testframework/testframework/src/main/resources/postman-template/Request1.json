@@ -1,0 +1,29 @@
+{
+	"url": "/openoapi/sdnooverlayvpn/v1/site2dc-vpn",
+	"methodType": "POST",
+	"request": {
+ 	"site2dc-vpn": {
+ 		"name": "hw-sz-dc1",
+ 		"site": {
+ 			"cidr": "10.10.0.0/16",
+ 			"cpeId": "uuid",
+ 			"portAndVlan": "PortUUID/VLANID"
+ 		},
+ 		"vpc": {
+ 			"name": "hw-vpc",
+ 			"subnet": {
+ 				"name": "hw-subnet1",
+ 				"cidr": "10.123.0.1/16"
+ 			}
+ 		}
+ 	}
+ },
+	"response": {
+		"response": {
+			"errorCode": "success",
+			"data": {
+				"id": "[^\\s]"
+			}
+		}
+	}
+}

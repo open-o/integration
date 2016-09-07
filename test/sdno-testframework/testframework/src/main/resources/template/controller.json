@@ -1,0 +1,24 @@
+{
+	"json": {
+		"name": "ACController",
+		"category": "NE",
+		"vendor": "hw",
+		"productName": "Fusionsphere",
+		"version": "V1R2C10",
+		"hostName": "10.144.98.13",
+		"slaveHostName": "10.10.10.10",
+		"regionId": "1",
+		"adminStatus": "enable",
+		"adapterType": "inner",
+		"location": "shenzhenD2-F1",
+		"description": "abc",
+		"reserved": "dddd",
+		"aggregation": "test" 
+	},
+	"url": "/json/controller/testPath/",
+	"relation": {
+		"src_uuid": "hostName",
+		"dst_uuid": "productName",
+		"relation": "aggregation"
+	}
+}

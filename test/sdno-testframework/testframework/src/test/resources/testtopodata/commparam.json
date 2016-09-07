@@ -1,0 +1,1 @@
+[{"name":"ControllerCommParam1","controllerName":"snc1","hostName":"slsidn.ssaid.com","profileId":"ddd","protocol":"restful31","port":23,"metaModelId":"rest_csm-v1","commParams":"{\"password\":\"Changeme_123\",\"transProtocol\":\"https\",\"orgnization\":\"huawei\",\"username\":\"admin\"}"}]

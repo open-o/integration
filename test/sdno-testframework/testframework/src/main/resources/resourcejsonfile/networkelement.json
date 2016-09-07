@@ -1,0 +1,12 @@
+{
+      "name":"Networkwork1",
+	  "controllerName":"ACController1",
+      "description":"TestNetworkElement",
+      "version":"V1R3",
+      "logicID":"849494949",
+      "phyNeID":"8965969966906",
+      "managementDomainID":"444444444444",
+      "ipAddress":"192.168.1.1",
+      "adminState":"inactive",
+      "operState":"up"
+}

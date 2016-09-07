@@ -1,0 +1,68 @@
+[
+	{
+		"request" :
+		{
+			"method" : "post",
+			"uri" : "/rest/accessobjectmgmt/v1/access-objects"
+		},
+		"response" :
+		{
+			"json": {"objectId": "bfb34dee-f9be-4fb1-8eeb-5639ded85ea3"}
+		}
+	},
+	{
+		"request" :
+		{
+			"method" : "delete",
+			"uri" : "/rest/accessobjectmgmt/v1/access-objects/bfb34dee-f9be-4fb1-8eeb-5639ded85ea3"
+		},
+		"response" :
+		{
+			"json": {"response":"OK"}
+		}
+	},
+	{
+		"request" :
+		{
+			"method" : "post",
+			"uri" : "/rest/commparammgmt/v1/access-objects/bfb34dee-f9be-4fb1-8eeb-5639ded85ea3/commparams"
+		},
+		"response" :
+		{
+			"json": {"paramId": "5115d672-f64f-4701-a1e8-256b0e540bed"}
+		}
+	},	
+	{
+		"request" :
+		{
+			"method" : "delete",
+			"uri" : "/rest/commparammgmt/v1/access-objects/bfb34dee-f9be-4fb1-8eeb-5639ded85ea3/commparams"
+		},
+		"response" :
+		{
+			"json": {"response":"OK"}
+		}
+	},
+	{
+		"request" :
+		{
+			"method" : "post",
+			"uri" : "/rest/brs/v1/managed-elements"
+		},
+		"response" :
+		{
+			"json": {"managedElement":{"createTime":12333334,"id": "5115d6724-f64f-4701-a1e8-256b0e540bed"}}
+		}
+	},
+	{
+		"request" :
+		{
+			"method" : "delete",
+			"uri" : "/rest/brs/v1/managed-elements/5115d6724-f64f-4701-a1e8-256b0e540bed"
+		},
+		"response" :
+		{
+			"json": {"response":"OK"}
+		}
+	}
+]
