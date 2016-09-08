@@ -14,7 +14,7 @@
     <module>common-tosca-catalog</module>
     <module>common-tosca-inventory</module>
     <!-- <module>common-tosca-model-designer</module> -->
-    <!-- <module>gso-gui</module> -->
+    <module>gso-gui</module>
     <module>gso</module>
     <module>integration</module>
     <module>nfvo</module>
