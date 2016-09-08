@@ -3,3 +3,6 @@
 .settings/
 target/
 autorelease/build/*/
+log.html
+output.xml
+report.html
