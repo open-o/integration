@@ -5,6 +5,7 @@
         <groupId>org.openo.integration</groupId>
         <artifactId>integration</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+	<relativePath>../..</relativePath>
     </parent>
 
     <artifactId>org.openo.sdno.test</artifactId>
