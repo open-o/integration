@@ -16,10 +16,12 @@ sdno-brs
 sdno-driver-huawei-l3vpn
 sdno-driver-huawei-openstack
 sdno-driver-huawei-overlay
+sdno-driver-huawei-servicechain
 sdno-driver-zte-sptn
 sdno-ipsec
 sdno-l2vpn
 sdno-l3vpn
+sdno-nslcm
 sdno-overlay
 sdno-servicechain
 sdno-utils

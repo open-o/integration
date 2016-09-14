@@ -13,7 +13,7 @@
     <module>common-services-protocol-stack</module>
     <module>common-tosca-catalog</module>
     <module>common-tosca-inventory</module>
-    <!-- <module>common-tosca-model-designer</module> -->
+    <module>common-tosca-model-designer</module>
     <module>gso-gui</module>
     <module>gso</module>
     <module>integration</module>
@@ -23,10 +23,12 @@
     <module>sdno-driver-huawei-l3vpn</module>
     <module>sdno-driver-huawei-openstack</module>
     <module>sdno-driver-huawei-overlay</module>
+    <module>sdno-driver-huawei-servicechain</module>
     <module>sdno-driver-zte-sptn</module>
     <module>sdno-ipsec</module>
     <module>sdno-l2vpn</module>
     <module>sdno-l3vpn</module>
+    <module>sdno-nslcm</module>
     <module>sdno-overlay</module>
     <module>sdno-servicechain</module>
     <module>sdno-utils</module>

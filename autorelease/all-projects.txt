@@ -28,9 +28,7 @@ sdno-monitoring
 sdno-nslcm
 sdno-optimize
 sdno-overlay
-sdno-portal
 sdno-servicechain
-sdno-serviceinventory
 sdno-utils
 sdno-vpc
 sdno-vsitemgr
