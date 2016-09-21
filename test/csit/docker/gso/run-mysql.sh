@@ -8,5 +8,6 @@ if [ ! -d "$DATADIR/mysql" ]; then
     echo 'Finished mysql_install_db'
 fi
     
-su mysql -c /usr/bin/mysqld_safe
+su mysql -c /usr/bin/mysqld_safe &
+
 
