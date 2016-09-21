@@ -8,18 +8,13 @@ RUN yum install -y java-1.8.0-openjdk-devel
 RUN yum install -y mariadb-server
 RUN yum install -y tomcat
 
+# allow su mysql
 RUN sed -i 's|/var/lib/mysql:/sbin/nologin|/var/lib/mysql:/bin/bash|' /etc/passwd
 
-COPY fix-permissions.sh /
-RUN /fix-permissions.sh /var/lib/mysql/
-RUN /fix-permissions.sh /var/log/mariadb/
-RUN /fix-permissions.sh /var/run/
+# allow su tomcat
+RUN sed -i 's|/usr/share/tomcat:/bin/nologin|/usr/share/tomcat:/bin/bash|' /etc/passwd
 
-COPY docker-entrypoint.sh /
+COPY run-mysql.sh .
 
-VOLUME /var/lib/mysql
-
-COPY start.sh /
-CMD /start.sh
 
 
