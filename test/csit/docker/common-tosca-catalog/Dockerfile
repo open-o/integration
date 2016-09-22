@@ -15,7 +15,7 @@ WORKDIR /service
 # Set up microservice
 ADD https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.common-tosca.catalog&a=catalog-standalone&v=LATEST&e=tar.gz&c=linux64 openo-commontosca-catalog-1.0.0-SNAPSHOT-linux64.tar.gz
 RUN tar -xf openo-commontosca-catalog-1.0.0-SNAPSHOT-linux64.tar.gz
-RUN chmod -R +x *.sh
+RUN chmod +x *.sh
 
 
 ENV JAVA_HOME /usr/lib/jvm/jre
