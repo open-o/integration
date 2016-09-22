@@ -4,6 +4,8 @@
 # $3 robot options
 # $4 ci-management repo location
 
+set -e
+
 if [ $# -eq 0 ]
 then
     echo "Usage: $0 <project> <functionality> <robot-options> [<ci-management-dir>]"

@@ -1,0 +1,2 @@
+# Place the suites in run order:
+integration/test/csit/tests/common-services-microservice-bus/startup
