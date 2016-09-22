@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "This is `realpath $0`"
+echo "This is ${WORKSPACE}/test/csit/scripts/integration/script1.sh"

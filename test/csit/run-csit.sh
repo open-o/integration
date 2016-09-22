@@ -4,11 +4,9 @@
 # $3 robot options
 # $4 ci-management repo location
 
-set -e
-
 if [ $# -eq 0 ]
 then
-    echo "Usage: $0 <project> <functionality> <robot-options> [<ci-management-dir>]"
+    echo "Usage: $0 <project>/<functionality> [<robot-options>] [<ci-management-dir>]"
     echo
     echo "    <project>, <functionality>, <robot-options>:  "
     echo "        The same values as for the '{project}-csit-{functionality}' JJB job template."
@@ -21,17 +19,19 @@ then
 fi
 
 export WORKSPACE=`git rev-parse --show-toplevel`
-export TESTPLAN="${1}-${2}.txt"
-export TESTOPTIONS="${3}"
+export TESTPLAN="${1}"
+export TESTOPTIONS="${2}"
 
-if [ -z "$4" ]; then
+if [ -z "$3" ]; then
     CI=${WORKSPACE}/../ci-management
 else
-    CI=${4}
+    CI=${3}
 fi
 
-if [ ! -f ${WORKSPACE}/test/csit/testplans/${TESTPLAN} ]; then
-    echo "testplan not found: ${WORKSPACE}/test/csit/testplans/${TESTPLAN}"
+
+TESTS=${WORKSPACE}/test/csit/plans/${TESTPLAN}/testplan.txt
+if [ ! -f $TESTS ]; then
+    echo "testplan not found: ${TESTS}"
     exit 2
 fi
 
@@ -49,5 +49,32 @@ fi
 WORKDIR=`mktemp -d --suffix=-robot-workdir`
 cd $WORKDIR
 
-source $CI/jjb/integration/include-raw-integration-run-test.sh
+source ${ROBOT_VENV}/bin/activate
+
+set -exu
+
+# Run setup script plan if it exists
+SETUP=${WORKSPACE}/test/csit/plans/${TESTPLAN}/setup.sh
+if [ -f ${SETUP} ]; then
+    echo "Running setup script ${SETUP}"
+    source ${SETUP}
+fi
+
+# Run test plan
+echo "Reading the testplan:"
+cat ${WORKSPACE}/test/csit/plans/${TESTPLAN}/testplan.txt | sed "s:integration:${WORKSPACE}:" > testplan.txt
+cat testplan.txt
+SUITES=$( egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' testplan.txt | tr '\012' ' ' )
+
+echo "Starting Robot test suites ${SUITES} ..."
+pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${TESTOPTIONS} ${SUITES} || true
+
+# Run teardown script plan if it exists
+TEARDOWN=${WORKSPACE}/test/csit/plans/${TESTPLAN}/teardown.sh
+if [ -f ${TEARDOWN} ]; then
+    echo "Running teardown script ${TEARDOWN}"
+    source ${TEARDOWN}
+fi
+
+# TODO: do something with the output
 
