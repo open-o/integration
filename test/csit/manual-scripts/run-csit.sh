@@ -33,15 +33,19 @@ if [ ! -f ${WORKSPACE}/test/csit/testplans/${TESTPLAN} ]; then
     exit 2
 fi
 
+
+# Assume that if ROBOT_VENV is set, we don't need to reinstall robot
+if [ -f ${WORKSPACE}/env.properties ]; then
+    source ${WORKSPACE}/env.properties
+fi
+if [ ! -f "${ROBOT_VENV}/bin/pybot" ]; then
+    rm -f ${WORKSPACE}/env.properties
+    source $CI/jjb/integration/include-raw-integration-install-robotframework.sh
+    source ${WORKSPACE}/env.properties
+fi
+
 WORKDIR=`mktemp -d --suffix=-robot-workdir`
 cd $WORKDIR
 
-source $CI/jjb/integration/include-raw-integration-install-robotframework.sh
-
-mv ${WORKSPACE}/env.properties ${WORKDIR}
-source ${WORKDIR}/env.properties
-
 source $CI/jjb/integration/include-raw-integration-run-test.sh
-
-rm -rf ${ROBOT_VENV}
 
