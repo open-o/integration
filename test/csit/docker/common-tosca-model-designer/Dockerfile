@@ -1,5 +1,6 @@
 FROM centos:7
 
+RUN yum clean all
 RUN yum update -y
 RUN yum install -y java-1.8.0-openjdk-headless
 
