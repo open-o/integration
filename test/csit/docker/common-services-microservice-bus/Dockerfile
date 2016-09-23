@@ -10,7 +10,6 @@ ADD https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g
 RUN tar -xf msb-core-standalone-1.0.0-SNAPSHOT-linux64.tar.gz
 
 RUN chmod +x *.sh
-RUN chmod +x {eag,openresty}/{bin,nginx/sbin,luajit}/*
 
 ENV JAVA_HOME /usr/lib/jvm/jre
 
