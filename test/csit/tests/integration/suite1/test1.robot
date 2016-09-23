@@ -24,7 +24,7 @@ CheckDir
     Directory Should Exist      ${path}
 
 CheckUrl
-    [Arguments]                 ${url}
-    Create Session              session              ${url}
-    ${resp}=                    Get Request          session                  /
-    Should Be Equal As Strings  ${resp.status_code}  200
+    [Arguments]                  ${url}
+    Create Session               session              ${url}
+    ${resp}=                     Get Request          session                  /
+    Should Be Equal As Integers  ${resp.status_code}  200

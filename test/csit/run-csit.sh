@@ -54,6 +54,12 @@ source ${ROBOT_VENV}/bin/activate
 set +u
 set -ex
 
+
+# Add csit scripts to PATH
+export PATH=${PATH}:${WORKSPACE}/test/csit/docker/scripts:${WORKSPACE}/test/csit/scripts
+export SCRIPTS=${WORKSPACE}/test/csit/scripts
+export ROBOT_VARIABLES=
+
 # Run setup script plan if it exists
 SETUP=${WORKSPACE}/test/csit/plans/${TESTPLAN}/setup.sh
 if [ -f ${SETUP} ]; then
@@ -67,6 +73,7 @@ cat ${WORKSPACE}/test/csit/plans/${TESTPLAN}/testplan.txt | egrep -v '(^[[:space
 cat testplan.txt
 SUITES=$( xargs -a testplan.txt )
 
+echo ROBOT_VARIABLES=${ROBOT_VARIABLES}
 echo "Starting Robot test suites ${SUITES} ..."
 pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${ROBOT_VARIABLES} ${TESTOPTIONS} ${SUITES} || true
 
