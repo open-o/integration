@@ -1,2 +1,3 @@
-# Place the suites in run order:
-integration/test/csit/tests/common-services-microservice-bus/startup
+# Test suites are relative paths under [integration.git]/test/csit/tests/.
+# Place the suites in run order.
+common-services-microservice-bus/startup

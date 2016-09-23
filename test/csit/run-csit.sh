@@ -51,6 +51,7 @@ cd $WORKDIR
 
 source ${ROBOT_VENV}/bin/activate
 
+set +u
 set -ex
 
 # Run setup script plan if it exists
@@ -62,9 +63,9 @@ fi
 
 # Run test plan
 echo "Reading the testplan:"
-cat ${WORKSPACE}/test/csit/plans/${TESTPLAN}/testplan.txt | sed "s:integration:${WORKSPACE}:" > testplan.txt
+cat ${WORKSPACE}/test/csit/plans/${TESTPLAN}/testplan.txt | egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' | sed "s|^|${WORKSPACE}/test/csit/tests/|" > testplan.txt
 cat testplan.txt
-SUITES=$( egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' testplan.txt | tr '\012' ' ' )
+SUITES=$( xargs -a testplan.txt )
 
 echo "Starting Robot test suites ${SUITES} ..."
 pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${ROBOT_VARIABLES} ${TESTOPTIONS} ${SUITES} || true

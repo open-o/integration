@@ -1,2 +1,4 @@
-# Place the suites in run order:
-integration/test/csit/tests/integration/suite1
+# Test suites are relative paths under [integration.git]/test/csit/tests/.
+# Place the suites in run order.
+integration/suite1
+integration/suite2
