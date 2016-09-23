@@ -1,30 +1,17 @@
 *** Settings ***
-Library       OperatingSystem
 Library       RequestsLibrary
 
-*** Variables ***
-${MESSAGE}    Hello, world!
-
 *** Test Cases ***
-String Equality Test
-    Should Be Equal    ${MESSAGE}    Hello, world!
-
-Dir Test
-    [Documentation]    Check if /tmp exists
-    Log                ${MESSAGE}
-    CheckDir           /tmp
-
-Url Test
-    [Documentation]    Check if google.com can be reached
-    CheckUrl           http://www.google.com
+Liveness Test
+    [Documentation]        Check various endpoints for basic liveness check
+    Create Session         msb              http://${MSB_IP}
+    CheckUrl               msb              /
+    CheckUrl               msb              /openoui/microservices/index.html
+    CheckUrl               msb              /api/microservices/v1/swagger.yaml
 
 *** Keywords ***
-CheckDir
-    [Arguments]                 ${path}
-    Directory Should Exist      ${path}
-
 CheckUrl
-    [Arguments]                 ${url}
-    Create Session              session              ${url}
-    ${resp}=                    Get Request          session                  /
-    Should Be Equal As Strings  ${resp.status_code}  200
+    [Arguments]                   ${session}  ${path}
+    ${resp}=                      Get Request          ${session}  ${path}
+    Should Be Equal As Integers   ${resp.status_code}  200
+

@@ -51,7 +51,7 @@ cd $WORKDIR
 
 source ${ROBOT_VENV}/bin/activate
 
-set -exu
+set -ex
 
 # Run setup script plan if it exists
 SETUP=${WORKSPACE}/test/csit/plans/${TESTPLAN}/setup.sh
@@ -67,7 +67,7 @@ cat testplan.txt
 SUITES=$( egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' testplan.txt | tr '\012' ' ' )
 
 echo "Starting Robot test suites ${SUITES} ..."
-pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${TESTOPTIONS} ${SUITES} || true
+pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${ROBOT_VARIABLES} ${TESTOPTIONS} ${SUITES} || true
 
 # Run teardown script plan if it exists
 TEARDOWN=${WORKSPACE}/test/csit/plans/${TESTPLAN}/teardown.sh
