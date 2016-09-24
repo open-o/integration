@@ -11,7 +11,11 @@ CATALOG_IP=`get-instance-ip.sh i-catalog`
 echo CATALOG_IP=${CATALOG_IP}
 
 # Wait for initialization
-sleep 5
+for i in {1..10}; do
+    curl -sS ${CATALOG_IP}:8200 && break
+    echo sleep $i
+    sleep $i
+done
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP} -v CATALOG_IP:${CATALOG_IP}"
