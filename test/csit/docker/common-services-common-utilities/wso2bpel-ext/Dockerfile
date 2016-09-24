@@ -1,10 +1,18 @@
+# BEGIN HEADER TEMPLATE
+
 FROM centos:7
 
+# Need to use rackspace mirror to work on Jenkins
+RUN sed -i 's|#baseurl=http://mirror.centos.org/centos|baseurl=http://mirror.rackspace.com/CentOS|' /etc/yum.repos.d/*.repo
+RUN sed -i 's|mirrorlist.*||' /etc/yum.repos.d/*.repo
+RUN sed -i 's|plugins=1|plugins=0|' /etc/yum.conf
 RUN yum clean all
 RUN yum update -y
-RUN yum install -y java-1.8.0-openjdk-headless
-RUN yum install -y unzip
-RUN yum install -y wget
+RUN yum install -y wget unzip java-1.8.0-openjdk-headless
+
+# END HEADER TEMPLATE
+
+
 
 
 WORKDIR /service
