@@ -1,0 +1,4 @@
+# 09-entrypoint.txt
+
+COPY docker-entrypoint.sh .
+ENTRYPOINT /service/docker-entrypoint.sh

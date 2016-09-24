@@ -1,0 +1,7 @@
+# 02-mysq.txt
+
+# Set up mysql
+RUN yum install -y mariadb-server
+RUN chsh -s /bin/bash mysql
+RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
+

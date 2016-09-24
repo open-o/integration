@@ -1,0 +1,8 @@
+# 05-microservice.txt
+
+# TODO: change to ADD latest snapshot
+COPY ServiceManagerService-1.0.0-SNAPSHOT.zip .
+RUN unzip -o ServiceManagerService-1.0.0-SNAPSHOT.zip
+RUN chmod +x bin/{start.sh,stop.sh}
+ENV APP_ROOT /service
+
