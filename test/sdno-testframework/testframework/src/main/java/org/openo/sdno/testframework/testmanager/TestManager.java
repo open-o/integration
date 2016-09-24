@@ -67,7 +67,6 @@ public class TestManager {
     public HttpResponse execTestCase(File file, IChecker checker) throws ServiceException {
         String content = FileUtils.readFromJson(file);
         HttpRquestResponse httpObject = HttpModelUtils.praseHttpRquestResponse(content);
-
         return send(httpObject.getRequest(), checker);
     }
 

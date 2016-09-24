@@ -40,7 +40,7 @@ public class DefaultChecker implements IChecker {
 
     @Override
     public boolean check(HttpResponse response) {
-        return expectedResponse.equals(expectedResponse);
+        return expectedResponse.equals(response);
     }
 
 }
