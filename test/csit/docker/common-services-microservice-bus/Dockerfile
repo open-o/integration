@@ -1,3 +1,9 @@
+#
+# This file was auto-generated; do not modify manually.  Instead, modify the component
+# templates and then run gen-all-dockerfiles.sh to re-generate.
+#
+# ./common-services-microservice-bus Dockerfile
+#
 # 01-basebuild.txt
 
 FROM centos:7
