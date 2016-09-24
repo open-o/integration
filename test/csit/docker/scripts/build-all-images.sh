@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -exu
+
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 

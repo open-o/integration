@@ -11,9 +11,9 @@ cat etc/microservice.ini
 echo
 
 
-# Start mysql
-su mysql -c /usr/bin/mysqld_safe &
-sleep 2
+# Initialize mysql; set root password
+./init-mysql.sh
+
 
 # Initialize DB schema
 # TODO: 

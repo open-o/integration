@@ -9,16 +9,8 @@ fi
 sed -i "s|msbServerAddr:.*|msbServerAddr: http://$MSB_ADDR|" conf/catalog.yml
 cat conf/catalog.yml
 
-
-# Start mysql
-su mysql -c /usr/bin/mysqld_safe &
-
-# Wait for mysql to initialize; Set mysql root password
-for i in {1..10}; do
-    /usr/bin/mysqladmin -u root password 'rootpass' && break
-    echo sleep $i
-    sleep $i
-done
+# Init mysql; set root password
+./init-mysql.sh
 
 # Initialize DB schema
 ./initDB.sh root rootpass 3306 127.0.0.1

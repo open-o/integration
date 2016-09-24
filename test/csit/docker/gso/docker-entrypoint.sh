@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Start mysql
-su mysql -c /usr/bin/mysqld_safe &
-sleep 2
+./init-mysql.sh
 
 # Initialize DB schema
 # TODO: using "test" database for now, need to change to use correct database
