@@ -22,9 +22,6 @@ export WORKSPACE=`git rev-parse --show-toplevel`
 
 if [ -f ${WORKSPACE}/test/csit/${1}/testplan.txt ]; then
     export TESTPLAN="${1}"
-elif [ -f ${WORKSPACE}/test/csit/plans/${1}/testplan.txt ]; then
-    # temporarily here to support Jenkins job parameters
-    export TESTPLAN="plans/${1}"
 else
     echo "testplan not found: ${WORKSPACE}/test/csit/${TESTPLAN}/testplan.txt"
     exit 2
@@ -47,17 +44,19 @@ TESTPLANDIR=${WORKSPACE}/test/csit/${TESTPLAN}
 # Assume that if ROBOT_VENV is set, we don't need to reinstall robot
 if [ -f ${WORKSPACE}/env.properties ]; then
     source ${WORKSPACE}/env.properties
+    source ${ROBOT_VENV}/bin/activate
 fi
-if [ ! -f "${ROBOT_VENV}/bin/pybot" ]; then
+if ! type pybot > /dev/null; then
     rm -f ${WORKSPACE}/env.properties
     source $CI/jjb/integration/include-raw-integration-install-robotframework.sh
     source ${WORKSPACE}/env.properties
+    source ${ROBOT_VENV}/bin/activate
 fi
+
 
 WORKDIR=`mktemp -d --suffix=-robot-workdir`
 cd ${WORKDIR}
 
-source ${ROBOT_VENV}/bin/activate
 
 set +u
 set -ex
