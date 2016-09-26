@@ -1,12 +1,12 @@
 #!/bin/bash
-# $1 project
-# $2 functionality
-# $3 robot options
-# $4 ci-management repo location
+# $1 project/functionality
+# $2 robot options
+# $3 ci-management repo location
 
 if [ $# -eq 0 ]
 then
-    echo "Usage: $0 <project>/<functionality> [<robot-options>] [<ci-management-dir>]"
+    echo 
+    echo "Usage: $0 plans/<project>/<functionality> [<robot-options>] [<ci-management-dir>]"
     echo
     echo "    <project>, <functionality>, <robot-options>:  "
     echo "        The same values as for the '{project}-csit-{functionality}' JJB job template."
@@ -19,7 +19,18 @@ then
 fi
 
 export WORKSPACE=`git rev-parse --show-toplevel`
-export TESTPLAN="${1}"
+
+if [ -f ${WORKSPACE}/test/csit/${1}/testplan.txt ]; then
+    export TESTPLAN="${1}"
+elif [ -f ${WORKSPACE}/test/csit/plans/${1}/testplan.txt ]; then
+    # temporarily here to support Jenkins job parameters
+    export TESTPLAN="plans/${1}"
+else
+    echo "testplan not found: ${WORKSPACE}/test/csit/${TESTPLAN}/testplan.txt"
+    exit 2
+fi
+
+
 export TESTOPTIONS="${2}"
 
 if [ -z "$3" ]; then
@@ -29,12 +40,9 @@ else
 fi
 
 
-TESTS=${WORKSPACE}/test/csit/plans/${TESTPLAN}/testplan.txt
-if [ ! -f $TESTS ]; then
-    echo "testplan not found: ${TESTS}"
-    exit 2
-fi
 
+
+TESTPLANDIR=${WORKSPACE}/test/csit/${TESTPLAN}
 
 # Assume that if ROBOT_VENV is set, we don't need to reinstall robot
 if [ -f ${WORKSPACE}/env.properties ]; then
@@ -47,7 +55,7 @@ if [ ! -f "${ROBOT_VENV}/bin/pybot" ]; then
 fi
 
 WORKDIR=`mktemp -d --suffix=-robot-workdir`
-cd $WORKDIR
+cd ${WORKDIR}
 
 source ${ROBOT_VENV}/bin/activate
 
@@ -61,24 +69,27 @@ export SCRIPTS=${WORKSPACE}/test/csit/scripts
 export ROBOT_VARIABLES=
 
 # Run setup script plan if it exists
-SETUP=${WORKSPACE}/test/csit/plans/${TESTPLAN}/setup.sh
+cd ${TESTPLANDIR}
+SETUP=${TESTPLANDIR}/setup.sh
 if [ -f ${SETUP} ]; then
     echo "Running setup script ${SETUP}"
     source ${SETUP}
 fi
 
 # Run test plan
+cd $WORKDIR
 echo "Reading the testplan:"
-cat ${WORKSPACE}/test/csit/plans/${TESTPLAN}/testplan.txt | egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' | sed "s|^|${WORKSPACE}/test/csit/tests/|" > testplan.txt
-cat testplan.txt
-SUITES=$( xargs -a testplan.txt )
+cat ${TESTPLANDIR}/testplan.txt | egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' | sed "s|^|${WORKSPACE}/test/csit/tests/|" > testplan.txt.tmp
+cat testplan.txt.tmp
+SUITES=$( xargs -a testplan.txt.tmp )
 
 echo ROBOT_VARIABLES=${ROBOT_VARIABLES}
 echo "Starting Robot test suites ${SUITES} ..."
 pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${ROBOT_VARIABLES} ${TESTOPTIONS} ${SUITES} || true
 
 # Run teardown script plan if it exists
-TEARDOWN=${WORKSPACE}/test/csit/plans/${TESTPLAN}/teardown.sh
+cd ${TESTPLANDIR}
+TEARDOWN=${TESTPLANDIR}/teardown.sh
 if [ -f ${TEARDOWN} ]; then
     echo "Running teardown script ${TEARDOWN}"
     source ${TEARDOWN}

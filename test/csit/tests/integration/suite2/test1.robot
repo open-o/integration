@@ -16,7 +16,13 @@ Dir Test
 
 Url Test
     [Documentation]    Check if www.open-o.org can be reached
-    CheckUrl           http://www.open-o.org
+    Create Session     openo          http://www.open-o.org
+    CheckUrl           openo          /
+
+Mock Hello Server Test
+    [Documentation]        Check /hello endpoint
+    Create Session         hello              http://${MOCK_IP}:1080
+    CheckUrl               hello              /hello
 
 *** Keywords ***
 CheckDir
@@ -24,7 +30,6 @@ CheckDir
     Directory Should Exist      ${path}
 
 CheckUrl
-    [Arguments]                  ${url}
-    Create Session               session              ${url}
-    ${resp}=                     Get Request          session                  /
+    [Arguments]                  ${session}   ${path}
+    ${resp}=                     Get Request          ${session}               ${path}
     Should Be Equal As Integers  ${resp.status_code}  200
