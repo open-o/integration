@@ -1,0 +1,12 @@
+service,filename,groupId,artifactId,extension,classifier
+Microservice Service Bus,msb-standalone,org.openo.common-services.microservice-bus,msb-core-standalone,tar.gz,linux64
+WSO2-EXT,openo-commonservice-commonutilities-wso2bpel-ext,org.openo.common-services.common-utilities.wso2bpel-ext,standalone,tar.gz,linux64
+External System Register,openo-commonservice-extsys,org.openo.common-services.external-system-registration,standalone,tar.gz,linux64
+Driver Mgr,DriverManagerService,org.openo.common-services.driver-mgr,drivermanager-service-deployment,zip,
+AuthService,Authservice,org.openo.common-services.auth,auth-service-deployment,zip,
+Catalog,openo-commontosca-catalog,org.openo.common-tosca.catalog,catalog-all,tar.gz,linux64
+Inventory,openo-commontosca-inventory,org.openo.common-tosca.inventory,standalone,tar.gz,linux64
+Model Designer,modeldesigner-standalone,org.openo.common-tosca.model-designer.modeldesigner.distribution,modeldesigner-standalone,tar.gz,linux.gtk.x86_64
+SDN-O ZTE SPTN Driver,sdno-driver-zte-sptn,org.openo.sdno.driver-zte-sptn,standalone,zip,
+GS-O,gso,org.openo.gso,servicemanagerservice-deployment,zip,
+Service Gateway,service-gateway-deployment,org.openo.gso.gui,service-gateway-deployment,zip,
