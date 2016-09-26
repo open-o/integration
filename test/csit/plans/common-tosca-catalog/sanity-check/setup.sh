@@ -12,7 +12,7 @@ echo CATALOG_IP=${CATALOG_IP}
 
 # Wait for initialization
 for i in {1..10}; do
-    curl -sS ${CATALOG_IP}:8200 && break
+    curl -sS -m 1 ${CATALOG_IP}:8200 && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
 done
