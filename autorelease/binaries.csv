@@ -8,5 +8,17 @@ Common TOSCA Catalog,common-tosca-catalog,org.openo.common-tosca.catalog,catalog
 Common TOSCA Inventory,common-tosca-inventory,org.openo.common-tosca.inventory,standalone,tar.gz,linux64
 Common TOSCA Model Designer,common-tosca-modeldesigner,org.openo.common-tosca.model-designer.modeldesigner.distribution,modeldesigner-standalone,tar.gz,linux.gtk.x86_64
 SDNO Driver ZTE SPTN,sdno-driver-zte-sptn,org.openo.sdno.driver-zte-sptn,standalone,zip,
+SDNO Driver Huawei L3VPN,l3vpndriver-deployment,org.openo.sdno.driver-huawei-l3vpn,l3vpndriver-deployment,zip,
+SDNO Driver Huawei Openstack,osdriverservice-deployment,org.openo.sdno.driver-huawei-openstack,osdriverservice-deployment,zip,
+SDNO Driver Huawei Overlay,overlayvpndriver-deployment,org.openo.sdno.driver-huawei-overlay,overlayvpndriver-deployment,zip,
+SDNO Driver Huawei Servicechain,servicechaindriverservice-deployment,org.openo.sdno.driver-huawei-servicechain,servicechaindriverservice-deployment,zip,
+SDNO Services IpSec,ipsecservice-deployment,org.openo.sdno.ipsec,ipsecservice-deployment,zip,
+SDNO Services L2VPN,l2vpnservice-deployment,org.openo.sdno.l2vpn,l2vpnservice-deployment,zip,
+SDNO Services L3VPN,l3vpnservice-deployment,org.openo.sdno.l3vpn,l3vpnservice-deployment,zip,
+SDNO Services Nslcm,nslcm-deployment,org.openo.sdno.nslcm,nslcm-deployment,zip,
+SDNO Services Overlay VPN,overlayvpnservice-deployment,org.openo.sdno.overlay,overlayvpnservice-deployment,zip,
+SDNO Services Service Chain,servicechainservice-deployment,org.openo.sdno.servicechain,servicechainservice-deployment,zip,
+SDNO Services VPC,vpcservice-deployment,org.openo.sdno.vpc,vpcservice-deployment,zip,
+SDNO Services VxLAN,vxlanservice-deployment,org.openo.sdno.vxlan,vxlanservice-deployment,zip,
 GSO,gso,org.openo.gso,servicemanagerservice-deployment,zip,
 GSO Service Gateway,gso-service-gateway,org.openo.gso.gui,service-gateway-deployment,zip,

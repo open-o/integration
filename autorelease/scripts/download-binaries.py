@@ -5,27 +5,46 @@ import sys, csv, subprocess
 
 root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
 path = "{}/autorelease/dist".format(root)
+version = "1.0.0-SNAPSHOT"
+url_template = "https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g={0}&a={1}&e={2}&c={3}&v=LATEST"
 
 subprocess.call(["rm", "-rf", path])
 subprocess.call(["mkdir", "-p", path])
 
-with sys.stdin as f:
-    reader = csv.reader(f)
-    header = reader.next()
 
-    version = "1.0.0-SNAPSHOT"
-    url_template = "https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g={0}&a={1}&e={2}&c={3}&v=LATEST"
-    
+def parseRow(row):
+    service = row["service"]
+    filename = row["filename"]
+    groupId = row["groupId"]
+    artifactId = row["artifactId"]
+    extension = row["extension"]
+    classifier = row["classifier"]
+    url = url_template.format(groupId, artifactId, extension, classifier)
+    if classifier:
+        dest = "{}/{}-{}.{}.{}".format(path, filename, version, classifier, extension)
+    else:
+        dest = "{}/{}-{}.{}".format(path, filename, version, extension)
+    return {"url": url, "dest": dest}
+
+
+with sys.stdin as f:
+    reader = csv.DictReader(f)
+    errors = 0
+
+    items = []
     for row in reader:
-        filename = row[header.index("filename")]
-        groupId = row[header.index("groupId")]
-        artifactId = row[header.index("artifactId")]
-        extension = row[header.index("extension")]
-        classifier = row[header.index("classifier")]
-        url = url_template.format(groupId, artifactId, extension, classifier)
-        if classifier:
-            dest = "{}/{}-{}.{}.{}".format(path, filename, version, classifier, extension)
+        item = parseRow(row)
+        items.append(item)
+
+        result = subprocess.call(["wget", "-q", "--spider", "--content-disposition", "-O", item["dest"], item["url"]])
+        if result == 0:
+            print "{} OK".format(row["service"])
         else:
-            dest = "{}/{}-{}.{}".format(path, filename, version, extension)
-                                
-        subprocess.call(["wget", "--content-disposition", "-O", dest, url] )
+            ++errors
+            print "ERROR: {}".format(row["service"])
+
+    print "{} errors found".format(errors)
+
+    if errors == 0:
+        for item in items:
+            subprocess.call(["wget", "--content-disposition", "-O", item["dest"], item["url"]])
