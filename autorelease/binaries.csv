@@ -1,5 +1,6 @@
 service,filename,groupId,artifactId,extension,classifier
 Common Services Microservice Bus,common-services-msb,org.openo.common-services.microservice-bus,msb-core-standalone,tar.gz,linux64
+Common Services Protocol Stack,protocolstack-service,org.openo.common-services.protocol-stack,protocolstackservice-deployment,zip,
 Common Services WSO2 Extension,common-services-wso2ext,org.openo.common-services.common-utilities.wso2bpel-ext,standalone,tar.gz,linux64
 Common Services External System Register,common-services-extsys,org.openo.common-services.external-system-registration,standalone,tar.gz,linux64
 Common Services Driver Manager,common-services-drivermanager,org.openo.common-services.driver-mgr,drivermanager-service-deployment,zip,
