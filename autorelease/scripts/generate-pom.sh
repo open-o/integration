@@ -61,3 +61,6 @@ cat >> $FILE <<EOF
 
 </project>
 EOF
+
+
+$ROOT/scripts/generate-assembly.py < $ROOT/binaries.csv > $BUILD_DIR/assembly.xml

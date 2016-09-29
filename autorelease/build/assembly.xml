@@ -28,6 +28,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>common-services-protocolstack</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-services.protocol-stack:protocolstackservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>common-services-protocolstack-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>common-services-wso2ext</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
@@ -94,7 +103,7 @@
       <outputDirectory>sdno-driver-zte-sptn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-zte-sptn:standalone:zip:</include>
+        <include>org.openo.sdno.driver-zte-sptn:standalone:tar.gz:linux64</include>
       </includes>
       <outputFileNameMapping>sdno-driver-zte-sptn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -133,6 +142,24 @@
         <include>org.openo.sdno.driver-huawei-servicechain:servicechaindriverservice-deployment:zip:</include>
       </includes>
       <outputFileNameMapping>sdno-driver-huawei-servicechain-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-mss</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.brs:mss-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-mss-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-brs</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.brs:brs-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-brs-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
