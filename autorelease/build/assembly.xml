@@ -1,20 +1,23 @@
+
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0" 
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
-  <id>openo</id>
+  <id>linux64</id>
   <formats>
-    <format>zip</format>
+    <format>tar.gz</format>
   </formats>
   <fileSets>
     <fileSet>
-      <directory>.</directory>
+      <directory>/home/gwu/Projects/open-o/integration/distribution</directory>
       <outputDirectory>/</outputDirectory>
       <includes>
-        <include>pom.xml</include>
+        <include>*</include>
       </includes>
     </fileSet>
   </fileSets>
   <dependencySets>
+
+
     <dependencySet>
       <outputDirectory>common-services-msb</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
@@ -24,5 +27,204 @@
       <outputFileNameMapping>common-services-msb-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
+    <dependencySet>
+      <outputDirectory>common-services-wso2ext</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-services.common-utilities.wso2bpel-ext:standalone:tar.gz:linux64</include>
+      </includes>
+      <outputFileNameMapping>common-services-wso2ext-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>common-services-extsys</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-services.external-system-registration:standalone:tar.gz:linux64</include>
+      </includes>
+      <outputFileNameMapping>common-services-extsys-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>common-services-drivermanager</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-services.driver-mgr:drivermanager-service-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>common-services-drivermanager-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>common-services-auth</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-services.auth:auth-service-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>common-services-auth-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>common-tosca-catalog</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-tosca.catalog:catalog-all:tar.gz:linux64</include>
+      </includes>
+      <outputFileNameMapping>common-tosca-catalog-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>common-tosca-inventory</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-tosca.inventory:standalone:tar.gz:linux64</include>
+      </includes>
+      <outputFileNameMapping>common-tosca-inventory-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>common-tosca-modeldesigner</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-tosca.model-designer.modeldesigner.distribution:modeldesigner-standalone:tar.gz:linux.gtk.x86_64</include>
+      </includes>
+      <outputFileNameMapping>common-tosca-modeldesigner-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-driver-zte-sptn</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.driver-zte-sptn:standalone:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-driver-zte-sptn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-driver-huawei-l3vpn</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.driver-huawei-l3vpn:l3vpndriver-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-driver-huawei-l3vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-driver-huawei-openstack</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.driver-huawei-openstack:osdriverservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-driver-huawei-openstack-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-driver-huawei-overlay</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.driver-huawei-overlay:overlayvpndriver-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-driver-huawei-overlay-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-driver-huawei-servicechain</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.driver-huawei-servicechain:servicechaindriverservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-driver-huawei-servicechain-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-ipsec</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.ipsec:ipsecservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-ipsec-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-l2vpn</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.l2vpn:l2vpnservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-l2vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-l3vpn</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.l3vpn:l3vpnservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-l3vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-nslcm</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.nslcm:nslcm-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-nslcm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-overlayvpn</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.overlay:overlayvpnservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-overlayvpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-servicechain</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.servicechain:servicechainservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-servicechain-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-vpc</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.vpc:vpcservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-vpc-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-vxlan</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.vxlan:vxlanservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-vxlan-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>gso-service-manager</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.gso:servicemanagerservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>gso-service-manager-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>gso-service-gateway</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.gso.gui:service-gateway-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>gso-service-gateway-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
   </dependencySets>
 </assembly>
+
