@@ -13,6 +13,8 @@ SDNO Driver Huawei L3VPN,sdno-driver-huawei-l3vpn,org.openo.sdno.driver-huawei-l
 SDNO Driver Huawei Openstack,sdno-driver-huawei-openstack,org.openo.sdno.driver-huawei-openstack,osdriverservice-deployment,zip,
 SDNO Driver Huawei Overlay,sdno-driver-huawei-overlay,org.openo.sdno.driver-huawei-overlay,overlayvpndriver-deployment,zip,
 SDNO Driver Huawei Servicechain,sdno-driver-huawei-servicechain,org.openo.sdno.driver-huawei-servicechain,servicechaindriverservice-deployment,zip,
+SDNO Services MSS,sdno-service-mss,org.openo.sdno.brs,mss-deployment,zip
+SDNO Services BRS,sdno-service-brs,org.openo.sdno.brs,brs-deployment,zip
 SDNO Services IpSec,sdno-service-ipsec,org.openo.sdno.ipsec,ipsecservice-deployment,zip,
 SDNO Services L2VPN,sdno-service-l2vpn,org.openo.sdno.l2vpn,l2vpnservice-deployment,zip,
 SDNO Services L3VPN,sdno-service-l3vpn,org.openo.sdno.l3vpn,l3vpnservice-deployment,zip,
