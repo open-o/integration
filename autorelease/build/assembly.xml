@@ -8,10 +8,10 @@
   </formats>
   <fileSets>
     <fileSet>
-      <directory>/home/gwu/Projects/open-o/integration/distribution</directory>
+      <directory>../../distribution</directory>
       <outputDirectory>/</outputDirectory>
       <includes>
-        <include>*</include>
+        <include>**</include>
       </includes>
     </fileSet>
   </fileSets>
