@@ -271,12 +271,12 @@
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>nfvo-driver-vnfm-hw</outputDirectory>
+      <outputDirectory>nfvo-driver-vnfm-huawei</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
         <include>org.openo.nfvo:hw-vnfmadapter-deployment:zip:</include>
       </includes>
-      <outputFileNameMapping>nfvo-driver-vnfm-hw-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+      <outputFileNameMapping>nfvo-driver-vnfm-huawei-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>

@@ -14,11 +14,11 @@ Open-O contains the following microservices:
   * common-tosca-inventory                 Common TOSCA Inventory
   * common-tosca-modeldesigner             Common TOSCA Model Designer
   * gso-service-gateway                    GSO Service Gateway
-  * gso-service-manager                    GSO
+  * gso-service-manager                    GSO Service Manager
   * nfvo-dac                               NFVO Monitor Data Acquire Compoment
   * nfvo-driver-vim                        NFVO VIM Driver
-  * nfvo-driver-vnfm-hw                    NFVO VNFM Driver Huawei
-  * nfvo-driver-vnfm-juju                  NFVO VNFM Driver JUJU 
+  * nfvo-driver-vnfm-huawei                NFVO VNFM Driver Huawei
+  * nfvo-driver-vnfm-juju                  NFVO VNFM Driver JUJU
   * nfvo-driver-vnfm-zte                   NFVO VNFM Driver ZTE
   * nfvo-lcm                               NFVO Lifecycle Management
   * nfvo-resmanagement                     NFVO Resource Manager
