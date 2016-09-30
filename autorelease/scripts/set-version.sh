@@ -10,4 +10,5 @@ BUILD_DIR=$ROOT/build
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
-mvn -f oparent/version/pom.xml versions:set versions:update-child-modules -DnewVersion=${VERSION}
+# Jenkins sets a $MVN parameter via JJB that points to the appropriately installed maven
+$MVN -f oparent/version/pom.xml versions:set versions:update-child-modules -DnewVersion=${VERSION}
