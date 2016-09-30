@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="1.0.0"
+VERSION="1.0.0-RC0"
 
 # autorelease root dir
 ROOT=`git rev-parse --show-toplevel`/autorelease
