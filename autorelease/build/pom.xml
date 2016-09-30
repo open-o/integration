@@ -1,13 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <parent>
     <groupId>org.openo.oparent</groupId>
     <artifactId>oparent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <relativePath>oparent</relativePath>
   </parent>
-
   <groupId>org.openo.integration.distribution</groupId>
   <artifactId>openo</artifactId>
   <packaging>pom</packaging>
@@ -247,6 +245,70 @@
     <dependency>
       <groupId>org.openo.gso.gui</groupId>
       <artifactId>service-gateway-deployment</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>vimadapter-deployment</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>juju-vnfmadapterservice-deployment</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>hw-vnfmadapter-deployment</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>resmanagement-deployment</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo.monitor.umc.umc-api</groupId>
+      <artifactId>umc-standalone</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo.monitor.dac.dac-api</groupId>
+      <artifactId>dac-standalone</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>lcm</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>drivers-vnfm-svnfm-zte-vmanager</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier></classifier>

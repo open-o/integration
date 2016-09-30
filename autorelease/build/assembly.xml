@@ -252,6 +252,78 @@
       <outputFileNameMapping>gso-service-gateway-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
+    <dependencySet>
+      <outputDirectory>nfvo-driver-vim</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:vimadapter-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-driver-vim-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-driver-vnfm-juju</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:juju-vnfmadapterservice-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-driver-vnfm-juju-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-driver-vnfm-hw</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:hw-vnfmadapter-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-driver-vnfm-hw-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-resmanagement</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:resmanagement-deployment:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-resmanagement-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-umc</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo.monitor.umc.umc-api:umc-standalone:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-umc-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-dac</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo.monitor.dac.dac-api:dac-standalone:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-dac-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-lcm</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:lcm:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-lcm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-driver-vnfm-zte</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:drivers-vnfm-svnfm-zte-vmanager:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-driver-vnfm-zte-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
   </dependencySets>
 </assembly>
 
