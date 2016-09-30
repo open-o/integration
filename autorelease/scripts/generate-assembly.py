@@ -30,16 +30,21 @@ with sys.stdin as f:
 """
     
     for row in reader:
+        if row["classifier"]:
+            include = "{}:{}:{}:{}".format(row["groupId"], row["artifactId"], row["extension"], row["classifier"])
+        else:
+            include = "{}:{}:{}".format(row["groupId"], row["artifactId"], row["extension"])
+
         txt = """
     <dependencySet>
       <outputDirectory>{}</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>{}:{}:{}:{}</include>
+        <include>{}</include>
       </includes>
       <outputFileNameMapping>{}-${{artifact.version}}${{dashClassifier?}}.${{artifact.extension}}</outputFileNameMapping>
     </dependencySet>"""
-        print txt.format(row["filename"], row["groupId"], row["artifactId"], row["extension"], row["classifier"], row["filename"])
+        print txt.format(row["filename"], include, row["filename"])
         
 
     print """

@@ -31,7 +31,7 @@
       <outputDirectory>common-services-protocolstack</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.common-services.protocol-stack:protocolstackservice-deployment:zip:</include>
+        <include>org.openo.common-services.protocol-stack:protocolstackservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>common-services-protocolstack-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -58,7 +58,7 @@
       <outputDirectory>common-services-drivermanager</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.common-services.driver-mgr:drivermanager-service-deployment:zip:</include>
+        <include>org.openo.common-services.driver-mgr:drivermanager-service-deployment:zip</include>
       </includes>
       <outputFileNameMapping>common-services-drivermanager-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -67,7 +67,7 @@
       <outputDirectory>common-services-auth</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.common-services.auth:auth-service-deployment:zip:</include>
+        <include>org.openo.common-services.auth:auth-service-deployment:zip</include>
       </includes>
       <outputFileNameMapping>common-services-auth-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -112,7 +112,7 @@
       <outputDirectory>sdno-driver-huawei-l3vpn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-l3vpn:l3vpndriver-deployment:zip:</include>
+        <include>org.openo.sdno.driver-huawei-l3vpn:l3vpndriver-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-driver-huawei-l3vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -121,7 +121,7 @@
       <outputDirectory>sdno-driver-huawei-openstack</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-openstack:osdriverservice-deployment:zip:</include>
+        <include>org.openo.sdno.driver-huawei-openstack:osdriverservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-driver-huawei-openstack-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -130,7 +130,7 @@
       <outputDirectory>sdno-driver-huawei-overlay</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-overlay:overlayvpndriver-deployment:zip:</include>
+        <include>org.openo.sdno.driver-huawei-overlay:overlayvpndriver-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-driver-huawei-overlay-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -139,7 +139,7 @@
       <outputDirectory>sdno-driver-huawei-servicechain</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-servicechain:servicechaindriverservice-deployment:zip:</include>
+        <include>org.openo.sdno.driver-huawei-servicechain:servicechaindriverservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-driver-huawei-servicechain-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -148,7 +148,7 @@
       <outputDirectory>sdno-service-mss</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.brs:mss-deployment:zip:</include>
+        <include>org.openo.sdno.brs:mss-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-mss-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -157,7 +157,7 @@
       <outputDirectory>sdno-service-brs</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.brs:brs-deployment:zip:</include>
+        <include>org.openo.sdno.brs:brs-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-brs-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -166,7 +166,7 @@
       <outputDirectory>sdno-service-ipsec</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.ipsec:ipsecservice-deployment:zip:</include>
+        <include>org.openo.sdno.ipsec:ipsecservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-ipsec-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -175,7 +175,7 @@
       <outputDirectory>sdno-service-l2vpn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.l2vpn:l2vpnservice-deployment:zip:</include>
+        <include>org.openo.sdno.l2vpn:l2vpnservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-l2vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -184,7 +184,7 @@
       <outputDirectory>sdno-service-l3vpn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.l3vpn:l3vpnservice-deployment:zip:</include>
+        <include>org.openo.sdno.l3vpn:l3vpnservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-l3vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -193,7 +193,7 @@
       <outputDirectory>sdno-service-nslcm</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.nslcm:nslcm-deployment:zip:</include>
+        <include>org.openo.sdno.nslcm:nslcm-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-nslcm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -202,7 +202,7 @@
       <outputDirectory>sdno-service-overlayvpn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.overlay:overlayvpnservice-deployment:zip:</include>
+        <include>org.openo.sdno.overlay:overlayvpnservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-overlayvpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -211,7 +211,7 @@
       <outputDirectory>sdno-service-servicechain</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.servicechain:servicechainservice-deployment:zip:</include>
+        <include>org.openo.sdno.servicechain:servicechainservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-servicechain-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -220,7 +220,7 @@
       <outputDirectory>sdno-service-vpc</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.vpc:vpcservice-deployment:zip:</include>
+        <include>org.openo.sdno.vpc:vpcservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-vpc-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -229,7 +229,7 @@
       <outputDirectory>sdno-service-vxlan</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.vxlan:vxlanservice-deployment:zip:</include>
+        <include>org.openo.sdno.vxlan:vxlanservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-vxlan-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -238,7 +238,7 @@
       <outputDirectory>gso-service-manager</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.gso:servicemanagerservice-deployment:zip:</include>
+        <include>org.openo.gso:servicemanagerservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>gso-service-manager-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -247,7 +247,7 @@
       <outputDirectory>gso-service-gateway</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.gso.gui:service-gateway-deployment:zip:</include>
+        <include>org.openo.gso.gui:service-gateway-deployment:zip</include>
       </includes>
       <outputFileNameMapping>gso-service-gateway-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -256,7 +256,7 @@
       <outputDirectory>nfvo-driver-vim</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo:vimadapter-deployment:zip:</include>
+        <include>org.openo.nfvo:vimadapter-deployment:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-driver-vim-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -265,7 +265,7 @@
       <outputDirectory>nfvo-driver-vnfm-juju</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo:juju-vnfmadapterservice-deployment:zip:</include>
+        <include>org.openo.nfvo:juju-vnfmadapterservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-driver-vnfm-juju-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -274,7 +274,7 @@
       <outputDirectory>nfvo-driver-vnfm-huawei</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo:hw-vnfmadapter-deployment:zip:</include>
+        <include>org.openo.nfvo:hw-vnfmadapter-deployment:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-driver-vnfm-huawei-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -283,7 +283,7 @@
       <outputDirectory>nfvo-resmanagement</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo:resmanagement-deployment:zip:</include>
+        <include>org.openo.nfvo:resmanagement-deployment:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-resmanagement-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -292,7 +292,7 @@
       <outputDirectory>nfvo-umc</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo.monitor.umc.umc-api:umc-standalone:zip:</include>
+        <include>org.openo.nfvo.monitor.umc.umc-api:umc-standalone:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-umc-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -301,7 +301,7 @@
       <outputDirectory>nfvo-dac</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo.monitor.dac.dac-api:dac-standalone:zip:</include>
+        <include>org.openo.nfvo.monitor.dac.dac-api:dac-standalone:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-dac-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -310,7 +310,7 @@
       <outputDirectory>nfvo-lcm</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo:nfvo-lcm:zip:</include>
+        <include>org.openo.nfvo:nfvo-lcm:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-lcm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -319,7 +319,7 @@
       <outputDirectory>nfvo-driver-vnfm-zte</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo:drivers-vnfm-svnfm-zte-vmanager:zip:</include>
+        <include>org.openo.nfvo:drivers-vnfm-svnfm-zte-vmanager:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-driver-vnfm-zte-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -328,7 +328,7 @@
       <outputDirectory>nfvo-drivers-sdnc-zte-sfc-driver</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo.sfc-driver-standalone:nfvo-drivers-sdnc-zte-sfc-driver:zip:</include>
+        <include>org.openo.nfvo.sfc-driver-standalone:nfvo-drivers-sdnc-zte-sfc-driver:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-drivers-sdnc-zte-sfc-driver-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
