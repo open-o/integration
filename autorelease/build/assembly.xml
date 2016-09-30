@@ -310,7 +310,7 @@
       <outputDirectory>nfvo-lcm</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.nfvo:lcm:zip:</include>
+        <include>org.openo.nfvo:nfvo-lcm:zip:</include>
       </includes>
       <outputFileNameMapping>nfvo-lcm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -322,6 +322,15 @@
         <include>org.openo.nfvo:drivers-vnfm-svnfm-zte-vmanager:zip:</include>
       </includes>
       <outputFileNameMapping>nfvo-driver-vnfm-zte-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>nfvo-drivers-sdnc-zte-sfc-driver</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo.sfc-driver-standalone:nfvo-drivers-sdnc-zte-sfc-driver:zip:</include>
+      </includes>
+      <outputFileNameMapping>nfvo-drivers-sdnc-zte-sfc-driver-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
   </dependencySets>
