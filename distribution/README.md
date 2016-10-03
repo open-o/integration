@@ -1,4 +1,4 @@
-# Open-O 1.0.0-rc0
+# OPEN-O Sun Release 1.0.0-rc0
 
 ## Microservices List
 
@@ -43,4 +43,8 @@ Open-O contains the following microservices:
 
 See [Installation Instructions][0] for details on how to install and run each microservice.
 
+See [OPEN-O Sun Release Notes][1] for the release notes about this release.
+
 [0]: https://wiki.open-o.org/view/Installation_Instructions
+[1]: https://wiki.open-o.org/view/OPEN-O_Sun_Release_Notes
+
