@@ -1,2 +1,2 @@
 # Start service
-./run.sh
+./catalog/run.sh
