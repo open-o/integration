@@ -27,7 +27,10 @@ RUN wget -O common-services-auth-1.0.0-RC0.zip https://nexus.open-o.org/content/
 RUN unzip -o -B common-services-auth-1.0.0-RC0.zip
 
 
-# 09-entrypoint.txt
+# 90-entrypoint.txt
 
+COPY instance-config.sh .
+COPY instance-init.sh .
+COPY instance-run.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh

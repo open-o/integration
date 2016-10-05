@@ -28,7 +28,10 @@ RUN tar -xf common-tosca-modeldesigner-1.0.0-RC0-linux.gtk.x86_64.tar.gz
 EXPOSE 8202
 
 
-# 09-entrypoint.txt
+# 90-entrypoint.txt
 
+COPY instance-config.sh .
+COPY instance-init.sh .
+COPY instance-run.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh

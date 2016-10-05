@@ -27,7 +27,10 @@ RUN wget -O common-services-wso2ext-1.0.0-RC0-linux64.tar.gz https://nexus.open-
 RUN tar -xf common-services-wso2ext-1.0.0-RC0-linux64.tar.gz
 
 
-# 09-entrypoint.txt
+# 90-entrypoint.txt
 
+COPY instance-config.sh .
+COPY instance-init.sh .
+COPY instance-run.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh
