@@ -1,0 +1,2 @@
+# Start service
+./run.sh
