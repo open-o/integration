@@ -23,8 +23,8 @@ WORKDIR /service
 # 05-microservice.txt
 
 # Set up microservice
-ADD https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.common-services.microservice-bus&a=msb-core-standalone&v=LATEST&c=linux64&e=tar.gz msb-core-standalone-1.0.0-SNAPSHOT-linux64.tar.gz
-RUN tar -xf msb-core-standalone-1.0.0-SNAPSHOT-linux64.tar.gz
+RUN wget -O common-services-msb-1.0.0-RC0.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-services/microservice-bus/msb-core-standalone/1.0.0-RC0/msb-core-standalone-1.0.0-RC0-linux64.tar.gz
+RUN tar -xf common-services-msb-1.0.0-RC0.tar.gz
 RUN chmod +x *.sh
 
 # 09-entrypoint.txt
