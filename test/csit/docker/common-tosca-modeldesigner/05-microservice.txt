@@ -1,7 +1,0 @@
-# 05-microservice.txt
-
-# Set up microservice
-ADD https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.common-tosca.model-designer.modeldesigner.distribution&a=modeldesigner-standalone&v=LATEST&e=tar.gz&c=linux.gtk.x86_64 modeldesigner-standalone-1.0.0-SNAPSHOT-linux.gtk.x86_64.tar.gz
-RUN tar --strip-components=1 -xf modeldesigner-standalone-1.0.0-SNAPSHOT-linux.gtk.x86_64.tar.gz
-RUN chmod +x *.sh
-

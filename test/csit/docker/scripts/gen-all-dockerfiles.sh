@@ -4,6 +4,10 @@
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
 cd $ROOT
+
+$ROOT/scripts/gen-dockerfiles.py < $ROOT/../../../autorelease/binaries.csv
+
+
 for file in `find -name Dockerfile`; do
     dir=`dirname $file`
     cat > $dir/Dockerfile <<EOF
@@ -16,7 +20,7 @@ for file in `find -name Dockerfile`; do
 EOF
     cat $dir/*.txt >> $dir/Dockerfile
 
-    if [ -f $dir/02-mysql.txt ]; then
+    if [ -f $dir/20-mysql.txt ]; then
 	cat > $dir/init-mysql.sh <<EOF
 #!/bin/bash -v
 #

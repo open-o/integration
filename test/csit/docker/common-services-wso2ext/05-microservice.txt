@@ -1,9 +1,0 @@
-# 05-microservice.txt
-
-RUN wget --header "Referer:http://wso2.com/products/business-process-server/" https://product-dist.wso2.com/products/business-process-server/3.6.0/wso2bps-3.6.0.zip
-RUN unzip wso2bps-3.6.0.zip
-
-ADD https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.common-services.common-utilities.wso2bpel-ext&a=standalone&v=LATEST&c=linux64&e=tar.gz openo-commonservice-commonutilities-wso2bpel-ext-1.0.0-SNAPSHOT-linux64.tar.gz
-RUN tar -xf openo-commonservice-commonutilities-wso2bpel-ext-1.0.0-SNAPSHOT-linux64.tar.gz
-RUN chmod +x *.sh
-

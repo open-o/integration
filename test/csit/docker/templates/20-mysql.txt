@@ -1,4 +1,4 @@
-# 02-mysq.txt
+# 20-mysq.txt
 
 # Set up mysql
 RUN yum install -y mariadb-server

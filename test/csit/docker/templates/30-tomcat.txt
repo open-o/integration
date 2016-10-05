@@ -1,4 +1,4 @@
-# 03-tomcat.txt
+# 30-tomcat.txt
 
 # Set up tomcat
 RUN wget http://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz
