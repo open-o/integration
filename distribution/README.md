@@ -15,7 +15,7 @@ Open-O contains the following microservices:
   * common-tosca-modeldesigner             Common TOSCA Model Designer
   * gso-service-gateway                    GSO Service Gateway
   * gso-service-manager                    GSO Service Manager
-  * nfvo-dac                               NFVO Monitor Data Acquire Compoment
+  * nfvo-dac                               NFVO Monitor Data Acquire Component
   * nfvo-drivers-sdnc-zte-sfc-driver       NFVO SDNC Driver ZTE
   * nfvo-driver-vim                        NFVO VIM Driver
   * nfvo-driver-vnfm-huawei                NFVO VNFM Driver Huawei
@@ -23,7 +23,7 @@ Open-O contains the following microservices:
   * nfvo-driver-vnfm-zte                   NFVO VNFM Driver ZTE
   * nfvo-lcm                               NFVO Lifecycle Management
   * nfvo-resmanagement                     NFVO Resource Manager
-  * nfvo-umc                               NFVO Monitor Unified Monitor Compoment
+  * nfvo-umc                               NFVO Monitor Unified Monitor Component
   * sdno-driver-huawei-l3vpn               SDNO Driver Huawei L3VPN
   * sdno-driver-huawei-openstack           SDNO Driver Huawei Openstack
   * sdno-driver-huawei-overlay             SDNO Driver Huawei Overlay
