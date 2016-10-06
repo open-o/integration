@@ -32,6 +32,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -O sdno-service-servicechain-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/sdno/servicechain/servicechainservice-deployment/1.0.0-RC0/servicechainservice-deployment-1.0.0-RC0.zip
 RUN unzip -o -B sdno-service-servicechain-1.0.0-RC0.zip
+RUN rm -f sdno-service-servicechain-1.0.0-RC0.zip
 EXPOSE 8521
 
 

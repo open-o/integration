@@ -25,6 +25,7 @@ WORKDIR /service
 # Set up microservice
 RUN wget -O nfvo-drivers-sdnc-zte-sfc-driver-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/nfvo/sfc-driver-standalone/nfvo-drivers-sdnc-zte-sfc-driver/1.0.0-RC0/nfvo-drivers-sdnc-zte-sfc-driver-1.0.0-RC0.zip
 RUN unzip -o -B nfvo-drivers-sdnc-zte-sfc-driver-1.0.0-RC0.zip
+RUN rm -f nfvo-drivers-sdnc-zte-sfc-driver-1.0.0-RC0.zip
 
 
 # 90-entrypoint.txt

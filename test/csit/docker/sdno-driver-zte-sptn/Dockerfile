@@ -33,6 +33,7 @@ COPY init-mysql.sh .
 # Set up microservice
 RUN wget -O sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/sdno/driver-zte-sptn/standalone/1.0.0-RC0/standalone-1.0.0-RC0-linux64.tar.gz
 RUN tar -xf sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
+RUN rm -f sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
 EXPOSE 8640
 
 
@@ -41,7 +42,7 @@ RUN chmod +x ./*.sh
 # need MySQL initDB script
 RUN wget -O common-tosca-inventory-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-tosca/inventory/standalone/1.0.0-RC0/standalone-1.0.0-RC0-linux64.tar.gz
 RUN tar -xf common-tosca-inventory-1.0.0-RC0-linux64.tar.gz initDB.sh dbscripts
-
+RUN rm -f common-tosca-inventory-1.0.0-RC0-linux64.tar.gz
 # 90-entrypoint.txt
 
 COPY instance-config.sh .

@@ -25,6 +25,7 @@ WORKDIR /service
 # Set up microservice
 RUN wget -O nfvo-lcm-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/nfvo/nfvo-lcm/1.0.0-RC0/nfvo-lcm-1.0.0-RC0.zip
 RUN unzip -o -B nfvo-lcm-1.0.0-RC0.zip
+RUN rm -f nfvo-lcm-1.0.0-RC0.zip
 
 
 # 90-entrypoint.txt

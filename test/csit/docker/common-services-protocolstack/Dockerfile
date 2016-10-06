@@ -32,6 +32,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -O common-services-protocolstack-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-services/protocol-stack/protocolstackservice-deployment/1.0.0-RC0/protocolstackservice-deployment-1.0.0-RC0.zip
 RUN unzip -o -B common-services-protocolstack-1.0.0-RC0.zip
+RUN rm -f common-services-protocolstack-1.0.0-RC0.zip
 
 
 # 51-permissions.txt

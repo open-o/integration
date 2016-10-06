@@ -32,6 +32,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -O sdno-service-ipsec-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/sdno/ipsec/ipsecservice-deployment/1.0.0-RC0/ipsecservice-deployment-1.0.0-RC0.zip
 RUN unzip -o -B sdno-service-ipsec-1.0.0-RC0.zip
+RUN rm -f sdno-service-ipsec-1.0.0-RC0.zip
 EXPOSE 8515
 
 

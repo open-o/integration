@@ -3,6 +3,7 @@
 # Set up microservice
 RUN wget -O sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/sdno/driver-zte-sptn/standalone/1.0.0-RC0/standalone-1.0.0-RC0-linux64.tar.gz
 RUN tar -xf sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
+RUN rm -f sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
 EXPOSE 8640
 
 

@@ -13,5 +13,6 @@ for file in `find -name Dockerfile`; do
     image=$(basename $dir)
     echo 
     echo $image
-    docker build -t openoint/$image:$VERSION -t openoint/$image:latest $dir
+    docker push openoint/$image:$VERSION
+    docker push openoint/$image:latest
 done

@@ -3,6 +3,7 @@
 # Set up microservice
 RUN wget -O common-tosca-modeldesigner-1.0.0-RC0-linux.gtk.x86_64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-tosca/model-designer/modeldesigner/distribution/modeldesigner-standalone/1.0.0-RC0/modeldesigner-standalone-1.0.0-RC0-linux.gtk.x86_64.tar.gz
 RUN tar -xf common-tosca-modeldesigner-1.0.0-RC0-linux.gtk.x86_64.tar.gz
+RUN rm -f common-tosca-modeldesigner-1.0.0-RC0-linux.gtk.x86_64.tar.gz
 EXPOSE 8202
 
 

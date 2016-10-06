@@ -50,6 +50,7 @@ with sys.stdin as f:
                 outfile.write("RUN unzip -o -B {}\n".format(dest))
             else:
                 outfile.write("# Unknown extension: {}".format(dest))
+            outfile.write("RUN rm -f {}\n".format(dest))
 
             if row["port"]:
                 outfile.write("EXPOSE {}\n".format(row["port"]))

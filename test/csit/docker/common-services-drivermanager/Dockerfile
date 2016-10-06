@@ -40,6 +40,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -O common-services-drivermanager-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-services/driver-mgr/drivermanager-service-deployment/1.0.0-RC0/drivermanager-service-deployment-1.0.0-RC0.zip
 RUN unzip -o -B common-services-drivermanager-1.0.0-RC0.zip
+RUN rm -f common-services-drivermanager-1.0.0-RC0.zip
 EXPOSE 8103
 
 
