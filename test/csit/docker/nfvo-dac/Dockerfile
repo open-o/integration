@@ -27,6 +27,8 @@ RUN wget -O nfvo-dac-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories
 RUN unzip -o -B nfvo-dac-1.0.0-RC0.zip
 
 
+# 51-permissions.txt
+RUN chmod +x ./*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .
