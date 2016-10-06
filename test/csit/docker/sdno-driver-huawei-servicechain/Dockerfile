@@ -32,6 +32,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -O sdno-driver-huawei-servicechain-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/sdno/driver-huawei-servicechain/servicechaindriverservice-deployment/1.0.0-RC0/servicechaindriverservice-deployment-1.0.0-RC0.zip
 RUN unzip -o -B sdno-driver-huawei-servicechain-1.0.0-RC0.zip
+EXPOSE 8542
 
 
 # 51-permissions.txt

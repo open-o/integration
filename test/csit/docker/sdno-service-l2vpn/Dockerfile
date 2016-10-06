@@ -32,6 +32,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -O sdno-service-l2vpn-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/sdno/l2vpn/l2vpnservice-deployment/1.0.0-RC0/l2vpnservice-deployment-1.0.0-RC0.zip
 RUN unzip -o -B sdno-service-l2vpn-1.0.0-RC0.zip
+EXPOSE 8509
 
 
 # 51-permissions.txt
