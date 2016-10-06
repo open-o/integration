@@ -1,9 +1,9 @@
 service,filename,groupId,artifactId,extension,classifier,port,mysql,tomcat
 Common Services Microservice Bus,common-services-msb,org.openo.common-services.microservice-bus,msb-core-standalone,tar.gz,linux64,80,,
 Common Services Protocol Stack,common-services-protocolstack,org.openo.common-services.protocol-stack,protocolstackservice-deployment,zip,,,,
-Common Services WSO2 Extension,common-services-wso2ext,org.openo.common-services.common-utilities.wso2bpel-ext,standalone,tar.gz,linux64,,,
+Common Services WSO2 Extension,common-services-wso2ext,org.openo.common-services.common-utilities.wso2bpel-ext,standalone,tar.gz,linux64,8101,,
 Common Services External System Register,common-services-extsys,org.openo.common-services.external-system-registration,standalone,tar.gz,linux64,,TRUE,
-Common Services Driver Manager,common-services-drivermanager,org.openo.common-services.driver-mgr,drivermanager-service-deployment,zip,,,TRUE,TRUE
+Common Services Driver Manager,common-services-drivermanager,org.openo.common-services.driver-mgr,drivermanager-service-deployment,zip,,8103,TRUE,TRUE
 Common Services Authentication,common-services-auth,org.openo.common-services.auth,auth-service-deployment,zip,,,,
 Common TOSCA Catalog,common-tosca-catalog,org.openo.common-tosca.catalog,catalog-all,tar.gz,linux64,8200,TRUE,
 Common TOSCA Inventory,common-tosca-inventory,org.openo.common-tosca.inventory,standalone,tar.gz,linux64,8203,TRUE,

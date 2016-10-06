@@ -25,8 +25,12 @@ WORKDIR /service
 # Set up microservice
 RUN wget -O common-services-wso2ext-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-services/common-utilities/wso2bpel-ext/standalone/1.0.0-RC0/standalone-1.0.0-RC0-linux64.tar.gz
 RUN tar -xf common-services-wso2ext-1.0.0-RC0-linux64.tar.gz
+EXPOSE 8101
 
 
+# 52-wso2bps.txt
+RUN wget --header "Referer:http://wso2.com/products/business-process-server/" https://product-dist.wso2.com/products/business-process-server/3.6.0/wso2bps-3.6.0.zip
+RUN unzip wso2bps-3.6.0.zip
 # 90-entrypoint.txt
 
 COPY instance-config.sh .
