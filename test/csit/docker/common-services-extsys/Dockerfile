@@ -33,6 +33,7 @@ COPY init-mysql.sh .
 # Set up microservice
 RUN wget -O common-services-extsys-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-services/external-system-registration/standalone/1.0.0-RC0/standalone-1.0.0-RC0-linux64.tar.gz
 RUN tar -xf common-services-extsys-1.0.0-RC0-linux64.tar.gz
+EXPOSE 8100
 
 
 # 90-entrypoint.txt
