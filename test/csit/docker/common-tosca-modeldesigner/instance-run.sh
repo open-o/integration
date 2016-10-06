@@ -1,2 +1,2 @@
 # Start service
-/service/run.sh
+./modeldesigner/run.sh
