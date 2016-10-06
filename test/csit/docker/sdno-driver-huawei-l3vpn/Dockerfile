@@ -37,6 +37,7 @@ EXPOSE 8533
 
 # 51-permissions.txt
 RUN chmod +x ./bin/*.sh
+RUN yum -y install socat
 # 90-entrypoint.txt
 
 COPY instance-config.sh .

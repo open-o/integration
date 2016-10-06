@@ -1,2 +1,2 @@
-# fix path issue to catalina.sh in bin/start.sh
-sed -i 's|catalina.sh|$CATALINA_HOME/bin/catalina.sh|' ./bin/{start.sh,stop.sh}
+# strange character on line 17 of all the SQL scripts
+sed -i -e '17d' dbscripts/mysql/*.sql
