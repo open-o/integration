@@ -43,6 +43,8 @@ RUN unzip -o -B common-services-drivermanager-1.0.0-RC0.zip
 EXPOSE 8103
 
 
+# 51-permissions.txt
+RUN chmod +x bin/*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .

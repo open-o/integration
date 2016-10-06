@@ -34,6 +34,8 @@ RUN wget -O common-services-protocolstack-1.0.0-RC0.zip https://nexus.open-o.org
 RUN unzip -o -B common-services-protocolstack-1.0.0-RC0.zip
 
 
+# 51-permissions.txt
+RUN chmod +x bin/*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .

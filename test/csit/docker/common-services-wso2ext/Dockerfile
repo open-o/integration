@@ -28,6 +28,8 @@ RUN tar -xf common-services-wso2ext-1.0.0-RC0-linux64.tar.gz
 EXPOSE 8101
 
 
+# 51-permissions.txt
+RUN chmod +x *.sh
 # 52-wso2bps.txt
 RUN wget --header "Referer:http://wso2.com/products/business-process-server/" https://product-dist.wso2.com/products/business-process-server/3.6.0/wso2bps-3.6.0.zip
 RUN unzip wso2bps-3.6.0.zip
