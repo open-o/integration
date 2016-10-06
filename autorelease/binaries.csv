@@ -24,7 +24,7 @@ SDNO Services Service Chain,sdno-service-servicechain,org.openo.sdno.servicechai
 SDNO Services VPC,sdno-service-vpc,org.openo.sdno.vpc,vpcservice-deployment,zip,,8518,,TRUE
 SDNO Services VxLAN,sdno-service-vxlan,org.openo.sdno.vxlan,vxlanservice-deployment,zip,,8512,,TRUE
 GSO Service Manager,gso-service-manager,org.openo.gso,servicemanagerservice-deployment,zip,,8301,TRUE,TRUE
-GSO Service Gateway,gso-service-gateway,org.openo.gso.gui,service-gateway-deployment,zip,,,,
+GSO Service Gateway,gso-service-gateway,org.openo.gso.gui,service-gateway-deployment,zip,,8305,,TRUE
 NFVO VIM Driver,nfvo-driver-vim,org.openo.nfvo,vimadapter-deployment,zip,,,,
 NFVO VNFM Driver JUJU,nfvo-driver-vnfm-juju,org.openo.nfvo,juju-vnfmadapterservice-deployment,zip,,,,
 NFVO VNFM Driver Huawei,nfvo-driver-vnfm-huawei,org.openo.nfvo,hw-vnfmadapter-deployment,zip,,,,
