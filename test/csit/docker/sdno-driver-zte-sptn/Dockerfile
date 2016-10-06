@@ -20,14 +20,6 @@ ENV JAVA_HOME /usr/lib/jvm/jre
 
 WORKDIR /service
 
-# 20-mysq.txt
-
-# Set up mysql
-RUN yum install -y mariadb-server
-RUN chsh -s /bin/bash mysql
-RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
-COPY init-mysql.sh .
-
 # 30-tomcat.txt
 
 # Set up tomcat
@@ -42,6 +34,8 @@ RUN wget -O sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.o
 RUN tar -xf sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
 
 
+# 51-permissions.txt
+RUN chmod +x ./bin/*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .

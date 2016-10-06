@@ -17,9 +17,6 @@ fi
 if [ ! -e init.log ]; then
     # Perform workarounds due to defects in release binary
     ./instance-workaround.sh
-    # Init mysql; set root password
-    ./init-mysql.sh
-
     # microservice-specific one-time initialization
     ./instance-init.sh
 

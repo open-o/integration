@@ -58,16 +58,15 @@ with sys.stdin as f:
             outfile.close()
 
 
-            def symlink(template):
+            def symlink(flag, template):
                 try:
                     os.remove("{}/{}".format(dir, template))
                 except OSError:
                     pass
-                os.symlink("../templates/{}".format(template), "{}/{}".format(dir, template))
+                if flag:
+                    os.symlink("../templates/{}".format(template), "{}/{}".format(dir, template))
 
-            symlink("10-basebuild.txt")
-            if row["mysql"]:
-                symlink("20-mysql.txt")
-            if row["tomcat"]:
-                symlink("30-tomcat.txt")
-            symlink("90-entrypoint.txt")
+            symlink(True, "10-basebuild.txt")
+            symlink(row["mysql"], "20-mysql.txt")
+            symlink(row["tomcat"], "30-tomcat.txt")
+            symlink(True, "90-entrypoint.txt")

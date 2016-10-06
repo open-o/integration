@@ -1,1 +1,0 @@
-../templates/20-mysql.txt

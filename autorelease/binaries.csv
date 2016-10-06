@@ -8,21 +8,21 @@ Common Services Authentication,common-services-auth,org.openo.common-services.au
 Common TOSCA Catalog,common-tosca-catalog,org.openo.common-tosca.catalog,catalog-all,tar.gz,linux64,8200,TRUE,
 Common TOSCA Inventory,common-tosca-inventory,org.openo.common-tosca.inventory,standalone,tar.gz,linux64,8203,TRUE,
 Common TOSCA Model Designer,common-tosca-modeldesigner,org.openo.common-tosca.model-designer.modeldesigner.distribution,modeldesigner-standalone,tar.gz,linux.gtk.x86_64,8202,,
-SDNO Driver ZTE SPTN,sdno-driver-zte-sptn,org.openo.sdno.driver-zte-sptn,standalone,tar.gz,linux64,,TRUE,TRUE
-SDNO Driver Huawei L3VPN,sdno-driver-huawei-l3vpn,org.openo.sdno.driver-huawei-l3vpn,l3vpndriver-deployment,zip,,,TRUE,TRUE
-SDNO Driver Huawei Openstack,sdno-driver-huawei-openstack,org.openo.sdno.driver-huawei-openstack,osdriverservice-deployment,zip,,,TRUE,TRUE
-SDNO Driver Huawei Overlay,sdno-driver-huawei-overlay,org.openo.sdno.driver-huawei-overlay,overlayvpndriver-deployment,zip,,,TRUE,TRUE
-SDNO Driver Huawei Servicechain,sdno-driver-huawei-servicechain,org.openo.sdno.driver-huawei-servicechain,servicechaindriverservice-deployment,zip,,,TRUE,TRUE
+SDNO Driver ZTE SPTN,sdno-driver-zte-sptn,org.openo.sdno.driver-zte-sptn,standalone,tar.gz,linux64,,,TRUE
+SDNO Driver Huawei L3VPN,sdno-driver-huawei-l3vpn,org.openo.sdno.driver-huawei-l3vpn,l3vpndriver-deployment,zip,,,,TRUE
+SDNO Driver Huawei Openstack,sdno-driver-huawei-openstack,org.openo.sdno.driver-huawei-openstack,osdriverservice-deployment,zip,,,,TRUE
+SDNO Driver Huawei Overlay,sdno-driver-huawei-overlay,org.openo.sdno.driver-huawei-overlay,overlayvpndriver-deployment,zip,,,,TRUE
+SDNO Driver Huawei Servicechain,sdno-driver-huawei-servicechain,org.openo.sdno.driver-huawei-servicechain,servicechaindriverservice-deployment,zip,,,,TRUE
 SDNO Services MSS,sdno-service-mss,org.openo.sdno.brs,mss-deployment,zip,,,TRUE,TRUE
-SDNO Services BRS,sdno-service-brs,org.openo.sdno.brs,brs-deployment,zip,,,TRUE,TRUE
-SDNO Services IpSec,sdno-service-ipsec,org.openo.sdno.ipsec,ipsecservice-deployment,zip,,,TRUE,TRUE
-SDNO Services L2VPN,sdno-service-l2vpn,org.openo.sdno.l2vpn,l2vpnservice-deployment,zip,,,TRUE,TRUE
-SDNO Services L3VPN,sdno-service-l3vpn,org.openo.sdno.l3vpn,l3vpnservice-deployment,zip,,,TRUE,TRUE
-SDNO Services Nslcm,sdno-service-nslcm,org.openo.sdno.nslcm,nslcm-deployment,zip,,,TRUE,TRUE
-SDNO Services Overlay VPN,sdno-service-overlayvpn,org.openo.sdno.overlay,overlayvpnservice-deployment,zip,,,TRUE,TRUE
-SDNO Services Service Chain,sdno-service-servicechain,org.openo.sdno.servicechain,servicechainservice-deployment,zip,,,TRUE,TRUE
-SDNO Services VPC,sdno-service-vpc,org.openo.sdno.vpc,vpcservice-deployment,zip,,,TRUE,TRUE
-SDNO Services VxLAN,sdno-service-vxlan,org.openo.sdno.vxlan,vxlanservice-deployment,zip,,,TRUE,TRUE
+SDNO Services BRS,sdno-service-brs,org.openo.sdno.brs,brs-deployment,zip,,,,TRUE
+SDNO Services IpSec,sdno-service-ipsec,org.openo.sdno.ipsec,ipsecservice-deployment,zip,,,,TRUE
+SDNO Services L2VPN,sdno-service-l2vpn,org.openo.sdno.l2vpn,l2vpnservice-deployment,zip,,,,TRUE
+SDNO Services L3VPN,sdno-service-l3vpn,org.openo.sdno.l3vpn,l3vpnservice-deployment,zip,,,,TRUE
+SDNO Services Nslcm,sdno-service-nslcm,org.openo.sdno.nslcm,nslcm-deployment,zip,,,,TRUE
+SDNO Services Overlay VPN,sdno-service-overlayvpn,org.openo.sdno.overlay,overlayvpnservice-deployment,zip,,,,TRUE
+SDNO Services Service Chain,sdno-service-servicechain,org.openo.sdno.servicechain,servicechainservice-deployment,zip,,,,TRUE
+SDNO Services VPC,sdno-service-vpc,org.openo.sdno.vpc,vpcservice-deployment,zip,,,,TRUE
+SDNO Services VxLAN,sdno-service-vxlan,org.openo.sdno.vxlan,vxlanservice-deployment,zip,,,,TRUE
 GSO Service Manager,gso-service-manager,org.openo.gso,servicemanagerservice-deployment,zip,,,TRUE,TRUE
 GSO Service Gateway,gso-service-gateway,org.openo.gso.gui,service-gateway-deployment,zip,,,,
 NFVO VIM Driver,nfvo-driver-vim,org.openo.nfvo,vimadapter-deployment,zip,,,,

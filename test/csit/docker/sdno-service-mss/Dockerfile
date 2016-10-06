@@ -42,6 +42,8 @@ RUN wget -O sdno-service-mss-1.0.0-RC0.zip https://nexus.open-o.org/content/repo
 RUN unzip -o -B sdno-service-mss-1.0.0-RC0.zip
 
 
+# 51-permissions.txt
+RUN chmod +x ./bin/*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .
