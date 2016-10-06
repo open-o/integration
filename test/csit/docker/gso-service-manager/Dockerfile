@@ -40,8 +40,11 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -O gso-service-manager-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/gso/servicemanagerservice-deployment/1.0.0-RC0/servicemanagerservice-deployment-1.0.0-RC0.zip
 RUN unzip -o -B gso-service-manager-1.0.0-RC0.zip
+EXPOSE 8301
 
 
+# 51-permissions.txt
+RUN chmod +x ./bin/*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .

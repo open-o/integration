@@ -1,5 +1,6 @@
 # Start tomcat service
-/service/bin/start.sh
+cd bin
+./start.sh
 
 # Show log files
 echo Waiting for log file...
