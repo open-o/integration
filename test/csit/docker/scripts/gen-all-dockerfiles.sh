@@ -61,6 +61,8 @@ EOF
 
 # Perform one-time config
 if [ ! -e init.log ]; then
+    # Perform workarounds due to defects in release binary
+    ./instance-workaround.sh
 EOF
     
     if [ -f $dir/20-mysql.txt ]; then
@@ -86,5 +88,6 @@ EOF
     touch $dir/instance-config.sh
     touch $dir/instance-init.sh
     touch $dir/instance-run.sh
+    touch $dir/instance-workaround.sh
     chmod +x $dir/*.sh
 done

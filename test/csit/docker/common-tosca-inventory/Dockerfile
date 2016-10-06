@@ -41,5 +41,6 @@ EXPOSE 8203
 COPY instance-config.sh .
 COPY instance-init.sh .
 COPY instance-run.sh .
+COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh

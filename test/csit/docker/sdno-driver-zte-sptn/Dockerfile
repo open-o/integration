@@ -47,5 +47,6 @@ RUN tar -xf sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
 COPY instance-config.sh .
 COPY instance-init.sh .
 COPY instance-run.sh .
+COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh

@@ -15,6 +15,8 @@ fi
 
 # Perform one-time config
 if [ ! -e init.log ]; then
+    # Perform workarounds due to defects in release binary
+    ./instance-workaround.sh
     # Init mysql; set root password
     ./init-mysql.sh
 

@@ -32,5 +32,6 @@ RUN unzip -o -B gso-service-gateway-1.0.0-RC0.zip
 COPY instance-config.sh .
 COPY instance-init.sh .
 COPY instance-run.sh .
+COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh
