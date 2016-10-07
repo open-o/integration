@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v3/projects",
+    "method" : "post",
+    "json" : {"project":{"name":"project4","enabled":true,"domain_id":"default"}}
+  },
+  "response" : {
+    "status" : "201",
+    "json" : {"project": {"is_domain": false, "description": "", "links": {"self": "http://localhost:5000/v3/projects/00e55b6d14cd49709b71ffa83e5ee37f"}, "enabled": true, "id": "00e55b6d14cd49709b71ffa83e5ee37f", "parent_id": "default", "domain_id": "default", "name": "project4"}}
+  }
+}]

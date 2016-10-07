@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v3/projects",
+    "method" : "get",
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"links": {"self": "http://localhost:5000/v3/projects?name=project4", "previous": null, "next": null}, "projects": []}
+  }
+}]

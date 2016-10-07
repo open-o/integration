@@ -1,0 +1,28 @@
+[{
+    "request": {
+        "uri": "/v2.0/vpn/vpnservices",
+        "method": "post",
+        "json": {
+            "vpnservice": {
+                "subnet_id": "4bb48d3c-f53f-46b5-a3da-c7c70d4cd726",
+                "router_id": "6fc00cf5-ff29-4f45-a8a6-f03d73674490",
+                "name": "myservice",
+                "admin_state_up": true
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": { "vpnservice": {
+            "id": "7b347d20-6fa3-4e22-b744-c49ee235ae4f",
+            "name": null,
+            "description": null,
+            "status": "PENDING_CREATE",
+            "tenant_id": "tenantId1",
+            "subnet_id": "subnetId1",
+            "router_id": "routeId1",
+            "admin_state_up": true
+        }
+    }
+    }
+}]

@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/networks",
+    "method" : "get",
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"networks": [{"provider:physical_network": null, "ipv6_address_scope": null, "port_security_enabled": true, "mtu": 1450, "id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "router:external": true, "availability_zone_hints": [], "availability_zones": ["nova"], "ipv4_address_scope": null, "shared": false, "status": "ACTIVE", "subnets": ["638c266e-3f08-4d81-9ae9-20da25878739"], "description": "", "tags": [], "updated_at": "2016-08-01T08:17:00", "is_default": true, "provider:segmentation_id": 1038, "name": "public", "admin_state_up": true, "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "created_at": "2016-08-01T08:17:00", "provider:network_type": "vxlan"}]}
+  }
+}]

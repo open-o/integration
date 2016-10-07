@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/routers",
+    "method" : "get",
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"routers": []}
+  }
+}]

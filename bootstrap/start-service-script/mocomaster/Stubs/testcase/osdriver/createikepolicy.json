@@ -1,0 +1,39 @@
+[{
+    "request": {
+        "uri": "/v2.0/vpn/ikepolicies",
+        "method": "post",
+        "json": {
+            "ikepolicy": {
+                "phase1_negotiation_mode": "main",
+                "auth_algorithm": "sha1",
+                "encryption_algorithm": "aes-128",
+                "pfs": "group5",
+                "lifetime": {
+                    "units": "seconds",
+                    "value": 7200
+                },
+                "ike_version": "v1",
+                "name": "ikepolicy1"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": { "ikepolicy": {
+            "id": "7b347d20-6fa3-4e22-b744-c49ee235a123",
+            "name": "aaa",
+            "description": "aaa",
+            "pfs": "group5",
+            "lifetime": {
+                "units": "seconds",
+                "value": 7200
+            },
+            "tenant_id": "tenantId1",
+            "auth_algorithm": "sha1",
+            "encryption_algorithm": "aes-128",
+            "phase1_negotiation_mode": "main",
+            "ike_version": "v1"
+        }
+    }
+    }
+}]

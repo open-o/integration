@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/routers",
+    "method" : "post",
+    "json" : {"router": {"external_gateway_info": {"network_id": "9930665a-374b-4669-a2d0-20f7e040a1d3", "enable_snat": false }, "availability_zone_hints": [], "availability_zones": ["nova"], "description": "", "admin_state_up": true, "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "distributed": false, "routes": [], "ha": false, "name": "sdno_9b00d6b0-6c93-4ca5-9747-b8ade7bb514fs"}}
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"router": {"status": "ACTIVE", "external_gateway_info": {"network_id": "9930665a-374b-4669-a2d0-20f7e040a1d3", "enable_snat": false, "external_fixed_ips": [{"subnet_id": "638c266e-3f08-4d81-9ae9-20da25878739", "ip_address": "172.24.4.3"}]}, "availability_zone_hints": [], "availability_zones": ["nova"], "description": "", "admin_state_up": true, "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "distributed": false, "routes": [], "ha": false, "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674490", "name": "sdno_9b00d6b0-6c93-4ca5-9747-b8ade7bb514fs"}}
+  }
+}]

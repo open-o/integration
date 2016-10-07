@@ -1,0 +1,11 @@
+[{
+    "request": {
+        "uri": "/v2.0/vpn/ipsec-site-connections/7b347d20-6fa3-4e22-b744-c49ee235a124",
+        "method": "delete",
+        "json": null
+    },
+    "response": {
+        "status": 200,
+        "json": null
+    }
+}]

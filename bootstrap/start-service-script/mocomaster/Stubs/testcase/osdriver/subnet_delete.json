@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/subnets/4bb48d3c-f53f-46b5-a3da-c7c70d4cd726",
+    "method" : "delete",
+    "json" : null
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+}]

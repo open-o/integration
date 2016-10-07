@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/networks/da6f6681-3beb-4249-86bd-3a95690cc28f",
+    "method" : "delete",
+    "json" : null
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+}]

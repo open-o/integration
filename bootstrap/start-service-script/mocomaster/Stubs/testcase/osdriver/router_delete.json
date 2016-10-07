@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/routers/6fc00cf5-ff29-4f45-a8a6-f03d73674490",
+    "method" : "delete",
+    "json" : null
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+}]

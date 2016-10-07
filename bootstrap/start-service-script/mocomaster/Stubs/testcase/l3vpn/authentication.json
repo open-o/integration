@@ -1,0 +1,20 @@
+[{
+	"request": {
+		"uri": "/controller/v2/tokens",
+		"method": "post",
+	
+		"json": {
+			"userName": "admin",
+			"password": "admin"
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"data": {
+				"token_id": "12345"
+			}
+		}
+	}
+}
+]

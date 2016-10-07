@@ -1,0 +1,7 @@
+{
+    "downloadUrl": "https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/integration/distribution/openo/1.0.0-RC0/openo-1.0.0-RC0-linux64.tar.gz",
+
+    "installPath": "/root/sdno",
+
+    "services": ["sdno-driver-huawei-servicechain"]
+}

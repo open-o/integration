@@ -1,0 +1,11 @@
+[{
+    "request": {
+        "uri": "/v2.0/vpn/ipsecpolicies/22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+        "method": "delete",
+        "json": null
+    },
+    "response": {
+        "status": 200,
+        "json": null
+    }
+}]
