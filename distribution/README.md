@@ -16,7 +16,7 @@ Open-O contains the following microservices:
   * gso-service-gateway                    GSO Service Gateway
   * gso-service-manager                    GSO Service Manager
   * nfvo-dac                               NFVO Monitor Data Acquire Component
-  * nfvo-drivers-sdnc-zte-sfc-driver       NFVO SDNC Driver ZTE
+  * nfvo-driver-sdnc-zte                   NFVO SDNC Driver ZTE
   * nfvo-driver-vim                        NFVO VIM Driver
   * nfvo-driver-vnfm-huawei                NFVO VNFM Driver Huawei
   * nfvo-driver-vnfm-juju                  NFVO VNFM Driver JUJU
@@ -40,11 +40,9 @@ Open-O contains the following microservices:
   * sdno-service-vpc                       SDNO Services VPC
   * sdno-service-vxlan                     SDNO Services VxLAN
 
-
 See [Installation Instructions][0] for details on how to install and run each microservice.
 
 See [OPEN-O Sun Release Notes][1] for the release notes about this release.
 
 [0]: https://wiki.open-o.org/view/Installation_Instructions
 [1]: https://wiki.open-o.org/view/OPEN-O_Sun_Release_Notes
-
