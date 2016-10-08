@@ -68,6 +68,7 @@ with sys.stdin as f:
                     os.symlink("../templates/{}".format(template), "{}/{}".format(dir, template))
 
             symlink(True, "10-basebuild.txt")
+            symlink(row["python"], "15-python.txt")
             symlink(row["mysql"], "20-mysql.txt")
             symlink(row["tomcat"], "30-tomcat.txt")
             symlink(True, "90-entrypoint.txt")
