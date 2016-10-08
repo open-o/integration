@@ -43,6 +43,8 @@ RUN unzip -o -B nfvo-driver-vnfm-juju-1.0.0-RC0.zip
 RUN rm -f nfvo-driver-vnfm-juju-1.0.0-RC0.zip
 
 
+# 51-permissions.txt
+RUN chmod +x ./bin/*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .
