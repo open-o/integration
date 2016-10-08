@@ -1,0 +1,2 @@
+# Start microservice
+./run.sh
