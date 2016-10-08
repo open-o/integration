@@ -4,5 +4,6 @@
 RUN wget -O nfvo-driver-vnfm-zte-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/nfvo/drivers-vnfm-svnfm-zte-vmanager/1.0.0-RC0/drivers-vnfm-svnfm-zte-vmanager-1.0.0-RC0.zip
 RUN unzip -o -B nfvo-driver-vnfm-zte-1.0.0-RC0.zip
 RUN rm -f nfvo-driver-vnfm-zte-1.0.0-RC0.zip
+EXPOSE 8410
 
 

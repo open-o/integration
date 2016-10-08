@@ -26,6 +26,7 @@ WORKDIR /service
 RUN wget -O nfvo-dac-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/nfvo/monitor/dac/dac-api/dac-standalone/1.0.0-RC0/dac-standalone-1.0.0-RC0.zip
 RUN unzip -o -B nfvo-dac-1.0.0-RC0.zip
 RUN rm -f nfvo-dac-1.0.0-RC0.zip
+EXPOSE 8206
 
 
 # 51-permissions.txt
