@@ -33,4 +33,4 @@ NFVO Monitor Unified Monitor Component,nfvo-umc,org.openo.nfvo.monitor.umc.umc-a
 NFVO Monitor Data Acquire Component,nfvo-dac,org.openo.nfvo.monitor.dac.dac-api,dac-standalone,zip,,8206,,,
 NFVO Lifecycle Management,nfvo-lcm,org.openo.nfvo,nfvo-lcm,zip,,8403,TRUE,,TRUE
 NFVO VNFM Driver ZTE,nfvo-driver-vnfm-zte,org.openo.nfvo,drivers-vnfm-svnfm-zte-vmanager,zip,,8410,,,TRUE
-NFVO SDNC Driver ZTE,nfvo-drivers-sdnc-zte-sfc-driver,org.openo.nfvo.sfc-driver-standalone,nfvo-drivers-sdnc-zte-sfc-driver,zip,,8087,,,
+NFVO SDNC Driver ZTE,nfvo-driver-sdnc-zte,org.openo.nfvo.sfc-driver-standalone,nfvo-drivers-sdnc-zte-sfc-driver,zip,,8087,,,
