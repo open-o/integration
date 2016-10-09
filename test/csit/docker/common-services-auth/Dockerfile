@@ -26,14 +26,6 @@ RUN yum install -y python-{devel,virtualenv,setuptools,pip}
 RUN yum install -y openssl-devel mysql-devel gcc libffi-devel
 RUN yum install -y redis
 RUN systemctl enable redis
-# 20-mysq.txt
-
-# Set up mysql
-RUN yum install -y mariadb-server
-RUN chsh -s /bin/bash mysql
-RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
-COPY init-mysql.sh .
-
 # 30-tomcat.txt
 
 # Set up tomcat
@@ -47,6 +39,7 @@ ENV CATALINA_HOME /service
 RUN wget -O common-services-auth-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/common-services/auth/auth-service-deployment/1.0.0-RC0/auth-service-deployment-1.0.0-RC0.zip
 RUN unzip -o -B common-services-auth-1.0.0-RC0.zip
 RUN rm -f common-services-auth-1.0.0-RC0.zip
+EXPOSE 8102
 RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
