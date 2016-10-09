@@ -42,6 +42,7 @@ RUN wget -O common-services-drivermanager-1.0.0-RC0.zip https://nexus.open-o.org
 RUN unzip -o -B common-services-drivermanager-1.0.0-RC0.zip
 RUN rm -f common-services-drivermanager-1.0.0-RC0.zip
 EXPOSE 8103
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt

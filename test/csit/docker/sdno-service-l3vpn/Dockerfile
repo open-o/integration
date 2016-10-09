@@ -34,6 +34,7 @@ RUN wget -O sdno-service-l3vpn-1.0.0-RC0.zip https://nexus.open-o.org/content/re
 RUN unzip -o -B sdno-service-l3vpn-1.0.0-RC0.zip
 RUN rm -f sdno-service-l3vpn-1.0.0-RC0.zip
 EXPOSE 8506
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt

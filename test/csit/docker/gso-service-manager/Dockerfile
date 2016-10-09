@@ -42,6 +42,7 @@ RUN wget -O gso-service-manager-1.0.0-RC0.zip https://nexus.open-o.org/content/r
 RUN unzip -o -B gso-service-manager-1.0.0-RC0.zip
 RUN rm -f gso-service-manager-1.0.0-RC0.zip
 EXPOSE 8301
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt

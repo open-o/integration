@@ -42,6 +42,7 @@ RUN wget -O nfvo-driver-vnfm-juju-1.0.0-RC0.zip https://nexus.open-o.org/content
 RUN unzip -o -B nfvo-driver-vnfm-juju-1.0.0-RC0.zip
 RUN rm -f nfvo-driver-vnfm-juju-1.0.0-RC0.zip
 EXPOSE 8483
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt

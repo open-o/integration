@@ -35,6 +35,7 @@ RUN wget -O sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.o
 RUN tar -xf sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
 RUN rm -f sdno-driver-zte-sptn-1.0.0-RC0-linux64.tar.gz
 EXPOSE 8640
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt

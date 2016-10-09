@@ -35,6 +35,7 @@ RUN wget -O common-tosca-catalog-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.o
 RUN tar -xf common-tosca-catalog-1.0.0-RC0-linux64.tar.gz
 RUN rm -f common-tosca-catalog-1.0.0-RC0-linux64.tar.gz
 EXPOSE 8200
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 90-entrypoint.txt

@@ -27,6 +27,7 @@ RUN wget -O common-services-wso2ext-1.0.0-RC0-linux64.tar.gz https://nexus.open-
 RUN tar -xf common-services-wso2ext-1.0.0-RC0-linux64.tar.gz
 RUN rm -f common-services-wso2ext-1.0.0-RC0-linux64.tar.gz
 EXPOSE 8101
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt

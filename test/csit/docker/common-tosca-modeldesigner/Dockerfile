@@ -27,6 +27,7 @@ RUN wget -O common-tosca-modeldesigner-1.0.0-RC0-linux.gtk.x86_64.tar.gz https:/
 RUN tar -xf common-tosca-modeldesigner-1.0.0-RC0-linux.gtk.x86_64.tar.gz
 RUN rm -f common-tosca-modeldesigner-1.0.0-RC0-linux.gtk.x86_64.tar.gz
 EXPOSE 8202
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 90-entrypoint.txt

@@ -42,6 +42,7 @@ RUN wget -O nfvo-driver-vnfm-huawei-1.0.0-RC0.zip https://nexus.open-o.org/conte
 RUN unzip -o -B nfvo-driver-vnfm-huawei-1.0.0-RC0.zip
 RUN rm -f nfvo-driver-vnfm-huawei-1.0.0-RC0.zip
 EXPOSE 8482
+RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt
