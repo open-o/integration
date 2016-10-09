@@ -1,1 +1,2 @@
 RUN yum -y install socat
+RUN yum -y install dos2unix

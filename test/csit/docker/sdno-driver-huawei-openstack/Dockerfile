@@ -33,12 +33,14 @@ ENV CATALINA_HOME /service
 RUN wget -O sdno-driver-huawei-openstack-1.0.0-RC0.zip https://nexus.open-o.org/content/repositories/autorelease-1020/org/openo/sdno/driver-huawei-openstack/osdriverservice-deployment/1.0.0-RC0/osdriverservice-deployment-1.0.0-RC0.zip
 RUN unzip -o -B sdno-driver-huawei-openstack-1.0.0-RC0.zip
 RUN rm -f sdno-driver-huawei-openstack-1.0.0-RC0.zip
+EXPOSE 8503
 RUN echo Open-O 1.0.0-RC0 autorelease-1020 > VERSION
 
 
 # 51-permissions.txt
 RUN chmod +x ./bin/*.sh
 RUN yum -y install socat
+RUN yum -y install dos2unix
 # 90-entrypoint.txt
 
 COPY instance-config.sh .
