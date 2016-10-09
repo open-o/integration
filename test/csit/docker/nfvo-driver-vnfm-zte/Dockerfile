@@ -35,6 +35,9 @@ RUN rm -f nfvo-driver-vnfm-zte-1.0.0-RC0.zip
 EXPOSE 8410
 
 
+# 51-permissions.txt
+RUN find -type d -exec chmod o-w {} \;
+RUN chmod +x nfvo/drivers/vnfm/svnfm/zte/vmanager/*.sh
 # 90-entrypoint.txt
 
 COPY instance-config.sh .
