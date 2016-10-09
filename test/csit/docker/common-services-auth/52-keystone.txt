@@ -1,0 +1,4 @@
+# 52-keystone.txt
+RUN yum -y install https://repos.fedorapeople.org/repos/openstack/openstack-liberty/rdo-release-liberty-5.noarch.rpm
+RUN yum -y install openstack-keystone python-keystoneclient
+
