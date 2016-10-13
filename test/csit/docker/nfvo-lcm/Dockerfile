@@ -29,8 +29,11 @@ RUN systemctl enable redis
 # 20-mysq.txt
 
 # Set up mysql
-RUN yum install -y mariadb-server
-RUN chsh -s /bin/bash mysql
+RUN wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+RUN rpm -ivh mysql-community-release-el7-5.noarch.rpm
+RUN rm -f mysql-community-release-el7-5.noarch.rpm
+RUN yum -y update
+RUN yum -y install -y mysql-server
 RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
 COPY init-mysql.sh .
 
