@@ -2,6 +2,7 @@
 
 # autorelease root dir
 ROOT=`git rev-parse --show-toplevel`/autorelease
+GERRIT_BRANCH='sun'
 
 BUILD_DIR=$ROOT/build
 
@@ -9,8 +10,8 @@ mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
 while read p; do
-    rm -r $BUILD_DIR/$p
+    rm -rf $BUILD_DIR/$p
     #TODO: replace with https once repo is open to public
-    git clone ssh://gerrit.open-o.org:29418/$p
+    git clone -b $GERRIT_BRANCH ssh://gerrit.open-o.org:29418/$p
 done < $ROOT/all-projects.txt
 
