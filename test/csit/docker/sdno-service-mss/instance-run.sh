@@ -1,7 +1,18 @@
+#!/bin/bash
+
+# proxy connection to MSB
+nohup socat TCP-LISTEN:8080,fork TCP:$MSB_ADDR  </dev/null >/dev/null 2>&1 &
+
+# ensure mysql launched wherther first-run or not
+su mysql -c "nohup /usr/bin/mysqld_safe </dev/null >/dev/null 2>&1 &"
+
 # Start microservice
 cd bin
 ./start.sh
-while [ ! -e ../logs/catalina.out ]; do
+
+# tail -F not work on remote-fs(BTRFS/AUFS)
+while [ ! -e /service/logs/application.log ]; do
     sleep 1
 done
-tail -F ../logs/catalina.out
+# keep shell running to prevent container from exit
+tail -f /service/logs/application.log
