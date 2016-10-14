@@ -1,4 +1,0 @@
-common-services-microservice-bus 80 /api/microservices/v1/swagger.yaml
-common-tosca-catalog 8200 /openoapi/catalog/v1/swagger.yaml
-common-tosca-inventory 8203 /openoapi/inventory/v1/swagger.yaml
-common-tosca-model-designer 8202
