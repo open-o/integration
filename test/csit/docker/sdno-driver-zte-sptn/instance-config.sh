@@ -1,3 +1,3 @@
 # Configure MSB IP address
-sed -i "s|msbServerAddr:.*|msbServerAddr: http://$MSB_ADDR|" conf/config.yml
-cat conf/config.yml
+sed -i "s|msbUrl:.*|msbUrl: http://$MSB_ADDR|" conf/config.yaml
+cat conf/config.yaml
