@@ -4,7 +4,7 @@
 import sys, csv, subprocess, os
 
 version = "1.0.0-RC0"
-build = "autorelease-1039"
+build = "autorelease-1048"
 
 root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
 path = "{}/test/csit/docker".format(root)
