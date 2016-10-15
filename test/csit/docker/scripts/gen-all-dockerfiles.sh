@@ -1,11 +1,19 @@
 #!/bin/sh
+# $1 autorelease build
+
+if [ -z "$1" ]; then
+    echo $0 "<build>"
+    exit 1;
+fi
+
+BUILD=$1
 
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
 cd $ROOT
 
-$ROOT/scripts/gen-dockerfiles.py < $ROOT/../../../autorelease/binaries.csv
+$ROOT/scripts/gen-dockerfiles.py $BUILD < $ROOT/../../../autorelease/binaries.csv
 
 
 for file in `find -name Dockerfile`; do

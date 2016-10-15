@@ -4,7 +4,7 @@
 import sys, csv, subprocess, os
 
 version = "1.0.0-RC0"
-build = "autorelease-1048"
+build = sys.argv[1]
 
 root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
 path = "{}/test/csit/docker".format(root)
@@ -13,7 +13,7 @@ with sys.stdin as f:
     reader = csv.DictReader(f)
 
     for row in reader:
-        if len(sys.argv) < 2 or sys.argv[1]==row["filename"]:
+        if len(sys.argv) < 3 or sys.argv[2]==row["filename"]:
             print row["filename"]
 
             if row["classifier"]:
