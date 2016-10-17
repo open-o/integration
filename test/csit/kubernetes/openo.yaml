@@ -1,0 +1,1295 @@
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-services-msb
+  labels:
+    app: common-services-msb
+spec:
+  selector:
+    app: common-services-msb
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-services-msb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-services-msb
+    spec:
+      containers:
+      - name: common-services-msb
+        image: openoint/common-services-msb
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-services-protocolstack
+  labels:
+    app: common-services-protocolstack
+spec:
+  selector:
+    app: common-services-protocolstack
+  type: NodePort
+  ports:
+  - port: 8109
+    targetPort: 8109
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-services-protocolstack
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-services-protocolstack
+    spec:
+      containers:
+      - name: common-services-protocolstack
+        image: openoint/common-services-protocolstack
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8109
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-services-wso2ext
+  labels:
+    app: common-services-wso2ext
+spec:
+  selector:
+    app: common-services-wso2ext
+  type: NodePort
+  ports:
+  - port: 8101
+    targetPort: 8101
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-services-wso2ext
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-services-wso2ext
+    spec:
+      containers:
+      - name: common-services-wso2ext
+        image: openoint/common-services-wso2ext
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8101
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-services-extsys
+  labels:
+    app: common-services-extsys
+spec:
+  selector:
+    app: common-services-extsys
+  type: NodePort
+  ports:
+  - port: 8100
+    targetPort: 8100
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-services-extsys
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-services-extsys
+    spec:
+      containers:
+      - name: common-services-extsys
+        image: openoint/common-services-extsys
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8100
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-services-drivermanager
+  labels:
+    app: common-services-drivermanager
+spec:
+  selector:
+    app: common-services-drivermanager
+  type: NodePort
+  ports:
+  - port: 8103
+    targetPort: 8103
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-services-drivermanager
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-services-drivermanager
+    spec:
+      containers:
+      - name: common-services-drivermanager
+        image: openoint/common-services-drivermanager
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8103
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-services-auth
+  labels:
+    app: common-services-auth
+spec:
+  selector:
+    app: common-services-auth
+  type: NodePort
+  ports:
+  - port: 8102
+    targetPort: 8102
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-services-auth
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-services-auth
+    spec:
+      containers:
+      - name: common-services-auth
+        image: openoint/common-services-auth
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8102
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-tosca-catalog
+  labels:
+    app: common-tosca-catalog
+spec:
+  selector:
+    app: common-tosca-catalog
+  type: NodePort
+  ports:
+  - port: 8200
+    targetPort: 8200
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-tosca-catalog
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-tosca-catalog
+    spec:
+      containers:
+      - name: common-tosca-catalog
+        image: openoint/common-tosca-catalog
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8200
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-tosca-inventory
+  labels:
+    app: common-tosca-inventory
+spec:
+  selector:
+    app: common-tosca-inventory
+  type: NodePort
+  ports:
+  - port: 8203
+    targetPort: 8203
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-tosca-inventory
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-tosca-inventory
+    spec:
+      containers:
+      - name: common-tosca-inventory
+        image: openoint/common-tosca-inventory
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8203
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-tosca-modeldesigner
+  labels:
+    app: common-tosca-modeldesigner
+spec:
+  selector:
+    app: common-tosca-modeldesigner
+  type: NodePort
+  ports:
+  - port: 8202
+    targetPort: 8202
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: common-tosca-modeldesigner
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: common-tosca-modeldesigner
+    spec:
+      containers:
+      - name: common-tosca-modeldesigner
+        image: openoint/common-tosca-modeldesigner
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8202
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-driver-zte-sptn
+  labels:
+    app: sdno-driver-zte-sptn
+spec:
+  selector:
+    app: sdno-driver-zte-sptn
+  type: NodePort
+  ports:
+  - port: 8640
+    targetPort: 8640
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-driver-zte-sptn
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-driver-zte-sptn
+    spec:
+      containers:
+      - name: sdno-driver-zte-sptn
+        image: openoint/sdno-driver-zte-sptn
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8640
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-driver-huawei-l3vpn
+  labels:
+    app: sdno-driver-huawei-l3vpn
+spec:
+  selector:
+    app: sdno-driver-huawei-l3vpn
+  type: NodePort
+  ports:
+  - port: 8533
+    targetPort: 8533
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-driver-huawei-l3vpn
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-driver-huawei-l3vpn
+    spec:
+      containers:
+      - name: sdno-driver-huawei-l3vpn
+        image: openoint/sdno-driver-huawei-l3vpn
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8533
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-driver-huawei-openstack
+  labels:
+    app: sdno-driver-huawei-openstack
+spec:
+  selector:
+    app: sdno-driver-huawei-openstack
+  type: NodePort
+  ports:
+  - port: 8503
+    targetPort: 8503
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-driver-huawei-openstack
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-driver-huawei-openstack
+    spec:
+      containers:
+      - name: sdno-driver-huawei-openstack
+        image: openoint/sdno-driver-huawei-openstack
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8503
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-driver-huawei-overlay
+  labels:
+    app: sdno-driver-huawei-overlay
+spec:
+  selector:
+    app: sdno-driver-huawei-overlay
+  type: NodePort
+  ports:
+  - port: 8536
+    targetPort: 8536
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-driver-huawei-overlay
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-driver-huawei-overlay
+    spec:
+      containers:
+      - name: sdno-driver-huawei-overlay
+        image: openoint/sdno-driver-huawei-overlay
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8536
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-driver-huawei-servicechain
+  labels:
+    app: sdno-driver-huawei-servicechain
+spec:
+  selector:
+    app: sdno-driver-huawei-servicechain
+  type: NodePort
+  ports:
+  - port: 8542
+    targetPort: 8542
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-driver-huawei-servicechain
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-driver-huawei-servicechain
+    spec:
+      containers:
+      - name: sdno-driver-huawei-servicechain
+        image: openoint/sdno-driver-huawei-servicechain
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8542
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-mss
+  labels:
+    app: sdno-service-mss
+spec:
+  selector:
+    app: sdno-service-mss
+  type: NodePort
+  ports:
+  - port: 8530
+    targetPort: 8530
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-mss
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-mss
+    spec:
+      containers:
+      - name: sdno-service-mss
+        image: openoint/sdno-service-mss
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8530
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-brs
+  labels:
+    app: sdno-service-brs
+spec:
+  selector:
+    app: sdno-service-brs
+  type: NodePort
+  ports:
+  - port: 8527
+    targetPort: 8527
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-brs
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-brs
+    spec:
+      containers:
+      - name: sdno-service-brs
+        image: openoint/sdno-service-brs
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8527
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-ipsec
+  labels:
+    app: sdno-service-ipsec
+spec:
+  selector:
+    app: sdno-service-ipsec
+  type: NodePort
+  ports:
+  - port: 8515
+    targetPort: 8515
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-ipsec
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-ipsec
+    spec:
+      containers:
+      - name: sdno-service-ipsec
+        image: openoint/sdno-service-ipsec
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8515
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-l2vpn
+  labels:
+    app: sdno-service-l2vpn
+spec:
+  selector:
+    app: sdno-service-l2vpn
+  type: NodePort
+  ports:
+  - port: 8509
+    targetPort: 8509
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-l2vpn
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-l2vpn
+    spec:
+      containers:
+      - name: sdno-service-l2vpn
+        image: openoint/sdno-service-l2vpn
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8509
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-l3vpn
+  labels:
+    app: sdno-service-l3vpn
+spec:
+  selector:
+    app: sdno-service-l3vpn
+  type: NodePort
+  ports:
+  - port: 8506
+    targetPort: 8506
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-l3vpn
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-l3vpn
+    spec:
+      containers:
+      - name: sdno-service-l3vpn
+        image: openoint/sdno-service-l3vpn
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8506
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-nslcm
+  labels:
+    app: sdno-service-nslcm
+spec:
+  selector:
+    app: sdno-service-nslcm
+  type: NodePort
+  ports:
+  - port: 8545
+    targetPort: 8545
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-nslcm
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-nslcm
+    spec:
+      containers:
+      - name: sdno-service-nslcm
+        image: openoint/sdno-service-nslcm
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8545
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-overlayvpn
+  labels:
+    app: sdno-service-overlayvpn
+spec:
+  selector:
+    app: sdno-service-overlayvpn
+  type: NodePort
+  ports:
+  - port: 8503
+    targetPort: 8503
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-overlayvpn
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-overlayvpn
+    spec:
+      containers:
+      - name: sdno-service-overlayvpn
+        image: openoint/sdno-service-overlayvpn
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8503
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-servicechain
+  labels:
+    app: sdno-service-servicechain
+spec:
+  selector:
+    app: sdno-service-servicechain
+  type: NodePort
+  ports:
+  - port: 8521
+    targetPort: 8521
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-servicechain
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-servicechain
+    spec:
+      containers:
+      - name: sdno-service-servicechain
+        image: openoint/sdno-service-servicechain
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8521
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-vpc
+  labels:
+    app: sdno-service-vpc
+spec:
+  selector:
+    app: sdno-service-vpc
+  type: NodePort
+  ports:
+  - port: 8518
+    targetPort: 8518
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-vpc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-vpc
+    spec:
+      containers:
+      - name: sdno-service-vpc
+        image: openoint/sdno-service-vpc
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8518
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdno-service-vxlan
+  labels:
+    app: sdno-service-vxlan
+spec:
+  selector:
+    app: sdno-service-vxlan
+  type: NodePort
+  ports:
+  - port: 8512
+    targetPort: 8512
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sdno-service-vxlan
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sdno-service-vxlan
+    spec:
+      containers:
+      - name: sdno-service-vxlan
+        image: openoint/sdno-service-vxlan
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8512
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gso-service-manager
+  labels:
+    app: gso-service-manager
+spec:
+  selector:
+    app: gso-service-manager
+  type: NodePort
+  ports:
+  - port: 8301
+    targetPort: 8301
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gso-service-manager
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gso-service-manager
+    spec:
+      containers:
+      - name: gso-service-manager
+        image: openoint/gso-service-manager
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8301
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gso-service-gateway
+  labels:
+    app: gso-service-gateway
+spec:
+  selector:
+    app: gso-service-gateway
+  type: NodePort
+  ports:
+  - port: 8305
+    targetPort: 8305
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gso-service-gateway
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gso-service-gateway
+    spec:
+      containers:
+      - name: gso-service-gateway
+        image: openoint/gso-service-gateway
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8305
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-driver-vim
+  labels:
+    app: nfvo-driver-vim
+spec:
+  selector:
+    app: nfvo-driver-vim
+  type: NodePort
+  ports:
+  - port: 8481
+    targetPort: 8481
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-driver-vim
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-driver-vim
+    spec:
+      containers:
+      - name: nfvo-driver-vim
+        image: openoint/nfvo-driver-vim
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8481
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-driver-vnfm-juju
+  labels:
+    app: nfvo-driver-vnfm-juju
+spec:
+  selector:
+    app: nfvo-driver-vnfm-juju
+  type: NodePort
+  ports:
+  - port: 8483
+    targetPort: 8483
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-driver-vnfm-juju
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-driver-vnfm-juju
+    spec:
+      containers:
+      - name: nfvo-driver-vnfm-juju
+        image: openoint/nfvo-driver-vnfm-juju
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8483
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-driver-vnfm-huawei
+  labels:
+    app: nfvo-driver-vnfm-huawei
+spec:
+  selector:
+    app: nfvo-driver-vnfm-huawei
+  type: NodePort
+  ports:
+  - port: 8482
+    targetPort: 8482
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-driver-vnfm-huawei
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-driver-vnfm-huawei
+    spec:
+      containers:
+      - name: nfvo-driver-vnfm-huawei
+        image: openoint/nfvo-driver-vnfm-huawei
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8482
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-resmanagement
+  labels:
+    app: nfvo-resmanagement
+spec:
+  selector:
+    app: nfvo-resmanagement
+  type: NodePort
+  ports:
+  - port: 8480
+    targetPort: 8480
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-resmanagement
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-resmanagement
+    spec:
+      containers:
+      - name: nfvo-resmanagement
+        image: openoint/nfvo-resmanagement
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8480
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-umc
+  labels:
+    app: nfvo-umc
+spec:
+  selector:
+    app: nfvo-umc
+  type: NodePort
+  ports:
+  - port: 8205
+    targetPort: 8205
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-umc
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-umc
+    spec:
+      containers:
+      - name: nfvo-umc
+        image: openoint/nfvo-umc
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8205
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-dac
+  labels:
+    app: nfvo-dac
+spec:
+  selector:
+    app: nfvo-dac
+  type: NodePort
+  ports:
+  - port: 8206
+    targetPort: 8206
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-dac
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-dac
+    spec:
+      containers:
+      - name: nfvo-dac
+        image: openoint/nfvo-dac
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8206
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-lcm
+  labels:
+    app: nfvo-lcm
+spec:
+  selector:
+    app: nfvo-lcm
+  type: NodePort
+  ports:
+  - port: 8403
+    targetPort: 8403
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-lcm
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-lcm
+    spec:
+      containers:
+      - name: nfvo-lcm
+        image: openoint/nfvo-lcm
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8403
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-driver-vnfm-zte
+  labels:
+    app: nfvo-driver-vnfm-zte
+spec:
+  selector:
+    app: nfvo-driver-vnfm-zte
+  type: NodePort
+  ports:
+  - port: 8410
+    targetPort: 8410
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-driver-vnfm-zte
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-driver-vnfm-zte
+    spec:
+      containers:
+      - name: nfvo-driver-vnfm-zte
+        image: openoint/nfvo-driver-vnfm-zte
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8410
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nfvo-driver-sdnc-zte
+  labels:
+    app: nfvo-driver-sdnc-zte
+spec:
+  selector:
+    app: nfvo-driver-sdnc-zte
+  type: NodePort
+  ports:
+  - port: 8411
+    targetPort: 8411
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nfvo-driver-sdnc-zte
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nfvo-driver-sdnc-zte
+    spec:
+      containers:
+      - name: nfvo-driver-sdnc-zte
+        image: openoint/nfvo-driver-sdnc-zte
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8411
