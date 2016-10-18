@@ -4,6 +4,4 @@
 # $3 docker run options, e.g. variables
 echo $@
 
-build-image.sh $1
-
 docker run --name $2 $3 -d $1
