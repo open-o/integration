@@ -42,16 +42,14 @@ with sys.stdin as f:
             outfile.write("# Set up microservice\n")
 
             
-            outfile.write("RUN wget -O {} {}\n".format(dest, url))
+            outfile.write("RUN wget -q -O {} {}".format(dest, url))
             
             if row["extension"] == "tar.gz":
-                outfile.write("RUN tar -xf {}\n".format(dest))
+                outfile.write(" && tar -xf {}".format(dest))
             elif row["extension"] == "zip":
-                outfile.write("RUN unzip -o -B {}\n".format(dest))
-            else:
-                outfile.write("# Unknown extension: {}".format(dest))
-            outfile.write("RUN rm -f {}\n".format(dest))
-
+                outfile.write(" && unzip -q -o -B {}".format(dest))
+            outfile.write(" && rm -f {}\n".format(dest))
+            
             if row["port"]:
                 outfile.write("EXPOSE {}\n".format(row["port"]))
             outfile.write("RUN echo Open-O {} {} > VERSION\n".format(version, build))

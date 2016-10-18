@@ -10,6 +10,13 @@ if [ -z "$MSB_ADDR" ]; then
     exit 1
 fi
 
+# Wait for MSB initialization
+echo Wait for MSB initialization
+for i in {1..20}; do
+    curl -sS -m 1 $MSB_ADDR > /dev/null && break
+    sleep $i
+done
+
 # Configure service based on docker environment variables
 ./instance-config.sh
 
@@ -17,6 +24,7 @@ fi
 if [ ! -e init.log ]; then
     # Perform workarounds due to defects in release binary
     ./instance-workaround.sh
+
     # microservice-specific one-time initialization
     ./instance-init.sh
 
