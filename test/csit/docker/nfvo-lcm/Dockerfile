@@ -21,7 +21,7 @@ ENV JAVA_HOME /usr/lib/jvm/jre
 WORKDIR /service
 
 # 15-python.txt
-RUN yum install -y epel-release python-{devel,virtualenv,setuptools,pip} openssl-devel mysql-devel gcc libffi-devel redis
+RUN yum -y install epel-release && yum -y install python-{devel,virtualenv,setuptools,pip} openssl-devel mysql-devel gcc libffi-devel redis
 # 20-mysq.txt
 
 # Set up mysql
