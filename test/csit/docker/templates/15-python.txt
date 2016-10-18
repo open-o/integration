@@ -1,6 +1,2 @@
 # 15-python.txt
-RUN yum install -y epel-release
-RUN yum install -y python-{devel,virtualenv,setuptools,pip}
-RUN yum install -y openssl-devel mysql-devel gcc libffi-devel
-RUN yum install -y redis
-RUN systemctl enable redis
+RUN yum install -y epel-release python-{devel,virtualenv,setuptools,pip} openssl-devel mysql-devel gcc libffi-devel redis

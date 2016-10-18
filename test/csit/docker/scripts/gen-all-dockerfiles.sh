@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # $1 autorelease build
 
 if [ -z "$1" ]; then
@@ -60,6 +60,13 @@ if [ -z "\$MSB_ADDR" ]; then
     exit 1
 fi
 
+# Wait for MSB initialization
+echo Wait for MSB initialization
+for i in {1..20}; do
+    curl -sS -m 1 \$MSB_ADDR > /dev/null && break
+    sleep \$i
+done
+
 EOF
     fi
     
@@ -67,12 +74,21 @@ EOF
 # Configure service based on docker environment variables
 ./instance-config.sh
 
+EOF
+    if [ -f $dir/20-mysql.txt ]; then
+	cat >> $dir/docker-entrypoint.sh <<EOF
+# Start mysql
+su mysql -c /usr/bin/mysqld_safe &
+
+EOF
+    fi
+    cat >> $dir/docker-entrypoint.sh <<EOF
 # Perform one-time config
 if [ ! -e init.log ]; then
     # Perform workarounds due to defects in release binary
     ./instance-workaround.sh
+
 EOF
-    
     if [ -f $dir/20-mysql.txt ]; then
 	cat >> $dir/docker-entrypoint.sh <<EOF
     # Init mysql; set root password
@@ -80,7 +96,6 @@ EOF
 
 EOF
     fi
-
     cat >> $dir/docker-entrypoint.sh <<EOF
     # microservice-specific one-time initialization
     ./instance-init.sh

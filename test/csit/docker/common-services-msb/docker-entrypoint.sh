@@ -12,6 +12,7 @@
 if [ ! -e init.log ]; then
     # Perform workarounds due to defects in release binary
     ./instance-workaround.sh
+
     # microservice-specific one-time initialization
     ./instance-init.sh
 

@@ -1,5 +1,7 @@
 # 90-entrypoint.txt
 
+RUN yum clean all
+
 COPY instance-config.sh .
 COPY instance-init.sh .
 COPY instance-run.sh .

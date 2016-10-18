@@ -5,9 +5,6 @@
 # ./nfvo-driver-vnfm-huawei/init-mysql.sh
 #
 
-# Start mysql
-su mysql -c /usr/bin/mysqld_safe &
-
 # Wait for mysql to initialize; Set mysql root password
 echo Initializing mysql
 for i in {1..10}; do
