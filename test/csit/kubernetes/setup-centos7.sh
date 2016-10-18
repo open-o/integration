@@ -12,6 +12,7 @@ yum -y update
 yum -y install docker kubelet kubeadm kubectl kubernetes-cni
 systemctl enable docker && systemctl start docker
 curl -L git.io/weave -o /usr/local/bin/weave
+chmod a+x /usr/local/bin/weave
 mkdir -p /opt/cni/bin
 mkdir -p /etc/cni/net.d
 systemctl enable weave
