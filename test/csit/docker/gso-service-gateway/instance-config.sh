@@ -4,5 +4,5 @@ sed -i "s|msb\.openo\.org|${MSB_IP}|" etc/conf/restclient.json
 cat etc/conf/restclient.json
 
 # Set self IP
-sed -i "s|getInputIP|`hostname -i`|" etc/register/service.json
+sed -i "s|getInputIP|$SERVICE_IP|" etc/register/service.json
 cat etc/register/service.json
