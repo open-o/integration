@@ -4,6 +4,6 @@ sed -i "s|127\.0\.0\.1|${MSB_IP}|" etc/conf/restclient.json
 cat etc/conf/restclient.json
 
 # Set self IP
-sed -i "s|127\.0\.0\.1|`hostname -i`|" etc/adapterInfo/vnfmadapterinfo.json
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" etc/adapterInfo/vnfmadapterinfo.json
 cat etc/adapterInfo/vnfmadapterinfo.json
 

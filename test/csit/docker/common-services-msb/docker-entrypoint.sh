@@ -5,6 +5,15 @@
 # ./common-services-msb/docker-entrypoint.sh
 #
 
+if [ -z "$SERVICE_IP" ]; then
+    export SERVICE_IP=`hostname -i`
+fi
+echo
+echo Environment Variables:
+echo "SERVICE_IP=$SERVICE_IP"
+
+echo
+
 # Configure service based on docker environment variables
 ./instance-config.sh
 
