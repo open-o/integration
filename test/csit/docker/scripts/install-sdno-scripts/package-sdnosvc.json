@@ -1,0 +1,49 @@
+{
+    "msbAddr": "",  
+    
+    "serviceip": "",
+
+    "services": [
+                    {
+                       "name":"sdno-service-mss",
+                       "portMap":"8530:8530"
+                    },                 
+                    {
+                       "name":"sdno-service-brs",
+                       "portMap":"8527:8527"
+                    },
+                    {
+                       "name":"sdno-service-nslcm",
+                       "portMap":"8545:8545"
+                    },
+                    {
+                       "name":"sdno-service-overlayvpn",
+                       "portMap":"8503:8503"
+                    },
+                    {
+                       "name":"sdno-service-vpc",
+                       "portMap":"8518:8518"
+                    },
+                    {
+                       "name":"sdno-service-vxlan",
+                       "portMap":"8512:8512"
+                    },
+                    {
+                       "name":"sdno-service-ipsec",
+                       "portMap":"8515:8515"
+                    },
+                    {
+                       "name":"sdno-service-servicechain",
+                       "portMap":"8521:8521"
+                    },
+                    {
+                       "name":"sdno-service-l2vpn",
+                       "portMap":"8509:8509"
+                    },
+                    {
+                       "name":"sdno-service-l3vpn",
+                       "portMap":"8506:8506"
+                    }
+                    
+                ]
+}

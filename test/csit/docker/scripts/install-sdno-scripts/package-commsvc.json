@@ -1,0 +1,20 @@
+{
+    "msbAddr": "",  
+
+    "serviceip": "",
+
+    "services": [
+                    {
+                       "name":"common-services-msb",
+                       "portMap":"80:80"
+                    },
+                    {
+                       "name":"common-services-drivermanager",
+                       "portMap":"8103:8103"
+                    },
+                    {
+                       "name":"common-services-extsys",
+                       "portMap":"8100:8100"
+                    }
+                ]
+}
