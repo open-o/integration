@@ -13,6 +13,7 @@ integration
 nfvo
 oparent
 sdno-brs
+sdno-driver-ct-te
 sdno-driver-huawei-l3vpn
 sdno-driver-huawei-openstack
 sdno-driver-huawei-overlay
@@ -21,9 +22,12 @@ sdno-driver-zte-sptn
 sdno-ipsec
 sdno-l2vpn
 sdno-l3vpn
+sdno-monitoring
 sdno-nslcm
+sdno-optimize
 sdno-overlay
 sdno-servicechain
 sdno-utils
 sdno-vpc
+sdno-vsitemgr
 sdno-vxlan

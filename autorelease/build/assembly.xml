@@ -235,6 +235,42 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>sdno-driver-ct-te</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.driver-ct-te:ct_tedriver:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-driver-ct-te-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-monitoring</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.monitoring:ct_monitoring:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-monitoring-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-optimize</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.optimizer:ct_optimizer:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-optimize-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-vsitemgr</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.vsitemgr:ct_vsitemgr:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-vsitemgr-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>gso-service-manager</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
@@ -325,12 +361,12 @@
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>nfvo-drivers-sdnc-zte-sfc-driver</outputDirectory>
+      <outputDirectory>nfvo-driver-sdnc-zte</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
         <include>org.openo.nfvo.sfc-driver-standalone:nfvo-drivers-sdnc-zte-sfc-driver:zip</include>
       </includes>
-      <outputFileNameMapping>nfvo-drivers-sdnc-zte-sfc-driver-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+      <outputFileNameMapping>nfvo-driver-sdnc-zte-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
   </dependencySets>

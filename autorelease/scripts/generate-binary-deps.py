@@ -3,7 +3,7 @@
 
 import sys, csv, subprocess
 
-version = "1.0.0-SNAPSHOT"
+version = "1.1.0-SNAPSHOT"
 
 
 with sys.stdin as f:

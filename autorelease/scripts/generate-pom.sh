@@ -2,6 +2,7 @@
 
 # autorelease root dir
 ROOT=`git rev-parse --show-toplevel`/autorelease
+VERSION="1.1.0-SNAPSHOT"
 
 BUILD_DIR=$ROOT/build
 
@@ -17,7 +18,7 @@ cat > $FILE <<EOF
   <parent>
     <groupId>org.openo.oparent</groupId>
     <artifactId>oparent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>$VERSION</version>
     <relativePath>oparent</relativePath>
   </parent>
   <groupId>org.openo.integration.distribution</groupId>
