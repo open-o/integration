@@ -244,6 +244,33 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>sdno-driver-ct-te</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.driver-ct-te:ct_tedriver:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-driver-ct-te-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-monitoring</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.monitoring:ct_monitoring:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-monitoring-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-vsitemgr</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.vsitemgr:ct_vsitemgr:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-vsitemgr-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>gso-service-manager</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
