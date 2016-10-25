@@ -3,8 +3,8 @@
 # workaround for mysqld start randomly failed at "io_setup() failed"
 sed -i '/\[mysqld\]/a innodb_use_native_aio=0' /etc/my.cnf
 
-# mss currently hard-coded password as Test_12345
-sed -i 's/rootpass/Test_12345/g' /service/init-mysql.sh
+# mss currently hard-coded password as root
+sed -i 's/rootpass/root/g' /service/init-mysql.sh
 # mss-init setup db and tables from models xml-files
 echo "/service/bin/initdb.sh" >> /service/init-mysql.sh
 
