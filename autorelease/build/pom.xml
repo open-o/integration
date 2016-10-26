@@ -17,6 +17,7 @@
     <module>common-services-external-system-registration</module>
     <module>common-services-microservice-bus</module>
     <module>common-services-protocol-stack</module>
+    <module>common-tosca-aria</module>
     <module>common-tosca-catalog</module>
     <module>common-tosca-inventory</module>
     <module>common-tosca-model-designer</module>
@@ -86,6 +87,14 @@
     <dependency>
       <groupId>org.openo.common-services.auth</groupId>
       <artifactId>auth-service-deployment</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.common-tosca.aria</groupId>
+      <artifactId>aria</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier></classifier>
