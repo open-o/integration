@@ -39,6 +39,15 @@ RUN echo Open-O 1.0.0-RC1 autorelease-1057 > VERSION
 
 # 90-entrypoint.txt
 
+
+# Temporarily enable sshd
+RUN yum -y install openssh-server
+RUN echo 'root:root' | chpasswd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+
 RUN yum clean all
 
 COPY instance-config.sh .

@@ -12,6 +12,7 @@ echo
 echo Environment Variables:
 echo "SERVICE_IP=$SERVICE_IP"
 
+
 if [ -z "$MSB_ADDR" ]; then
     echo "Missing required variable MSB_ADDR: Microservices Service Bus address <ip>:<port>"
     exit 1
@@ -33,6 +34,9 @@ echo
 
 # Perform one-time config
 if [ ! -e init.log ]; then
+    # Generate sshd keys
+    /usr/bin/ssh-keygen -A
+
     # Perform workarounds due to defects in release binary
     ./instance-workaround.sh
 
@@ -41,6 +45,10 @@ if [ ! -e init.log ]; then
 
     date > init.log
 fi
+
+# temporarily enable sshd
+/usr/sbin/sshd -D &
+
 
 # Start the microservice
 ./instance-run.sh

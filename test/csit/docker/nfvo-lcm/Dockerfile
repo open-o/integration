@@ -46,6 +46,15 @@ RUN chmod +x nfvo/lcm/*.sh
 RUN wget -q -O common-tosca-inventory-1.0.0-RC1-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1058/org/openo/common-tosca/inventory/standalone/1.0.0-RC1/standalone-1.0.0-RC1-linux64.tar.gz && tar -xf common-tosca-inventory-1.0.0-RC1-linux64.tar.gz initDB.sh dbscripts && rm -f common-tosca-inventory-1.0.0-RC1-linux64.tar.gz
 # 90-entrypoint.txt
 
+
+# Temporarily enable sshd
+RUN yum -y install openssh-server
+RUN echo 'root:root' | chpasswd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+
 RUN yum clean all
 
 COPY instance-config.sh .

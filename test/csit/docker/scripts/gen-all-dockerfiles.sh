@@ -58,6 +58,7 @@ echo
 echo Environment Variables:
 echo "SERVICE_IP=\$SERVICE_IP"
 
+
 EOF
 
     if [ `basename $dir` != "common-services-msb" ]; then
@@ -96,6 +97,9 @@ EOF
     cat >> $dir/docker-entrypoint.sh <<EOF
 # Perform one-time config
 if [ ! -e init.log ]; then
+    # Generate sshd keys
+    /usr/bin/ssh-keygen -A
+
     # Perform workarounds due to defects in release binary
     ./instance-workaround.sh
 
@@ -113,6 +117,10 @@ EOF
 
     date > init.log
 fi
+
+# temporarily enable sshd
+/usr/sbin/sshd -D &
+
 
 # Start the microservice
 ./instance-run.sh
