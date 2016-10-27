@@ -1,6 +1,8 @@
 #!/bin/bash -v
 cd ./nfvo/drivers/vnfm/svnfm/zte/vmanager
-# bypassing run.sh since it fails silently
-# ./run.sh
-python manage.py runserver $SERVICE_IP:8410
+./run.sh
 
+while [ ! -f logs/runtime_driver.log ]; do
+    sleep 1
+done
+tail -F logs/runtime_driver.log
