@@ -1,5 +1,11 @@
 #!/bin/bash -v
+
+redis-server &
+
 cd ./nfvo/lcm
-# bypassing run.sh since it fails silently
-# ./run.sh
-python manage.py runserver $SERVICE_IP:8403
+./run.sh
+
+while [ ! -f logs/runtime_lcm.log ]; do
+    sleep 1
+done
+tail -F logs/runtime_lcm.log
