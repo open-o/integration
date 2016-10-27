@@ -8,3 +8,5 @@ sed -i "s|DB_PASSWD.*|DB_PASSWD = 'rootpass'|" nfvo/lcm/lcm/pub/config/config.py
 sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" nfvo/lcm/lcm/pub/config/config.py
 cat nfvo/lcm/lcm/pub/config/config.py
 
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" nfvo/lcm/run.sh
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" nfvo/lcm/stop.sh
