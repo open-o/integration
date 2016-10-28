@@ -8,8 +8,8 @@ common-tosca-aria
 common-tosca-catalog
 common-tosca-inventory
 common-tosca-model-designer
-gso-gui
 gso
+gso-gui
 integration
 nfvo
 oparent
@@ -25,6 +25,7 @@ sdno-l2vpn
 sdno-l3vpn
 sdno-monitoring
 sdno-nslcm
+sdno-optimize
 sdno-overlay
 sdno-servicechain
 sdno-utils

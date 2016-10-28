@@ -262,6 +262,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>sdno-optimize</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.optimize:ct_optimizer:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-optimize-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>sdno-vsitemgr</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>

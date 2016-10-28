@@ -21,8 +21,8 @@
     <module>common-tosca-catalog</module>
     <module>common-tosca-inventory</module>
     <module>common-tosca-model-designer</module>
-    <module>gso-gui</module>
     <module>gso</module>
+    <module>gso-gui</module>
     <module>integration</module>
     <module>nfvo</module>
     <module>oparent</module>
@@ -38,6 +38,7 @@
     <module>sdno-l3vpn</module>
     <module>sdno-monitoring</module>
     <module>sdno-nslcm</module>
+    <module>sdno-optimize</module>
     <module>sdno-overlay</module>
     <module>sdno-servicechain</module>
     <module>sdno-utils</module>
@@ -258,6 +259,14 @@
     <dependency>
       <groupId>org.openo.sdno.monitoring</groupId>
       <artifactId>ct_monitoring</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
+
+    <dependency>
+      <groupId>org.openo.sdno.optimize</groupId>
+      <artifactId>ct_optimizer</artifactId>
       <version>1.0.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier></classifier>
