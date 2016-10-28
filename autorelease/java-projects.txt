@@ -7,8 +7,8 @@ common-services-protocol-stack
 common-tosca-catalog
 common-tosca-inventory
 common-tosca-model-designer
-gso-gui
 gso
+gso-gui
 integration
 nfvo
 oparent

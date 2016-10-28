@@ -13,5 +13,5 @@ while read p; do
     rm -rf $BUILD_DIR/$p
     #TODO: replace with https once repo is open to public
     git clone -b $GERRIT_BRANCH ssh://gerrit.open-o.org:29418/$p
-done < $ROOT/all-projects.txt
+done < $ROOT/java-projects.txt
 
