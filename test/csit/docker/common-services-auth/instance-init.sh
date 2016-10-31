@@ -15,3 +15,18 @@ sed -i "s|#admin_token.*|admin_token=$ADMIN_TOKEN|" /etc/keystone/keystone.conf
 sed -i "s|#public_port.*|public_port=$KEYSTONE_PORT|" /etc/keystone/keystone.conf
 cat /etc/keystone/keystone.conf | egrep -v '^[[:space:]]*$|^ *#'
 
+sed -i "/^\[DEFAULT\]$/aadmin_token = $ADMIN_TOKEN" /etc/keystone/keystone.conf
+sed -i '/^\[DEFAULT\]$/averbose = True' /etc/keystone/keystone.conf
+sed -i '/^\[database\]$/aconnection = mysql://root:rootpass@127.0.0.1/keystone' /etc/keystone/keystone.conf
+sed -i '/^\[memcache\]$/aservers = localhost:11211' /etc/keystone/keystone.conf
+sed -i '/^\[token\]$/aprovider = uuid' /etc/keystone/keystone.conf
+sed -i '/^\[token\]$/adriver = memcache' /etc/keystone/keystone.conf
+sed -i '/^\[revoke\]$/adriver = sql' /etc/keystone/keystone.conf
+
+#config httpd and run it
+sed -i '/\#ServerName www.example.com:80$/aServerName controller' /etc/httpd/conf/httpd.conf
+cp init/wsgi-keystone.conf  /etc/httpd/conf.d/wsgi-keystone.conf
+
+#Populate the Identity service database
+su -s /bin/sh -c "keystone-manage db_sync" keystone
+
