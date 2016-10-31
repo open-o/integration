@@ -22,7 +22,7 @@ cat /etc/keystone/keystone.conf | egrep -v '^[[:space:]]*$|^ *#'
 
 sed -i "/^\[DEFAULT\]$/aadmin_token = $ADMIN_TOKEN" /etc/keystone/keystone.conf
 sed -i '/^\[DEFAULT\]$/averbose = True' /etc/keystone/keystone.conf
-sed -i '/^\[database\]$/aconnection = mysql://keystone:root@127.0.0.1/keystone' /etc/keystone/keystone.conf
+sed -i '/^\[database\]$/aconnection = mysql://root:rootpass@127.0.0.1/keystone' /etc/keystone/keystone.conf
 sed -i '/^\[memcache\]$/aservers = localhost:11211' /etc/keystone/keystone.conf
 sed -i '/^\[token\]$/aprovider = uuid' /etc/keystone/keystone.conf
 sed -i '/^\[token\]$/adriver = memcache' /etc/keystone/keystone.conf

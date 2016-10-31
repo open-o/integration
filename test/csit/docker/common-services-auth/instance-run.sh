@@ -2,11 +2,7 @@
 
 # run httpd
 /usr/sbin/httpd
-
-# Start keystone
-keystone-all -d -v &
 sleep 1
-
 
 unset http_proxy
 export OS_TOKEN=`cat admin_token.txt`
