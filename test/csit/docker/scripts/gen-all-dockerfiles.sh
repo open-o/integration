@@ -16,6 +16,12 @@ cd $ROOT
 $ROOT/scripts/gen-dockerfiles.py $BUILD < $ROOT/../../../autorelease/binaries.csv
 
 
+# Update build number in workaround files
+for file in `find -name 80-workaround.txt`; do
+    sed -i "s|autorelease-[0-9]\{4\}|$BUILD|" $file
+done
+
+
 for file in `find -name Dockerfile`; do
     dir=`dirname $file`
     cat > $dir/Dockerfile <<EOF

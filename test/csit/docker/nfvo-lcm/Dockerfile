@@ -43,7 +43,7 @@ RUN echo Open-O 1.0.0-RC0 autorelease-1053 > VERSION
 RUN find -type d -exec chmod o-w {} \;
 RUN chmod +x nfvo/lcm/*.sh
 # need MySQL initDB script
-RUN wget -q -O common-tosca-inventory-1.0.0-RC1-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1058/org/openo/common-tosca/inventory/standalone/1.0.0-RC1/standalone-1.0.0-RC1-linux64.tar.gz && tar -xf common-tosca-inventory-1.0.0-RC1-linux64.tar.gz initDB.sh dbscripts && rm -f common-tosca-inventory-1.0.0-RC1-linux64.tar.gz
+RUN wget -q -O common-tosca-inventory-1.0.0-RC1-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1073/org/openo/common-tosca/inventory/standalone/1.0.0-RC1/standalone-1.0.0-RC1-linux64.tar.gz && tar -xf common-tosca-inventory-1.0.0-RC1-linux64.tar.gz initDB.sh dbscripts && rm -f common-tosca-inventory-1.0.0-RC1-linux64.tar.gz
 # 90-entrypoint.txt
 
 RUN yum clean all
