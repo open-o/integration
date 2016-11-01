@@ -44,7 +44,7 @@ RUN echo Open-O 1.0.0-RC1 autorelease-1073 > VERSION
 # 51-permissions.txt
 RUN chmod +x ./bin/*.sh
 # Workaround to retrieve gso portal artifact
-RUN wget -q -O webapps/portal-package.war https://nexus.open-o.org/content/repositories/autorelease-1062/org/openo/gso/gui/portal-package/1.0.0-RC1/portal-package-1.0.0-RC1.war
+RUN wget -q -O webapps/portal-package.war https://nexus.open-o.org/content/repositories/autorelease-1073/org/openo/gso/gui/portal-package/1.0.0-RC1/portal-package-1.0.0-RC1.war
 # 90-entrypoint.txt
 
 RUN yum clean all
