@@ -5,7 +5,7 @@ import sys, csv, subprocess
 
 root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
 path = "{}/autorelease/dist".format(root)
-version = "1.0.0-SNAPSHOT"
+version = "1.1.0-SNAPSHOT"
 url_template = "https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g={0}&a={1}&e={2}&c={3}&v=LATEST"
 
 subprocess.call(["rm", "-rf", path])

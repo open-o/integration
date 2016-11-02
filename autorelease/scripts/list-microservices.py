@@ -3,9 +3,6 @@
 
 import sys, csv, subprocess
 
-version = "1.0.0-SNAPSHOT"
-
-
 with sys.stdin as f:
     reader = csv.DictReader(f)
 
