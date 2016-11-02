@@ -44,7 +44,7 @@ COPY init-mysql.sh .
 # Set up microservice
 RUN wget -q -O nfvo-lcm-1.0.0-RC1.zip https://nexus.open-o.org/content/repositories/autorelease-1073/org/openo/nfvo/nfvo-lcm/1.0.0-RC1/nfvo-lcm-1.0.0-RC1.zip && unzip -q -o -B nfvo-lcm-1.0.0-RC1.zip && rm -f nfvo-lcm-1.0.0-RC1.zip
 EXPOSE 8403
-RUN echo Open-O 1.0.0-RC1 autorelease-1073 > VERSION
+RUN echo Open-O 1.0.0-RC1 autorelease-1073 > OPENO_VERSION
 
 
 # 51-permissions.txt
@@ -62,3 +62,5 @@ COPY instance-run.sh .
 COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh
+
+COPY LICENSE ./OPENO_LICENSE

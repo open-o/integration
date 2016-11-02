@@ -52,7 +52,7 @@ with sys.stdin as f:
             
             if row["port"]:
                 outfile.write("EXPOSE {}\n".format(row["port"]))
-            outfile.write("RUN echo Open-O {} {} > VERSION\n".format(version, build))
+            outfile.write("RUN echo Open-O {} {} > OPENO_VERSION\n".format(version, build))
             outfile.write("\n\n")
             
             outfile.close()

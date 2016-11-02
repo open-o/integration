@@ -47,7 +47,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -q -O common-services-drivermanager-1.0.0-RC1.zip https://nexus.open-o.org/content/repositories/autorelease-1073/org/openo/common-services/driver-mgr/drivermanager-service-deployment/1.0.0-RC1/drivermanager-service-deployment-1.0.0-RC1.zip && unzip -q -o -B common-services-drivermanager-1.0.0-RC1.zip && rm -f common-services-drivermanager-1.0.0-RC1.zip
 EXPOSE 8103
-RUN echo Open-O 1.0.0-RC1 autorelease-1073 > VERSION
+RUN echo Open-O 1.0.0-RC1 autorelease-1073 > OPENO_VERSION
 
 
 # 51-permissions.txt
@@ -62,3 +62,5 @@ COPY instance-run.sh .
 COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh
+
+COPY LICENSE ./OPENO_LICENSE

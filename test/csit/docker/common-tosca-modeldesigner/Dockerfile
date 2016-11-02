@@ -33,7 +33,7 @@ WORKDIR /service
 # Set up microservice
 RUN wget -q -O common-tosca-modeldesigner-1.0.0-RC1-linux.gtk.x86_64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1073/org/openo/common-tosca/model-designer/modeldesigner/distribution/modeldesigner-standalone/1.0.0-RC1/modeldesigner-standalone-1.0.0-RC1-linux.gtk.x86_64.tar.gz && tar -xf common-tosca-modeldesigner-1.0.0-RC1-linux.gtk.x86_64.tar.gz && rm -f common-tosca-modeldesigner-1.0.0-RC1-linux.gtk.x86_64.tar.gz
 EXPOSE 8202
-RUN echo Open-O 1.0.0-RC1 autorelease-1073 > VERSION
+RUN echo Open-O 1.0.0-RC1 autorelease-1073 > OPENO_VERSION
 
 
 # 90-entrypoint.txt
@@ -46,3 +46,5 @@ COPY instance-run.sh .
 COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh
+
+COPY LICENSE ./OPENO_LICENSE

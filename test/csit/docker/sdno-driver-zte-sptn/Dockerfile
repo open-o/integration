@@ -42,7 +42,7 @@ COPY init-mysql.sh .
 # Set up microservice
 RUN wget -q -O sdno-driver-zte-sptn-1.0.0-RC1-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1073/org/openo/sdno/driver-zte-sptn/standalone/1.0.0-RC1/standalone-1.0.0-RC1-linux64.tar.gz && tar -xf sdno-driver-zte-sptn-1.0.0-RC1-linux64.tar.gz && rm -f sdno-driver-zte-sptn-1.0.0-RC1-linux64.tar.gz
 EXPOSE 8640
-RUN echo Open-O 1.0.0-RC1 autorelease-1073 > VERSION
+RUN echo Open-O 1.0.0-RC1 autorelease-1073 > OPENO_VERSION
 
 
 # 51-permissions.txt
@@ -57,3 +57,5 @@ COPY instance-run.sh .
 COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh
+
+COPY LICENSE ./OPENO_LICENSE

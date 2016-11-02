@@ -38,7 +38,7 @@ ENV CATALINA_HOME /service
 # Set up microservice
 RUN wget -q -O sdno-service-vxlan-1.0.0-RC1.zip https://nexus.open-o.org/content/repositories/autorelease-1073/org/openo/sdno/vxlan/vxlanservice-deployment/1.0.0-RC1/vxlanservice-deployment-1.0.0-RC1.zip && unzip -q -o -B sdno-service-vxlan-1.0.0-RC1.zip && rm -f sdno-service-vxlan-1.0.0-RC1.zip
 EXPOSE 8512
-RUN echo Open-O 1.0.0-RC1 autorelease-1073 > VERSION
+RUN echo Open-O 1.0.0-RC1 autorelease-1073 > OPENO_VERSION
 
 
 # 51-permissions.txt
@@ -53,3 +53,5 @@ COPY instance-run.sh .
 COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
 ENTRYPOINT /service/docker-entrypoint.sh
+
+COPY LICENSE ./OPENO_LICENSE
