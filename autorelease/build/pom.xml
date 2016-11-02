@@ -367,6 +367,14 @@
       <type>zip</type>
       <classifier></classifier>
     </dependency>
+
+    <dependency>
+      <groupId>org.openo.gso.gui</groupId>
+      <artifactId>portal-package</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier></classifier>
+    </dependency>
   </dependencies>
 
   <build>

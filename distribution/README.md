@@ -1,4 +1,4 @@
-# OPEN-O Sun Release 1.0.0-rc0
+# OPEN-O Sun Release 1.0.0
 
 ## Microservices List
 
@@ -10,9 +10,11 @@ Open-O contains the following microservices:
   * common-services-msb                    Common Services Microservice Bus
   * common-services-protocolstack          Common Services Protocol Stack
   * common-services-wso2ext                Common Services WSO2 Extension
+  * common-tosca-aria                      Common TOSCA ARIA
   * common-tosca-catalog                   Common TOSCA Catalog
   * common-tosca-inventory                 Common TOSCA Inventory
   * common-tosca-modeldesigner             Common TOSCA Model Designer
+  * gso-gui-portal                         GSO GUI Portal
   * gso-service-gateway                    GSO Service Gateway
   * gso-service-manager                    GSO Service Manager
   * nfvo-dac                               NFVO Monitor Data Acquire Component
@@ -24,11 +26,14 @@ Open-O contains the following microservices:
   * nfvo-lcm                               NFVO Lifecycle Management
   * nfvo-resmanagement                     NFVO Resource Manager
   * nfvo-umc                               NFVO Monitor Unified Monitor Component
+  * sdno-driver-ct-te                      SDNO Driver CT TE
   * sdno-driver-huawei-l3vpn               SDNO Driver Huawei L3VPN
   * sdno-driver-huawei-openstack           SDNO Driver Huawei Openstack
   * sdno-driver-huawei-overlay             SDNO Driver Huawei Overlay
   * sdno-driver-huawei-servicechain        SDNO Driver Huawei Servicechain
   * sdno-driver-zte-sptn                   SDNO Driver ZTE SPTN
+  * sdno-monitoring                        SDNO Monitoring
+  * sdno-optimize                          SDNO Optimize
   * sdno-service-brs                       SDNO Services BRS
   * sdno-service-ipsec                     SDNO Services IpSec
   * sdno-service-l2vpn                     SDNO Services L2VPN
@@ -39,6 +44,7 @@ Open-O contains the following microservices:
   * sdno-service-servicechain              SDNO Services Service Chain
   * sdno-service-vpc                       SDNO Services VPC
   * sdno-service-vxlan                     SDNO Services VxLAN
+  * sdno-vsitemgr                          SDNO Vsite Manager
 
 See [Installation Instructions][0] for details on how to install and run each microservice.
 

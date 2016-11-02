@@ -378,6 +378,15 @@
       <outputFileNameMapping>nfvo-driver-sdnc-zte-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
+    <dependencySet>
+      <outputDirectory>gso-gui-portal</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.gso.gui:portal-package:zip</include>
+      </includes>
+      <outputFileNameMapping>gso-gui-portal-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
   </dependencySets>
 </assembly>
 
