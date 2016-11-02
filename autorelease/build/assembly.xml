@@ -73,6 +73,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>common-tosca-aria</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.common-tosca.aria:aria:zip</include>
+      </includes>
+      <outputFileNameMapping>common-tosca-aria-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>common-tosca-catalog</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
@@ -367,6 +376,15 @@
         <include>org.openo.nfvo.sfc-driver-standalone:nfvo-drivers-sdnc-zte-sfc-driver:zip</include>
       </includes>
       <outputFileNameMapping>nfvo-driver-sdnc-zte-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>gso-gui-portal</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.gso.gui:portal-package:zip</include>
+      </includes>
+      <outputFileNameMapping>gso-gui-portal-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
   </dependencySets>
