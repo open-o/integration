@@ -22,6 +22,15 @@ WORKDIR /service
 
 # 15-python.txt
 RUN yum -y install epel-release && yum -y install python-{devel,virtualenv,setuptools,pip} openssl-devel mysql-devel gcc libffi-devel redis
+# 20-mysq.txt
+
+# Set up mysql
+RUN wget -q http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm && rpm -ivh mysql-community-release-el7-5.noarch.rpm && rm -f mysql-community-release-el7-5.noarch.rpm
+RUN yum -y update
+RUN yum -y install -y mysql-server
+RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
+COPY init-mysql.sh .
+
 # 30-tomcat.txt
 
 # Set up tomcat

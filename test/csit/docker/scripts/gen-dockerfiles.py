@@ -43,11 +43,16 @@ with sys.stdin as f:
 
             
             outfile.write("RUN wget -q -O {} {}".format(dest, url))
-            
+
+            unzip_opt = ""
             if row["extension"] == "tar.gz":
-                outfile.write(" && tar -xf {}".format(dest))
+                if row["unzip-dir"]:
+                    unzip_opt = " -C {}".format(row["unzip-dir"])
+                outfile.write(" && tar -xf {}{}".format(dest, unzip_opt))
             elif row["extension"] == "zip":
-                outfile.write(" && unzip -q -o -B {}".format(dest))
+                if row["unzip-dir"]:
+                    unzip_opt = " -d {}".format(row["unzip-dir"])
+                outfile.write(" && unzip -q -o -B {}{}".format(dest, unzip_opt))
             outfile.write(" && rm -f {}\n".format(dest))
             
             if row["ports"]:
