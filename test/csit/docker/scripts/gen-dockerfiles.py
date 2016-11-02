@@ -50,8 +50,10 @@ with sys.stdin as f:
                 outfile.write(" && unzip -q -o -B {}".format(dest))
             outfile.write(" && rm -f {}\n".format(dest))
             
-            if row["port"]:
-                outfile.write("EXPOSE {}\n".format(row["port"]))
+            if row["ports"]:
+                ports = row["ports"].split()
+                for port in ports:
+                    outfile.write("EXPOSE {}\n".format(port))
             outfile.write("RUN echo Open-O {} {} > OPENO_VERSION\n".format(version, build))
             outfile.write("\n\n")
             
