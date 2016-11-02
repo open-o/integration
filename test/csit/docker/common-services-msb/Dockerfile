@@ -25,6 +25,7 @@ WORKDIR /service
 # Set up microservice
 RUN wget -q -O common-services-msb-1.0.0-RC0-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1077/org/openo/common-services/microservice-bus/msb-core-standalone/1.0.0-RC0/msb-core-standalone-1.0.0-RC0-linux64.tar.gz && tar -xf common-services-msb-1.0.0-RC0-linux64.tar.gz && rm -f common-services-msb-1.0.0-RC0-linux64.tar.gz
 EXPOSE 80
+EXPOSE 8080
 RUN echo Open-O 1.0.0-RC0 autorelease-1077 > OPENO_VERSION
 
 
