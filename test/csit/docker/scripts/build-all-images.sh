@@ -8,7 +8,7 @@ VERSION="1.0.0-RC0"
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
 cd $ROOT
-for file in `find -name Dockerfile`; do
+for file in `find -name Dockerfile | sort`; do
     dir=$(dirname $file)
     image=$(basename $dir)
     echo 
