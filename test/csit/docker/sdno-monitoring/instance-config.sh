@@ -1,0 +1,3 @@
+sed -i "s|SDNO_MONITORING_ADDRESS=.*:|SDNO_MONITORING_ADDRESS=\"$SERVICE_IP:|" run.sh
+sed -i "s|MSB_ADDRESS=.*|MSB_ADDRESS=$MSB_ADDR|" run.sh
+cat run.sh
