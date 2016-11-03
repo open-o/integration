@@ -17,5 +17,7 @@ else
     MYSQL_PORT=`echo $MYSQL_ADDR | cut -d: -f 2`
 fi
 echo "MYSQL_ADDR=$MYSQL_ADDR"
-sed -i "s|jdbc:mysql://[^/]*/|jdbc:mysql://$MYSQL_ADDR/|" webapps/ROOT/WEB-INF/classes/spring/service.xml
+sed -i "/bean id=\"inventory\"/,/bean/ s|jdbc:mysql://[^/]*/|jdbc:mysql://$MYSQL_ADDR/|" webapps/ROOT/WEB-INF/classes/spring/service.xml
+sed -i "/bean id=\"inventory\"/,/bean/ s|property name=\"user\".*/>|property name=\"user\" value=\"inventory\" />|" webapps/ROOT/WEB-INF/classes/spring/service.xml
+sed -i "/bean id=\"inventory\"/,/bean/ s|property name=\"password\".*/>|property name=\"password\" value=\"inventory\" />|" webapps/ROOT/WEB-INF/classes/spring/service.xml
 cat webapps/ROOT/WEB-INF/classes/spring/service.xml
