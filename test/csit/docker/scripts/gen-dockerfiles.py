@@ -3,7 +3,7 @@
 
 import sys, csv, subprocess, os
 
-version = "1.0.0-RC1"
+version = "1.0.0"
 build = sys.argv[1]
 
 root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
