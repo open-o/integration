@@ -2,7 +2,7 @@
 
 set -exu
 
-VERSION="1.0.0-RC1"
+VERSION="1.1.0-SNAPSHOT"
 
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker

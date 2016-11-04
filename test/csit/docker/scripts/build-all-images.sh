@@ -1,8 +1,15 @@
 #!/bin/sh
+# $1 org
+
+if [ -z "$1" ]; then
+    ORG="openoint"
+else
+    ORG=$1
+fi
 
 set -exu
 
-VERSION="1.0.0-RC0"
+VERSION="1.1.0-SNAPSHOT"
 
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
@@ -13,5 +20,5 @@ for file in `find -name Dockerfile | sort`; do
     image=$(basename $dir)
     echo 
     echo $image
-    docker build -t openoint/$image:$VERSION -t openoint/$image:latest $dir
+    docker build -t $ORG/$image:$VERSION -t $ORG/$image:latest $dir
 done

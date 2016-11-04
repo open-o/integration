@@ -1,2 +1,4 @@
+# 80-workaround.txt
 # need MySQL initDB script
-RUN wget -q -O common-tosca-inventory-1.0.0-RC1-linux64.tar.gz https://nexus.open-o.org/content/repositories/autorelease-1077/org/openo/common-tosca/inventory/standalone/1.0.0-RC1/standalone-1.0.0-RC1-linux64.tar.gz && tar -xf common-tosca-inventory-1.0.0-RC1-linux64.tar.gz initDB.sh dbscripts && rm -f common-tosca-inventory-1.0.0-RC1-linux64.tar.gz
+RUN wget -q -O common-tosca-inventory-1.1.0-SNAPSHOT-linux64.tar.gz https://nexus.open-o.org/content/repositories/snapshots/org/openo/common-tosca/inventory/standalone/1.1.0-SNAPSHOT/standalone-1.1.0-20161102.141530-11-linux64.tar.gz && tar -xf common-tosca-inventory-1.1.0-SNAPSHOT-linux64.tar.gz initDB.sh dbscripts && rm -f common-tosca-inventory-1.1.0-SNAPSHOT-linux64.tar.gz
+
