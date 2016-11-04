@@ -1,4 +1,11 @@
 #!/bin/sh
+# $1 org
+
+if [ -z "$1" ]; then
+    ORG="openoint"
+else
+    ORG=$1
+fi
 
 set -exu
 
@@ -13,6 +20,6 @@ for file in `find -name Dockerfile | sort`; do
     image=$(basename $dir)
     echo 
     echo $image
-    docker push openoint/$image:$VERSION
-    docker push openoint/$image:latest
+    docker push $ORG/$image:$VERSION
+    docker push $ORG/$image:latest
 done
