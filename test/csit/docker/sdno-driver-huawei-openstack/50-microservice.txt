@@ -2,7 +2,7 @@
 
 # Set up microservice
 RUN wget -q -O sdno-driver-huawei-openstack-1.1.0-SNAPSHOT.zip "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdno/driver-huawei-openstack/osdriverservice-deployment/1.1.0-SNAPSHOT/osdriverservice-deployment-1.1.0-20161103.174809-14.zip" && unzip -q -o -B sdno-driver-huawei-openstack-1.1.0-SNAPSHOT.zip && rm -f sdno-driver-huawei-openstack-1.1.0-SNAPSHOT.zip
-EXPOSE 8503
+EXPOSE 8539
 RUN echo Open-O sdno-driver-huawei-openstack 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdno/driver-huawei-openstack/osdriverservice-deployment/1.1.0-SNAPSHOT/osdriverservice-deployment-1.1.0-20161103.174809-14.zip" > OPENO_VERSION
 
 

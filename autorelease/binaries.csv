@@ -11,7 +11,7 @@ Common TOSCA Inventory,common-tosca-inventory,org.openo.common-tosca.inventory,s
 Common TOSCA Model Designer,common-tosca-modeldesigner,org.openo.common-tosca.model-designer.modeldesigner.distribution,modeldesigner-standalone,tar.gz,linux.gtk.x86_64,8202,,,,
 SDNO Driver ZTE SPTN,sdno-driver-zte-sptn,org.openo.sdno.driver-zte-sptn,standalone,tar.gz,linux64,8640,TRUE,,,
 SDNO Driver Huawei L3VPN,sdno-driver-huawei-l3vpn,org.openo.sdno.driver-huawei-l3vpn,l3vpndriver-deployment,zip,,8533,,TRUE,,
-SDNO Driver Huawei Openstack,sdno-driver-huawei-openstack,org.openo.sdno.driver-huawei-openstack,osdriverservice-deployment,zip,,8503,,TRUE,,
+SDNO Driver Huawei Openstack,sdno-driver-huawei-openstack,org.openo.sdno.driver-huawei-openstack,osdriverservice-deployment,zip,,8539,,TRUE,,
 SDNO Driver Huawei Overlay,sdno-driver-huawei-overlay,org.openo.sdno.driver-huawei-overlay,overlayvpndriver-deployment,zip,,8536,,TRUE,,
 SDNO Driver Huawei Servicechain,sdno-driver-huawei-servicechain,org.openo.sdno.driver-huawei-servicechain,servicechaindriverservice-deployment,zip,,8542,,TRUE,,
 SDNO Services MSS,sdno-service-mss,org.openo.sdno.brs,mss-deployment,zip,,8530,TRUE,TRUE,,
