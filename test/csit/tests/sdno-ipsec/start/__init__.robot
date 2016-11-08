@@ -1,2 +1,2 @@
 *** Settings ***
-Documentation    SDNO IPSEC service
+Documentation SDNO IPSEC service

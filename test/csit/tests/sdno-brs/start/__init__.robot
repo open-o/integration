@@ -1,2 +1,2 @@
 *** Settings ***
-Documentation    SDNO BRS service
+Documentation SDNO BRS service

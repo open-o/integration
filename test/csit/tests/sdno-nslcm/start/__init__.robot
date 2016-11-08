@@ -1,0 +1,2 @@
+*** Settings ***
+Documentation NSLCM service
