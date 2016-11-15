@@ -4,10 +4,10 @@ set -e
 
 ROOT=`git rev-parse --show-toplevel`
 CSIT=$ROOT/test/csit
-cd $CSIT/plans
+cd $CSIT
 
 # break the name up using the first dash, since run-csit.sh just join them anyway
-for file in */*/testplan.txt; do
+for file in plans/*/*/testplan.txt; do
     testplan=`dirname $file`
 
     echo 
