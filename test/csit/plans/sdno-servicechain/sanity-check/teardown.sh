@@ -3,4 +3,4 @@
 kill-instance.sh i-brs
 kill-instance.sh i-mss
 kill-instance.sh i-msb
-kill-instance.sh i-servicechain
+kill-instance.sh s-servicechain

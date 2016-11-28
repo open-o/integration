@@ -10,11 +10,9 @@ for i in {1..10}; do
 done
 
 # Start BRS
-echo ${MSB_IP}
 ${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
 BRS_IP=`get-instance-ip.sh i-brs`
 
-echo ${MSB_IP}
 ${SCRIPTS}/sdno-l3vpn/startup.sh i-l3vpn ${MSB_IP}:80
 BRS_IP=`get-instance-ip.sh i-l3vpn`
 

@@ -3,4 +3,4 @@
 kill-instance.sh i-brs
 kill-instance.sh i-mss
 kill-instance.sh i-msb
-kill-instance.sh i-vpc
+kill-instance.sh s-vpc

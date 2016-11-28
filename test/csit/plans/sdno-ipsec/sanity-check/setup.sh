@@ -1,13 +1,12 @@
 # These scripts are sourced by run-csit.sh.
+source ${SCRIPTS}/common_functions.sh
 
 # Start MSB
 ${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
 MSB_IP=`get-instance-ip.sh i-msb`
-for i in {1..10}; do
-    curl -sS http://${MSB_IP}/openoui/microservices/index.html | grep "org_openo_msb_route_title" && break
-    echo "MSB wait" sleep $i
-    sleep $i
-done
+curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
+sleep_msg="Waiting_connection_for_url_for:i-msb"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
 # Start BRS
 echo ${MSB_IP}
@@ -15,8 +14,8 @@ ${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
 BRS_IP=`get-instance-ip.sh i-brs`
 
 echo ${MSB_IP}
-${SCRIPTS}/sdno-ipsec/startup.sh i-ipsec ${MSB_IP}:80
-BRS_IP=`get-instance-ip.sh i-ipsec`
+${SCRIPTS}/sdno-ipsec/startup.sh s-ipsec ${MSB_IP}:80
+BRS_IP=`get-instance-ip.sh s-ipsec`
 
 SERVICE_PORT='8515'
 SERVICE_NAME='sdnoipsec'
