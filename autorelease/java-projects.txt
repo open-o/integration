@@ -4,11 +4,12 @@ common-services-driver-mgr
 common-services-external-system-registration
 common-services-microservice-bus
 common-services-protocol-stack
+common-tosca-aria
 common-tosca-catalog
 common-tosca-inventory
 common-tosca-model-designer
-gso
 gso-gui
+gso
 integration
 nfvo
 oparent
