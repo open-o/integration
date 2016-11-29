@@ -18,7 +18,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.openo.sdno.testframework</artifactId>
     <packaging>jar</packaging>
-    <name>org.openo.sdno.testframework</name>
+    <name>integration/test/sdno-testframework/testframework</name>
     <parent>
         <groupId>org.openo.integration</groupId>
         <artifactId>org.openo.sdno.test</artifactId>

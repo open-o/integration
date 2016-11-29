@@ -401,4 +401,4 @@
     </plugins>
   </build>
 
-</project>
+<name>integration/autorelease/build</name></project>
