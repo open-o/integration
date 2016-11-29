@@ -26,7 +26,15 @@ fix_name() {
     relativePath="$projectPath"  # Calculated relative path to parent pom
 
     # Update any existing project names
-    xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 -u "//x:name" -v "$relativePath" "$pom" > "${pom}.new"
+    xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
+	       -u "//x:name" -v "$relativePath" \
+	       "$pom" > "${pom}.new"
+    mv "${pom}.new" "${pom}"
+
+    # Add missing ones
+    xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
+               -s "/x:project[count(x:name)=0]" -t elem -n name -v "$relativePath" \
+	       "$pom" > "${pom}.new" 
     mv "${pom}.new" "${pom}"
 }
 
