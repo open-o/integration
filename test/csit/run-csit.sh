@@ -18,7 +18,11 @@ then
     exit 1
 fi
 
-export WORKSPACE=`git rev-parse --show-toplevel`
+if [ -z "$WORKSPACE" ]; then
+    export WORKSPACE=`git rev-parse --show-toplevel`
+fi
+rm -rf $WORKSPACE/archives
+mkdir -p $WORKSPACE/archives
 
 if [ -f ${WORKSPACE}/test/csit/${1}/testplan.txt ]; then
     export TESTPLAN="${1}"
@@ -59,7 +63,7 @@ cd ${WORKDIR}
 
 
 set +u
-set -ex
+set -x
 
 
 # Add csit scripts to PATH
@@ -78,16 +82,18 @@ fi
 # Run test plan
 cd $WORKDIR
 echo "Reading the testplan:"
-cat ${TESTPLANDIR}/testplan.txt | egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' | sed "s|^|${WORKSPACE}/test/csit/tests/|" > testplan.txt.tmp
-cat testplan.txt.tmp
-SUITES=$( xargs -a testplan.txt.tmp )
+cat ${TESTPLANDIR}/testplan.txt | egrep -v '(^[[:space:]]*#|^[[:space:]]*$)' | sed "s|^|${WORKSPACE}/test/csit/tests/|" > testplan.txt
+cat testplan.txt
+SUITES=$( xargs -a testplan.txt )
 
 echo ROBOT_VARIABLES=${ROBOT_VARIABLES}
 echo "Starting Robot test suites ${SUITES} ..."
-
-cp ${WORKSPACE}/test/csit/tests/sdno-ipsec/provision/huawei_*.json ${WORKDIR}
-
-pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${ROBOT_VARIABLES} ${TESTOPTIONS} ${SUITES} || true
+set +e
+pybot -N ${TESTPLAN} -v WORKSPACE:/tmp ${ROBOT_VARIABLES} ${TESTOPTIONS} ${SUITES}
+RESULT=$?
+set -e
+echo "RESULT: " $RESULT
+rsync -av $WORKDIR/ $WORKSPACE/archives
 
 # Run teardown script plan if it exists
 cd ${TESTPLANDIR}
@@ -99,3 +105,4 @@ fi
 
 # TODO: do something with the output
 
+exit $RESULT
