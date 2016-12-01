@@ -1,46 +1,34 @@
 # These scripts are sourced by run-csit.sh.
+source ${SCRIPTS}/common_functions.sh
 
 # Start MSB
 ${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
 MSB_IP=`get-instance-ip.sh i-msb`
-for i in {1..10}; do
-    curl -sS http://${MSB_IP}/openoui/microservices/index.html | grep "org_openo_msb_route_title" && break
-    echo "MSB wait" sleep $i
-    sleep $i
-done
+curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
+sleep_msg="Waiting_connection_for_url_for:i-msb"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
 # Start BRS
+echo ${MSB_IP}
 ${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
 BRS_IP=`get-instance-ip.sh i-brs`
 
 #Start openoint/common-services-extsys
 run-instance.sh openoint/common-services-extsys i-common-services-extsys " -i -t -e MSB_ADDR=${MSB_IP}:80"
 extsys_ip=`get-instance-ip.sh i-common-services-extsys`
-for i in {1..25}; do
-    str=`curl -sS http://$extsys_ip:8100/openoapi/extsys/v1/vims | grep "\["` || str=''
-    if [ "$?" = "7" ]; then
-        echo 'Connection refused or cant connect to server/proxy';
-    fi
-    if [[ ! -z $str ]] ; then echo "common-services-extsys started"; break; fi
-    echo "common-services-extsys wait" sleep $i
-    sleep $i
-done
+curl_path='http://'$extsys_ip':8100/openoapi/extsys/v1/vims'
+sleep_msg="Waiting_connection_for_url_for: common-services-extsys"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
 
 #Start openoint/common-services-drivermanager
-run-instance.sh openoint/common-services-drivermanager i-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
-for i in {1..25}; do
-    str=`curl -sS http://${MSB_IP}:80/openoapi/drivermgr/v1/drivers | grep "\["` || str=''
-    if [ "$?" = "7" ]; then
-        echo 'Connection refused or cant connect to server/proxy';
-    fi
-    if [[ ! -z $str ]] ; then echo "Driver Manager started"; break; fi
-    echo "DRIVERMANAGER wait" sleep $i
-    sleep $i
-done
+run-instance.sh openoint/common-services-drivermanager d-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
+curl_path='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
+sleep_msg="DRIVER_MANAGER_load"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
 
 #Start openoint/sdno-driver-huawei-openstack
-${SCRIPTS}/sdno-driver-huawei-openstack/startup.sh i-driver-huawei-openstack ${MSB_IP}:80
-DRIVERMGR_IP=`get-instance-ip.sh i-drivermgr`
+${SCRIPTS}/sdno-driver-huawei-openstack/startup.sh d-driver-huawei-openstack ${MSB_IP}:80
+DRIVERMGR_IP=`get-instance-ip.sh d-drivermgr`
 
 DRIVER_PORT='8539'
 DRIVER_NAME='sdnoopenstackdriver-0-1'
