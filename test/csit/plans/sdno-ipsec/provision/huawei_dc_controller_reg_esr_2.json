@@ -1,0 +1,17 @@
+{ "managedElement":
+        {
+        "name": "Ne2",
+        "description": "TestNetworkElement",
+        "productName": "SNC",
+        "version": "V1R3",
+        "source": "os",
+        "logicID": "849494949",
+        "phyNeID": "8965969966906",
+        "nativeID": "networkwork2id",
+        "ipAddress": "192.168.237.168",
+        "adminState": "active",
+        "operState": "up",
+        "controllerID": ["0d7f3108-e4f5-4fd9-804c-4e2524648f44"],
+        "siteName": "Site1"
+    }
+}

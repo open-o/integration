@@ -1,0 +1,12 @@
+{
+    "name":"DCController12",
+    "vendor": "huawei",
+    "version": "V200R001C00",
+    "description": "eeee",
+    "type": "openstack",
+    "url": "http://192.168.99.1:12306",
+    "userName": "admin",
+    "password": "password",
+    "domain": "domain",
+    "tenant": "admin"
+}

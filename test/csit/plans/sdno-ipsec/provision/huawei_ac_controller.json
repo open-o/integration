@@ -1,0 +1,12 @@
+{
+    "name":"ACController12",
+    "vendor": "huawei",
+    "version": "V200R002C00",
+    "description": "eeee",
+    "type": "Agile Controller-BRANCH",
+    "url": "http://192.168.99.1:18008",
+    "userName": "admin",
+    "password": "password",
+    "domain": "domain",
+    "tenant": "admin"
+}
