@@ -22,7 +22,6 @@ import org.openo.baseservice.roa.util.restclient.RestfulOptions;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
 import org.openo.sdno.testframework.config.ServerConfiguration;
-import org.openo.sdno.testframework.config.UrlConfiguration;
 
 /**
  * Class of Http Rest Client.<br>
@@ -34,8 +33,6 @@ public class HttpRestClient {
 
     private ServerConfiguration serverConfig = new ServerConfiguration();
 
-    private UrlConfiguration urlConfig = new UrlConfiguration();
-
     /**
      * Call the post method of restful.<br>
      * 
@@ -45,8 +42,7 @@ public class HttpRestClient {
      * @since SDNO 0.5
      */
     public RestfulResponse post(String url, RestfulParametes restParams) throws ServiceException {
-        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).post(processUrlPrefix(url), restParams,
-                getRestfulOptions());
+        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).post(url, restParams, getRestfulOptions());
     }
 
     /**
@@ -58,8 +54,7 @@ public class HttpRestClient {
      * @since SDNO 0.5
      */
     public RestfulResponse delete(String url, RestfulParametes restParams) throws ServiceException {
-        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).delete(processUrlPrefix(url), restParams,
-                getRestfulOptions());
+        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).delete(url, restParams, getRestfulOptions());
     }
 
     /**
@@ -71,8 +66,7 @@ public class HttpRestClient {
      * @since SDNO 0.5
      */
     public RestfulResponse put(String url, RestfulParametes restParams) throws ServiceException {
-        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).put(processUrlPrefix(url), restParams,
-                getRestfulOptions());
+        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).put(url, restParams, getRestfulOptions());
     }
 
     /**
@@ -84,8 +78,7 @@ public class HttpRestClient {
      * @since SDNO 0.5
      */
     public RestfulResponse get(String url, RestfulParametes restParams) throws ServiceException {
-        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).get(processUrlPrefix(url), restParams,
-                getRestfulOptions());
+        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).get(url, restParams, getRestfulOptions());
     }
 
     /**
@@ -97,8 +90,7 @@ public class HttpRestClient {
      * @since SDNO 0.5
      */
     public RestfulResponse head(String url, RestfulParametes restParams) throws ServiceException {
-        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).head(urlConfig.processUrlPrefix(url),
-                restParams, getRestfulOptions());
+        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).head(url, restParams, getRestfulOptions());
     }
 
     /**
@@ -110,8 +102,7 @@ public class HttpRestClient {
      * @since SDNO 0.5
      */
     public RestfulResponse patch(String url, RestfulParametes restParams) throws ServiceException {
-        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).patch(urlConfig.processUrlPrefix(url),
-                restParams, getRestfulOptions());
+        return RestfulFactory.getRestInstance(RestfulFactory.PROTO_HTTP).patch(url, restParams, getRestfulOptions());
     }
 
     private RestfulOptions getRestfulOptions() throws ServiceException {
@@ -120,10 +111,6 @@ public class HttpRestClient {
         restfulOptions.setPort(serverConfig.getServerPort());
         restfulOptions.setRestTimeout(serverConfig.getRestTimeout());
         return restfulOptions;
-    }
-
-    private String processUrlPrefix(String url) {
-        return urlConfig.processUrlPrefix(url);
     }
 
 }
