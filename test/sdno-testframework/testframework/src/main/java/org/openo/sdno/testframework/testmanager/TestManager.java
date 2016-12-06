@@ -91,7 +91,7 @@ public class TestManager {
      * @return The restful response
      * @since SDNO 0.5
      */
-    public HttpResponse execTestCase(HttpRequest request, IChecker checker) {
+    public HttpResponse execTestCase(HttpRequest request, IChecker checker) throws ServiceException {
         return send(request, checker);
     }
 
@@ -103,7 +103,7 @@ public class TestManager {
      * @return The restful response
      * @since SDNO 0.5
      */
-    public HttpResponse execTestCase(HttpRequest request, HttpResponse response) {
+    public HttpResponse execTestCase(HttpRequest request, HttpResponse response) throws ServiceException {
         return send(request, response);
     }
 
@@ -115,29 +115,19 @@ public class TestManager {
      * @return The converted response
      * @since SDNO 0.5
      */
-    public HttpResponse send(HttpRequest request, IChecker checker) {
-        try {
-            RestfulResponse responseResult = doSend(request);
-            HttpResponse response = HttpModelUtils.convertResponse(responseResult);
-            assertEquals(checker.check(response), true);
-            return response;
-        } catch(ServiceException e) {
-            LOGGER.error("call the restful interface failed.", e);
-            return null;
-        }
+    public HttpResponse send(HttpRequest request, IChecker checker) throws ServiceException {
+        RestfulResponse responseResult = doSend(request);
+        HttpResponse response = HttpModelUtils.convertResponse(responseResult);
+        assertEquals(checker.check(response), true);
+        return response;
     }
 
-    private HttpResponse send(HttpRequest request, HttpResponse response) {
-        try {
-            RestfulResponse responseResult = doSend(request);
-            DefaultChecker checker = new DefaultChecker(response);
-            HttpResponse httpResponse = HttpModelUtils.convertResponse(responseResult);
-            assertEquals(checker.check(httpResponse), true);
-            return httpResponse;
-        } catch(ServiceException e) {
-            LOGGER.error("call the restful interface failed.", e);
-            return null;
-        }
+    private HttpResponse send(HttpRequest request, HttpResponse response) throws ServiceException {
+        RestfulResponse responseResult = doSend(request);
+        DefaultChecker checker = new DefaultChecker(response);
+        HttpResponse httpResponse = HttpModelUtils.convertResponse(responseResult);
+        assertEquals(checker.check(httpResponse), true);
+        return httpResponse;
     }
 
     private RestfulResponse doSend(HttpRequest request) throws ServiceException {
