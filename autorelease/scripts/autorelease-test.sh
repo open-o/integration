@@ -2,7 +2,7 @@
 
 # autorelease root dir
 ROOT=`git rev-parse --show-toplevel`/autorelease
-GERRIT_BRANCH='sun'
+GERRIT_BRANCH='master'
 
 BUILD_DIR=$ROOT/build
 
