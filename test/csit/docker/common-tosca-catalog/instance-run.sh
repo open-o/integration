@@ -2,4 +2,4 @@
 
 ./tomcat/bin/startup.sh
 
-./catalog/run.sh
+./catalog/bin/run.sh
