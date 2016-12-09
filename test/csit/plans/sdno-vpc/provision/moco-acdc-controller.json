@@ -1,0 +1,597 @@
+[{
+ "request" : {
+    "uri" : "/v3/auth/tokens",
+    "method" : "post"
+    },
+  "response" : {
+    "status" : "201",
+    "headers": {
+            "Content-Type": "application/json",
+            "X-Subject-Token": "junk"
+    },
+     "json": {
+  "token": {
+    "domain": {
+      "id": "default",
+      "name": "Default"
+    },
+    "methods": [
+      "password"
+    ],
+    "roles": [
+      {
+        "id": "26097baa93e6426b8b9cd544e73c5bc8",
+        "name": "Admin"
+      }
+    ],
+    "expires_at":"2016-10-22T14:11:44.608680Z",
+    "catalog": [
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8042",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "9f013b491b1b42ce993aae82ccfb2c97"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8042",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "d7a81b62d8ad4ce9a129238d7aa013ce"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8042",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "dbac8c3a9af84658b8ae3f1ec882fd30"
+          }
+        ],
+        "type": "alarming",
+        "id": "05a9f67466774d14bec5220a4075696a",
+        "name": "aodh"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://172.17.0.1:10002",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "46322ececac44bd89be9d56ad16d9244"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:35357",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "9b86f0f975bd446192f152e494368424"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://172.17.0.1:10002",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "a7e2c79484744b3e9639d6150d3a3694"
+          }
+        ],
+        "type": "identity",
+        "id": "08fe32ed84ac49ef937d1cd8c31d1f20",
+        "name": "keystone"
+      },
+      {
+        "endpoints": [
+
+        ],
+        "type": "volume",
+        "id": "1d1a1639e7804971912c7d078ea4a8f1",
+        "name": "cinder"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://172.17.0:10002/",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "6a2cbf89dafc4519a7f331dc2a9d00eb"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://172.17.0:10002/",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "82fca587786a414a810c777a0a6d08c2"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://172.17.0:10002/",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "c3e7f4c2963249968405d819ae6d29e2"
+          }
+        ],
+        "type": "network",
+        "id": "289212578a304542807922413d7a59d4",
+        "name": "neutron"
+      },
+      {
+        "endpoints": [
+
+        ],
+        "type": "volumev2",
+        "id": "596c0a46d6564012942e1144ea6c8d30",
+        "name": "cinderv2"
+      },
+      {
+        "endpoints": [
+
+        ],
+        "type": "volumev3",
+        "id": "9751007e6856432aa1ec39325455ea6d",
+        "name": "cinderv3"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:9890/",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "57c13fdde6634ed1bc12ad7c4ea24f40"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:9890/",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "876bb6b20df2452eab7b7986996c70db"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:9890/",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "e4972c3009d1433db4636bd57fadd249"
+          }
+        ],
+        "type": "nfv-orchestration",
+        "id": "9dd0893c6da54bb48e31e273b2ca0658",
+        "name": "tacker"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8000/v1",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "16f49243dbaf4c2198687d5c3ab8522c"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8000/v1",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "cabc983ce0714902a1b22e38055cb870"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8000/v1",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "fa67b85b9d224ecf9b1f86950de07e5a"
+          }
+        ],
+        "type": "cloudformation",
+        "id": "9e0786fc1c044609bfd320e6eaa2591b",
+        "name": "heat-cfn"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:9292",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "537f5316d5c946d090039d6dd0793497"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:9292",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "a020ac54993b4c5b864d9438567f1fa0"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:9292",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "b55441bfa2b141edb25224175e13712c"
+          }
+        ],
+        "type": "image",
+        "id": "c5cc0c6efd914148b72d936badffd6d9",
+        "name": "glance"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8774/v2.1",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "0e44e0f3040c49c9b110661b83b8d1a8"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8774/v2.1",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "723023c967df49be89a1cfdb9635e05e"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8774/v2.1",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "b90466d96bf34e008c1dd443abf8b56f"
+          }
+        ],
+        "type": "compute",
+        "id": "d11af2bd8202403687a85a60dce2ed0d",
+        "name": "nova"
+      },
+      {
+        "endpoints": [
+
+        ],
+        "type": "orchestration",
+        "id": "e82cb67ceb6e4537a6ef834d10b215c4",
+        "name": "heat"
+      },
+      {
+        "endpoints": [
+
+        ],
+        "type": "compute_legacy",
+        "id": "e9c3ca0519c3433d96f138ca0701c274",
+        "name": "nova_legacy"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8777",
+            "region": "regionOne",
+            "interface": "internal",
+            "id": "6b0c91154ce240ec9a06612c4386cf21"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8777",
+            "region": "regionOne",
+            "interface": "public",
+            "id": "9bce801f86814756af1af27f9de59e17"
+          },
+          {
+            "region_id": "regionOne",
+            "url": "http://localhost:8777",
+            "region": "regionOne",
+            "interface": "admin",
+            "id": "b2823b78882b46eba95f1991a619de01"
+          }
+        ],
+        "type": "metering",
+        "id": "f643e52623534702b512b36b857007fe",
+        "name": "ceilometer"
+      }
+    ],
+    "user": {
+      "domain": {
+        "id": "default",
+        "name": "Default"
+      },
+      "id": "e83ce65918ba4951b5404c30b99726ea",
+      "name": "admin"
+    },
+    "audit_ids": [
+      "v08aIIBxRXmCn8Dxit2l0A"
+    ],
+    "issued_at": "2016-08-08T07:42:28.546821Z"
+  }
+}
+  }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/ikepolicies",
+        "method": "post"
+    },
+    "response": {
+        "status": 200,
+        "json": { "ikepolicy": {
+            "id": "7b347d20-6fa3-4e22-b744-c49ee235a123",
+            "name": "aaa",
+            "description": "aaa",
+            "pfs": "group5",
+            "lifetime": {
+                "units": "seconds",
+                "value": 7200
+            },
+            "tenant_id": "tenantId1",
+            "auth_algorithm": "sha1",
+            "encryption_algorithm": "aes-128",
+            "phase1_negotiation_mode": "main",
+            "ike_version": "v1"
+        }
+    }
+    }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/ipsec-site-connections",
+        "method": "post"
+    },
+    "response": {
+        "status": 200,
+        "json": { "ipsec_site_connection": {
+            "id": "7b347d20-6fa3-4e22-b744-c49ee235a124",
+            "name": null,
+            "description": null,
+            "mtu": 1500,
+            "psk": "psk",
+            "initiator": "bi-directional",
+            "status": "PENDING_CREATE",
+            "dpd": {
+                "action": "hold",
+                "interval": 30,
+                "timeout": 120
+            },
+            "subnets": null,
+            "tenant_id": "tenantId1",
+            "peer_address": "2.2.2.2",
+            "peer_id": "2.2.2.2",
+            "peer_cidrs":[
+                    "10.2.0.0/24"
+                ],
+            "route_mode": "static",
+            "auth_mode": "psk",
+            "admin_state_up": true,
+            "ikepolicy_id": null,
+            "ipsecpolicy_id": null,
+            "vpnservice_id": null
+        }
+    }
+    }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/ipsecpolicies",
+        "method": "post"
+    },
+    "response": {
+        "status": 200,
+        "json": {"ipsecpolicy": {
+            "id": "22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+            "name": "aaa",
+            "description": "aaa",
+            "pfs": "Group5",
+            "lifetime": {
+                "units": "seconds",
+                "value": 7200
+            },
+            "tenant_id": "tenantId1",
+            "transform_protocol": "ESP",
+            "Encapsulation_mode": "tunnel",
+            "auth_algorithm": "sha1",
+            "encryption_algorithm": "aes-128"
+        }
+    }
+    }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/vpnservices",
+        "method": "post"
+    },
+    "response": {
+        "status": 200,
+        "json": { "vpnservice": {
+            "id": "7b347d20-6fa3-4e22-b744-c49ee235ae4f",
+            "name": null,
+            "description": null,
+            "status": "PENDING_CREATE",
+            "tenant_id": "tenantId1",
+            "subnet_id": "subnetId1",
+            "router_id": "routeId1",
+            "admin_state_up": true
+        }
+    }
+    }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/ikepolicies/7b347d20-6fa3-4e22-b744-c49ee235a123",
+        "method": "delete"
+    },
+    "response": {
+        "status": 200,
+        "json": null
+    }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/ipsec-site-connections/7b347d20-6fa3-4e22-b744-c49ee235a124",
+        "method": "delete"
+    },
+    "response": {
+        "status": 200,
+        "json": null
+    }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/ipsecpolicies/22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+        "method": "delete"
+    },
+    "response": {
+        "status": 200,
+        "json": null
+    }
+},
+{
+    "request": {
+        "uri": "/v2.0/vpn/vpnservices/7b347d20-6fa3-4e22-b744-c49ee235ae4f",
+        "method": "delete"
+    },
+    "response": {
+        "status": 200,
+        "json": null
+    }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/networks",
+    "method" : "post"
+  },
+  "response" : {
+    "status" : "201",
+    "json" : {"network": {"status": "ACTIVE", "router:external": false, "availability_zone_hints": [], "availability_zones": [], "description": "", "provider:physical_network": null, "subnets": [], "shared": false, "name": "sdno_6fc00cf5-ff29-4f45-a8a6-f03d73674412", "created_at": "2016-08-08T07:42:20", "tags": [], "updated_at": "2016-08-08T07:42:20", "provider:network_type": "vxlan", "ipv6_address_scope": null, "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "admin_state_up": true, "ipv4_address_scope": null, "port_security_enabled": true, "mtu": 1450, "id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "provider:segmentation_id": 1019}}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/networks/da6f6681-3beb-4249-86bd-3a95690cc28f",
+    "method" : "delete"
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/networks",
+    "method" : "get"
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"networks": [{"provider:physical_network": null, "ipv6_address_scope": null, "port_security_enabled": true, "mtu": 1450, "id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "router:external": true, "availability_zone_hints": [], "availability_zones": ["nova"], "ipv4_address_scope": null, "shared": false, "status": "ACTIVE", "subnets": ["638c266e-3f08-4d81-9ae9-20da25878739"], "description": "", "tags": [], "updated_at": "2016-08-01T08:17:00", "is_default": true, "provider:segmentation_id": 1038, "name": "public", "admin_state_up": true, "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "created_at": "2016-08-01T08:17:00", "provider:network_type": "vxlan"}]}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v3/projects",
+    "method" : "post"
+  },
+  "response" : {
+    "status" : "201",
+    "json" : {"project": {"is_domain": false, "description": "", "links": {"self": "http://localhost:5000/v3/projects/00e55b6d14cd49709b71ffa83e5ee37f"}, "enabled": true, "id": "00e55b6d14cd49709b71ffa83e5ee37f", "parent_id": "default", "domain_id": "default", "name": "project4"}}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v3/projects/00e55b6d14cd49709b71ffa83e5ee37f",
+    "method" : "delete"
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+},
+{
+  "request" : {
+    "uri" : "/v3/auth/projects",
+    "method" : "get"
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"links": {"self": "http://localhost:5000/v3/projects?name=project4", "previous": null, "next": null}, "projects": []}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/routers",
+    "method" : "post"
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"router": {"status": "ACTIVE", "external_gateway_info": {"network_id": "9930665a-374b-4669-a2d0-20f7e040a1d3", "enable_snat": false, "external_fixed_ips": [{"subnet_id": "638c266e-3f08-4d81-9ae9-20da25878739", "ip_address": "172.24.4.3"}]}, "availability_zone_hints": [], "availability_zones": ["nova"], "description": "", "admin_state_up": true, "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "distributed": false, "routes": [], "ha": false, "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674490", "name": "sdno_9b00d6b0-6c93-4ca5-9747-b8ade7bb514fs"}}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/routers/6fc00cf5-ff29-4f45-a8a6-f03d73674490",
+    "method" : "delete"
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/routers",
+    "method" : "get"
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"routers": []}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/routers/6fc00cf5-ff29-4f45-a8a6-f03d73674490/add_router_interface",
+    "method" : "put"
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"network_id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "subnet_id": "4bb48d3c-f53f-46b5-a3da-c7c70d4cd726", "subnet_ids": ["4bb48d3c-f53f-46b5-a3da-c7c70d4cd726"], "port_id": "3cd7cea4-5b4f-4aa1-9ee0-322c2d43d780", "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674490"}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/subnets",
+    "method" : "post"
+  },
+  "response" : {
+    "status" : "201",
+    "json" : {"subnet": {"description": "", "enable_dhcp": true, "network_id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "created_at": "2016-08-08T07:42:20", "dns_nameservers": [], "updated_at": "2016-08-08T07:42:20", "gateway_ip": "10.11.0.1", "ipv6_ra_mode": null, "allocation_pools": [{"start": "10.11.0.2", "end": "10.11.0.254"}], "host_routes": [], "ip_version": 4, "ipv6_address_mode": null, "cidr": "10.11.0.0/24", "id": "4bb48d3c-f53f-46b5-a3da-c7c70d4cd726", "subnetpool_id": null, "name": "sdno_6fc00cf5-ff29-4f45-a8a6-f03d73674412"}}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/subnets/4bb48d3c-f53f-46b5-a3da-c7c70d4cd726",
+    "method" : "delete"
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/routers/6fc00cf5-ff29-4f45-a8a6-f03d73674490/remove_router_interface",
+    "method" : "put"
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"network_id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "subnet_id": "4bb48d3c-f53f-46b5-a3da-c7c70d4cd726", "subnet_ids": ["4bb48d3c-f53f-46b5-a3da-c7c70d4cd726"], "port_id": "3cd7cea4-5b4f-4aa1-9ee0-322c2d43d780", "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674490"}
+  }
+},
+{
+  "request" : {
+    "uri" : "/v2.0/subnets",
+    "method" : "get"
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"subnets": []}
+  }
+}
+]

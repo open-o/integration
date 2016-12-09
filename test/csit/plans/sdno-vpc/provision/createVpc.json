@@ -1,0 +1,11 @@
+{
+    "name": "default/project4",
+    "description": "test vpc",
+    "statusReason": null,
+    "externalIp": "1.1.1.1",
+    "osControllerId": "15dde442-9ea5-4128-80be-f3d38ddad1f4",
+    "createdAt": null,
+    "updatedAt": null,
+    "attributes": null,
+    "id": "9b00d6b0-6c93-4ca5-9747-b8ade7bb514h"
+}

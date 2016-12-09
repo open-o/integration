@@ -1,0 +1,13 @@
+{
+    "name": "default/project4",
+    "description": "subnet test",
+    "statusReason": null,
+    "adminStatus": "none",
+    "cidr": "10.10.0.0/24",
+    "vni": 25,
+    "vpcId": "9b00d6b0-6c93-4ca5-9747-b8ade7bb514h",
+    "gatewayIp": "2.2.2.2",
+    "createdAt": null,
+    "updatedAt": null,
+    "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674412"
+}

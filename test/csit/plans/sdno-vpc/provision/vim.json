@@ -1,0 +1,12 @@
+{
+    "name":"Sdno_Vim",
+    "vendor": "OpenO",
+    "version": "V200R001C00",
+    "description": "OpenStack moco server",
+    "type": "openstack",
+    "url": "http://172.17.0.1:10002/v3",
+    "userName": "admin",
+    "password": "password",
+    "domain": "domain",
+    "tenant": "admin"
+}
