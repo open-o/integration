@@ -28,7 +28,6 @@ import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

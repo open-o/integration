@@ -29,10 +29,10 @@ import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.openo.sdno.exception.HttpCode;
-import org.openo.sdno.framework.container.util.JsonUtil;
+import org.openo.sdno.testframework.http.model.HttpConstants;
 import org.openo.sdno.testframework.topology.ResourceType;
 import org.openo.sdno.testframework.util.file.FileUtils;
+import org.openo.sdno.testframework.util.file.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -84,7 +84,7 @@ public class NetworkElementDataHandler extends TopoDataHandler {
             restParams.setRawData(JsonUtil.toJson(bodyMap));
 
             RestfulResponse response = restClient.post(NE_URI, restParams);
-            if(!HttpCode.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
+            if(!HttpConstants.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
                 LOGGER.error("Add NetworkElement Resource occurs Error!!");
                 throw new ServiceException("Add NetworkElement Resource occurs Error");
             }
@@ -113,7 +113,7 @@ public class NetworkElementDataHandler extends TopoDataHandler {
             RestfulParametes restParams = new RestfulParametes();
             restParams.putHttpContextHeader("Content-Type", MediaType.APPLICATION_JSON);
             RestfulResponse response = restClient.delete(NE_URI + "/" + objectId, restParams);
-            if(!HttpCode.isSucess(response.getStatus())) {
+            if(!HttpConstants.isSucess(response.getStatus())) {
                 LOGGER.error("delete NetworkElement " + objectId + " failed!!");
             }
         }

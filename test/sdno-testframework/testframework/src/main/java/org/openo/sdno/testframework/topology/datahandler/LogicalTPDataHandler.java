@@ -28,10 +28,10 @@ import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.openo.sdno.exception.HttpCode;
-import org.openo.sdno.framework.container.util.JsonUtil;
+import org.openo.sdno.testframework.http.model.HttpConstants;
 import org.openo.sdno.testframework.topology.ResourceType;
 import org.openo.sdno.testframework.util.file.FileUtils;
+import org.openo.sdno.testframework.util.file.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -86,7 +86,7 @@ public class LogicalTPDataHandler extends TopoDataHandler {
             restParams.setRawData(JsonUtil.toJson(bodyMap));
 
             RestfulResponse response = restClient.post(LTP_URI, restParams);
-            if(!HttpCode.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
+            if(!HttpConstants.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
                 LOGGER.error("Add Ltp Resource occurs Error!!");
                 throw new ServiceException("Add Ltp Resource occurs Error");
             }
@@ -116,7 +116,7 @@ public class LogicalTPDataHandler extends TopoDataHandler {
             RestfulParametes restParams = new RestfulParametes();
             restParams.putHttpContextHeader("Content-Type", MediaType.APPLICATION_JSON);
             RestfulResponse response = restClient.delete(LTP_URI + "/" + objectId, restParams);
-            if(!HttpCode.isSucess(response.getStatus())) {
+            if(!HttpConstants.isSucess(response.getStatus())) {
                 LOGGER.error("delete ltp " + objectId + " failed!!");
             }
         }

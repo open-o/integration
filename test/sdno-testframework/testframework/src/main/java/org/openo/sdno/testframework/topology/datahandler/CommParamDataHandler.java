@@ -29,11 +29,11 @@ import org.codehaus.jackson.type.TypeReference;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.baseservice.roa.util.restclient.RestfulParametes;
 import org.openo.baseservice.roa.util.restclient.RestfulResponse;
-import org.openo.sdno.exception.HttpCode;
-import org.openo.sdno.framework.container.util.JsonUtil;
-import org.openo.sdno.ssl.EncryptionUtil;
+import org.openo.sdno.testframework.http.model.HttpConstants;
 import org.openo.sdno.testframework.topology.ResourceType;
+import org.openo.sdno.testframework.util.EncryptionUtil;
 import org.openo.sdno.testframework.util.file.FileUtils;
+import org.openo.sdno.testframework.util.file.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -100,7 +100,7 @@ public class CommParamDataHandler extends TopoDataHandler {
             restParams.setRawData(body);
 
             RestfulResponse response = restClient.post(createUrl, restParams);
-            if(!HttpCode.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
+            if(!HttpConstants.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
                 LOGGER.error("Add CommParam Resource occurs Error!!");
                 throw new ServiceException("Add CommParam Resource occurs Error");
             }
@@ -123,7 +123,7 @@ public class CommParamDataHandler extends TopoDataHandler {
             RestfulParametes restParams = new RestfulParametes();
             restParams.putHttpContextHeader("Content-Type", MediaType.APPLICATION_JSON);
             RestfulResponse response = restClient.delete(deleteUrl, restParams);
-            if(!HttpCode.isSucess(response.getStatus())) {
+            if(!HttpConstants.isSucess(response.getStatus())) {
                 LOGGER.error("delete CommParam " + objectId + " failed!!");
             }
         }
