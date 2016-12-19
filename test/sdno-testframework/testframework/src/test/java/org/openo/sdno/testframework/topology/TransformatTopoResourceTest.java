@@ -28,7 +28,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.framework.container.util.JsonUtil;
+import org.openo.sdno.testframework.util.file.JsonUtil;
 
 public class TransformatTopoResourceTest {
 
