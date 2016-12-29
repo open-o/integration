@@ -6,9 +6,9 @@ MSB_IP=`get-instance-ip.sh i-msb`
 echo MSB_IP=${MSB_IP}
 sleep 5
 
-# Wait for initialization
+# Wait for initialization(8086 Service Registration & Discovery, 80 api gateway)
 for i in {1..10}; do
-    curl -sS -m 1 ${MSB_IP}:80 && break
+    curl -sS -m 1 ${MSB_IP}:8086 && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
 done
