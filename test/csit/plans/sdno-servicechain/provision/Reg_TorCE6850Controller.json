@@ -1,0 +1,11 @@
+{
+    "name": "TOR-6850",
+    "url": "http://CONTROLLER_IPPORT/v2.0",
+    "userName": "admin",
+    "password": "1111111111111",
+    "version": "CE6850",
+    "description": "TOR CE6850 Controller",
+    "protocol": "http",
+    "domain": "default",
+    "type": "TOR"
+}

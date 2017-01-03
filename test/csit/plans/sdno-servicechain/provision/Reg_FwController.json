@@ -1,0 +1,11 @@
+{
+    "name": "Firewall",
+    "url": "http://172.17.0.2:10001/v2.0",
+    "userName": "admin",
+    "password": "1111111111111",
+    "version": "USG6390",
+    "description": "Firewall Controller",
+    "protocol": "http",
+    "domain": "default",
+    "type": "FW"
+}
