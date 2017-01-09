@@ -1,7 +1,24 @@
+# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 # These scripts are sourced by run-csit.sh.
 #!/bin/bash
 
 source ${SCRIPTS}/common_functions.sh
+
+#Added simplejson package required for robot tests
+pip install simplejson
 
 # Start MSB
 ${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
@@ -16,8 +33,9 @@ BRS_IP=`get-instance-ip.sh i-brs`
 
 #Start openoint/common-services-drivermanager
 run-instance.sh openoint/common-services-drivermanager d-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
-curl_c='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
-sleep_msg="DRIVER_MANAGER_load"
+curl_path='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
+sleep_msg="Waiting_connection_for_url_for_DRIVER_MANAGER_load"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
 
 #Start openoint/common-services-extsys
 run-instance.sh openoint/common-services-extsys i-common-services-extsys " -i -t -e MSB_ADDR=${MSB_IP}:80"
