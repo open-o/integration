@@ -86,7 +86,7 @@ public class JsonSchemaValidator implements IChecker {
 
         String rsp = new Gson().toJson(expectedResponse.getJson());
 
-        return validate(rsp, response.getData());
+        return validate(response.getData(), rsp);
     }
 
     public boolean validate(String jsonData, String jsonSchema) {
