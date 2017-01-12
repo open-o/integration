@@ -41,7 +41,7 @@ Test: Register Huawei AC controller
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${sdnocontrollers_link}    ${json_string}
+    ${resp}=    Post Request    web_session     uri=${sdnocontrollers_link}    data=${json_string}
     ${response_json}    json.loads    ${resp.content}
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
@@ -57,7 +57,7 @@ Test: Register Huawei DC controller
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${vims_link}    ${json_string}
+    ${resp}=    Post Request    web_session     uri=${vims_link}    data=${json_string}
     ${response_json}    json.loads    ${resp.content}
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
@@ -76,7 +76,7 @@ Test: add elements to BRS
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${elements_link}    ${json_string}
+    ${resp}=    Post Request    web_session     uri=${elements_link}    data=${json_string}
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
     ${response_json}    json.loads    ${resp.content}
@@ -91,7 +91,7 @@ Test: add elements to BRS
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${elements_link}    ${json_string}
+    ${resp}=    Post Request    web_session     uri=${elements_link}    data=${json_string}
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
     ${response_json}    json.loads    ${resp.content}
