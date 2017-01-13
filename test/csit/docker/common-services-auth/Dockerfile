@@ -45,9 +45,10 @@ RUN echo Open-O common-services-auth 1.1.0-SNAPSHOT "https://nexus.open-o.org/se
 # 51-permissions.txt
 RUN chmod +x bin/*.sh
 # 52-keystone.txt
+RUN yum -y update
+RUN yum -y install httpd
 RUN yum -y install https://repos.fedorapeople.org/repos/openstack/openstack-liberty/rdo-release-liberty-5.noarch.rpm
-RUN yum -y install openstack-keystone python-keystoneclient
-
+RUN yum -y install openstack-keystone mod_wsgi memcached python-memcached python-openstackclient
 # 90-entrypoint.txt
 
 RUN yum clean all
