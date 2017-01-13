@@ -19,8 +19,6 @@ import org.robotframework.javalib.annotation.RobotKeywords;
 
 import com.openo.robot.test.robottest.util.ValidationUtil;
 
-import net.sf.json.JSONObject;
-
 /**
  * Keywords to for REST test framework.<br/>
  * <p>
@@ -59,8 +57,7 @@ public class TestLibKeywords extends TestManager {
             httpRequest.setUri(PathReplace.replaceUuid(key, httpRequest.getUri(), mapValues.get(key)));
         }
 
-        HttpResponse createResponse = execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
-        JSONObject json = JSONObject.fromObject(createResponse.getData());
+        execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
 
         return;
 
