@@ -14,8 +14,13 @@
 
 #!/bin/bash -v
 
+# Initialize DB schema
+mysql -uroot -prootpass < init/keystone_tables_mysql.sql
+
 # Configure keystone
-ADMIN_TOKEN=$(openssl rand -hex 10)
+openssl rand -hex 10 > admin_token.txt
+
+ADMIN_TOKEN=`cat admin_token.txt`
 KEYSTONE_PORT=5000
 
 sed -i "s|IP=.*|IP=127.0.0.1|" webapps/ROOT/WEB-INF/classes/auth_service.properties
