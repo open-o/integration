@@ -45,6 +45,7 @@ initialize_schema()
 	CHECK=$?
 	if [ $CHECK -ne 0 ]; then
 	export OS_URL=http://127.0.0.1:35357/v3
+	openstack service create  --name keystone --description "OpenStack Identity" identity
 	fi
 	openstack endpoint create --region RegionOne   identity public http://controller:5000/v2.0
 	openstack endpoint create --region RegionOne   identity internal http://controller:5000/v2.0
