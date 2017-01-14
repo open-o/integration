@@ -31,6 +31,10 @@ install_jq()
 	# Install jq package which is required to parse json file
 	export DEBIAN_FRONTEND=noninteractive >/dev/null 2>&1
 	apt-get -y install jq >/dev/null 2>&1
+	INSTALL_STATUS=$?
+	if [ $INSTALL_STATUS -ne 0 ]; then
+	yum -y install jq
+	fi
 }
 
 
@@ -38,6 +42,10 @@ initialize_schema()
 {
 	# Create the service entity and API endpoint
 	openstack service create  --name keystone --description "OpenStack Identity" identity
+	CHECK=$?
+	if [ $CHECK -ne 0 ]; then
+	export OS_URL=http://127.0.0.1:35357/v3
+	fi
 	openstack endpoint create --region RegionOne   identity public http://controller:5000/v2.0
 	openstack endpoint create --region RegionOne   identity internal http://controller:5000/v2.0
 	openstack endpoint create --region RegionOne   identity admin http://controller:35357/v2.0
