@@ -36,6 +36,8 @@ EXPOSE 8610
 RUN echo Open-O sdno-monitoring 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdno/monitoring/ct_monitoring/1.1.0-SNAPSHOT/ct_monitoring-1.1.0-20161201.012330-2.zip" > OPENO_VERSION
 
 
+# Set up virtual env
+RUN virtualenv env && source env/bin/activate && pip install -r requirements.txt
 # Set up mongodb
 RUN yum install mongodb -y
 # 90-entrypoint.txt

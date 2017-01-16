@@ -1,4 +1,4 @@
 # Run microservice
-pip install -r requirements.txt
+source env/bin/activate
 ./run.sh
 tail -F nohup.out

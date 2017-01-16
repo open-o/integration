@@ -36,6 +36,8 @@ EXPOSE 8620
 RUN echo Open-O sdno-optimize 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdno/optimize/ct_optimizer/1.1.0-SNAPSHOT/ct_optimizer-1.1.0-20161201.012659-2.zip" > OPENO_VERSION
 
 
+# Set up virtual env
+RUN virtualenv env && source env/bin/activate && pip install -r requirements.txt
 # 90-entrypoint.txt
 
 RUN yum clean all
