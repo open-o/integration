@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 package org.openo.sdno.testframework.topology.datahandler;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,9 +44,9 @@ public class ControllerDataHandler extends TopoDataHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ControllerDataHandler.class);
 
-    private static final String CONTROLLER_URL = "/openoapi/sdnobrs/v1/controller";
+    private static final String CONTROLLER_URL = "/openoapi/extsys/v1/sdncontrollers";
 
-    private static final String CONTROLLER_KEY = "controller";
+    private static final String CONTROLLERID_KEY = "sdnControllerId";
 
     @Override
     public void addResource(File file) throws ServiceException {
@@ -59,16 +58,13 @@ public class ControllerDataHandler extends TopoDataHandler {
         for(Map<String, String> curResource : controllerResourceMapList) {
             String resourceName = curResource.get(NAME_KEY);
             if(StringUtils.isEmpty(resourceName)) {
-                LOGGER.error("Add Controller Resource occurs Error!!");
+                LOGGER.error("Add Controller Resource occurs Error");
                 throw new ServiceException("Add Controller Resource occurs Error");
             }
 
-            Map<String, Object> bodyMap = new HashMap<String, Object>();
-            bodyMap.put(CONTROLLER_KEY, curResource);
-
             RestfulParametes restParams = new RestfulParametes();
             restParams.putHttpContextHeader("Content-Type", MediaType.APPLICATION_JSON);
-            restParams.setRawData(JsonUtil.toJson(bodyMap));
+            restParams.setRawData(JsonUtil.toJson(curResource));
 
             RestfulResponse response = restClient.post(CONTROLLER_URL, restParams);
             if(!HttpConstants.isSucess(response.getStatus()) || StringUtils.isEmpty(response.getResponseContent())) {
@@ -76,7 +72,10 @@ public class ControllerDataHandler extends TopoDataHandler {
                 throw new ServiceException("Add Controller Resource occurs Error");
             }
 
-            String objectID = response.getResponseContent();
+            Map<String, String> resultObjectMap =
+                    JsonUtil.fromJson(response.getResponseContent(), new TypeReference<Map<String, String>>() {});
+
+            String objectID = resultObjectMap.get(CONTROLLERID_KEY);
             if(null == objectID) {
                 LOGGER.error("Add Controller Resource do not GetID!!");
                 throw new ServiceException("Add Controller Resource do not GetID!!");
