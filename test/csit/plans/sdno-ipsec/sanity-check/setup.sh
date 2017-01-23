@@ -1,5 +1,5 @@
-# These scripts are sourced by run-csit.sh.
-
+#!/bin/bash
+#
 # Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,6 +13,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+# These scripts are sourced by run-csit.sh.
 
 source ${SCRIPTS}/common_functions.sh
 
@@ -30,10 +32,10 @@ BRS_IP=`get-instance-ip.sh i-brs`
 
 echo ${MSB_IP}
 ${SCRIPTS}/sdno-ipsec/startup.sh s-ipsec ${MSB_IP}:80
-BRS_IP=`get-instance-ip.sh s-ipsec`
+SERVICE_IP=`get-instance-ip.sh s-ipsec`
 
 SERVICE_PORT='8515'
 SERVICE_NAME='sdnoipsec'
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v BRS_IP:${BRS_IP} -v SERVICE_PORT:${SERVICE_PORT} -v SERVICE_NAME:${SERVICE_NAME}"
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT} -v SERVICE_NAME:${SERVICE_NAME}"

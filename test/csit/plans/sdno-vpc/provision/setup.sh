@@ -46,7 +46,7 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 
 #Start VPC
 ${SCRIPTS}/sdno-vpc/startup.sh s-vpc ${MSB_IP}:80
-BRS_IP=`get-instance-ip.sh s-vpc`
+SERVICE_IP=`get-instance-ip.sh s-vpc`
 
 # Start Huawei Openstack
 run-instance.sh openoint/sdno-driver-huawei-openstack d-driver-huawei-openstack " -i -t -e MSB_ADDR=${MSB_IP}:80"

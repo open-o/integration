@@ -4,8 +4,8 @@ Library  requests
 *** test cases ***
 
 testServicePort
-    BuiltIn.Log    http://${BRS_IP}:${SERVICE_PORT}/openoapi/${SERVICE_NAME}/v1/swagger.json
-    ${result} =  get  http://${BRS_IP}:${SERVICE_PORT}/openoapi/${SERVICE_NAME}/v1/swagger.json
+    BuiltIn.Log    http://${SERVICE_IP}:${SERVICE_PORT}/openoapi/${SERVICE_NAME}/v1/swagger.json
+    ${result} =  get  http://${SERVICE_IP}:${SERVICE_PORT}/openoapi/${SERVICE_NAME}/v1/swagger.json
     Should Be Equal  ${result.status_code}  ${200}
     ${json2} =  Set Variable  ${result.json()}
     BuiltIn.Log    ${json2}

@@ -1,6 +1,5 @@
-# These scripts are sourced by run-csit.sh.
 #!/bin/bash
-
+#
 # Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +13,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+# These scripts are sourced by run-csit.sh.
+
 
 source ${SCRIPTS}/common_functions.sh
 
@@ -66,4 +68,4 @@ cd ${WORKSPACE}/test/csit/${TESTPLAN}/
 java -jar moco-runner-0.11.0-standalone.jar http -p 18008 -c moco-overlayvpn-access-controller.json &
 sleep 3     #static wait values are required for moco runner to be able to load everything
 
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v BRS_IP:${BRS_IP} -v SERVICE_PORT:${SERVICE_PORT} -v SERVICE_NAME:${SERVICE_NAME}"
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v BRS_IP:${BRS_IP}"

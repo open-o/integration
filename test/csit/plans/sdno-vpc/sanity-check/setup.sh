@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 # These scripts are sourced by run-csit.sh.
+
 source ${SCRIPTS}/common_functions.sh
 
 # Start MSB
@@ -29,10 +30,10 @@ ${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
 BRS_IP=`get-instance-ip.sh i-brs`
 
 ${SCRIPTS}/sdno-vpc/startup.sh s-vpc ${MSB_IP}:80
-BRS_IP=`get-instance-ip.sh s-vpc`
+SERVICE_IP=`get-instance-ip.sh s-vpc`
 
 SERVICE_PORT='8518'
 SERVICE_NAME='sdnovpc'
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v BRS_IP:${BRS_IP} -v SERVICE_PORT:${SERVICE_PORT} -v SERVICE_NAME:${SERVICE_NAME}"
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT} -v SERVICE_NAME:${SERVICE_NAME}"
