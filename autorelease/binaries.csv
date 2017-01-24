@@ -17,6 +17,7 @@ SDNO Driver Huawei Servicechain,sdno-driver-huawei-servicechain,org.openo.sdno.d
 SDNO Services MSS,sdno-service-mss,org.openo.sdno.brs,mss-deployment,zip,,8530,TRUE,TRUE,,
 SDNO Services BRS,sdno-service-brs,org.openo.sdno.brs,brs-deployment,zip,,8527,,TRUE,,
 SDNO Services IpSec,sdno-service-ipsec,org.openo.sdno.ipsec,ipsecservice-deployment,zip,,8515,,TRUE,,
+SDNO Services Route,sdno-service-route,org.openo.sdno.routeservice,routeservice-deployment,zip,,8551,,TRUE,,
 SDNO Services L2VPN,sdno-service-l2vpn,org.openo.sdno.l2vpn,l2vpnservice-deployment,zip,,8509,,TRUE,,
 SDNO Services L3VPN,sdno-service-l3vpn,org.openo.sdno.l3vpn,l3vpnservice-deployment,zip,,8506,,TRUE,,
 SDNO Services Nslcm,sdno-service-nslcm,org.openo.sdno.nslcm,nslcm-deployment,zip,,8545,,TRUE,,
