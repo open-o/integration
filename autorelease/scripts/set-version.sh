@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-VERSION="1.0.0-RC0"
+VERSION="2.0.0-RC0"
 
 # autorelease root dir
 ROOT=`git rev-parse --show-toplevel`/autorelease
@@ -30,4 +30,4 @@ if [ -z "$MVN" ]; then
 fi
 
 # Jenkins sets a $MVN parameter via JJB that points to the appropriately installed maven
-$MVN -f oparent/version/pom.xml versions:set versions:update-child-modules -DnewVersion=${VERSION}
+$MVN -q -f oparent/version/pom.xml versions:set versions:update-child-modules -DnewVersion=${VERSION}
