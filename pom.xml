@@ -37,14 +37,21 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
+	<artifactId>maven-install-plugin</artifactId>
+	<executions>
+	  <execution>
+	    <id>default-install</id>
+	    <phase>none</phase>
+	  </execution>
+	</executions>
+      </plugin>
+      <plugin>
+	<artifactId>maven-deploy-plugin</artifactId>
+	<configuration>
+	  <skip>true</skip>
+	</configuration>
       </plugin>
     </plugins>
   </build>
-<name>integration</name></project>
+  <name>integration</name>
+</project>
