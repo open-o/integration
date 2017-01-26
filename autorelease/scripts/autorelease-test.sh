@@ -19,13 +19,12 @@
 ROOT=`git rev-parse --show-toplevel`/autorelease
 GERRIT_BRANCH='master'
 
+cd $ROOT
+rm -rf build
+git checkout build
+
 BUILD_DIR=$ROOT/build
-
-mkdir -p $BUILD_DIR
 cd $BUILD_DIR
-
-TMPDIR=`mktemp -d`
-$ROOT/scripts/generate-pom.sh
 
 $ROOT/scripts/get-all-repos.sh | while read p; do
     cd $BUILD_DIR
@@ -41,7 +40,10 @@ $ROOT/scripts/get-all-repos.sh | while read p; do
 done
 
 cd $BUILD_DIR
+$ROOT/scripts/generate-pom.sh
 $ROOT/scripts/fix-relativepaths.sh
 $ROOT/scripts/set-version.sh
+
+TMPDIR=`mktemp -d`
 mvn clean deploy -q -DaltDeploymentRepository=staging::default::file:$TMPDIR -DskipTests=true -Dcheckstyle.skip=true
 echo "TMPDIR=$TMPDIR"
