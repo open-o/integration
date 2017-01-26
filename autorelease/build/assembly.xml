@@ -196,6 +196,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>sdno-service-route</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.routeservice:routeservice-deployment:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-route-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>sdno-service-l2vpn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
@@ -229,6 +238,15 @@
         <include>org.openo.sdno.overlay:overlayvpnservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-overlayvpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdno-service-site</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.localsiteservice:localsiteservice-deployment:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-site-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>

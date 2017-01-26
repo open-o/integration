@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+# Copyright 2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,15 +17,5 @@
 
 # autorelease root dir
 ROOT=`git rev-parse --show-toplevel`/autorelease
-GERRIT_BRANCH='master'
 
-BUILD_DIR=$ROOT/build
-
-mkdir -p $BUILD_DIR
-cd $BUILD_DIR
-
-$ROOT/scripts/get-all-repos.sh | while read p; do
-    rm -rf $BUILD_DIR/$p
-    #TODO: replace with https once repo is open to public
-    git clone -b $GERRIT_BRANCH ssh://gerrit.open-o.org:29418/$p
-done
+ssh -p 29418 gerrit.open-o.org gerrit ls-projects | grep -vf $ROOT/excluded-projects.txt

@@ -25,9 +25,9 @@ mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
 TMPDIR=`mktemp -d`
-git checkout pom.xml
+$ROOT/scripts/generate-pom.sh
 
-while read p; do
+$ROOT/scripts/get-all-repos.sh | while read p; do
     cd $BUILD_DIR
     if [ -e $BUILD_DIR/$p ]; then
 	cd $BUILD_DIR/$p
@@ -38,7 +38,7 @@ while read p; do
 	#TODO: replace with https once repo is open to public
 	git clone -b $GERRIT_BRANCH ssh://gerrit.open-o.org:29418/$p
     fi
-done < $ROOT/java-projects.txt
+done
 
 cd $BUILD_DIR
 $ROOT/scripts/fix-relativepaths.sh

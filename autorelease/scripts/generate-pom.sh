@@ -24,7 +24,7 @@ BUILD_DIR=$ROOT/build
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
-FILE=$BUILD_DIR/pom.xml
+FILE=$BUILD_DIR/pom-raw.xml
 
 cat > $FILE <<EOF
 <!--
@@ -57,11 +57,11 @@ cat > $FILE <<EOF
   <modules>
 EOF
 
-while read p; do
+find * -type d -exec test -e "{}/pom.xml" ';' -prune -print | while read p; do
     cat >> $FILE <<EOF
     <module>$p</module>
 EOF
-done < $ROOT/java-projects.txt
+done
 
 cat >> $FILE <<EOF
   </modules>
@@ -100,5 +100,7 @@ cat >> $FILE <<EOF
 </project>
 EOF
 
+xmlstarlet fo pom-raw.xml > pom.xml
+rm -f pom-raw.xml
 
 $ROOT/scripts/generate-assembly.py < $ROOT/binaries.csv > $BUILD_DIR/assembly.xml

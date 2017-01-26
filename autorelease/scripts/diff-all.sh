@@ -24,9 +24,8 @@ BUILD_DIR=$ROOT/build
 mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
-while read p; do
+$ROOT/scripts/get-all-repos.sh | while read p; do
     cd $BUILD_DIR/$p
     echo $p
     git diff | cat
-done < $ROOT/java-projects.txt
-
+done

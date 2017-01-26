@@ -1,0 +1,9 @@
+All-Projects
+All-Users
+gso-gui
+sdno-driver-ct-te
+sdno-driver-huawei-l3vpn
+sdno-driver-huawei-openstack
+sdno-driver-huawei-overlay
+sdno-driver-huawei-servicechain
+sdno-driver-zte-sptn
