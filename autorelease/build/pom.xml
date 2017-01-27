@@ -139,36 +139,43 @@
       <classifier>linux.gtk.x86_64</classifier>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.driver-zte-sptn</groupId>
+      <groupId>org.openo.sdnhub.driver-zte-sptn</groupId>
       <artifactId>standalone</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>tar.gz</type>
       <classifier>linux64</classifier>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.driver-huawei-l3vpn</groupId>
+      <groupId>org.openo.sdnhub.driver-huawei-l3vpn</groupId>
       <artifactId>l3vpndriver-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.driver-huawei-openstack</groupId>
+      <groupId>org.openo.sdnhub.driver-huawei-openstack</groupId>
       <artifactId>osdriverservice-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.driver-huawei-overlay</groupId>
+      <groupId>org.openo.sdnhub.driver-huawei-overlay</groupId>
       <artifactId>overlayvpndriver-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.driver-huawei-servicechain</groupId>
+      <groupId>org.openo.sdnhub.driver-huawei-servicechain</groupId>
       <artifactId>servicechaindriverservice-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.sdnhub.driver-ct-te</groupId>
+      <artifactId>ct_tedriver</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -190,13 +197,6 @@
     <dependency>
       <groupId>org.openo.sdno.ipsec</groupId>
       <artifactId>ipsecservice-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.sdno.routeservice</groupId>
-      <artifactId>routeservice-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -230,13 +230,6 @@
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.localsiteservice</groupId>
-      <artifactId>localsiteservice-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
       <groupId>org.openo.sdno.servicechain</groupId>
       <artifactId>servicechainservice-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
@@ -253,13 +246,6 @@
     <dependency>
       <groupId>org.openo.sdno.vxlan</groupId>
       <artifactId>vxlanservice-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.sdno.driver-ct-te</groupId>
-      <artifactId>ct_tedriver</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>

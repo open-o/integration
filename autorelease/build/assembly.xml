@@ -124,48 +124,57 @@
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>sdno-driver-zte-sptn</outputDirectory>
+      <outputDirectory>sdnhub-driver-zte-sptn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-zte-sptn:standalone:tar.gz:linux64</include>
+        <include>org.openo.sdnhub.driver-zte-sptn:standalone:tar.gz:linux64</include>
       </includes>
-      <outputFileNameMapping>sdno-driver-zte-sptn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+      <outputFileNameMapping>sdnhub-driver-zte-sptn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>sdno-driver-huawei-l3vpn</outputDirectory>
+      <outputDirectory>sdnhub-driver-huawei-l3vpn</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-l3vpn:l3vpndriver-deployment:zip</include>
+        <include>org.openo.sdnhub.driver-huawei-l3vpn:l3vpndriver-deployment:zip</include>
       </includes>
-      <outputFileNameMapping>sdno-driver-huawei-l3vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+      <outputFileNameMapping>sdnhub-driver-huawei-l3vpn-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>sdno-driver-huawei-openstack</outputDirectory>
+      <outputDirectory>sdnhub-driver-huawei-openstack</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-openstack:osdriverservice-deployment:zip</include>
+        <include>org.openo.sdnhub.driver-huawei-openstack:osdriverservice-deployment:zip</include>
       </includes>
-      <outputFileNameMapping>sdno-driver-huawei-openstack-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+      <outputFileNameMapping>sdnhub-driver-huawei-openstack-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>sdno-driver-huawei-overlay</outputDirectory>
+      <outputDirectory>sdnhub-driver-huawei-overlay</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-overlay:overlayvpndriver-deployment:zip</include>
+        <include>org.openo.sdnhub.driver-huawei-overlay:overlayvpndriver-deployment:zip</include>
       </includes>
-      <outputFileNameMapping>sdno-driver-huawei-overlay-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+      <outputFileNameMapping>sdnhub-driver-huawei-overlay-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>sdno-driver-huawei-servicechain</outputDirectory>
+      <outputDirectory>sdnhub-driver-huawei-servicechain</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.sdno.driver-huawei-servicechain:servicechaindriverservice-deployment:zip</include>
+        <include>org.openo.sdnhub.driver-huawei-servicechain:servicechaindriverservice-deployment:zip</include>
       </includes>
-      <outputFileNameMapping>sdno-driver-huawei-servicechain-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+      <outputFileNameMapping>sdnhub-driver-huawei-servicechain-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>sdnhub-driver-ct-te</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdnhub.driver-ct-te:ct_tedriver:zip</include>
+      </includes>
+      <outputFileNameMapping>sdnhub-driver-ct-te-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
@@ -193,15 +202,6 @@
         <include>org.openo.sdno.ipsec:ipsecservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-ipsec-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
-    </dependencySet>
-
-    <dependencySet>
-      <outputDirectory>sdno-service-route</outputDirectory>
-      <useProjectArtifact>false</useProjectArtifact>
-      <includes>
-        <include>org.openo.sdno.routeservice:routeservice-deployment:zip</include>
-      </includes>
-      <outputFileNameMapping>sdno-service-route-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
@@ -241,15 +241,6 @@
     </dependencySet>
 
     <dependencySet>
-      <outputDirectory>sdno-service-site</outputDirectory>
-      <useProjectArtifact>false</useProjectArtifact>
-      <includes>
-        <include>org.openo.sdno.localsiteservice:localsiteservice-deployment:zip</include>
-      </includes>
-      <outputFileNameMapping>sdno-service-site-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
-    </dependencySet>
-
-    <dependencySet>
       <outputDirectory>sdno-service-servicechain</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
@@ -274,15 +265,6 @@
         <include>org.openo.sdno.vxlan:vxlanservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>sdno-service-vxlan-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
-    </dependencySet>
-
-    <dependencySet>
-      <outputDirectory>sdno-driver-ct-te</outputDirectory>
-      <useProjectArtifact>false</useProjectArtifact>
-      <includes>
-        <include>org.openo.sdno.driver-ct-te:ct_tedriver:zip</include>
-      </includes>
-      <outputFileNameMapping>sdno-driver-ct-te-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>

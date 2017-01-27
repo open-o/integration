@@ -20,7 +20,7 @@ ROOT=`git rev-parse --show-toplevel`/autorelease
 GERRIT_BRANCH='master'
 
 cd $ROOT
-rm -rf build
+# rm -rf build
 git checkout build
 
 BUILD_DIR=$ROOT/build
@@ -45,5 +45,5 @@ $ROOT/scripts/fix-relativepaths.sh
 $ROOT/scripts/set-version.sh
 
 TMPDIR=`mktemp -d`
-mvn clean deploy -q -DaltDeploymentRepository=staging::default::file:$TMPDIR -DskipTests=true -Dcheckstyle.skip=true
+mvn -q clean deploy -DdisableJavaSdkAutoGeneration -DaltDeploymentRepository=staging::default::file:$TMPDIR -DskipTests=true -Dcheckstyle.skip=true
 echo "TMPDIR=$TMPDIR"
