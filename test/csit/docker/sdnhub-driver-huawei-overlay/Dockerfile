@@ -31,6 +31,8 @@ EXPOSE 8536
 RUN echo Open-O sdnhub-driver-huawei-overlay 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdnhub/driver-huawei-overlay/overlayvpndriver-deployment/1.1.0-SNAPSHOT/overlayvpndriver-deployment-1.1.0-20170127.062128-1.zip" > OPENO_VERSION
 
 
+# 51-permissions.txt
+RUN chmod +x ./bin/*.sh
 # 90-entrypoint.txt
 
 RUN yum clean all

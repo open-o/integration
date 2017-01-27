@@ -31,6 +31,8 @@ EXPOSE 8533
 RUN echo Open-O sdnhub-driver-huawei-l3vpn 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdnhub/driver-huawei-l3vpn/l3vpndriver-deployment/1.1.0-SNAPSHOT/l3vpndriver-deployment-1.1.0-20170127.061350-2.zip" > OPENO_VERSION
 
 
+# 51-permissions.txt
+RUN chmod +x ./bin/*.sh
 # 90-entrypoint.txt
 
 RUN yum clean all

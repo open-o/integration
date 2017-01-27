@@ -34,6 +34,8 @@ EXPOSE 8640
 RUN echo Open-O sdnhub-driver-zte-sptn 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdnhub/driver-zte-sptn/standalone/1.1.0-SNAPSHOT/standalone-1.1.0-20170127.061743-1-linux64.tar.gz" > OPENO_VERSION
 
 
+# 51-permissions.txt
+RUN chmod +x ./*.sh
 # 90-entrypoint.txt
 
 RUN yum clean all

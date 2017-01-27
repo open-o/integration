@@ -31,6 +31,8 @@ EXPOSE 8542
 RUN echo Open-O sdnhub-driver-huawei-servicechain 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdnhub/driver-huawei-servicechain/servicechaindriverservice-deployment/1.1.0-SNAPSHOT/servicechaindriverservice-deployment-1.1.0-20170127.061433-1.zip" > OPENO_VERSION
 
 
+# 51-permissions.txt
+RUN chmod +x ./bin/*.sh
 # 90-entrypoint.txt
 
 RUN yum clean all

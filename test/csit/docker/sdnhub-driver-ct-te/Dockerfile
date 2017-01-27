@@ -27,6 +27,8 @@ EXPOSE 8670
 RUN echo Open-O sdnhub-driver-ct-te 1.1.0-SNAPSHOT "https://nexus.open-o.org/service/local/repositories/snapshots/content/org/openo/sdnhub/driver-ct-te/ct_tedriver/1.1.0-SNAPSHOT/ct_tedriver-1.1.0-20170127.061359-1.zip" > OPENO_VERSION
 
 
+# Install pip requirements
+RUN virtualenv env && source env/bin/activate && pip install -r requirements.txt
 # 90-entrypoint.txt
 
 RUN yum clean all
