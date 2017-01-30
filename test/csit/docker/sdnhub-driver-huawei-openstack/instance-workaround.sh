@@ -15,10 +15,6 @@
 # limitations under the License.
 #
 
-# fix broken start/stop scripts
-sed -i '1i#!/bin/bash'
-dos2unix bin/{start.sh,stop.sh}
-
 # make catalina.sh found
 sed -i '/#!\/bin\/bash/a export PATH=$PATH:/service/bin' /service/bin/{start.sh,stop.sh}
 # workaround for tomcat blocked by VM always short of entropy
