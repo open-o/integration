@@ -28,6 +28,7 @@ SDNO Services VxLAN,sdno-service-vxlan,org.openo.sdno.vxlan,vxlanservice-deploym
 SDNO Monitoring,sdno-monitoring,org.openo.sdno.monitoring,ct_monitoring,zip,,8610,TRUE,,TRUE,
 SDNO Optimize,sdno-optimize,org.openo.sdno.optimize,ct_optimizer,zip,,8620,TRUE,,TRUE,
 SDNO Vsite Manager,sdno-vsitemgr,org.openo.sdno.vsitemgr,ct_vsitemgr,zip,,8600,TRUE,,TRUE,
+SDNO Services LCM,sdno-lcm,org.openo.sdno.lcm,lcm-deployment,zip,,8535,,,,
 GSO Service Manager,gso-service-manager,org.openo.gso,servicemanagerservice-deployment,zip,,8301,TRUE,TRUE,,
 GSO Service Gateway,gso-service-gateway,org.openo.gso.gui,service-gateway-deployment,zip,,8305,,TRUE,,
 NFVO VIM Driver,nfvo-driver-vim,org.openo.nfvo,vimadapter-deployment,zip,,8481,,TRUE,,
