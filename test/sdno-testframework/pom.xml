@@ -19,7 +19,7 @@
     <groupId>org.openo.integration</groupId>
     <artifactId>org.openo.sdno.testframework</artifactId>
     <packaging>jar</packaging>
-    <name>integration/test/sdno-testframework/testframework</name>
+    <name>integration/test/sdno-testframework</name>
     <parent>
       <groupId>org.openo.oparent</groupId>
       <artifactId>oparent</artifactId>
