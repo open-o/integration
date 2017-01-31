@@ -295,6 +295,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>sdno-service-lcm</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.sdno.lcm:lcm-deployment:zip</include>
+      </includes>
+      <outputFileNameMapping>sdno-service-lcm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>gso-service-manager</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>

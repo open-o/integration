@@ -65,6 +65,7 @@
     <module>sdno-vpc</module>
     <module>sdno-vsitemgr</module>
     <module>sdno-vxlan</module>
+    <module>vnf-sdk-function-test</module>
     <module>vnf-sdk-marketplace</module>
   </modules>
   <dependencies>
@@ -272,6 +273,13 @@
       <classifier/>
     </dependency>
     <dependency>
+      <groupId>org.openo.sdno.lcm</groupId>
+      <artifactId>lcm-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
       <groupId>org.openo.gso</groupId>
       <artifactId>servicemanagerservice-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
@@ -372,7 +380,9 @@
             <id>make-assembly</id>
             <phase>package</phase>
             <goals>
+              <!-- temporarily disable build of consolidated tarball
               <goal>single</goal>
+              -->
             </goals>
           </execution>
         </executions>

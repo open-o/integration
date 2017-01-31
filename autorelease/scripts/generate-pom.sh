@@ -89,7 +89,9 @@ cat >> $FILE <<EOF
             <id>make-assembly</id>
             <phase>package</phase>
             <goals>
+              <!-- temporarily disable build of consolidated tarball
               <goal>single</goal>
+              -->
             </goals>
           </execution>
         </executions>
