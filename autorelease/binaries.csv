@@ -41,3 +41,4 @@ NFVO Lifecycle Management,nfvo-lcm,org.openo.nfvo,nfvo-lcm,zip,,8403,TRUE,,TRUE,
 NFVO VNFM Driver ZTE,nfvo-driver-vnfm-zte,org.openo.nfvo,drivers-vnfm-svnfm-zte-vmanager,zip,,8410,,,TRUE,
 NFVO SDNC Driver ZTE,nfvo-driver-sdnc-zte,org.openo.nfvo.sfc-driver-standalone,nfvo-drivers-sdnc-zte-sfc-driver,zip,,8411,,,,
 GSO GUI Portal,gso-gui-portal,org.openo.gso.gui,portal-package,zip,,8300,,TRUE,,webapps/openoui
+VNF SDK Function Test,vnfsdk-function-test,org.openo.vnf-sdk.function-test,standalone,tar.gz,linux64,8701,TRUE,,,
