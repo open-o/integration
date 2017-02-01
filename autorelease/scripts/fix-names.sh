@@ -27,7 +27,7 @@ fix_name() {
 
     # Update any existing project names
     xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
-	       -u "//x:name" -v "$relativePath" \
+	       -u "/x:project/x:name" -v "$relativePath" \
 	       "$pom" > "${pom}.new"
     mv "${pom}.new" "${pom}"
 
