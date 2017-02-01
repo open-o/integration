@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.openo.robot.test.robottest;
 
 import org.robotframework.javalib.library.AnnotationLibrary;
@@ -24,7 +25,7 @@ import org.robotframework.remoteserver.RemoteServer;
  * </p>
  * 
  * @author
- * @version     Integration 2.0  11-Jan-2017
+ * @version Integration 2.0 11-Jan-2017
  */
 public class MyRemoteLibrary extends AnnotationLibrary {
 
@@ -41,14 +42,12 @@ public class MyRemoteLibrary extends AnnotationLibrary {
         return super.getKeywordDocumentation(keywordName);
     }
 
-    
-    
     /**
      * Connect to the remote machine with remote sever. <br/>
      * 
      * @param args
      * @throws Exception
-     * @since  Integration 2.0
+     * @since Integration 2.0
      */
     public static void main(String[] args) throws Exception {
         RemoteServer.configureLogging();
@@ -56,6 +55,5 @@ public class MyRemoteLibrary extends AnnotationLibrary {
         server.addLibrary(MyRemoteLibrary.class, 8271);
         server.start();
     }
-    
 
 }

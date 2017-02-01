@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.robot.test.robottest.constants.AppConstants;
+import org.openo.robot.test.robottest.util.ValidationUtil;
 import org.openo.sdno.testframework.checker.JsonSchemaValidator;
 import org.openo.sdno.testframework.http.model.HttpModelUtils;
 import org.openo.sdno.testframework.http.model.HttpRequest;
@@ -31,8 +33,8 @@ import org.openo.sdno.testframework.topology.Topology;
 import org.robotframework.javalib.annotation.ArgumentNames;
 import org.robotframework.javalib.annotation.RobotKeyword;
 import org.robotframework.javalib.annotation.RobotKeywords;
-
-import com.openo.robot.test.robottest.util.ValidationUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Keywords to for REST test framework.<br/>
@@ -46,6 +48,25 @@ import com.openo.robot.test.robottest.util.ValidationUtil;
 public class TestLibKeywords extends TestManager {
 
     Map<String, Topology> mapOfTopology = new HashMap<String, Topology>();
+
+    private static final Logger logger = LoggerFactory.getLogger(TestLibKeywords.class);
+
+    /**
+     * This keyword is for writing MSB in config.properties
+     * Set the config.properties file with MSB_IP<br/>
+     * 
+     * @param msb_ip The input MSB_IP
+     * @since Integration 2.0
+     */
+    @RobotKeyword("Set MSB Value")
+    @ArgumentNames({"msbip"})
+    public void setMSBValue(String msb_ip) {
+        try {
+            ValidationUtil.getInstance().setMSBValuetoJSONFile(msb_ip);
+        } catch(Exception e) {
+            logger.error(e.getMessage());
+        }
+    }
 
     /**
      * Replace given variables with values and send REST operation and validate and return
@@ -61,21 +82,32 @@ public class TestLibKeywords extends TestManager {
 
     @RobotKeyword("Replace variables and send REST")
     @ArgumentNames({"queryPath", "mapValues"})
-    public void replaceAndDoOperation(String queryPath, Map<String, String> mapValues) throws ServiceException {
-
-        String msb_ip = ValidationUtil.getInstance().getiMSBValue();
+    public void replaceVariablesAndSendREST(String queryPath, Map<String, String> mapValues) throws ServiceException {
 
         HttpRquestResponse httpObject = HttpModelUtils.praseHttpRquestResponseFromFile(queryPath);
         HttpRequest httpRequest = httpObject.getRequest();
+
+        replaceVariablesInURI(httpRequest, mapValues);
+        execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
+
+        return;
+
+    }
+
+    private void replaceVariablesInURI(HttpRequest httpRequest, Map<String, String> mapValues) throws ServiceException {
+
+        if(null == mapValues) {
+            mapValues = new HashMap<String, String>();
+        }
+
+        String msb_ip = ValidationUtil.getInstance().getMSBValueFromJSONFile();
+        mapValues.put(AppConstants.MSB_IP, msb_ip);
 
         for(String key : mapValues.keySet()) {
             httpRequest.setUri(PathReplace.replaceUuid(key, httpRequest.getUri(), mapValues.get(key)));
         }
 
-        execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
-
         return;
-
     }
 
     /**
@@ -89,11 +121,13 @@ public class TestLibKeywords extends TestManager {
      */
     @RobotKeyword("Send REST and get Value")
     @ArgumentNames({"queryPath", "variable"})
-    public String doOperationAndGetValue(String queryPath, String variable) throws ServiceException {
+    public String sendRESTandGetValue(String queryPath, String variable) throws ServiceException {
         HttpRquestResponse httpCreateObject = HttpModelUtils.praseHttpRquestResponseFromFile(queryPath);
-        HttpRequest createRequest = httpCreateObject.getRequest();
+        HttpRequest httpRequest = httpCreateObject.getRequest();
+
+        replaceVariablesInURI(httpRequest, null);
         HttpResponse createResponse =
-                execTestCase(createRequest, new JsonSchemaValidator(httpCreateObject.getResponse()));
+                execTestCase(httpRequest, new JsonSchemaValidator(httpCreateObject.getResponse()));
 
         String strValue = ValidationUtil.getInstance().getObject(variable, createResponse.getData());
 
