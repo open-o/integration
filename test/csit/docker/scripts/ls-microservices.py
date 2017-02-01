@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python
 #
 # Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
@@ -14,24 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# $1 org
+# pipe in binaries.csv from stdin
 
-if [ -z "$1" ]; then
-    ORG="openoint"
-else
-    ORG=$1
-fi
+import sys, csv, subprocess, os, urllib2
 
-set -exu
+with sys.stdin as f:
+    reader = csv.DictReader(f)
 
-VERSION="1.1.0-SNAPSHOT"
-
-# docker root dir
-ROOT=`git rev-parse --show-toplevel`/test/csit/docker
-
-cd $ROOT
-for image in `$ROOT/scripts/ls-microservices.py < $ROOT/../../../autorelease/binaries.csv | sort`; do
-    echo 
-    echo $image
-    docker build -t $ORG/$image:$VERSION -t $ORG/$image:latest $image/target
-done
+    for row in reader:
+        print row["filename"]

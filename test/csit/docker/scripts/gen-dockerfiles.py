@@ -39,7 +39,7 @@ with sys.stdin as f:
                 file = "{}-{}.{}".format(row["artifactId"], version, row["extension"])
                 dest = "{}-{}.{}".format(row["filename"], version, row["extension"])
 
-            dir = "{}/{}".format(path, row["filename"])
+            dir = "{}/{}/target".format(path, row["filename"])
 
             try:
                 os.mkdir(dir)
@@ -89,7 +89,7 @@ with sys.stdin as f:
                 except OSError:
                     pass
                 if flag:
-                    os.symlink("../templates/{}".format(template), "{}/{}".format(dir, template))
+                    os.symlink("../../templates/{}".format(template), "{}/{}".format(dir, template))
 
             symlink(True, "10-basebuild.txt")
             symlink(row["python"], "15-python.txt")
