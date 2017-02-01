@@ -2,9 +2,14 @@
 Library           Remote    http://127.0.0.1:8271
 
 *** Variables ***
-${vnfsdktestfunc}    jsoninput/vnfsdktestfunc.json
+${vnfsdkfunctest_json}    ${TESTPLANDIR}/vnf-sdk-function-test/sanity-test/jsoninput/vnfsdktestfunc.json
+${config.json}    src/main/resources/config.json
 
 *** Test Cases ***
-vnfsdkfunctest
+Set MSB_IP in json file
+    [Documentation]    Write MSB_IP to JSon file
+    Set MSB Value    ${MSB_IP}
+
+vnfsdkfunctiontest
     [Documentation]    VNFSDKFunctionTest
-    Send REST and get Value    ${vnfsdktestfunc}    null
+    replaceVariablesAndSendREST    ${vnfsdkfunctest_json}    null
