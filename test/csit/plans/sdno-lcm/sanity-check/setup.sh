@@ -27,6 +27,6 @@ echo ${SERVICE_IP}
 
 curl_path='http://'$SERVICE_IP':'$SERVICE_PORT'/'
 sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="refused" REPEAT_NUMBER='8'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="refused" REPEAT_NUMBER='25'
 
-ROBOT_VARIABLES="-v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT}"
+ROBOT_VARIABLES="-L TRACE -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT}"
