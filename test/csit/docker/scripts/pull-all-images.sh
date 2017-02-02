@@ -23,9 +23,7 @@ VERSION="1.1.0-SNAPSHOT"
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
 cd $ROOT
-for file in `find -name Dockerfile`; do
-    dir=$(dirname $file)
-    image=$(basename $dir)
+for image in `$ROOT/scripts/ls-microservices.py | sort`; do
     echo 
     echo $image
     docker pull openoint/$image:$VERSION

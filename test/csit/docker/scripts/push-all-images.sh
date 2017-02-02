@@ -30,9 +30,7 @@ VERSION="1.1.0-SNAPSHOT"
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
 cd $ROOT
-for file in `find -name Dockerfile | sort`; do
-    dir=$(dirname $file)
-    image=$(basename $dir)
+for image in `$ROOT/scripts/ls-microservices.py | sort`; do
     echo 
     echo $image
     docker push $ORG/$image:$VERSION

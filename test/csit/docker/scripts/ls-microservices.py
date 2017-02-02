@@ -14,11 +14,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# pipe in binaries.csv from stdin
 
 import sys, csv, subprocess, os, urllib2
 
-with sys.stdin as f:
+root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
+
+with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
     reader = csv.DictReader(f)
 
     for row in reader:

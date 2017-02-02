@@ -17,24 +17,26 @@
 # $1 autorelease build
 
 if [ -z "$1" ]; then
-    echo $0 "<build>"
-    exit 1;
+    BUILD="snapshots"
+else
+    BUILD=$1
 fi
-
-BUILD=$1
 
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
 cd $ROOT
-for dirsrc in `$ROOT/scripts/ls-microservices.py < $ROOT/../../../autorelease/binaries.csv`; do
+for dirsrc in `$ROOT/scripts/ls-microservices.py | sort`; do
     dir=$dirsrc/target
     rm -rf $dir
     mkdir -p $dir
+
+    if [ "$BUILD" = "snapshots" ]; then
+	$ROOT/scripts/gen-dockerfiles.py $dirsrc
+    else
+	$ROOT/scripts/gen-dockerfiles.py $dirsrc --build $BUILD
+    fi
 done
-
-
-$ROOT/scripts/gen-dockerfiles.py $BUILD < $ROOT/../../../autorelease/binaries.csv
 
 
 # Update build number in workaround files
@@ -43,7 +45,7 @@ for file in `find -name 80-workaround.txt`; do
 done
 
 
-for dirsrc in `$ROOT/scripts/ls-microservices.py < $ROOT/../../../autorelease/binaries.csv`; do
+for dirsrc in `$ROOT/scripts/ls-microservices.py | sort`; do
 
     dir=$dirsrc/target
     cp $ROOT/../../../distribution/LICENSE $dir
