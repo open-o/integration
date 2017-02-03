@@ -14,19 +14,25 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# These scripts are sourced by run-csit.sh.
+# These scripts are sourced by run-csit.sh
 
 source ${SCRIPTS}/common_functions.sh
 
+# Start MSB
+${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
+MSB_IP=`get-instance-ip.sh i-msb`
+curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
+sleep_msg="Waiting_connection_for_url_for:i-msb"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
 ${SCRIPTS}/sdno-lcm/startup.sh s-lcm
 
-SERVICE_IP=`get-instance-ip.sh s-lcm`
+SERVICE_IP=`./get-instance-ip.sh s-lcm`
 SERVICE_PORT='8080'
 echo ${SERVICE_IP}
 
 curl_path='http://'$SERVICE_IP':'$SERVICE_PORT'/'
 sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="refused" REPEAT_NUMBER='25'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="refused"
 
-ROBOT_VARIABLES="-L TRACE -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT}"
+ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP} -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT}"

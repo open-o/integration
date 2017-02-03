@@ -15,5 +15,5 @@
 # limitations under the License.
 #
 # This script is sourced by run-csit.sh after Robot test completion.
-
-kill-instance.sh s-lcm
+kill-instance.sh i-msb || true
+kill-instance.sh s-lcm || true

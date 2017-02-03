@@ -14,6 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-mkdir logs
-#Start the simulated controller usiing moco and the json files as configuration
-java -jar sdno-lcm-webapp.jar | tee -a ./logs/sdno-lcm.log
+
+mkdir -p logs
+
+#Starting LCM service
+java -jar sdno-lcm-webapp*.jar | tee -a ./logs/sdno-lcm.log
