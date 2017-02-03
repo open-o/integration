@@ -1,2 +1,1 @@
-# Set up virtual env
-RUN virtualenv env && source env/bin/activate && pip install .
+RUN virtualenv env && source env/bin/activate && pip install -U setuptools && pip install -r requirements.txt && pip install .

@@ -15,6 +15,16 @@
 # limitations under the License.
 #
 # Run microservice
+MSB_IP=`echo $MSB_ADDR | cut -d: -f1`
+MSB_PORT=`echo $MSB_ADDR | cut -d: -s -f2`
+
 source env/bin/activate
-open-o-common-tosca-parser-service start --rundir log
-tail -F log/open-o-common-tosca-parser-service.log
+
+if [ -z "$MSB_PORT" ]
+then
+	aria-openo --rundir log --ip $SERVICE_IP --msb_ip $MSB_IP start
+else
+	aria-openo --rundir log --ip $SERVICE_IP --msb_ip $MSB_IP --msb_port $MSB_PORT start
+fi
+
+tail -F log/aria-openo.log
