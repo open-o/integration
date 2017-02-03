@@ -12,4 +12,4 @@ Set MSB_IP in json file
 
 vnfsdkfunctiontest
     [Documentation]    VNFSDKFunctionTest
-    replaceVariablesAndSendREST    ${vnfsdkfunctest_json}    null
+    replaceVariablesAndSendREST    ${vnfsdkfunctest_json}    null    null
