@@ -411,6 +411,15 @@
       <outputFileNameMapping>gso-gui-portal-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
+    <dependencySet>
+      <outputDirectory>vnfsdk-function-test</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.vnf-sdk.function-test:standalone:tar.gz:linux64</include>
+      </includes>
+      <outputFileNameMapping>vnfsdk-function-test-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
   </dependencySets>
 </assembly>
 

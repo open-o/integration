@@ -58,9 +58,11 @@ cat > $FILE <<EOF
 EOF
 
 find * -type d -exec test -e "{}/pom.xml" ';' -prune -print | while read p; do
-    cat >> $FILE <<EOF
+    if [ $p != "integration/autorelease/build" ]; then
+	cat >> $FILE <<EOF
     <module>$p</module>
 EOF
+    fi
 done
 
 cat >> $FILE <<EOF
