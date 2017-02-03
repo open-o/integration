@@ -81,20 +81,23 @@ public class TestLibKeywords extends TestManager {
      */
 
     @RobotKeyword("Replace variables and send REST")
-    @ArgumentNames({"queryPath", "mapValues"})
-    public void replaceVariablesAndSendREST(String queryPath, Map<String, String> mapValues) throws ServiceException {
+    @ArgumentNames({"queryPath", "mapValues", "variable"})
+    public String replaceVariablesAndSendREST(String queryPath, Map<String, String> mapValues, String variable)
+            throws ServiceException {
 
         HttpRquestResponse httpObject = HttpModelUtils.praseHttpRquestResponseFromFile(queryPath);
         HttpRequest httpRequest = httpObject.getRequest();
 
-        replaceVariablesInURI(httpRequest, mapValues);
-        execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
+        replaceVariables(httpRequest, mapValues);
+        HttpResponse httpResponse = execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
 
-        return;
+        String strValue = ValidationUtil.getInstance().getObject(variable, httpResponse.getData());
+
+        return strValue;
 
     }
 
-    private void replaceVariablesInURI(HttpRequest httpRequest, Map<String, String> mapValues) throws ServiceException {
+    private void replaceVariables(HttpRequest httpRequest, Map<String, String> mapValues) throws ServiceException {
 
         if(null == mapValues) {
             mapValues = new HashMap<String, String>();
@@ -104,7 +107,10 @@ public class TestLibKeywords extends TestManager {
         mapValues.put(AppConstants.MSB_IP, msb_ip);
 
         for(String key : mapValues.keySet()) {
+		    // Replace in URI
             httpRequest.setUri(PathReplace.replaceUuid(key, httpRequest.getUri(), mapValues.get(key)));
+            // Replace in Json Body
+            httpRequest.setData(PathReplace.replaceUuid(key, httpRequest.getData(), mapValues.get(key)));
         }
 
         return;
@@ -125,7 +131,7 @@ public class TestLibKeywords extends TestManager {
         HttpRquestResponse httpCreateObject = HttpModelUtils.praseHttpRquestResponseFromFile(queryPath);
         HttpRequest httpRequest = httpCreateObject.getRequest();
 
-        replaceVariablesInURI(httpRequest, null);
+        replaceVariables(httpRequest, null);
         HttpResponse createResponse =
                 execTestCase(httpRequest, new JsonSchemaValidator(httpCreateObject.getResponse()));
 
