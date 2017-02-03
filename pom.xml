@@ -33,6 +33,7 @@
   </scm>
   <modules>
     <module>test/sdno-testframework</module>
+    <module>test/robottest</module>
   </modules>
   <build>
     <plugins>
