@@ -2,8 +2,8 @@
 Library           Remote    http://127.0.0.1:8271
 
 *** Variables ***
-${vnfsdkfunctest_json}    ${TESTPLANDIR}/vnf-sdk-function-test/sanity-test/jsoninput/vnfsdktestfunc.json
-${config.json}    src/main/resources/config.json
+${vnfsdkfunctest_json}    ${SCRIPTS}/../plans/vnf-sdk-function-test/sanity-check/jsoninput/vnfsdktestfunc.json
+
 
 *** Test Cases ***
 Set MSB_IP in json file

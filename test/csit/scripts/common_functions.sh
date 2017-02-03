@@ -93,15 +93,15 @@ function run_simulator ()
     #Start the robottest REST library if not started
     if ! pgrep -f robottest > /dev/null
     then
-        eval `java -cp {SCRIPTS}/integration/mockserver/org.openo.robottest-1.1.0-SNAPSHOT.jar  org.openo.robot.test.robottest.MyRemoteLibrary &`
+        eval `java -cp ${SCRIPTS}/integration/mockserver/org.openo.robottest-1.1.0-SNAPSHOT.jar  org.openo.robot.test.robottest.MyRemoteLibrary` &
     fi
 
     #Start the simulator docker if not started
     SIMULATOR_IP=`sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
     if [[ -z $SIMULATOR_IP ]]
     then
-        eval 'docker run -d -i -t --name simulator -v ${SCRIPTS}/../bootstrap/start-service-script/mocomaster:/var/lib/moco   -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker'
-        echo "Docker is not running"
+        eval `docker run -d -i -t --name simulator -v ${SCRIPTS}/../bootstrap/start-service-script/mocomaster:/var/lib/moco   -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker`
+        echo "Simulator Docker is not running"
         SIMULATOR_IP=`sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
     fi   
 
@@ -110,5 +110,5 @@ function run_simulator ()
     echo ${ROBOT_VARIABLES}
 
     #Register the simulator controller/VIM with ESR
-    eval 'robot ${ROBOT_VARIABLES} simulator_registration.robot'    
+    eval 'robot ${ROBOT_VARIABLES} ${SCRIPTS}/integration/mockserver/simulator_registration.robot'    
 }
