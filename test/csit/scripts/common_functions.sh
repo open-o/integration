@@ -90,10 +90,14 @@ function wait_curl_driver(){
 
 function run_simulator ()
 {
+    #Download the latest robottest jar 
+    wget -q -O  ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar  "https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.integration&a=org.openo.robottest&e=jar&v=LATEST"
+    chmod +x  ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar 
+
     #Start the robottest REST library if not started
     if ! pgrep -f robottest > /dev/null
     then
-        eval `java -cp ${SCRIPTS}/integration/mockserver/org.openo.robottest-1.1.0-SNAPSHOT.jar  org.openo.robot.test.robottest.MyRemoteLibrary` &
+        eval `java -cp ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar  org.openo.robot.test.robottest.MyRemoteLibrary` &
     fi
 
     #Start the simulator docker if not started
