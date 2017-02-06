@@ -44,6 +44,9 @@ COPY instance-init.sh .
 COPY instance-run.sh .
 COPY instance-workaround.sh .
 COPY docker-entrypoint.sh .
+
+RUN chmod +x *.sh
+
 ENTRYPOINT /service/docker-entrypoint.sh
 
 COPY LICENSE ./OPENO_LICENSE
