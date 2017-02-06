@@ -21,6 +21,7 @@ SDNO Services IpSec,sdno-service-ipsec,org.openo.sdno.ipsec,ipsecservice-deploym
 SDNO Services L2VPN,sdno-service-l2vpn,org.openo.sdno.l2vpn,l2vpnservice-deployment,zip,,8509,,TRUE,,
 SDNO Services L3VPN,sdno-service-l3vpn,org.openo.sdno.l3vpn,l3vpnservice-deployment,zip,,8506,,TRUE,,
 SDNO Services Nslcm,sdno-service-nslcm,org.openo.sdno.nslcm,nslcm-deployment,zip,,8545,,TRUE,,
+SDNO Services Site,sdno-service-site,org.openo.sdno.site,localsiteservice-deployment,zip,,8548,,TRUE,,
 SDNO Services Overlay VPN,sdno-service-overlayvpn,org.openo.sdno.overlay,overlayvpnservice-deployment,zip,,8503,,TRUE,,
 SDNO Services Service Chain,sdno-service-servicechain,org.openo.sdno.servicechain,servicechainservice-deployment,zip,,8521,,TRUE,,
 SDNO Services VPC,sdno-service-vpc,org.openo.sdno.vpc,vpcservice-deployment,zip,,8518,,TRUE,,

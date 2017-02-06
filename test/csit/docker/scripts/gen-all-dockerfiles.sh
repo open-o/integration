@@ -159,7 +159,13 @@ EOF
 EOF
     
     cat $dir/*.txt >> $dir/Dockerfile
-    
+
+    for file in instance-config.sh instance-init.sh instance-run.sh instance-workaround.sh; do
+	if [ ! -f $dirsrc/$file ]; then
+	    cp -n $ROOT/templates/instance-script.sh $dirsrc/$file
+	fi
+    done
+
     cp -f $dirsrc/instance-*.sh $dir
     touch $dir/instance-config.sh
     touch $dir/instance-init.sh
