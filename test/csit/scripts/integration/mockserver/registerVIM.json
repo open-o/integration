@@ -1,13 +1,13 @@
 {
 	"request": {
-		"uri": "http://{MSB_IP}/openoapi/extsys/v1/vims",
+		"uri": "http://${MSB_IP}/openoapi/extsys/v1/vims",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json" 
 		},
 		"json":{
 			"name":"vim",
-			"url":"http://{SERVICE_IP}:18008",
+			"url":"http://${SERVICE_IP}:18008",
 			"userName":"admin",
 			"password":"admin",
 			"tenant":"admin",

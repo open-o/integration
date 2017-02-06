@@ -1,13 +1,13 @@
 {
 	"request": {
-		"uri": "http://{MSB_IP}/openoapi/extsys/v1/sdncontrollers",
+		"uri": "http://${MSB_IP}/openoapi/extsys/v1/sdncontrollers",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json" 
 		},
 		"json":{
 			"name":"sdn",
-       		"url":"http://{SERVICE_IP}:18008",
+       		"url":"http://${SERVICE_IP}:18008",
        		"userName":"admin",
        		"password":"admin",
        		"version":"v1.0",

@@ -3,8 +3,8 @@ Library           Remote    http://127.0.0.1:8271
 Library           OperatingSystem
 
 *** Variables ***
-${register_VIM}    {SCRIPTS}/integration/mockserver/registerVIM.json
-${register_controller}    {SCRIPTS}/integration/mockserver/registercontroller.json
+${register_VIM}    ${SCRIPTS}/integration/mockserver/registerVIM.json
+${register_controller}    ${SCRIPTS}/integration/mockserver/registercontroller.json
 
 *** Test Cases ***
 Registration for Simulated VIM
