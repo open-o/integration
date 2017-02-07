@@ -70,7 +70,7 @@ cat >> $FILE <<EOF
   <dependencies>
 EOF
 
-$ROOT/scripts/generate-binary-deps.py < $ROOT/binaries.csv >> $FILE
+$ROOT/scripts/generate-binary-deps.py >> $FILE
 
 cat >> $FILE <<EOF
   </dependencies>
@@ -107,4 +107,4 @@ EOF
 xmlstarlet fo pom-raw.xml > pom.xml
 rm -f pom-raw.xml
 
-$ROOT/scripts/generate-assembly.py < $ROOT/binaries.csv > $BUILD_DIR/assembly.xml
+$ROOT/scripts/generate-assembly.py > $BUILD_DIR/assembly.xml

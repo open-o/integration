@@ -13,8 +13,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-# pipe in binaries.csv from stdin
 
 import sys, csv, subprocess
 
@@ -42,7 +40,7 @@ def parseRow(row):
     return {"url": url, "dest": dest}
 
 
-with sys.stdin as f:
+with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
     reader = csv.DictReader(f)
     errors = 0
 
@@ -51,15 +49,14 @@ with sys.stdin as f:
         item = parseRow(row)
         items.append(item)
 
-        result = subprocess.call(["wget", "-q", "--spider", "--content-disposition", "-O", item["dest"], item["url"]])
+        result = subprocess.call(["wget", "-q", "--spider", "--content-disposition", item["url"]])
         if result == 0:
             print "{} OK".format(row["service"])
         else:
             ++errors
-            print "ERROR: {}".format(row["service"])
+            print "{} ERROR: {} not found".format(row["service"], item["url"])
 
     print "{} errors found".format(errors)
 
-    if errors == 0:
-        for item in items:
-            subprocess.call(["wget", "--content-disposition", "-O", item["dest"], item["url"]])
+    if errors > 0:
+        sys.exit(1)

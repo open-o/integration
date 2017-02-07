@@ -13,15 +13,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
-# pipe in binaries.csv from stdin
 
 import sys, csv, subprocess
 
 version = "1.1.0-SNAPSHOT"
 
+root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
 
-with sys.stdin as f:
+with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
     reader = csv.DictReader(f)
 
     print """
