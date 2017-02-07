@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Huawei Technologies Co., Ltd.
+ * Copyright 2016-2017 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,21 @@ public class PathReplace {
     public static String replaceUuid(String key, String urlModel, String uuid) {
         String keyValue = "\\{" + key + "\\}";
         return urlModel.replaceAll(keyValue, uuid);
+    }
+
+    /**
+     * Replace the key in url model with the value.<br>
+     * ${KEY} ---> Value
+     * 
+     * @param key The key name
+     * @param urlModel The string to be search and replace
+     * @param value: key value
+     * @return The string after replacing the ${key} with value
+     * @since Integration 2.0
+     */
+    public static String replaceKey(String key, String urlModel, String value) {
+        String keyValue = "\\$\\{" + key + "\\}";
+        return urlModel.replaceAll(keyValue, value);
     }
 
     /**
