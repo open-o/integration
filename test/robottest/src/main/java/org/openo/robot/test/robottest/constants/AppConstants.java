@@ -18,7 +18,7 @@ package org.openo.robot.test.robottest.constants;
 
 public class AppConstants {
 
-    public static final String CONFIGJSONPATH = "src\\main\\resources\\config.json";
+    public static final String CONFIGJSONPATH = "config.json";
 
     public static final String MSB_IP = "MSB_IP";
 }

@@ -107,10 +107,10 @@ public class TestLibKeywords extends TestManager {
         mapValues.put(AppConstants.MSB_IP, msb_ip);
 
         for(String key : mapValues.keySet()) {
-		    // Replace in URI
-            httpRequest.setUri(PathReplace.replaceUuid(key, httpRequest.getUri(), mapValues.get(key)));
+            // Replace in URI
+            httpRequest.setUri(PathReplace.replaceKey(key, httpRequest.getUri(), mapValues.get(key)));
             // Replace in Json Body
-            httpRequest.setData(PathReplace.replaceUuid(key, httpRequest.getData(), mapValues.get(key)));
+            httpRequest.setData(PathReplace.replaceKey(key, httpRequest.getData(), mapValues.get(key)));
         }
 
         return;
