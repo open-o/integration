@@ -110,8 +110,5 @@ function run_simulator ()
 
     #Set the simulator IP in robot variables
     ROBOT_VARIABLES=${ROBOT_VARIABLES}" -v SIMULATOR_IP:${SIMULATOR_IP}  -v SCRIPTS:${SCRIPTS}"
-    echo ${ROBOT_VARIABLES}
-
-    #Register the simulator controller/VIM with ESR
-    eval 'robot ${ROBOT_VARIABLES} ${SCRIPTS}/integration/mockserver/simulator_registration.robot'    
+    echo ${ROBOT_VARIABLES}      
 }
