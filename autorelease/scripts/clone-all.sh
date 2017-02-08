@@ -20,12 +20,17 @@ ROOT=`git rev-parse --show-toplevel`/autorelease
 GERRIT_BRANCH='master'
 
 BUILD_DIR=$ROOT/build
-
-mkdir -p $BUILD_DIR
 cd $BUILD_DIR
 
 $ROOT/scripts/get-all-repos.sh | while read p; do
-    rm -rf $BUILD_DIR/$p
-    #TODO: replace with https once repo is open to public
-    git clone -b $GERRIT_BRANCH ssh://gerrit.open-o.org:29418/$p
+    cd $BUILD_DIR
+    if [ -e $BUILD_DIR/$p ]; then
+	cd $BUILD_DIR/$p
+	git checkout $GERRIT_BRANCH
+	git reset --hard origin
+	git pull
+    else
+	#TODO: replace with https once repo is open to public
+	git clone -b $GERRIT_BRANCH ssh://gerrit.open-o.org:29418/$p
+    fi
 done
