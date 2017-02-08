@@ -26,8 +26,8 @@ for i in {1..10}; do
 done
 
 # Start BRS
-${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
-BRS_IP=`get-instance-ip.sh i-brs`
+#${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
+#BRS_IP=`get-instance-ip.sh i-brs`
 
 #Start openoint/common-services-extsys
 run-instance.sh openoint/common-services-extsys i-common-services-extsys " -i -t -e MSB_ADDR=${MSB_IP}:80"
@@ -58,9 +58,10 @@ done
 ${SCRIPTS}/sdno-driver-ct-te/startup.sh i-driver-ct-te ${MSB_IP}:80
 DRIVERMGR_IP=`get-instance-ip.sh i-drivermgr`
 
-DRIVER_PORT='8533'
-DRIVER_NAME='sdnotctedriver-0-1'
+DRIVER_IP=`get-instance-ip.sh i-driver-ct-te`
+DRIVER_PORT='8670'
+DRIVER_NAME='sdno-driver-ct-te'
 DRIVERMGR_PORT="8103"
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v DRIVERMGR_IP:${DRIVERMGR_IP} -v DRIVERMGR_PORT:${DRIVERMGR_PORT} -v DRIVER_PORT:${DRIVER_PORT} -v DRIVER_NAME:${DRIVER_NAME} "
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v DRIVERMGR_IP:${DRIVERMGR_IP} -v DRIVERMGR_PORT:${DRIVERMGR_PORT} -v DRIVER_PORT:${DRIVER_PORT} -v DRIVER_NAME:${DRIVER_NAME} -v DRIVER_IP:${DRIVER_IP} "
