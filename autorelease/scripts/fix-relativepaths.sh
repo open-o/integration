@@ -45,6 +45,10 @@ fix_relative_paths() {
 
         relativePath="$basePath$projectPath"  # Calculated relative path to parent pom
 
+        # Standardize POM XML formatting
+        xmlstarlet fo "$pom" > "${pom}.new"
+        mv "${pom}.new" "${pom}"
+
         # Update any existing relativePath values
         xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
             -u "//x:parent[x:artifactId=\"$artifactId\" and x:groupId=\"$groupId\"]/x:relativePath" \
