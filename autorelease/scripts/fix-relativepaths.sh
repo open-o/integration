@@ -25,15 +25,6 @@ fix_relative_paths() {
     pom=$1
     echo "Scanning $pom"
     pomPath=`dirname $pom`
-    count=`echo $pomPath | awk -F'/' '{ print NF-1 }'`
-
-    # Calculate the path to autorelease root directory
-    basePath=""
-    i=0
-    while [[ $i -le $count-1 ]]; do
-        basePath="../$basePath"
-        ((i = i + 1))
-    done
 
     # Find and replace parent poms
     for parent in "${PARENT_MAP[@]}"; do
@@ -43,28 +34,29 @@ fix_relative_paths() {
         artifactId=${map%%:*}  # Maven artifactId
         projectPath=${map#*:}  # Path to pom file from the perspective of hosting repo
 
-        relativePath="$basePath$projectPath"  # Calculated relative path to parent pom
+	# Compute relative path to parent pom
+	relativePath=`python -c "import os.path; print os.path.relpath('$projectPath','$pomPath')"`
 
         # Standardize POM XML formatting
-        xmlstarlet fo "$pom" > "${pom}.new1"
+        xmlstarlet fo "$pom" > "${pom}.old"
 
         # Update any existing relativePath values
         xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
             -u "//x:parent[x:artifactId=\"$artifactId\" and x:groupId=\"$groupId\"]/x:relativePath" \
-            -v "$relativePath" "${pom}.new1" > "${pom}.new2"
+            -v "$relativePath" "${pom}" > "${pom}.new1"
 
         # Add missing ones
         xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
             -s "//x:parent[x:artifactId=\"$artifactId\" and x:groupId=\"$groupId\" and count(x:relativePath)=0]" \
-            -t elem -n relativePath -v "$relativePath" "${pom}.new2" > "${pom}.new3"
+            -t elem -n relativePath -v "$relativePath" "${pom}.new1" > "${pom}.new2"
 
         # Standardize POM XML formatting again
-        xmlstarlet fo "${pom}.new3" > "${pom}.new4"
+        xmlstarlet fo "${pom}.new2" > "${pom}.new"
 
-        diff -C 3 "${pom}.new1" "${pom}.new4"
-        cp "${pom}.new4" "${pom}"
+        diff -u "${pom}.old" "${pom}.new"
+        cp "${pom}.new" "${pom}"
     done
 }
 
 # Find all project poms ignoring the /src/ paths (We don't want to scan code)
-find . -name pom.xml -not -path "*/src/*" | sort | xargs -I^ -P8 bash -c "$(declare -f fix_relative_paths); fix_relative_paths ^"
+find . -name pom.xml -not -path "*/src/*" | sort | xargs -I^ bash -c "$(declare -f fix_relative_paths); fix_relative_paths ^"
