@@ -46,24 +46,25 @@ fix_relative_paths() {
         relativePath="$basePath$projectPath"  # Calculated relative path to parent pom
 
         # Standardize POM XML formatting
-        xmlstarlet fo "$pom" > "${pom}.new"
-        mv "${pom}.new" "${pom}"
+        xmlstarlet fo "$pom" > "${pom}.new1"
 
         # Update any existing relativePath values
         xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
             -u "//x:parent[x:artifactId=\"$artifactId\" and x:groupId=\"$groupId\"]/x:relativePath" \
-            -v "$relativePath" "$pom" > "${pom}.new"
-        diff "${pom}" "${pom}.new"
-        mv "${pom}.new" "${pom}"
+            -v "$relativePath" "${pom}.new1" > "${pom}.new2"
 
         # Add missing ones
         xmlstarlet ed -P -N x=http://maven.apache.org/POM/4.0.0 \
             -s "//x:parent[x:artifactId=\"$artifactId\" and x:groupId=\"$groupId\" and count(x:relativePath)=0]" \
-            -t elem -n relativePath -v "$relativePath" "$pom" > "${pom}.new"
-        diff "${pom}" "${pom}.new"
-        mv "${pom}.new" "${pom}"
+            -t elem -n relativePath -v "$relativePath" "${pom}.new2" > "${pom}.new3"
+
+        # Standardize POM XML formatting again
+        xmlstarlet fo "${pom}.new3" > "${pom}.new4"
+
+        diff -C 3 "${pom}.new1" "${pom}.new4"
+        cp "${pom}.new4" "${pom}"
     done
 }
 
 # Find all project poms ignoring the /src/ paths (We don't want to scan code)
-find . -name pom.xml -not -path "*/src/*" | xargs -I^ -P8 bash -c "$(declare -f fix_relative_paths); fix_relative_paths ^"
+find . -name pom.xml -not -path "*/src/*" | sort | xargs -I^ -P8 bash -c "$(declare -f fix_relative_paths); fix_relative_paths ^"
