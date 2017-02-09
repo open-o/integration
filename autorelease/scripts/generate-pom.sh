@@ -57,7 +57,7 @@ cat > $FILE <<EOF
   <modules>
 EOF
 
-find * -type d -exec test -e "{}/pom.xml" ';' -prune -print | while read p; do
+find -mindepth 1 -type d -exec test -e "{}/pom.xml" ';' -prune -printf "%P\n" | sort | while read p; do
     if [ $p != "integration/autorelease/build" ]; then
 	cat >> $FILE <<EOF
     <module>$p</module>
