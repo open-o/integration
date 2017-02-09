@@ -28,6 +28,7 @@ $ROOT/scripts/get-all-repos.sh | while read p; do
 	cd $BUILD_DIR/$p
 	git checkout $GERRIT_BRANCH
 	git reset --hard origin
+	git clean -f
 	# git pull
     else
 	#TODO: replace with https once repo is open to public
