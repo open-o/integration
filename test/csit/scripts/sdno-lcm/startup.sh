@@ -18,4 +18,5 @@
 source ${SCRIPTS}/common_functions.sh
 echo $@
 
-run-instance.sh openoint/sdno-service-lcm $1
+MSB_ADDR=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' i-msb` 
+run-instance.sh openoint/sdno-service-lcm $1 "-e MSB_ADDR=$MSB_ADDR"
