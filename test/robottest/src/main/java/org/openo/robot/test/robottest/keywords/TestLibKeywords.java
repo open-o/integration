@@ -18,6 +18,8 @@ package org.openo.robot.test.robottest.keywords;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.robot.test.robottest.constants.AppConstants;
@@ -111,6 +113,12 @@ public class TestLibKeywords extends TestManager {
             httpRequest.setUri(PathReplace.replaceKey(key, httpRequest.getUri(), mapValues.get(key)));
             // Replace in Json Body
             httpRequest.setData(PathReplace.replaceKey(key, httpRequest.getData(), mapValues.get(key)));
+
+            // Replace in all headers also
+            Set<Entry<String, String>> keySet = httpRequest.getHeaders().entrySet();
+            for(Entry<String, String> entry : keySet) {
+                entry.setValue(PathReplace.replaceKey(key, entry.getValue(), mapValues.get(key)));
+            }
         }
 
         return;
