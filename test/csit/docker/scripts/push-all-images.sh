@@ -33,12 +33,12 @@ if [ -z "$MVN" ]; then
     export MVN=`which mvn`
 fi
 if [ -z "$MVN" ] && [ -x /w/tools/hudson.tasks.Maven_MavenInstallation/mvn33/bin/mvn ]; then
-    export MVN=`which mvn`
+    export MVN="/w/tools/hudson.tasks.Maven_MavenInstallation/mvn33/bin/mvn"
 fi
 
 cd $ROOT
 for image in `$ROOT/scripts/ls-microservices.py | sort`; do
-    echo 
+    echo
     echo $image
 
     if [ ! -z "$MVN" ]; then
