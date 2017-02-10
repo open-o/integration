@@ -1,11 +1,11 @@
 {
 	"request": {
-		"uri": "http://{MSB_IP}/openoapi/vnfsdk/v1/functest",
+		"uri": "http://${MSB_IP}/openoapi/vnfsdk/v1/functest",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json"	
 		},
-		"json":{} 		
+		"json":{}
 	},
 	"response": {
 		"status": 204
