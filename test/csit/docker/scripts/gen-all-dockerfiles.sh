@@ -34,12 +34,12 @@ for dirsrc in `$ROOT/scripts/ls-microservices.py | sort`; do
     mkdir -p $dir
 
     if [ "$BUILD" = "snapshots" ]; then
-	$ROOT/scripts/gen-dockerfiles.py $dirsrc
+	$ROOT/scripts/gen-dockerfiles.py $dirsrc &
     else
-	$ROOT/scripts/gen-dockerfiles.py $dirsrc --build $BUILD
+	$ROOT/scripts/gen-dockerfiles.py $dirsrc --build $BUILD &
     fi
 done
-
+wait
 
 # Update build number in workaround files
 for file in `find -name 80-workaround.txt`; do
