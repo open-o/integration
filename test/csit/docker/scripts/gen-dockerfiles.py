@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import sys, csv, subprocess, os, urllib2, argparse
+import sys, csv, subprocess, os, shutil, urllib2, argparse
 
 parser = argparse.ArgumentParser(description='Generate docker image definition for a microservice.  The results will be placed under the target/ subdirectory.')
 parser.add_argument('microservice', help='filename of microservice as entered in binaries.csv')
@@ -48,6 +48,7 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
             dir = "{}/{}/target".format(path, row["filename"])
 
             try:
+                shutil.rmtree(dir, True)
                 os.mkdir(dir)
             except OSError:
                 pass
