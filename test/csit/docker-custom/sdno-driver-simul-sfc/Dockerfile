@@ -15,8 +15,11 @@ COPY moco-runner-0.11.0-standalone.jar .
 #Copy json files to the docker image
 COPY *.json ./
 
+#Copy license to the docker image
+COPY License.txt ./
+
 #Copy entrypoint (start service script) to the docker image
 COPY docker-entrypoint.sh ./
 
-#Copy license to the docker image
-COPY License.txt ./
+#Setup entrypoint
+ENTRYPOINT /service/docker-entrypoint.sh
