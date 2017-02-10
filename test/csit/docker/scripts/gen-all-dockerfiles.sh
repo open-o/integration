@@ -22,6 +22,8 @@ else
     BUILD=$1
 fi
 
+VERSION="1.1.0-SNAPSHOT"
+
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
@@ -172,4 +174,38 @@ EOF
     touch $dir/instance-run.sh
     touch $dir/instance-workaround.sh
     chmod +x $dir/*.sh
+
+
+    cat > $dir/pom.xml <<EOF
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.openo.integration.docker</groupId>
+  <artifactId>${dirsrc}</artifactId>
+  <version>${VERSION}</version>
+  <packaging>docker</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+	<version>0.19.0</version>
+        <extensions>true</extensions>
+	<configuration>
+	  <images>
+	    <image>
+	      <name>openoint/${dirsrc}</name>
+	      <build>
+		<dockerFileDir>.</dockerFileDir>
+		<tags>
+		  <tag>latest</tag>
+		</tags>
+	      </build>
+	    </image>
+	  </images>
+	</configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+EOF
 done

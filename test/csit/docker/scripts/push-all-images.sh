@@ -22,17 +22,22 @@ else
     ORG=$1
 fi
 
-set -exu
+set -ex
 
 VERSION="1.1.0-SNAPSHOT"
 
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
+if [ -z "$MVN" ]; then
+    export MVN=`which mvn`
+fi
+
 cd $ROOT
 for image in `$ROOT/scripts/ls-microservices.py | sort`; do
     echo 
     echo $image
-    docker push $ORG/$image:$VERSION
-    docker push $ORG/$image:latest
+    # docker push $ORG/$image:$VERSION
+    # docker push $ORG/$image:latest
+    $MVN -f $image/target docker:push
 done
