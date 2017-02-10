@@ -32,12 +32,19 @@ ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 if [ -z "$MVN" ]; then
     export MVN=`which mvn`
 fi
+if [ -z "$MVN" ] && [ -x /w/tools/hudson.tasks.Maven_MavenInstallation/mvn33/bin/mvn ]; then
+    export MVN=`which mvn`
+fi
 
 cd $ROOT
 for image in `$ROOT/scripts/ls-microservices.py | sort`; do
     echo 
     echo $image
-    # docker push $ORG/$image:$VERSION
-    # docker push $ORG/$image:latest
-    $MVN -f $image/target docker:push
+
+    if [ ! -z "$MVN" ]; then
+	$MVN -f $image/target docker:push
+    else
+	docker push $ORG/$image:$VERSION
+	docker push $ORG/$image:latest
+    fi
 done
