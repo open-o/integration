@@ -1,0 +1,14 @@
+{
+    "driverInfo": {
+        "driverName": "sdnodriver-huawei-l3vpn-0-1",
+        "instanceID": "sdnodriver-huawei-l3vpn-0-1",
+        "ip": "L3VPN_IP",
+        "port": "8533",
+        "protocol": "http",
+        "services": [
+            {
+                "service_url": "/openoapi/sbi-l3vpn/v1"
+            }
+        ]
+    }
+}

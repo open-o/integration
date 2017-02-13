@@ -1,0 +1,14 @@
+{
+    "driverInfo": {
+        "driverName": "sdnodriver-huawei-overlay-0-1",
+        "instanceID": "sdnodriver-huawei-overlay-0-1",
+        "ip": "OVERLAY_IP",
+        "port": "8536",
+        "protocol": "http",
+        "services": [
+            {
+                "service_url": "/openoapi/sbi-overlay/v1"
+            }
+        ]
+    }
+}
