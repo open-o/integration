@@ -1,0 +1,14 @@
+{
+    "driverInfo": {
+        "driverName": "sdnodriver-zte-sptn-0-1",
+        "instanceID": "sdnodriver-zte-sptn-0-1",
+        "ip": "L2VPN_IP",
+        "port": "8641",
+        "protocol": "http",
+        "services": [
+            {
+                "service_url": "/openoapi/sbi-l2vpn-vpws/v1"
+            }
+        ]
+    }
+}
