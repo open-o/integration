@@ -1,0 +1,6 @@
+######### Simulator Configuration ####################
+
+--variable SIMULATOR_IP:172.19.0.1
+--variable SIMULATOR_NAME:simulator
+--variable SIMULATOR_URL:/openoapi/catalogue
+--variable SIMULATOR_PORT:18009

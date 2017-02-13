@@ -6,6 +6,7 @@ Library           OperatingSystem
 *** Variables ***
 ${register_VIM}    ${SCRIPTS}/integration/mockserver/registerVIM.json
 ${register_controller}    ${SCRIPTS}/integration/mockserver/registercontroller.json
+${register_MSB}    ${SCRIPTS}/integration/mockserver/registerToMsb.json
 
 *** Test Cases ***
 Write MSB_IP to JSON
@@ -23,3 +24,8 @@ Registration for Simulated Controller
     [Documentation]    Replace variables and Create sdncontroller and getsdnControllerId
     ${ESR_CNTRL_HTTP}=    Replace variables and send REST    ${register_controller}    ${updmap}    sdnControllerId
     Set Global Variable    ${ESR_CNTRL_HTTP}
+
+Registration Simulator to MSB
+    [Documentation]    Register simulator to MSB
+    ${regmap}=    Create Dictionary    MSB_IP=${MSB_IP}    SIMULATOR_IP=${SIMULATOR_IP}    
+    ${status}=    replaceVariablesAndSendREST    ${register_MSB}    ${regmap}    status

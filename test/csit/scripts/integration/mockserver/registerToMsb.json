@@ -1,0 +1,26 @@
+{
+    "request": {
+        "uri": "http://${MSB_IP}/openoapi/microservices/v1/services",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json" 
+        },
+        "json":{
+        "serviceName": "${SIMULATOR_NAME}",
+        "version": "v1",
+        "url": "${SIMULATOR_URL}",
+        "protocol": "REST",
+        "visualRange": "1",
+        "nodes": [
+        {
+            "ip": "${SIMULATOR_IP}",
+            "port": "${SIMULATOR_PORT}",
+            "ttl": 0
+        }
+      ]
+        }
+    },
+    "response": {
+        "status": 201        
+   }
+}
