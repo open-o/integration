@@ -43,13 +43,16 @@
     <module>gvnfm-vnflcm/lcm</module>
     <module>gvnfm-vnfmgr/mgr</module>
     <module>gvnfm-vnfres/res</module>
+    <module>holmes-rule-management</module>
     <module>integration/test/robottest</module>
     <module>integration/test/sdno-testframework</module>
     <module>modelling-csar</module>
     <module>modelling-specs</module>
     <module>nfvo</module>
     <module>oparent</module>
+    <module>policy-designer</module>
     <module>policy-engine</module>
+    <module>policy-lcm</module>
     <module>sdnhub-driver-ct-te</module>
     <module>sdnhub-driver-huawei-l3vpn</module>
     <module>sdnhub-driver-huawei-openstack</module>
@@ -310,7 +313,7 @@
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.gso.gui</groupId>
+      <groupId>org.openo.gso</groupId>
       <artifactId>service-gateway-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
@@ -392,6 +395,27 @@
       <version>1.1.0-SNAPSHOT</version>
       <type>tar.gz</type>
       <classifier>linux64</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gvnfm.vnflcm</groupId>
+      <artifactId>gvnfm-vnflcm</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gvnfm.vnfres</groupId>
+      <artifactId>gvnfm-vnfres</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gvnfm.vnfmgr</groupId>
+      <artifactId>gvnfm-vnfmgr</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
     </dependency>
   </dependencies>
   <build>

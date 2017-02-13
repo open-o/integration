@@ -334,7 +334,7 @@
       <outputDirectory>gso-service-gateway</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.gso.gui:service-gateway-deployment:zip</include>
+        <include>org.openo.gso:service-gateway-deployment:zip</include>
       </includes>
       <outputFileNameMapping>gso-service-gateway-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -436,6 +436,33 @@
         <include>org.openo.vnf-sdk.function-test:standalone:tar.gz:linux64</include>
       </includes>
       <outputFileNameMapping>vnfsdk-function-test-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>gvnfm-vnflcm</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.gvnfm.vnflcm:gvnfm-vnflcm:zip</include>
+      </includes>
+      <outputFileNameMapping>gvnfm-vnflcm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>gvnfm-vnfres</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.gvnfm.vnfres:gvnfm-vnfres:zip</include>
+      </includes>
+      <outputFileNameMapping>gvnfm-vnfres-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>gvnfm-vnfmgr</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.gvnfm.vnfmgr:gvnfm-vnfmgr:zip</include>
+      </includes>
+      <outputFileNameMapping>gvnfm-vnfmgr-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
   </dependencySets>
