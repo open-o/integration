@@ -150,6 +150,37 @@ public class TestLibKeywords extends TestManager {
     }
 
     /**
+     * Get the response of restful call<br/>
+     * 
+     * @param queryPath The input JSON file
+     * @param variable The uri key value from input JSON
+     * @return Response of restful call, Map of variables and values
+     * @throws ServiceException
+     * @since Integration 2.0
+     */
+    @RobotKeyword("Send REST and get Values")
+    @ArgumentNames({"queryPath", "mapValues"})
+    public Map<String, String> sendRESTandGetValues(String queryPath, Map<String, String> mapValues)
+            throws ServiceException {
+        HttpRquestResponse httpCreateObject = HttpModelUtils.praseHttpRquestResponseFromFile(queryPath);
+        HttpRequest httpRequest = httpCreateObject.getRequest();
+
+        replaceVariables(httpRequest, null);
+        HttpResponse createResponse =
+                execTestCase(httpRequest, new JsonSchemaValidator(httpCreateObject.getResponse()));
+
+        Map<String, String> response = new HashMap<String, String>();
+        Set<Entry<String, String>> keySet = mapValues.entrySet();
+        for(Entry<String, String> entry : keySet) {
+            String strValue = ValidationUtil.getInstance().getObject(entry.getKey(), createResponse.getData());
+            response.put(entry.getKey(), strValue);
+        }
+
+        return response;
+
+    }
+
+    /**
      * Create topology with the given resources( Ex-NetworkElements, Controllers, Nodes, etc)<br/>
      * 
      * @param topoPath The Topology Directory path
