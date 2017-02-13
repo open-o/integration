@@ -27,5 +27,5 @@ Registration for Simulated Controller
 
 Registration Simulator to MSB
     [Documentation]    Register simulator to MSB
-    ${regmap}=    Create Dictionary    MSB_IP=${MSB_IP}    SIMULATOR_IP=${SIMULATOR_IP}    
+    ${regmap}=    Create Dictionary    MSB_IP=${MSB_IP}    SIMULATOR_IP=${SIMULATOR_IP}    SIMULATOR_NAME=${SIMULATOR_NAME}    SIMULATOR_URL=${SIMULATOR_URL}    SIMULATOR_PORT=${SIMULATOR_PORT}   
     ${status}=    replaceVariablesAndSendREST    ${register_MSB}    ${regmap}    status
