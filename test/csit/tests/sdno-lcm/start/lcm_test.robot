@@ -3,7 +3,7 @@ Library  Collections
 Library     RequestsLibrary
 
 *** Variables ***
-${uri}  /openoapi/sdnonslcm/v1/jobs/j1
+${uri}  /openoapi/sdnonslcm/v1/healthcheck
 
 *** test cases ***
 testLCMstarted
