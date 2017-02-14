@@ -47,3 +47,4 @@ VNF SDK Function Test,vnfsdk-function-test,org.openo.vnf-sdk.function-test,stand
 GVNFM Lifecycle Management,gvnfm-vnflcm,org.openo.gvnfm.vnflcm,gvnfm-vnflcm,zip,,8801,,,TRUE,
 GVNFM Virtual Resource Management,gvnfm-vnfres,org.openo.gvnfm.vnfres,gvnfm-vnfres,zip,,8802,,,TRUE,
 GVNFM Init Configuration and Management,gvnfm-vnfmgr,org.openo.gvnfm.vnfmgr,gvnfm-vnfmgr,zip,,8803,,,TRUE,
+Policy Lcm,policy-lcm,org.openo.policy.lcm,apply,tar.gz,linux64,8269,,,,
