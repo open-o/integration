@@ -27,10 +27,12 @@ run-instance.sh openoint/common-tosca-aria i-common-tosca-aria "-e MSB_ADDR=${MS
 COMMON_TOSCA_ARIA_IP=`get-instance-ip.sh i-common-tosca-aria`
 echo COMMON_TOSCA_ARIA_IP=${COMMON_TOSCA_ARIA_IP}
 
-#Bug workaround
-docker exec i-common-tosca-aria sh -c "mkdir /service/env/lib/python2.7/site-packages/aria_extension_open_o/config/ && echo -e 'msb_server_ip: ${MSB_IP}\nmsb_server_port: 80\nparser_service_ip: ${COMMON_TOSCA_ARIA_IP}' > /service/env/lib/python2.7/site-packages/aria_extension_open_o/config/config.yaml"
-docker restart i-common-tosca-aria
+# Wait for COMMON_TOSCA_ARIA instantiation 
+for i in {1..10}; do
+    curl -sS -m 1 ${COMMON_TOSCA_ARIA_IP}:8204 && break
+    echo sleep $i
+    sleep $i
+done
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}"
-
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP} -v SCRIPTS:${SCRIPTS}"

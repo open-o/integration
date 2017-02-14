@@ -14,18 +14,4 @@
 # under the License.
 #
 
-*** Settings ***
-Library       RequestsLibrary
-
-*** Test Cases ***
-Liveness Test - check if service is registered
-    [Documentation]        Check if Common TOSCA ARIA is registered in the MSB 
-    Create Session         msb              http://${MSB_IP}
-    CheckUrl               msb              /openoapi/microservices/v1/services/tosca/version/v1
-
-*** Keywords ***
-CheckUrl
-    [Arguments]                   ${session}  ${path}
-    ${resp}=                      Get Request          ${session}  ${path}
-    Should Be Equal As Integers   ${resp.status_code}  200 
-
+Documentation    Common TOSCA ARIA - Parse
