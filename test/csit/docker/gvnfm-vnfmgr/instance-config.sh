@@ -17,14 +17,14 @@
 # Configure MSB IP address
 MSB_IP=`echo $MSB_ADDR | cut -d: -f 1`
 MSB_PORT=`echo $MSB_ADDR | cut -d: -f 2`
-GVNFM_VNFMGR_PATH = gvnfm_vnfmgr
-GVNFM_VNFMGR_CONFIG_PATH = gvnfm_vnfmgr/pub/config
+GVNFM_VNFMGR_PATH = gvnfm-vnfmgr/mgr
+GVNFM_VNFMGR_CONFIG_PATH = gvnfm-vnfmgr/mgr/mgr/pub/config
 
 sed -i "s|MSB_SERVICE_IP.*|MSB_SERVICE_IP = '$MSB_IP'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
 sed -i "s|MSB_SERVICE_PORT.*|MSB_SERVICE_PORT = '$MSB_PORT'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
-sed -i "s|DB_NAME.*|DB_NAME = 'inventory'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
-sed -i "s|DB_USER.*|DB_USER = 'inventory'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
-sed -i "s|DB_PASSWD.*|DB_PASSWD = 'inventory'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
+sed -i "s|DB_NAME.*|DB_NAME = 'gvnfm'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
+sed -i "s|DB_USER.*|DB_USER = 'gvnfm'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
+sed -i "s|DB_PASSWD.*|DB_PASSWD = 'gvnfm'|" GVNFM_VNFMGR_CONFIG_PATH/config.py
 sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" GVNFM_VNFMGR_CONFIG_PATH/config.py
 
 # Configure MYSQL

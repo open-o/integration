@@ -17,15 +17,15 @@
 # Configure MSB IP address
 MSB_IP=`echo $MSB_ADDR | cut -d: -f 1`
 MSB_PORT=`echo $MSB_ADDR | cut -d: -f 2`
-GVNFM_VNFMLCM_PATH = gvnfm_vnfmlcm
-GVNFM_VNFMLCM_CONFIG_PATH = gvnfm_vnfmlcm/pub/config
+GVNFM_VNFLCM_PATH = gvnfm-vnflcm/lcm
+GVNFM_VNFLCM_CONFIG_PATH = gvnfm-vnflcm/lcm/lcm/pub/config
 
-sed -i "s|MSB_SERVICE_IP.*|MSB_SERVICE_IP = '$MSB_IP'|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
-sed -i "s|MSB_SERVICE_PORT.*|MSB_SERVICE_PORT = '$MSB_PORT'|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
-sed -i "s|DB_NAME.*|DB_NAME = 'inventory'|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
-sed -i "s|DB_USER.*|DB_USER = 'inventory'|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
-sed -i "s|DB_PASSWD.*|DB_PASSWD = 'inventory'|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
-sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
+sed -i "s|MSB_SERVICE_IP.*|MSB_SERVICE_IP = '$MSB_IP'|" GVNFM_VNFLCM_CONFIG_PATH/config.py
+sed -i "s|MSB_SERVICE_PORT.*|MSB_SERVICE_PORT = '$MSB_PORT'|" GVNFM_VNFLCM_CONFIG_PATH/config.py
+sed -i "s|DB_NAME.*|DB_NAME = 'gvnfm'|" GVNFM_VNFLCM_CONFIG_PATH/config.py
+sed -i "s|DB_USER.*|DB_USER = 'gvnfm'|" GVNFM_VNFLCM_CONFIG_PATH/config.py
+sed -i "s|DB_PASSWD.*|DB_PASSWD = 'gvnfm'|" GVNFM_VNFLCM_CONFIG_PATH/config.py
+sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" GVNFM_VNFLCM_CONFIG_PATH/config.py
 
 # Configure MYSQL
 if [ -z "$MYSQL_ADDR" ]; then
@@ -37,10 +37,10 @@ else
     MYSQL_PORT=`echo $MYSQL_ADDR | cut -d: -f 2`
 fi
 echo "MYSQL_ADDR=$MYSQL_ADDR"
-sed -i "s|DB_IP.*|DB_IP = '$MYSQL_IP'|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
-sed -i "s|DB_PORT.*|DB_PORT = $MYSQL_PORT|" GVNFM_VNFMLCM_CONFIG_PATH/config.py
+sed -i "s|DB_IP.*|DB_IP = '$MYSQL_IP'|" GVNFM_VNFLCM_CONFIG_PATH/config.py
+sed -i "s|DB_PORT.*|DB_PORT = $MYSQL_PORT|" GVNFM_VNFLCM_CONFIG_PATH/config.py
 
-cat GVNFM_VNFMLCM_CONFIG_PATH/config.py
+cat GVNFM_VNFLCM_CONFIG_PATH/config.py
 
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" GVNFM_VNFMLCM_PATH/run.sh
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" GVNFM_VNFMLCM_PATH/stop.sh
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" GVNFM_VNFLCM_PATH/run.sh
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" GVNFM_VNFLCM_PATH/stop.sh

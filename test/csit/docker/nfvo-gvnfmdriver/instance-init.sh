@@ -14,6 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Change run script to not suppress output
-GVNFM_VNFLCM_PATH = ./gvnfm-vnflcm/lcm
-sed -i 's|>.*/dev/null||' GVNFM_VNFLCM_PATH/run.sh
+
+# Install python requirements
+cd ./nfvo/drivers/vnfm/gvnfm/gvnfmadapter
+./initialize.sh

@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-GVNFM_VNFRES_PATH = ./gvnfm_vnfres
+GVNFM_VNFRES_PATH = ./gvnfm_vnfres/res
 
 # Initialize DB schema
 ./bin/initDB.sh root rootpass 3306 127.0.0.1

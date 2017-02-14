@@ -17,7 +17,7 @@
 
 redis-server &
 
-GVNFM_VNFRES_PATH = ./gvnfm_vnfres
+GVNFM_VNFRES_PATH = ./gvnfm_vnfres/res
 
 cd GVNFM_VNFRES_PATH
 ./run.sh

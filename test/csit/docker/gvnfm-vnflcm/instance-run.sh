@@ -17,9 +17,9 @@
 
 redis-server &
 
-GVNFM_VNFMLCM_PATH = ./gvnfm_vnflcm
+GVNFM_VNFLCM_PATH = ./gvnfm-vnflcm/lcm
 
-cd GVNFM_VNFMLCM_PATH
+cd GVNFM_VNFLCM_PATH
 ./run.sh
 
 while [ ! -f logs/gvnfm_vnflcm.log ]; do

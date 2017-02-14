@@ -15,5 +15,5 @@
 # limitations under the License.
 #
 # Change run script to not suppress output
-GVNFM_VNFRES_PATH = ./gvnfm_vnfres
+GVNFM_VNFRES_PATH = ./gvnfm_vnfres/res
 sed -i 's|>.*/dev/null||' GVNFM_VNFRES_PATH/run.sh
