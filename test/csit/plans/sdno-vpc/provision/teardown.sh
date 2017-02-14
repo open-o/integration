@@ -21,4 +21,4 @@ kill-instance.sh d-drivermgr || true
 kill-instance.sh i-brs || true
 kill-instance.sh i-mss || true
 kill-instance.sh i-msb || true
-kill  `ps -ax | grep java| grep moco | awk '{print $1}'`
+kill  `ps -ax | grep java| grep moco | awk '{print $1}'` || true 
