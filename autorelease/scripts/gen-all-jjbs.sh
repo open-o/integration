@@ -27,7 +27,6 @@ cd $BUILD_DIR
 # specific workarounds to maintain existing job list
 rm -f $BUILD_DIR/integration/autorelease/build/pom.xml
 rm -f $BUILD_DIR/nfvo/monitor/pom.xml
-rm -f $BUILD_DIR/common-services-common-utilities/dropwizard-ioc-container/pom.xml
 touch $BUILD_DIR/common-tosca-aria/tox.ini
 
 
