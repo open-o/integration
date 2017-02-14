@@ -88,6 +88,9 @@
     },
     {
 		"include":"Stubs/testcase/servicechain/moco_servicechain.json"
+    },
+    {
+		"include":"Stubs/testcase/gso/config.json"
     }	
 ]
 

@@ -1,0 +1,38 @@
+[
+    {
+        "request": {
+            "uri": "/openoapi/extsys/v1/vims"
+        },
+        "response": {
+            "file": "./Stubs/testcase/extsys_vims.json"
+        }
+    },
+    {
+        "request": {
+            "uri": "/openoapi/extsys/v1/sdncontrollers"
+        },
+        "response": {
+            "file": "./Stubs/testcase/gso/extsys_sdncontrollers.json"
+        }
+    },
+    {
+        "request": {
+            "method": "post",
+            "uri": "/openoapi/inventory/v1/services"
+        },
+        "response": {
+            "file": "./Stubs/testcase/gso/inventory_allservices.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {
+                "match": "/openoapi/inventory/v1/services/.*"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/gso/inventory_singleservice.json"
+        }
+    }
+]
