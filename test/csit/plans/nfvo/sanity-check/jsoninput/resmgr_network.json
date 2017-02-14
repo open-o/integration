@@ -1,0 +1,13 @@
+{
+    "request": {
+        "uri": "http://${MSB_IP}/openoapi/resmgr/v1/networks",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json"  
+        },
+        "json":{}
+    },
+    "response": {
+        "status": 200
+    }
+}
