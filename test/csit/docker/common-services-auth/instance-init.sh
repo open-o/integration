@@ -42,6 +42,15 @@ sed -i '/^\[token\]$/aprovider = uuid' /etc/keystone/keystone.conf
 sed -i '/^\[token\]$/adriver = memcache' /etc/keystone/keystone.conf
 sed -i '/^\[revoke\]$/adriver = sql' /etc/keystone/keystone.conf
 
+sed -i "s/role:admin or is_admin:1//" /etc/keystone/policy.json
+sed -i "s/role:service//" /etc/keystone/policy.json
+sed -i "s/rule:admin_required or rule:service_role//" /etc/keystone/policy.json
+sed -i "s/user_id:%(user_id)s//" /etc/keystone/policy.json
+sed -i "s/rule:admin_required or rule:owner//" /etc/keystone/policy.json
+sed -i "s/user_id:%(target.token.user_id)s//" /etc/keystone/policy.json
+sed -i "s/rule:admin_required or rule:token_subject//" /etc/keystone/policy.json
+sed -i "s/rule:service_or_admin or rule:token_subject//" /etc/keystone/policy.json
+
 #config httpd and run it
 sed -i '/\#ServerName www.example.com:80$/aServerName controller' /etc/httpd/conf/httpd.conf
 cp init/wsgi-keystone.conf  /etc/httpd/conf.d/wsgi-keystone.conf
