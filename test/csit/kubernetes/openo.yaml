@@ -1330,3 +1330,40 @@ spec:
           value: common-services-msb:80
         ports:
         - containerPort: 8903
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: policy-designer
+  labels:
+    app: policy-designer
+spec:
+  selector:
+    app: policy-designer
+  type: NodePort
+  ports:
+  - port: 8901
+    targetPort: 8901
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: policy-designer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: policy-designer
+    spec:
+      containers:
+      - name: policy-designer
+        image: openoint/policy-designer
+        env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: MSB_ADDR
+          value: common-services-msb:80
+        ports:
+        - containerPort: 8901
