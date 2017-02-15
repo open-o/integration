@@ -1,69 +1,284 @@
 [
     {
-        "request": {
-            "uri": "/openoapi/extsys/v1/vims"
+        "request":{
+            "uri":"/openoapi/extsys/v1/vims"
         },
-        "response": {
-            "file": "./Stubs/testcase/extsys_vims.json"
+        "response":{
+            "file":"./Stubs/testcase/gso/extsys_vims.json"
         }
     },
     {
-        "request": {
-            "uri": "/openoapi/extsys/v1/sdncontrollers"
+        "request":{
+            "uri":"/openoapi/extsys/v1/sdncontrollers"
         },
-        "response": {
-            "file": "./Stubs/testcase/gso/extsys_sdncontrollers.json"
+        "response":{
+            "file":"./Stubs/testcase/gso/extsys_sdncontrollers.json"
         }
     },
     {
-        "request": {
-            "method": "post",
-            "uri": "/openoapi/inventory/v1/services"
+        "request":{
+            "method":"post",
+            "uri":"/openoapi/inventory/v1/services"
         },
-        "response": {
-            "file": "./Stubs/testcase/gso/inventory_allservices.json"
+        "response":{
+            "file":"./Stubs/testcase/gso/inventory_allservices.json"
         }
     },
     {
-        "request": {
-            "method": "get",
-            "uri": {
-                "match": "/openoapi/inventory/v1/services/.*"
+        "request":{
+            "method":"get",
+            "uri":{
+                "match":"/openoapi/inventory/v1/services/.*"
             }
         },
-        "response": {
-            "file": "./Stubs/testcase/gso/inventory_singleservice.json"
+        "response":{
+            "file":"./Stubs/testcase/gso/inventory_singleservice.json"
         }
     },
     {
-        "request": {
-            "method": "get",
-            "uri": {
-                "match": "/openoapi/catalog/v1/servicetemplates/.*/parameters"
+        "request":{
+            "method":"get",
+            "uri":{
+                "match":"/openoapi/catalog/v1/servicetemplates/.*/parameters"
             }
         },
-        "response": {
-            "file": "./Stubs/testcase/gso/Mock_QueryParametersOfServiceTemplate_Rsp.json"
+        "response":{
+            "file":"./Stubs/testcase/gso/Mock_QueryParametersOfServiceTemplate_Rsp.json"
         }
     },
     {
-        "request": {
-            "method": "get",
-            "uri": {
-                "match": "/openoapi/catalog/v1/servicetemplates/.*/operations"
+        "request":{
+            "method":"get",
+            "uri":{
+                "match":"/openoapi/catalog/v1/servicetemplates/.*/operations"
             }
         },
-        "response": {
-            "file": "./Stubs/testcase/gso/Mock_QueryOperationListOfServiceTemplate_Rsp.json"
+        "response":{
+            "file":"./Stubs/testcase/gso/Mock_QueryOperationListOfServiceTemplate_Rsp.json"
         }
     },
     {
-        "request": {
-            "method": "post",
-            "uri": "/openoapi/wso2bpel/v1/process/instance"
+        "request":{
+            "method":"post",
+            "uri":"/openoapi/wso2bpel/v1/process/instance"
         },
-        "response": {
-            "file": "./Stubs/testcase/gso/Mock_Wso2StartWorkFlow_Rsp.json"
+        "response":{
+            "file":"./Stubs/testcase/gso/Mock_Wso2StartWorkFlow_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_alltemplates.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates/79244f5a-970b-4c9d-a836-645720c27edd/nodetemplates"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_site2dcnodetypes.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates/79244f5a-970b-4c9d-a836-645720c27edd"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_site2dctemplate.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates/nesting"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_site2dcnodetypetemplates.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/csars/8937a94d-1799-47a5-971d-58ff7d35def6"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_site2dccsar.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/csars/363e2175-ec9b-438f-807d-ad3cb6cae68c"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_popnscasr.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/csars/e141d02b-687a-4a36-b42b-a5740bc7bf2a"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_enterprise2dccsar.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/csars/efb0e0db-c387-4954-956b-60e253f97f29"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_dcnscasr.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/nslcm/v1/ns"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/nfvonslcm_CreateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/nslcm/v1/ns/.*/instantiate"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/nfvonslcm_InstantiateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/nslcm/v1/ns/.*/terminate"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/nfvonslcm_TerminateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"delete",
+            "uri":{
+                "match":"/openoapi/nslcm/v1/ns/.*"
+            }
+        },
+        "response":{
+            "status":200
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":{
+                "match":"/openoapi/nslcm/v1/jobs/.*"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/nfvonslcm_QueryNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/sdnonslcm/v1/ns"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/sdnonslcm_CreateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/sdnonslcm/v1/ns/.*/instantiate"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/sdnonslcm_InstantiateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/sdnonslcm/v1/ns/.*/terminate"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/sdnonslcm_TerminateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"delete",
+            "uri":{
+                "match":"/openoapi/sdnonslcm/v1/ns/.*"
+            }
+        },
+        "response":{
+            "status":200
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":{
+                "match":"/openoapi/sdnonslcm/v1/jobs/.*"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/sdnonslcm_QueryNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/gso/v1/services"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/gsonslcm_CreateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/gso/v1/services/.*"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/gsonslcm_DeleteNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":{
+                "match":"/openoapi/gso/v1/services/.*/operations/.*"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/gsonslcm_QueryNs_Rsp.json"
         }
     }
 ]

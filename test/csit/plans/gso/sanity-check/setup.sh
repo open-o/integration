@@ -30,15 +30,15 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING
 run-instance.sh openoint/gso-service-gateway gso-sgw " -i -t -e MSB_ADDR=${MSB_IP}:80"
 extsys_ip=`get-instance-ip.sh gso-sgw`
 sleep_msg="Waiting_for_gso-sgw"
-curl_path='http://'${MSB_IP}':80/openoapi/servicegateway/v1'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+curl_path='http://'${MSB_IP}':80/openoapi/servicegateway/v1/domains'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
 
 #Start gso
 run-instance.sh openoint/gso-service-manager gso " -i -t -e MSB_ADDR=${MSB_IP}:80"
 extsys_ip=`get-instance-ip.sh gso`
 sleep_msg="Waiting_for_gso-sgw"
-curl_path='http://'${MSB_IP}':80/openoapi/gso/v1'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+curl_path='http://'${MSB_IP}':80/openoapi/gso/v1/services'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
 
 echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
