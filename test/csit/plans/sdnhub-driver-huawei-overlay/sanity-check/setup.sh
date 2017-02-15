@@ -47,7 +47,7 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 
 #Start openoint/sdno-driver-huawei-overlay
 ${SCRIPTS}/sdnhub-driver-huawei-overlay/startup.sh d-driver-huawei-overlay ${MSB_IP}:80
-OVERLAYIP_IP=`sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' d-driver-huawei-overlay`
+OVERLAYIP_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' d-driver-huawei-overlay`
 DRIVERMGR_IP=`get-instance-ip.sh d-drivermgr`
 
 DRIVER_PORT='8536'
