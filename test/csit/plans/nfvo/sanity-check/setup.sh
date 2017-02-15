@@ -32,7 +32,7 @@ run-instance.sh openoint/nfvo-driver-vnfm-juju jujuvnfm " -i -t -e MSB_ADDR=${MS
 extsys_ip=`get-instance-ip.sh jujuvnfm`
 sleep_msg="Waiting_for_jujudriver"
 curl_path='http://'${MSB_IP}':80/openoapi/jujuvnfm/v1/config'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=10 GREP_STRING="\{"
 
 echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
