@@ -29,7 +29,7 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING
 docker run -d -i -t -e MSB_ADDR=$MSB_IP  -p 8100:8100 openoint/common-services-extsys
 
 # Start vnfsdk
-docker run -d -i -t -e MSB_ADDR=$MSB_IP  -p 8701:8701 openoint/vnfsdk-function-test
+docker run -d -i -t --name=functest -e MSB_ADDR=$MSB_IP  -p 8701:8701 openoint/vnfsdk-function-test
 
 echo SCRIPTS
 
