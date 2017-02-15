@@ -34,6 +34,7 @@ cat > $JJB_DIR/integration/integration-docker-microservices.yaml <<EOF
     name: integration-docker-microservices
     project: 'integration'
     branch: 'master'
+    version: '1.1.0-SNAPSHOT'
     mvn-settings: 'autorelease-settings'
     build-node: 'centos7-robot-8c-8g'
     jobs:
