@@ -1,0 +1,62 @@
+{
+    "nodeTemplateName":"POP_NS",
+    "segments": [{
+        "serviceId":"gso_service_1",
+        "subServiceName":"gso_service.pop1",
+        "subServiceDesc":"gso_service_desc",
+        "domainHost": "10.11.11.1:80",
+        "nodeTemplateName": "POP_NS",
+        "nodeType": "tosca.nodes.nfv.NS.POP",
+        "segments": [],
+        "additionalParamForNS": {
+            "externalDataNetworkName": "Flow_out_net",
+            "m6000_mng_ip": "181.18.20.2",
+            "externalCompanyFtpDataNetworkName": "Flow_out_net",
+            "externalPluginManageNetworkName": "plugin_net_2014",
+            "externalManageNetworkName": "mng_net_2017",
+            "sfc_data_network": "sfc_data_net_2016",
+            "NatIpRange": "210.1.1.10-210.1.1.20",
+            "location": "4050083f-465f-4838-af1e-47a545222ad0",
+            "sdncontroller": "9b9f02c0-298b-458a-bc9c-be3692e4f35e"
+        }
+    },
+    {
+        "serivceId":"gso_service_1",
+        "subServiceName":"gso_service.dc1",
+        "subServiceDesc":"gso_service_desc",
+        "domainHost": "10.11.11.2:80",
+        "nodeTemplateName": "POP_DC",
+        "nodeType": "tosca.nodes.nfv.NS.DC",
+        "segments": [],
+        "additionalParamForNS": {
+            "location": "e151059a-d924-4629-845f-264db19e50b4",
+            "sdncontroller": "9b9f02c0-298b-458a-bc9c-be3692e4f35e"
+        }
+    },
+    {
+        "serivceId":"gso_service_1",
+        "subServiceName":"gso_service.enterprise2dc1",
+        "subServiceDesc":"gso_service_desc",
+        "domainHost": "10.11.11.2:80",
+        "nodeTemplateName": "ENTERPRISE2DC",
+        "nodeType": "tosca.nodes.sdn.ext.NS.enterprise2DC",
+        "segments": [],
+        "additionalParamForNS": {
+            "siteVNI": "20001",
+            "vpcName": "default/openotest",
+            "dcLBIP":"192.168.13.33",
+            "siteAccessPortVlan":"13",
+            "description":"gso1",
+            "siteCidr":"10.100.100.0/24",
+            "dcGWIP":"192.168.233.202",
+            "dcFWIP":"192.168.233.153",
+            "siteThinCpeIP":"192.168.233.155",
+            "vpcSubnetName":"subnet1",
+            "name":"gso_test111",
+            "vpcSubnetCidr":"10.21.3.0/24",
+            "vCPE_MgrIp":"192.168.237.168",
+            "id":"",
+            "vpcVNI":"10001"
+        }
+    }]        
+}

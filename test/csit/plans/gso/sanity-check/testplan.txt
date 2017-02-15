@@ -2,3 +2,6 @@
 # Place the suites in run order.
 gso/sanity-check/sanity_test_sg.robot
 gso/sanity-check/sanity_test_gsolcm.robot
+gso/sanity-check/sanity_test_driver_gsons.robot
+gso/sanity-check/sanity_test_driver_nfvons.robot
+gso/sanity-check/sanity_test_driver_sdnons.robot
