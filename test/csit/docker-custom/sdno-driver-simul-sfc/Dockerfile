@@ -10,7 +10,7 @@ ENV JAVA_HOME /usr/lib/jvm/jre
 WORKDIR /service
 
 #download moco
-RUN wget http://central.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0.jar
+RUN wget https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar
 
 #Copy json files to the docker image
 COPY *.json ./
