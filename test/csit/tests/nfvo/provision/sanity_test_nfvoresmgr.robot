@@ -13,3 +13,14 @@ Set MSB_IP in json file
 resmgr_network_test
     [Documentation]    resmgrNetworkTest
     Replace variables and send REST    ${resmgr_network_json}    null    null
+
+Url Test
+    [Documentation]    Check if google.com can be reached
+    CheckUrl           http://www.google.com
+
+*** Keywords ***
+CheckUrl
+    [Arguments]                  ${url}
+    Create Session               session              ${url}
+    ${resp}=                     Get Request          session                  /
+    Should Be Equal As Integers  ${resp.status_code}  200
