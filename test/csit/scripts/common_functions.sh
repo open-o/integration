@@ -100,12 +100,12 @@ function run_simulator ()
     fi
 
     #Start the simulator docker if not started
-    SIMULATOR_IP=`sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
+    SIMULATOR_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
     if [[ -z $SIMULATOR_IP ]]
     then
         echo "Starting simulator docker..."
         eval `docker run -d -i -t --name simulator -v ${SCRIPTS}/../../../bootstrap/start-service-script/mocomaster:/var/lib/moco   -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker`      
-        SIMULATOR_IP=`sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
+        SIMULATOR_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
     fi   
 
     #Set the simulator IP in robot variables

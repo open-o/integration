@@ -93,7 +93,10 @@ public class TestLibKeywords extends TestManager {
         replaceVariables(httpRequest, mapValues);
         HttpResponse httpResponse = execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
 
-        String strValue = ValidationUtil.getInstance().getObject(variable, httpResponse.getData());
+        String strValue = "";
+        if(null != variable) {
+            strValue = ValidationUtil.getInstance().getObject(variable, httpResponse.getData());
+        }
 
         return strValue;
 
@@ -143,7 +146,10 @@ public class TestLibKeywords extends TestManager {
         HttpResponse createResponse =
                 execTestCase(httpRequest, new JsonSchemaValidator(httpCreateObject.getResponse()));
 
-        String strValue = ValidationUtil.getInstance().getObject(variable, createResponse.getData());
+        String strValue = "";
+        if(null != variable) {
+            strValue = ValidationUtil.getInstance().getObject(variable, createResponse.getData());
+        }
 
         return strValue;
 
