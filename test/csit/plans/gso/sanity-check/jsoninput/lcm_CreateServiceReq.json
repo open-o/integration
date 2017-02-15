@@ -1,5 +1,5 @@
 "service": {
-    "name": "gso_test",
+    "name": "gso_test_lcm",
     "description": "teatea",
     "serviceDefId": "8937a94d-1799-47a5-971d-58ff7d35def6",
     "templateId": "79244f5a-970b-4c9d-a836-645720c27edd",
