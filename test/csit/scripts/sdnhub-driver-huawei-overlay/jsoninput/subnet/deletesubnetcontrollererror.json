@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/abc132/subnet/1234",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=ctrlid1024"
+		},
+		"json": {}
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

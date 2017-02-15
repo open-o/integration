@@ -1,0 +1,131 @@
+{
+	"request": {
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/abc123/batch-update-nqa",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+		},
+		"json": [{
+			"name": "name",
+			"tenantId": "tenantId",
+			"description": null,
+			"deployStatus": null,
+			"activeStatus": "none",
+			"runningStatus": "none",
+			"additionalInfo": null,
+			"deviceId": "abc123",
+			"controllerId": "controllerId",
+			"externalId": "externalId",
+			"neId": "123",
+			"neRole": null,
+			"srcIp": "1.2.3.4",
+			"srcPortName": "portName",
+			"dstIp": "192.168.1.2",
+			"dstPortName": null,
+			"testType": "ping",
+			"frequency": null,
+			"probeCount": null,
+			"timeout": null,
+			"ttl": null,
+			"tos": null,
+			"interval": null,
+			"id": "id",
+			"actionState": "Normal",
+			"createTime": 0,
+			"updateTime": 0
+		}]
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
+					"type": "string"
+				},
+				"httpCode": {
+					"type": "integer"
+				},
+				"message": {
+					"type": "string"
+				},
+				"successed": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"tenantId": {
+								"type": "string"
+							},
+							"activeStatus": {
+								"type": "string"
+							},
+							"runningStatus": {
+								"type": "string"
+							},
+							"deviceId": {
+								"type": "string"
+							},
+							"controllerId": {
+								"type": "string"
+							},
+							"externalId": {
+								"type": "string"
+							},
+							"neId": {
+								"type": "string"
+							},
+							"srcIp": {
+								"type": "string"
+							},
+							"srcPortName": {
+								"type": "string"
+							},
+							"dstIp": {
+								"type": "string"
+							},
+							"testType": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							},
+							"actionState": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"deviceId",
+							"controllerId",
+							"externalId",
+							"neId",
+							"srcIp",
+							"testType",
+							"id"
+						]
+					}
+				},
+				"fail": {
+					"type": "array",
+					"items": {}
+				}
+			}
+		}
+	}
+}

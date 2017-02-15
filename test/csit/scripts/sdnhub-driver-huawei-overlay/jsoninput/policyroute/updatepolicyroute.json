@@ -1,0 +1,116 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-route/v1/batch-update-policy-routes",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+		},
+		"json": [{
+			"name": "IT",
+			"tenantId": "",
+			"description": null,
+			"deployStatus": null,
+			"activeStatus": "active",
+			"runningStatus": "none",
+			"additionalInfo": null,
+			"deviceId": "123",
+			"controllerId": "",
+			"externalId": "",
+			"nbiNeRouteId": "",
+			"trafficPolicyName": "test1",
+			"interfaceName": "",
+			"direction": "",
+			"filterAction": null,
+			"id": "1",
+			"actionState": "Normal",
+			"createTime": 0,
+			"updateTime": 0
+		}]
+	},
+	"response": {
+		"status": 200,
+		"json": {
+	"type": "object",
+	"properties": {
+		"errorCode": {
+			"type": "string"
+		},
+		"descArg": {
+			"type": "string"
+		},
+		"reasonArg": {
+			"type": "string"
+		},
+		"detailArg": {
+			"type": "string"
+		},
+		"adviceArg": {
+			"type": "string"
+		},
+		"httpCode": {
+			"type": "integer"
+		},
+		"message": {
+			"type": "string"
+		},
+		"successed": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"tenantId": {
+						"type": "string"
+					},
+					"activeStatus": {
+						"type": "string"
+					},
+					"runningStatus": {
+						"type": "string"
+					},
+					"deviceId": {
+						"type": "string"
+					},
+					"controllerId": {
+						"type": "string"
+					},
+					"externalId": {
+						"type": "string"
+					},
+					"nbiNeRouteId": {
+						"type": "string"
+					},
+					"trafficPolicyName": {
+						"type": "string"
+					},
+					"interfaceName": {
+						"type": "string"
+					},
+					"id": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"tenantId",
+					"deviceId",
+					"controllerId",
+					"externalId",
+					"nbiNeRouteId",
+					"trafficPolicyName",
+					"interfaceName",
+					"id"
+				]
+			}
+		},
+		"fail": {
+			"type": "array",
+			"items": {}
+		}
+	}
+}
+	}
+}

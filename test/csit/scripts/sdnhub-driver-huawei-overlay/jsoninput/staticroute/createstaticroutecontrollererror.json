@@ -1,0 +1,37 @@
+{
+	"request": {
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-create-static-routes",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"X-Driver-Parameter": "extSysID=@#$!%"
+		},
+		"json": [{
+			"name": "staticRoute01",
+			"tenantId": "71244ad0-b4ea-41ed-969e-d5588b32fd5f",
+			"description": "create static route",
+			"deployStatus": null,
+			"activeStatus": "none",
+			"runningStatus": "none",
+			"additionalInfo": null,
+			"deviceId": "abc123",
+			"controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+			"externalId": null,
+			"nbiNeRouteId": null,
+			"destIp": "192.168.1.1",
+			"enableDhcp": null,
+			"nextHop": null,
+			"outInterface": null,
+			"priority": null,
+			"nqa": null,
+			"id": "81244ad0-b4ea-41ed-969e-d5588b32fd5f",
+			"actionState": "Normal",
+			"createTime": 0,
+			"updateTime": 0
+		}]
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

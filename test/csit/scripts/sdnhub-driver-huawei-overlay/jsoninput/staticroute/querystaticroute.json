@@ -1,0 +1,109 @@
+{
+	"request": {
+		"uri": "/overlayvpndriverservice/openoapi/sbi-route/v1/batch-query-static-routes",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+		},
+		"json": [{
+			"name": "staticRoute01",
+			"tenantId": "71244ad0-b4ea-41ed-969e-d5588b32fd5f",
+			"description": "create static route",
+			"deployStatus": null,
+			"activeStatus": "none",
+			"runningStatus": "none",
+			"additionalInfo": null,
+			"deviceId": "81244ad0-b4ea-41ed-969e-d5588b32fd5d",
+			"controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+			"externalId": null,
+			"nbiNeRouteId": null,
+			"destIp": "192.168.1.1",
+			"enableDhcp": null,
+			"nextHop": null,
+			"outInterface": null,
+			"priority": null,
+			"nqa": null,
+			"id": "81244ad0-b4ea-41ed-969e-d5588b32fd5f",
+			"actionState": "Normal",
+			"createTime": 0,
+			"updateTime": 0
+		}]
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"data": {
+					"type": "object",
+					"properties": {
+						"tenantId": {
+							"type": "string"
+						},
+						"deviceId": {
+							"type": "string"
+						},
+						"controllerId": {
+							"type": "string"
+						},
+						"externalId": {
+							"type": "string"
+						},
+						"nbiNeRouteId": {
+							"type": "string"
+						},
+						"destIp": {
+							"type": "string"
+						},
+						"enableDhcp": {
+							"type": "string"
+						},
+						"nextHop": {
+							"type": "string"
+						},
+						"outInterface": {
+							"type": "string"
+						},
+						"actionState": {
+							"type": "string"
+						},
+						"createTime": {
+							"type": "integer"
+						},
+						"updateTime": {
+							"type": "integer"
+						}
+					},
+					"required": [
+						"tenantId",
+						"deviceId",
+						"controllerId",
+						"externalId"
+					]
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
+					"type": "string"
+				},
+				"httpCode": {
+					"type": "integer"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

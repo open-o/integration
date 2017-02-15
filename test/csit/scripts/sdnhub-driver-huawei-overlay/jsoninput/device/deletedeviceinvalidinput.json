@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "/overlayvpndriverservice/openoapi/sbi-localsite/v1/devices",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"X-Driver-Parameter": "extSysID=axy"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

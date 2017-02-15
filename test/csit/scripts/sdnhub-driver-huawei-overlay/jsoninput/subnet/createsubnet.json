@@ -1,0 +1,190 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/abc123/subnet",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+		},
+		"json": {
+			"tenantId": "acd123",
+			"name": "Subnet model",
+			"description": "description",
+			"additionalInfo": [{
+				"name": "subnet nv string",
+				"value": "value",
+				"firstParentUuid": "1234a",
+				"id": "1234ab"
+			}],
+			"operStatus": "active",
+			"adminStatus": "adminStatus",
+			"actionState": "actionState",
+			"createTime": "60",
+			"neId": "123",
+			"controllerId": "ctrlid1024",
+			"networkId": "1234",
+			"serviceSubnetId": "abcdd123",
+			"vni": "123",
+			"vlanId": "123",
+			"cidrIpAddress": "12.12.15.16",
+			"cidrMask": "255.3.5.4",
+			"gatewayIp": "10.11.12.13",
+			"enableDhcp": "enableDhcp",
+			"ipRangeStartIp": "10.10.10.1",
+			"ipRangeEndIp": "255.255.255.254",
+			"useMode": "true",
+			"changedMode": "changedMode",
+			"dhcpMode": "dhcpMode",
+			"dnsServerMode": "dnsServerMode",
+			"unlimit": "unlimit",
+			"ipv6Address": "10.12.13.14.15.16",
+			"prefixLength": "2",
+			"dhcp6Enable": "dhcp6Enable",
+			"dhcp6Mode": "dhcp6Mode",
+			"priorDnsServer": "priorDnsServer",
+			"standbyDnsServer": "standbyDnsServer",
+			"id": "1234a"
+		}
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"data": {
+					"type": "object",
+					"properties": {
+						"tenantId": {
+							"type": "string"
+						},
+						"name": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"operStatus": {
+							"type": "string"
+						},
+						"adminStatus": {
+							"type": "string"
+						},
+						"actionState": {
+							"type": "string"
+						},
+						"createTime": {
+							"type": "string"
+						},
+						"neId": {
+							"type": "string"
+						},
+						"controllerId": {
+							"type": "string"
+						},
+						"networkId": {
+							"type": "string"
+						},
+						"serviceSubnetId": {
+							"type": "string"
+						},
+						"vni": {
+							"type": "string"
+						},
+						"vlanId": {
+							"type": "string"
+						},
+						"cidrIpAddress": {
+							"type": "string"
+						},
+						"cidrMask": {
+							"type": "string"
+						},
+						"gatewayIp": {
+							"type": "string"
+						},
+						"enableDhcp": {
+							"type": "string"
+						},
+						"ipRangeStartIp": {
+							"type": "string"
+						},
+						"ipRangeEndIp": {
+							"type": "string"
+						},
+						"useMode": {
+							"type": "string"
+						},
+						"changedMode": {
+							"type": "string"
+						},
+						"dhcpMode": {
+							"type": "string"
+						},
+						"dnsServerMode": {
+							"type": "string"
+						},
+						"unlimit": {
+							"type": "string"
+						},
+						"ipv6Address": {
+							"type": "string"
+						},
+						"prefixLength": {
+							"type": "string"
+						},
+						"dhcp6Enable": {
+							"type": "string"
+						},
+						"dhcp6Mode": {
+							"type": "string"
+						},
+						"priorDnsServer": {
+							"type": "string"
+						},
+						"standbyDnsServer": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"tenantId",
+						"name",
+						"neId",
+						"controllerId",
+						"networkId",
+						"serviceSubnetId",
+						"cidrIpAddress",
+						"cidrMask",
+						"useMode",
+						"id"
+					]
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
+					"type": "string"
+				},
+				"httpCode": {
+					"type": "integer"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		}
+	}
+
+}

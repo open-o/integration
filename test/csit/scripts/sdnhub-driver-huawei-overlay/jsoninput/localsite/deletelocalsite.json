@@ -1,0 +1,17 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/abc123/snat/123544/acl/1234",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+		},
+		"json": {}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errorCode": "overlayvpn.operation.success"
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "/overlayvpndriverservice/openoapi/sbi-localsite/v1/devices",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"X-Driver-Parameter": "extSysID=81244ad0-b4ea-41ed-969e-d5588b32fd4c"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

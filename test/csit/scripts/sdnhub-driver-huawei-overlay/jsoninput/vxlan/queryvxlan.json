@@ -1,0 +1,239 @@
+{
+	"request": {
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-vxlan/v1/batch-query-vxlan",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+		},
+		"json": [{
+			"name": "anon",
+			"tenantId": "375c84172bd846ce957497e761a23b9c",
+			"description": "",
+			"deployStatus": "deploy",
+			"activeStatus": "active",
+			"runningStatus": "down",
+			"additionalInfo": "",
+			"deviceId": "123",
+			"peerDeviceId": "123",
+			"controllerId": "2ace53bdd02f481ea8ae9ffd2211c845",
+			"connectionId": "123",
+			"externalId": "123",
+			"nbiVxlanTunnelId": "123",
+			"vni": "123",
+			"arpProxy": "false",
+			"arpBroadcastSuppress": "true",
+			"keepAlive": null,
+			"vxlanInterfaces": ["123"],
+			"vxlanTunnels": ["123"],
+			"vxlanInterfaceList": [],
+			"vxlanTunnelList": [],
+			"id": "123",
+			"actionState": "Normal",
+			"createTime": 123,
+			"updateTime": 120
+		}]
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"data": {
+					"type": "null"
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
+					"type": "string"
+				},
+				"httpCode": {
+					"type": "integer"
+				},
+				"message": {
+					"type": "string"
+				},
+				"successed": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"tenantId": {
+								"type": "string"
+							},
+							"description": {
+								"type": "string"
+							},
+							"deployStatus": {
+								"type": "string"
+							},
+							"activeStatus": {
+								"type": "string"
+							},
+							"runningStatus": {
+								"type": "string"
+							},
+							"additionalInfo": {
+								"type": "string"
+							},
+							"deviceId": {
+								"type": "string"
+							},
+							"peerDeviceId": {
+								"type": "string"
+							},
+							"controllerId": {
+								"type": "string"
+							},
+							"connectionId": {
+								"type": "string"
+							},
+							"externalId": {
+								"type": "string"
+							},
+							"nbiVxlanTunnelId": {
+								"type": "string"
+							},
+							"vni": {
+								"type": "string"
+							},
+							"arpProxy": {
+								"type": "string"
+							},
+							"arpBroadcastSuppress": {
+								"type": "string"
+							},
+							"vxlanInterfaces": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"vxlanTunnels": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								}
+							},
+							"vxlanInterfaceList": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"name": {
+											"type": "string"
+										},
+										"tenantId": {
+											"type": "string"
+										},
+										"description": {
+											"type": "string"
+										},
+										"activeStatus": {
+											"type": "string"
+										},
+										"runningStatus": {
+											"type": "string"
+										},
+										"controllerId": {
+											"type": "string"
+										},
+										"vxlanInstanceId": {
+											"type": "string"
+										},
+										"accessType": {
+											"type": "string"
+										},
+										"actionState": {
+											"type": "string"
+										},
+										"createTime": {
+											"type": "integer"
+										},
+										"updateTime": {
+											"type": "integer"
+										}
+									}
+								}
+							},
+							"vxlanTunnelList": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+
+										"activeStatus": {
+											"type": "string"
+										},
+										"runningStatus": {
+											"type": "string"
+										},
+										"vxlanInstanceId": {
+											"type": "string"
+										},
+										"vxlanInstances": {
+											"type": "array",
+											"items": {}
+										},
+										"vnis": {
+											"type": "array",
+											"items": {}
+										},
+										"actionState": {
+											"type": "string"
+										},
+										"createTime": {
+											"type": "integer"
+										},
+										"updateTime": {
+											"type": "integer"
+										}
+									}
+								}
+							},
+							"vxlanGatewayList": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"name": {
+											"type": "string"
+										},
+										"tenantId": {
+											"type": "string"
+										}
+									}
+								}
+							},
+							"id": {
+								"type": "string"
+							},
+							"actionState": {
+								"type": "string"
+							},
+							"createTime": {
+								"type": "integer"
+							},
+							"updateTime": {
+								"type": "integer"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

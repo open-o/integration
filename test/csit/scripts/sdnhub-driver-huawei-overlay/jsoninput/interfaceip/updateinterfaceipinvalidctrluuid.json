@@ -1,0 +1,14 @@
+{
+	"request": {
+		"uri": "/overlayvpndriverservice/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41/interfaces",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": [{"interfaceName":"interfaceOne","mode":"manual","ip":"1.5.6.7","netMask":null,"mode6":"manual","ipv6Address":null,"prefixLength":null}]
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

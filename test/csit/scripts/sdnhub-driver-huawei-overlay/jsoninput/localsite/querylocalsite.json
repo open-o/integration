@@ -1,0 +1,40 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/123/snat/2467a068795b41ee9676bc79168da7a6/acl/7db47412f2b44164a16ef18b16a81c0c",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+		},
+		"json": {}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
+					"type": "string"
+				},
+				"httpCode": {
+					"type": "integer"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

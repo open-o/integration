@@ -1,0 +1,41 @@
+{
+	"request": {
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/123/batch-query-nqa",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8","X-Driver-Parameter": "extSysID=!@#$%^&"
+		},
+		"json": [{
+			"name": "name",
+			"tenantId": "tenantId",
+			"description": null,
+			"deployStatus": null,
+			"activeStatus": "none",
+			"runningStatus": "none",
+			"additionalInfo": null,
+			"deviceId": "abc123",
+			"controllerId": "controllerId",
+			"externalId": "externalId",
+			"neId": "123",
+			"neRole": null,
+			"srcIp": "1.2.3.4",
+			"srcPortName": "portName",
+			"dstIp": "192.168.1.2",
+			"dstPortName": null,
+			"testType": "ping",
+			"frequency": null,
+			"probeCount": null,
+			"timeout": null,
+			"ttl": null,
+			"tos": null,
+			"interval": null,
+			"id": "id",
+			"actionState": "Normal",
+			"createTime": 0,
+			"updateTime": 0
+		}]
+	},
+	"response": {
+		"status": 500
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"request": {
+		"uri": "/overlayvpndriverservice/openoapi/sbi-localsite/v1/devices",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": [{"name":"deviceOne","esn":"esn-abcdef-!@#$$","orgnizationName":"huawei","description":"create test device"}]
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

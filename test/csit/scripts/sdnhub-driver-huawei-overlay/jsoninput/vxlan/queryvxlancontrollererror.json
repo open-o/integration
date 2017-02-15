@@ -1,0 +1,42 @@
+{
+	"request": {
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-vxlan/v1/batch-query-vxlan",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8",
+			"X-Driver-Parameter": "extSysID=!@#$%"
+		},
+		"json": [{
+			"name": "anon",
+			"tenantId": "375c84172bd846ce957497e761a23b9c",
+			"description": "",
+			"deployStatus": "deploy",
+			"activeStatus": "active",
+			"runningStatus": "down",
+			"additionalInfo": "",
+			"deviceId": "!@#$",
+			"peerDeviceId": "123",
+			"controllerId": "2ace53bdd02f481ea8ae9ffd2211c845",
+			"connectionId": "123",
+			"externalId": "123",
+			"nbiVxlanTunnelId": "123",
+			"vni": "123",
+			"arpProxy": "false",
+			"arpBroadcastSuppress": "true",
+			"keepAlive": null,
+			"vxlanInterfaces": ["123"],
+			"vxlanTunnels": ["123"],
+			"vxlanInterfaceList": [],
+			"vxlanTunnelList": [],
+			"vxlanGatewayList": [],
+			"id": "123",
+			"actionState": "Normal",
+			"createTime": 123,
+			"updateTime": 120
+		}]
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

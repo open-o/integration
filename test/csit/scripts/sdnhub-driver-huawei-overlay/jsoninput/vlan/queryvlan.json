@@ -1,0 +1,60 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan/4b8a2551332a4016aef56692a53bb188",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+		},
+		"json": {}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"ethInterfaceConfigId": {
+								"type": "string"
+							},
+							"ifName": {
+								"type": "string"
+							},
+							"defaultVlan": {
+								"type": "integer"
+							},
+							"vlans": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
+					"type": "string"
+				},
+				"httpCode": {
+					"type": "integer"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

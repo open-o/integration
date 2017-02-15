@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan/4b8a2551332a4016aef56692a53bb188",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+			
+		},
+		"json": {}
+	},
+	"response": {
+		"status": 500,
+		"json":null
+	}
+}

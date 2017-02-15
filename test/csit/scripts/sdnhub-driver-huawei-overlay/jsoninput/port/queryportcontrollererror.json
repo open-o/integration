@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-ipsec/v1/device/abc123/ports",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=abc12"
+		},
+		"json": {}
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

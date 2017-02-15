@@ -1,0 +1,15 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/abc123/snat",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=ctrlid123"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 500,
+		"json": null
+	}
+}

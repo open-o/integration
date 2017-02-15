@@ -1,0 +1,160 @@
+{
+	"request": {
+		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/123/snat",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+		},
+		"json": {
+			"tenantId": "1",
+			"name": "2",
+			"description": "3",
+			"operStatus": "none",
+			"adminStatus": "none",
+			"actionState": "Normal",
+			"neId": "4",
+			"deviceId": "5",
+			"controllerId": "6",
+			"natId": "7",
+			"internetGatewayId": "8",
+			"subnetId": "9",
+			"ifName": "90",
+			"privateCidr": "91",
+			"privatePrefix": "92",
+			"aclNumber": "21",
+			"aclId": "12",
+			"startPublicIpAddress": "34",
+			"endPublicIpAddress": "23",
+			"qosPreNat": "123",
+			"createtime": 0,
+			"updatetime": 0,
+			"type": "123",
+			"id": "1245"
+		}
+
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"type": "object",
+			"properties": {
+				"errorCode": {
+					"type": "string"
+				},
+				"data": {
+					"type": "object",
+					"properties": {
+						"tenantId": {
+							"type": "string"
+						},
+						"name": {
+							"type": "string"
+						},
+						"description": {
+							"type": "string"
+						},
+						"operStatus": {
+							"type": "string"
+						},
+						"adminStatus": {
+							"type": "string"
+						},
+						"actionState": {
+							"type": "string"
+						},
+						"neId": {
+							"type": "string"
+						},
+						"deviceId": {
+							"type": "string"
+						},
+						"controllerId": {
+							"type": "string"
+						},
+						"natId": {
+							"type": "string"
+						},
+						"internetGatewayId": {
+							"type": "string"
+						},
+						"subnetId": {
+							"type": "string"
+						},
+						"ifName": {
+							"type": "string"
+						},
+						"privateCidr": {
+							"type": "string"
+						},
+						"privatePrefix": {
+							"type": "string"
+						},
+						"aclNumber": {
+							"type": "string"
+						},
+						"aclId": {
+							"type": "string"
+						},
+						"startPublicIpAddress": {
+							"type": "string"
+						},
+						"endPublicIpAddress": {
+							"type": "string"
+						},
+						"qosPreNat": {
+							"type": "string"
+						},
+						"type": {
+							"type": "string"
+						},
+						"id": {
+							"type": "string"
+						}
+					},
+					"required": [
+						"tenantId",
+						"name",
+						"neId",
+						"deviceId",
+						"controllerId",
+						"natId",
+						"internetGatewayId",
+						"subnetId",
+						"ifName",
+						"privateCidr",
+						"privatePrefix",
+						"aclNumber",
+						"aclId",
+						"startPublicIpAddress",
+						"endPublicIpAddress",
+						"qosPreNat",
+						"id"
+					]
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
+					"type": "string"
+				},
+				"httpCode": {
+					"type": "integer"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		}
+
+
+	}
+
+}
