@@ -1,0 +1,16 @@
+{
+	"request": {
+		"uri": "http://${MSB_IP}/openoapi/auth/v1/tokens",
+		"method": "post",
+		"headers": {
+			"Content-Type": "application/json"	
+		},
+		"json":{
+            "userName":"admin",
+            "password":"Changeme_123"
+		}
+	},
+	"response": {
+		"status": 404
+	}
+}

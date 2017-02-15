@@ -1,0 +1,13 @@
+{
+	"request": {
+		"uri": "http://${MSB_IP}/openoapi/auth/v1/users",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json",
+			"X-Auth-Token": "678b95e39af841a89b555ece9b3b3f98"
+		}
+	},
+	"response": {
+		"status": 404
+	}
+}
