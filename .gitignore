@@ -10,3 +10,7 @@ report.html
 env.properties
 .vagrant
 /archives/
+*.jar
+*.zip
+*.tar
+*.gz
