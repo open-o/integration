@@ -1,0 +1,25 @@
+*** Settings ***
+Library           Collections
+Resource          ../Env/msAdds.txt
+Resource          ../UserKeyWords/HttpRequest.txt
+Resource          ../UserKeyWords/HttpAssert.txt
+Library           demjson
+Resource          ../UserKeyWords/Correlation-Engine.txt
+
+*** Test Cases ***
+engineBasicProcess
+    [Documentation]    this case tests whether the continuous process is normal.
+    ...
+    ...    process : verify----->deploy----->delete.
+    ${ruleDic}    create dictionary    content=package rulegy123
+    ${Jsonparam}    encode    ${ruleDic}
+    verifyEngineRule    ${ruleDic}    1
+    set to dictionary    ${ruleDic}    engineid=""
+    ${Jsonparam}    encode    ${ruleDic}
+    ${responseJson}    deployEngineRule    ${Jsonparam}    1
+    ${packageName}    get from dictionary    ${responseJson}    package
+    deleteEngineRule    ${packageName}    1
+    Comment    ${deleteResponse}    deleteEngineRule    ${packageName}    -1
+    Comment    ${responseJson}    to json    ${deleteResponse.content}
+    Comment    ${errMessage}    get from dictionary    ${responseJson}    message
+    Comment    log    ${errMessage}

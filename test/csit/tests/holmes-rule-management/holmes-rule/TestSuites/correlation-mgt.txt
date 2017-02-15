@@ -1,0 +1,57 @@
+*** Settings ***
+Library           requests
+Library           RequestsLibrary
+Library           Collections
+Resource          ../Env/msAdds.txt
+Resource          ../UserKeyWords/HttpRequest.txt
+Resource          ../UserKeyWords/HttpAssert.txt
+Resource          ../UserKeyWords/Correlation-Mgt.txt
+Library           demjson
+
+*** Test Cases ***
+mgtBasicProcess
+    [Documentation]    this case tests whether the continuous process is normal.
+    ...
+    ...    process : create----->query----->modify(description,enable)----->query&verify----->delete----->query.
+    ${dic}    create dictionary    rulename=gy2017    description=create a new rule!    content=package rule2017    enabled=1
+    ${jsonParams}    encode    ${dic}
+    ${respJson}    createRule    ${jsonParams}    1
+    ${respId}    get from dictionary    ${respJson}    ruleid
+    ${ruleIdDic}    create dictionary    ruleid=${respId}
+    ${ruleidJson}    encode    ${ruleIdDic}
+    ${respJson}    queryConditionRule    ${ruleidJson}    1
+    ${count}    get from dictionary    ${respJson}    totalcount
+    run keyword if    ${count}!=1    fail    Can't find the new rule with the specified ruleid.
+    ${dic1}    create dictionary    ruleid=${respId}    description=modify the new.    enabled=0
+    ${modifyParam}    encode    ${dic1}
+    ${modifyResp}    modifyRule    ${modifyParam}    1
+    ${respJson1}    queryConditionRule    ${ruleidJson}    1
+    ${count1}    get from dictionary    ${respJson1}    totalcount
+    run keyword if    ${count1}!=1    fail    Modifying rule fails! (can't find the rule modified!)
+    ...    ELSE    traversalRuleAttribute    ${respJson1}    ${dic1}
+    deleteRule    ${ruleidJson}    1
+    ${respJson2}    queryConditionRule    ${ruleidJson}    1
+    ${count2}    get from dictionary    ${respJson2}    totalcount
+    run keyword if    ${count2}!=0    fail    Deleting rule fails ！
+
+queryAllRules
+    ${response}    httpGet    ${ruleMgtHost}    ${ruleMgtUrl}
+    Should be equal as strings    ${response.status_code}    200
+    ${respJsondata}    to json    ${response.content}
+    ${ruleCount}    Get From Dictionary    ${respJsondata}    totalcount
+    log    ${ruleCount}
+    Comment    Should Be Equal As Integers    ${ruleCount}    12
+
+queryEnabledRules
+    ${dicParam}    create dictionary    enabled=1
+    ${Jsonparam}    encode    ${dicParam}
+    ${respJson}    queryConditionRule    ${Jsonparam}
+    ${count}    get from dictionary    ${respJson}    totalcount
+    run keyword if    ${count}>0    traversalRuleAttribute    ${respJson}    ${dicParam}
+
+querySpecifiedRules
+    ${dicParam}    create dictionary    ruleid=99
+    ${Jsonparam}    encode    ${dicParam}
+    ${respJson}    queryConditionRule    ${Jsonparam}
+    ${count}    get from dictionary    ${respJson}    totalcount
+    run keyword if    ${count}>0    traversalRuleAttribute    ${respJson}    ${dicParam}
