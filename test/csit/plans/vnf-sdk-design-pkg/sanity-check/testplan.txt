@@ -1,1 +1,1 @@
-vnf-sdk-design-pkg/startup
+vnf-sdk-design-pkg/csar

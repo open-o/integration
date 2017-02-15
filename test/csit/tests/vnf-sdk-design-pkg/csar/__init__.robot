@@ -1,4 +1,3 @@
-#!/bin/bash
 #
 # Copyright (c) 2017 GigaSpaces Technologies Ltd. All rights reserved.
 #
@@ -15,5 +14,4 @@
 # under the License.
 #
 
-pip uninstall -y vnfsdk
-rm -rf ${VNFSDK_TEMP_DIR}
+Documentation    VNF SDK Design & package tool - Csar packaging
