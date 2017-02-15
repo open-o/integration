@@ -1,5 +1,7 @@
 *** settings ***
 Library           Remote    http://127.0.0.1:8271
+Library           OperatingSystem
+
 
 *** Variables ***
 ${vnfsdkfunctest_json}    ${SCRIPTS}/../plans/vnf-sdk-marketplace-test/sanity-check/jsoninput/vnfsdktestfunc.json
