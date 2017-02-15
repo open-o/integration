@@ -4,8 +4,8 @@ Library       RequestsLibrary
 *** Test Cases ***
 Liveness Test
     [Documentation]        Check various endpoints for basic liveness check
-    Create Session         policylcm              http://${POLICYLCM_IP}:8269 
-    CheckUrl               policylcm              /openoapi/policy-lcm/v1/swagger.yaml
+    Create Session         policylcm              http://${POLICYLCM_IP}:8903 
+    CheckUrl               policylcm              /openoapi/pollcm/v1/swagger.yaml
 
 *** Keywords ***
 CheckUrl

@@ -28,7 +28,7 @@ echo POLICYLCM_IP=${POLICYLCM_IP}
 
 # Wait for initialization
 for i in {1..10}; do
-    curl -sS -m 1 ${POLICYLCM_IP}:8269 && curl -sS -m 1 ${MSB_IP}:80 && break
+    curl -sS -m 1 ${POLICYLCM_IP}:8903 && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
 done
