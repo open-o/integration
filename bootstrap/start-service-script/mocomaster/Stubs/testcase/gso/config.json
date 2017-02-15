@@ -34,5 +34,36 @@
         "response": {
             "file": "./Stubs/testcase/gso/inventory_singleservice.json"
         }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {
+                "match": "/openoapi/catalog/v1/servicetemplates/.*/parameters"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/gso/Mock_QueryParametersOfServiceTemplate_Rsp.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {
+                "match": "/openoapi/catalog/v1/servicetemplates/.*/operations"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/gso/Mock_QueryOperationListOfServiceTemplate_Rsp.json"
+        }
+    },
+    {
+        "request": {
+            "method": "post",
+            "uri": "/openoapi/wso2bpel/v1/process/instance"
+        },
+        "response": {
+            "file": "./Stubs/testcase/gso/Mock_Wso2StartWorkFlow_Rsp.json"
+        }
     }
 ]
