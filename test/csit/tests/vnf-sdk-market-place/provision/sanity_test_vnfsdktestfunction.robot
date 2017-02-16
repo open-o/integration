@@ -4,19 +4,19 @@ Library           OperatingSystem
 
 
 *** Variables ***
-${vnfsdkfunctest_json}    ${SCRIPTS}/../plans/vnf-sdk-marketplace-test/sanity-check/jsoninput/vnfsdktestfunc.json
-${getresult_json}    ${SCRIPTS}/../plans/vnf-sdk-marketplace-test/sanity-check/jsoninput/getresult_failure.json
+${vnfsdktest_json}    ${SCRIPTS}/../plans/vnf-sdk-marketplace/sanity-check/jsoninput/vnfsdktestfunc.json
+${getresult_json}    ${SCRIPTS}/../plans/vnf-sdk-marketplace/sanity-check/jsoninput/getresult_failure.json
 
 
 *** Test Cases ***
-Set MSB_IP in json file
-    [Documentation]    Write MSB_IP to JSon file
+Basic Health Check
+    [Documentation]    MSB registration and health check
     Set MSB Value    ${MSB_IP}
 
-Get Function test result
-    [Documentation]    Get Function test result
+Query and publish CSAR list 
+    [Documentation]    Get the result from other hooks
     replaceVariablesAndSendREST    ${getresult_json}    null    null
 
-Execute Function test result
-    [Documentation]    Execute Function test result
+Upload CSAR to marketplace repository 
+    [Documentation]    Upload the VNF Package
     ${status}=    Run    curl -i -X POST -H "Content-Type: multipart/form-data" -F "data=@RobotScript.zip" http://${MSB_IP}/openoapi/vnfsdk/v1/functest/  
