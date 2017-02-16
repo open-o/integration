@@ -1,10 +1,10 @@
 {
 	"request": {
-		"uri": "/overlayvpndriverservice/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41",
 		"method": "put",
 		"headers": {
 			"Content-Type": "application/json;charset=UTF-8",
-			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
 		},
 		"json": {
 			"name": "deviceOne",
@@ -33,10 +33,21 @@
 	"response": {
 		"status": 200,
 		"json": {
-
 			"type": "object",
 			"properties": {
 				"errorCode": {
+					"type": "string"
+				},
+				"descArg": {
+					"type": "string"
+				},
+				"reasonArg": {
+					"type": "string"
+				},
+				"detailArg": {
+					"type": "string"
+				},
+				"adviceArg": {
 					"type": "string"
 				},
 				"httpCode": {
@@ -44,12 +55,26 @@
 				},
 				"message": {
 					"type": "string"
+				},
+				"successed": {
+					"type": "array",
+					"items": {}
+				},
+				"fail": {
+					"type": "array",
+					"items": {}
 				}
 			},
 			"required": [
 				"errorCode",
+				"descArg",
+				"reasonArg",
+				"detailArg",
+				"adviceArg",
 				"httpCode",
-				"message"
+				"message",
+				"successed",
+				"fail"
 			]
 		}
 	}

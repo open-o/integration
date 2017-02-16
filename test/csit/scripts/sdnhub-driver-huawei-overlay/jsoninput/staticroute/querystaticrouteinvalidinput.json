@@ -1,10 +1,10 @@
 {
     "request": {
-        "uri": "/overlayvpndriverservice/openoapi/sbi-route/v1/batch-query-static-routes",
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-query-static-routes",
         "method": "post",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8",
-            "X-Driver-Parameter": "extSysID=81244ad0-b4ea-41ed-969e-d5588b32fd4c"
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
         },
         "json": null
     },

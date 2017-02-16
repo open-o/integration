@@ -1,10 +1,10 @@
 {
 	"request": {
-		"uri": "/overlayvpndriverservice/openoapi/sbi-localsite/v1/devices",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/devices",
 		"method": "post",
 		"headers": {
-			"Content-Type": "application/json;charset=UTF-8",
-			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+			"Content-Type": "application/json",
+			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
 		},
 		"json": [{
 			"name": "deviceOne",
@@ -22,36 +22,7 @@
 				"errorCode": {
 					"type": "string"
 				},
-				"data": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"esn": {
-								"type": "string"
-							},
-							"orgnizationName": {
-								"type": "string"
-							},
-							"description": {
-								"type": "string"
-							},
-							"id": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"name",
-							"esn",
-							"orgnizationName",
-							"description",
-							"id"
-						]
-					}
-				},
+				
 				"descArg": {
 					"type": "string"
 				},

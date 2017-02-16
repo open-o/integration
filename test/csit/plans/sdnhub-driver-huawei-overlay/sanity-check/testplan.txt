@@ -2,6 +2,12 @@
 ## Place the suites in run order.
 sanity_test_drivers.robot
 simulator_registration.robot
+sdnhub-driver-huawei-overlay/startup/healthcheck.robot
 sdnhub-driver-huawei-overlay/startup/vxlan.robot
 sdnhub-driver-huawei-overlay/startup/nqa.robot
-#sdnhub-driver-huawei-overlay/startup/staticroute.robot
+sdnhub-driver-huawei-overlay/startup/staticroute.robot
+sdnhub-driver-huawei-overlay/startup/device.robot
+sdnhub-driver-huawei-overlay/startup/interfaceip.robot
+dnhub-driver-huawei-overlay/startup/localsite.robot
+#sdnhub-driver-huawei-overlay/startup/port.robot
+#sdnhub-driver-huawei-overlay/startup/subnet.robot

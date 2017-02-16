@@ -1,10 +1,10 @@
 {
 	"request": {
-		"uri": "/overlayvpndriverservice/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd42/interfaces",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd44/interfaces",
 		"method": "get",
 		"headers": {
 			"Content-Type": "application/json;charset=UTF-8",
-			"X-Driver-Parameter": "extSysID=81244ad0-b4ea-41ed-969e-d5588b32fd4c"
+			"X-Driver-Parameter": "extSysID=!@#$%"
 		},
 		"json": null
 	},

@@ -1,10 +1,10 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/abc1234/snat/123544/acl/1234",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abc1234/snat/123544/acl/1234",
 		"method": "delete",
 		"headers": {
 			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=ctrlid1024"
+			"X-Driver-Parameter": "extSysID=ctrlid1024@"
 		},
 		"json": {}
 	},
