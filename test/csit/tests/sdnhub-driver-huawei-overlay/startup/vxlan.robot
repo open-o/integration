@@ -21,8 +21,8 @@ ${vxlan_query_invalid_controller}    ${SCRIPTS}/sdnhub-driver-huawei-overlay/jso
 VxLAN create test
     [Documentation]    VxLAN ${ESR_CNTRL_HTTP} create test
     ${vxlanmap}=    Create Dictionary    OVERLAYIP_IP=${OVERLAYIP_IP}    ESR_CNTRL_HTTP=${ESR_CNTRL_HTTP}
-    Replace variables and send REST    ${vxlan_create}    ${vxlanmap}    null
     Set Suite Variable    ${vxlanmap}
+    ${response}=    Replace variables and send REST    ${vxlan_create}    ${vxlanmap}    controllerId
 
 VxLAN create invalid input
     [Documentation]    VxLAN create fail test with invalid input
