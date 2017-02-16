@@ -50,4 +50,4 @@ GVNFM Virtual Resource Management,gvnfm-vnfres,org.openo.gvnfm.vnfres,gvnfm-vnfr
 GVNFM Init Configuration and Management,gvnfm-vnfmgr,org.openo.gvnfm.vnfmgr,gvnfm-vnfmgr,zip,,8803,,,TRUE,
 Policy Lcm,policy-lcm,org.openo.policy.lcm,apply,tar.gz,linux64,8903,,,,
 Policy Designer,policy-designer,org.openo.policy.designer,policydesigner-resource,tar.gz,linux64,8901,TRUE,,,
-Policy Engine,policy-engine,org.openo.policy.engine,policyengine-resource,tar.gz,linux64,8902,,,,
+Policy Engine,policy-engine,org.openo.policy.engine,policy-engine,tar.gz,linux64,8902,,,,
