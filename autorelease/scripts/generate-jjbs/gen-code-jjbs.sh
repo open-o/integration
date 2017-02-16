@@ -23,19 +23,7 @@ JJB_DIR=$BUILD_DIR/ci-management/jjb
 
 cd $BUILD_DIR
 
-
-# specific workarounds to maintain existing job list
-rm -f $BUILD_DIR/integration/autorelease/build/pom.xml
-rm -f $BUILD_DIR/nfvo/monitor/pom.xml
-touch $BUILD_DIR/common-tosca-aria/tox.ini
-
-
-SUBPROJECT_MAP=(
-    "nfvo/drivers/vnfm/svnfm/zte/vmanager:drv-vnfm-zte"
-    "nfvo/drivers/vnfm/gvnfm/gvnfmadapter:drv-gvnfm"
-)
-
-SPLIT_REPOS=("nfvo" "common-services-common-utilities")
+source $ROOT/scripts/generate-jjbs/workarounds.sh
 
 
 find . -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | while read repo; do
