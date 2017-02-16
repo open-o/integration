@@ -3,19 +3,19 @@
     "segments": [{
         "serviceId":"gso_service_1",
         "subServiceId":"gso_service.seg1",
-        "domainHost": "10.11.11.1:80",
+        "domainHost": "",
         "nodeTemplateName": "POP_NS"
     },
     {
-        "serivceId":"gso_service_1",
+        "serviceId":"gso_service_1",
         "subServiceId":"gso_service.seg2",
-        "domainHost": "10.11.11.2:80",
+        "domainHost": "",
         "nodeTemplateName": "POP_DC"
     },
     {
-        "serivceId":"gso_service_1",
-        "subServiceId":"gso_service.seg3",
-        "domainHost": "10.11.11.2:80",
+        "serviceId":"gso_service_1",
+        "subServiceId":"6555e52a-d8df-4436-b79b-2c2e9c168db9",
+        "domainHost": "",
         "nodeTemplateName": "ENTERPRISE2DC"
     }]
 }

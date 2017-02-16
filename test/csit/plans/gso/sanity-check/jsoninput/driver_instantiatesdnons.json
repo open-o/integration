@@ -4,11 +4,11 @@
         "serviceId":"gso_service_1",
         "subServiceName":"gso_service.pop1",
         "subServiceDesc":"gso_service_desc",
-        "domainHost": "10.11.11.1:80",
+        "domainHost": "",
         "nodeTemplateName": "POP_NS",
         "nodeType": "tosca.nodes.nfv.NS.POP",
         "segments": [],
-        "additionalParamForNS": {
+        "additionalParamForNs": {
             "externalDataNetworkName": "Flow_out_net",
             "m6000_mng_ip": "181.18.20.2",
             "externalCompanyFtpDataNetworkName": "Flow_out_net",
@@ -21,27 +21,27 @@
         }
     },
     {
-        "serivceId":"gso_service_1",
+        "serviceId":"gso_service_1",
         "subServiceName":"gso_service.dc1",
         "subServiceDesc":"gso_service_desc",
-        "domainHost": "10.11.11.2:80",
+        "domainHost": "",
         "nodeTemplateName": "POP_DC",
         "nodeType": "tosca.nodes.nfv.NS.DC",
         "segments": [],
-        "additionalParamForNS": {
+        "additionalParamForNs": {
             "location": "e151059a-d924-4629-845f-264db19e50b4",
             "sdncontroller": "9b9f02c0-298b-458a-bc9c-be3692e4f35e"
         }
     },
     {
-        "serivceId":"gso_service_1",
+        "serviceId":"gso_service_1",
         "subServiceName":"gso_service.enterprise2dc1",
         "subServiceDesc":"gso_service_desc",
-        "domainHost": "10.11.11.2:80",
+        "domainHost": "",
         "nodeTemplateName": "ENTERPRISE2DC",
         "nodeType": "tosca.nodes.sdn.ext.NS.enterprise2DC",
         "segments": [],
-        "additionalParamForNS": {
+        "additionalParamForNs": {
             "siteVNI": "20001",
             "vpcName": "default/openotest",
             "dcLBIP":"192.168.13.33",

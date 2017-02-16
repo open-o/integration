@@ -20,7 +20,7 @@ ${driver_deletegsons_json}    ${SCRIPTS}/../plans/gso/sanity-check/jsoninput/dri
 #global variables
 ${jobId}
 
-*** Test Cases ***'
+*** Test Cases ***
 driverCreateGsoNsFuncTest
     ${json_value}=     json_from_file      ${driver_creategsons_json}
     ${json_string}=     string_from_json   ${json_value}
@@ -30,7 +30,7 @@ driverCreateGsoNsFuncTest
     ${resp}=    Post Request    web_session     ${creategsons_url}    ${json_string}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
-	${response_json}    json.loads    ${resp.content}
+    ${response_json}    json.loads    ${resp.content}
     ${jobId}=    Convert To String      ${response_json['operationId']}
 
 driverQueryGsoNsProgressFuncTest
@@ -49,9 +49,9 @@ driverDeleteGsoNsFuncTest
     ${resp}=    Post Request    web_session     ${deletegsons_url}    ${json_string}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
-	${response_json}    json.loads    ${resp.content}
+    ${response_json}    json.loads    ${resp.content}
     ${jobId}=    Convert To String      ${response_json['operationId']}
-	
+
 driverQueryGsoNsProgressFuncTest
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}

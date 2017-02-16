@@ -15,13 +15,9 @@
 # limitations under the License.
 #
 
-# delete database data which should be deleted by gso-lcm timing task
-# CSIT can not execute timing task  for a long time, so here it deletes database data
-docker exec -it gso mysql -uroot -prootpass < ${SCRIPTS}/gso/post_processing.sql
-
 # kill micro service
 kill-instance.sh i-msb
 kill-instance.sh gso-sgw
 kill-instance.sh gso
-kill-instance.sh simulator
+kill-instance.sh gso_csit_simulator
 

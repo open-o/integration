@@ -25,7 +25,7 @@ ${driver_deletesdnons_json}    ${SCRIPTS}/../plans/gso/sanity-check/jsoninput/dr
 ${nsInstanceId}
 ${jobId}
 
-*** Test Cases ***'
+*** Test Cases ***
 driverCreateSdnoNsFuncTest
     ${json_value}=     json_from_file      ${driver_createsdnons_json}
     ${json_string}=     string_from_json   ${json_value}
@@ -35,11 +35,11 @@ driverCreateSdnoNsFuncTest
     ${resp}=    Post Request    web_session     ${createsdnons_url}    ${json_string}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
-	${response_json}    json.loads    ${resp.content}
+    ${response_json}    json.loads    ${resp.content}
     ${nsInstantceId}=    Convert To String      ${response_json['nsInstantceId']}
 
 driverInstantiateSdnoNsFuncTest
-	${json_value}=     json_from_file      ${driver_instantiatesdnons_json}
+    ${json_value}=     json_from_file      ${driver_instantiatesdnons_json}
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
@@ -47,9 +47,9 @@ driverInstantiateSdnoNsFuncTest
     ${resp}=    Post Request    web_session     ${instantiatesdnons_url}    ${json_string}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
-	${response_json}    json.loads    ${resp.content}
+    ${response_json}    json.loads    ${resp.content}
     ${jobId}=    Convert To String      ${response_json['jobId']}
-	
+
 driverQuerySdnoNsProgressFuncTest
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
@@ -66,7 +66,7 @@ driverTerminateSdnoNsFuncTest
     ${resp}=    Post Request    web_session     ${terminatesdnons_url}    ${json_string}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
-	${response_json}    json.loads    ${resp.content}
+    ${response_json}    json.loads    ${resp.content}
     ${jobId}=    Convert To String      ${response_json['jobId']}
 
 driverQuerySdnoNsProgressFuncTest
@@ -75,7 +75,7 @@ driverQuerySdnoNsProgressFuncTest
     ${result}=    Get Request    web_session    ${querysdnons_url}
     BuiltIn.log   ${result}
     Should Be Equal  ${result.status_code}  ${200}
-	
+
 driverDeleteSdnoNsFuncTest
     ${json_value}=     json_from_file      ${driver_deletesdnons_json}
     ${json_string}=     string_from_json   ${json_value}
