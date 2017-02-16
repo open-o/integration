@@ -70,10 +70,20 @@ function wait_curl_driver(){
 
     eval '
         for i in {1..'"$repeat_max"'}; do
-            str=`curl -sS -m5 $curl_command | grep $exclude_string $grep_command` || str=''
+            str=`curl -sS -m5 $curl_command | grep $grep_command` || str=''
+            if [[ ! -z $exclude_string ]] ; then
+                str_exclude=`echo $str | grep -v $grep_command`;
+                #break;
+                if [[ ! -z $str_exclude ]] ; then
+                    echo "Element found";
+                    break;
+                fi
+            fi
+             #str=`curl -sS -m5 $curl_command | grep $exclude_string $grep_command` || str=''
             echo $str
             if [ "$?" = "7" ]; then
                 echo 'Connection refused or cant connect to server/proxy';
+                str=''
             fi
             if [[ ! -z $str ]] ; then
                 echo "Element found";
