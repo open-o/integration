@@ -1,0 +1,10 @@
+[
+	{
+		"sdnControllerId": "8937a94d-1799-47a5-971d-58ff7d35de55",
+		"name": "zte-sfc-controller"
+	},
+	{
+		"sdnControllerId": "8937a94d-1799-47a5-971d-58ff7d35de56",
+		"name": "huawei-sfc-controller"
+	}
+]

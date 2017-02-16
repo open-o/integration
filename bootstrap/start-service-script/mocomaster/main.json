@@ -62,4 +62,6 @@
 	"include": "Stubs/testcase/gso/config.json"
 }, {
 	"include": "Stubs/testcase/overlaydriver/mock_overlay.json"
+}, {
+	"include": "Stubs/testcase/nfvo/config.json"
 }]

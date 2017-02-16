@@ -1,0 +1,17 @@
+{
+    "csarId":"efb0e0db-c387-4954-956b-60e253f97f29",
+    "name":"DC_NS",
+    "downloadUri":"http://10.229.42.149:80/files/catalog-http/NSAR/ZTE/DC_NS/v1.0/DC_NS.csar",
+    "size":"45.3 KB",
+    "version":"v1.0",
+    "provider":"ZTE",
+    "type":"NSAR",
+    "format":"yaml",
+    "deletionPending":false,
+    "createTime":"2017-02-10 17:38:26",
+    "modifyTime":"2017-02-10 17:38:26",
+    "operationalState":"Disabled",
+    "usageState":"NotInUse",
+    "onBoardState":"non-onBoarded",
+    "processState":"normal"
+}

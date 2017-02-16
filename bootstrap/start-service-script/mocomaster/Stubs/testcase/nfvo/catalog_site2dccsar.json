@@ -1,0 +1,17 @@
+{
+  "csarId": "8937a94d-1799-47a5-971d-58ff7d35def6",
+  "name": "gso_site2dc",
+  "downloadUri": "http://10.229.42.149:80/files/catalog-http/GSAR/gso/gso_site2dc/v1.0/gso_site2dc.csar",
+  "size": "65.5 KB",
+  "version": "v1.0",
+  "provider": "gso",
+  "type": "GSAR",
+  "format": "yaml",
+  "deletionPending": false,
+  "createTime": "2017-01-05 00:56:06",
+  "modifyTime": "2017-01-05 00:56:06",
+  "operationalState": "Disabled",
+  "usageState": "NotInUse",
+  "onBoardState": "non-onBoarded",
+  "processState": "normal"
+}
