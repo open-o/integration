@@ -63,4 +63,4 @@ DRIVER_MANAGER_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' d-
 SERVICE_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' i-common-services-extsys`
 VPC_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' s-vpc`
 
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP} -v SERVICE_IP:${SERVICE_IP} -v DRIVER_MANAGER_IP:${DRIVER_MANAGER_IP} -v VPC_IP:${VPC_IP}"
+ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP} -v SERVICE_IP:${SERVICE_IP} -v DRIVER_MANAGER_IP:${DRIVER_MANAGER_IP} -v VPC_IP:${VPC_IP}"

@@ -68,4 +68,4 @@ cd ${WORKSPACE}/test/csit/${TESTPLAN}/
 java -jar moco-runner-0.11.0-standalone.jar http -p 18008 -c moco-overlayvpn-access-controller.json &
 sleep 3     #static wait values are required for moco runner to be able to load everything
 
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v BRS_IP:${BRS_IP}"
+ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP}  -v BRS_IP:${BRS_IP}"
