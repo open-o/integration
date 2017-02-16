@@ -26,7 +26,10 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING
 
 # Start BRS
 ${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
-BRS_IP=`get-instance-ip.sh i-brs`
+SERVICE_IP=`get-instance-ip.sh i-brs`
+
+SERVICE_PORT='8527'
+SERVICE_NAME='sdnobrs'
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v BRS_IP:${BRS_IP}"
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT} -v SERVICE_NAME:${SERVICE_NAME}"
