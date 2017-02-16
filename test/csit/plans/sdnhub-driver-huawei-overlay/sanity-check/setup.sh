@@ -54,6 +54,9 @@ DRIVER_PORT='8536'
 DRIVER_NAME='sdnooverlaydriver-0-1'
 DRIVERMGR_PORT="8103"
 
+# debug logs : to check running instances
+docker exec -it `docker ps -a | grep simulator | awk '{print $1}'`  ps -ax
+
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v DRIVERMGR_IP:${DRIVERMGR_IP} -v DRIVERMGR_PORT:${DRIVERMGR_PORT} -v DRIVER_PORT:${DRIVER_PORT} -v DRIVER_NAME:${DRIVER_NAME} -v SCRIPTS:${SCRIPTS} -v SIMULATOR_IP:${SIMULATOR_IP} -v OVERLAYIP_IP:${OVERLAYIP_IP} -L TRACE"
 
