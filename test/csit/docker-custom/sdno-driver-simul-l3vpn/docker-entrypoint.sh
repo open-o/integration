@@ -17,7 +17,7 @@ DRIVER_IP=`ifconfig  eth0| grep "inet " | awk '{print $2}'`
 cat $L3VPN_TEMPLATE_FILE | sed -e 's/DRIVER_IP/$DRIVER_IP/g' > $L3VPN_SIMU_FILE
 
 #Register L3VPN Driver to Driver Manager
-curl -d @$L3VPN_SIMU_FILE -H "Content-Type: application/json;charset=UTF-8" http://$MSB_IP$DRIVERMANAGER_URL
+curl -d @$L3VPN_SIMU_FILE -H "Content-Type: application/json;charset=UTF-8" http://$MSB_ADDR$DRIVERMANAGER_URL
 
 #Start the simulated driver for L3VPN
 java -jar $MOCO_JAR $SERVICE_TYPE -p $DRIVER_LISTEN_PORT  -s $DRIVER_SHUTDOWN_PORT -c  $L3VPN_DRIVER_SIMU_FILENAME | tee -a $LOG_FILENAME
