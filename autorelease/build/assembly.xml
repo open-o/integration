@@ -412,6 +412,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>nfvo-driver-vnfm-gvnfm</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:drivers-vnfm-gvnfm-gvnfmadapter:zip</include>
+      </includes>
+      <outputFileNameMapping>nfvo-driver-vnfm-gvnfm-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>nfvo-driver-sdnc-zte</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
@@ -481,6 +490,15 @@
         <include>org.openo.policy.designer:policydesigner-resource:tar.gz:linux64</include>
       </includes>
       <outputFileNameMapping>policy-designer-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>policy-engine</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.policy.engine:policy-engine:tar.gz:linux64</include>
+      </includes>
+      <outputFileNameMapping>policy-engine-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
   </dependencySets>
