@@ -15,7 +15,14 @@
 # limitations under the License.
 #
 
-mkdir -p logs
+logs_path="/service/logs"
+mkdir -p $logs_path
+
+# proxy connection to MSB
+nohup socat TCP-LISTEN:8080,fork TCP:$MSB_ADDR  </dev/null >/dev/null 2>&1 &
 
 #Starting LCM service
-java -jar sdno-lcm-webapp*.jar | tee -a ./logs/sdno-lcm.log
+java -jar sdno-lcm-webapp*.jar | tee -a $logs_path/sdno-lcm.log
+
+# keep shell running to prevent container from exit
+tail -f $logs_path/sdno-lcm.log
