@@ -53,7 +53,7 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
         if result == 0:
             print "{} OK".format(row["service"])
         else:
-            ++errors
+            errors += 1
             print "{} ERROR: {} not found".format(row["service"], item["url"])
 
     print "{} errors found".format(errors)
