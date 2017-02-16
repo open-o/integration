@@ -26,13 +26,26 @@ curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
+# Start resmgr
+run-instance.sh openoint/nfvo-resmanagement resmgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
+extsys_ip=`get-instance-ip.sh resmgr`
+sleep_msg="Waiting_for_resmgr"
+curl_path='http://'${MSB_IP}':80/openoapi/resmgr/v1/swagger.json'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
+
+# Start hwvnfmdriver
+run-instance.sh openoint/nfvo-driver-vnfm-huawei hwvnfmdriver " -i -t -e MSB_ADDR=${MSB_IP}:80"
+extsys_ip=`get-instance-ip.sh hwvnfmdriver`
+sleep_msg="Waiting_for_hwvnfmdriver"
+curl_path='http://'${MSB_IP}':80/openoapi/hwvnfm/v1/swagger.json'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
 
 #Start juju-vnfm-driver
 run-instance.sh openoint/nfvo-driver-vnfm-juju jujuvnfm " -i -t -e MSB_ADDR=${MSB_IP}:80"
 extsys_ip=`get-instance-ip.sh jujuvnfm`
 sleep_msg="Waiting_for_jujudriver"
 curl_path='http://'${MSB_IP}':80/openoapi/jujuvnfm/v1/config'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=10 GREP_STRING="\{"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=10 GREP_STRING="{"
 
 echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
