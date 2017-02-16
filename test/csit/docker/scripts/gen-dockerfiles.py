@@ -49,7 +49,7 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
 
             try:
                 shutil.rmtree(dir, True)
-                os.mkdir(dir)
+                os.makedirs(dir)
             except OSError:
                 pass
 
