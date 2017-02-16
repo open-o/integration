@@ -25,8 +25,14 @@ cd ${VNFSDK_TEMP_DIR}
 git clone https://gerrit.open-o.org/r/vnf-sdk-design-pkg
 cd vnf-sdk-design-pkg
 
+pip install -r requirements.txt
 pip install . 
 pip install robotframework-difflibrary
+
+#Workaround to avoid dependency conflict in runtime:
+#pkg_resources.ContextualVersionConflict: (requests 2.13.0 (/tmp/tmp.Jnagi6MHTlrobot_venv/lib/python2.7/site-packages), Requirement.parse('requests==2.11.1'), set(['aria']))
+pip uninstall requests -y
+pip install requests==2.11.1
 
 ROBOT_VARIABLES="-v SCRIPTS:${SCRIPTS} -v VNFSDK_BLUEPRINTS_HOME:${VNFSDK_BLUEPRINTS_HOME} -v VNFSDK_CSAR_HOME:${VNFSDK_CSAR_HOME} -v VNFSDK_TEMP_DIR:${VNFSDK_TEMP_DIR}"
 

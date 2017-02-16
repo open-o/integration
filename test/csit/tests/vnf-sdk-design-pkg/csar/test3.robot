@@ -41,7 +41,8 @@ ${verify_blueprint_file_path}          ${verify_blueprint_dir_path}/${verify_blu
 Open CSAR
     [Arguments]                        ${csar_file_path}             ${csar_extract_dir_path}
     ${command}=                        Set Variable                  vnfsdk csar-open -d ${csar_extract_dir_path} ${csar_file_path}
-    ${return_code}=                    Run And Return Rc             ${command}
+    ${return_code}                     ${output}=                    Run And Return Rc And Output  ${command}
+    Log                                ${output}                     console=True
     [Return]                           ${return_code}
 
 Verify Operation Return Code

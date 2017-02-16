@@ -28,7 +28,8 @@ ${in_csar_file_path}                   ${VNFSDK_CSAR_HOME}/${in_csar_file_name}
 Validate CSAR
     [Arguments]                        ${csar_file_path}
     ${command}=                        Set Variable                  vnfsdk csar-validate ${in_csar_file_path}
-    ${return_code}=                    Run And Return Rc             ${command}
+    ${return_code}                     ${output}=                    Run And Return Rc And Output  ${command}
+    Log                                ${output}                     console=True
     [Return]                           ${return_code}
 
 Verify Operation Return Code
