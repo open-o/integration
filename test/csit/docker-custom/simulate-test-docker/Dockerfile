@@ -16,10 +16,10 @@ ENV JAVA_HOME /usr/lib/jvm/jre
 WORKDIR /service
 
 COPY cert.jks ./cert.jks
+RUN mkdir /var/lib/moco && cd /var/lib/moco
 
 # Set up tomcat
 RUN wget -q https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar \
-    && mkdir -p /var/lib/moco \
     && printf "[]" > /var/lib/moco/main.json \
 
 
