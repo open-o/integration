@@ -1,0 +1,12 @@
+[{
+    "include": "Stubs/testcase/zte-sptn-controller/eline-create-success.json"
+  }, {
+    "include": "Stubs/testcase/zte-sptn-controller/eline-delete-success.json"
+  }, {
+    "include": "Stubs/testcase/zte-sptn-controller/l3vpn-create-success.json"
+  }, {
+    "include": "Stubs/testcase/zte-sptn-controller/l3vpn-delete-success.json"
+  }, {
+    "include": "Stubs/testcase/zte-sptn-controller/tunnel-calculate-route-success.json"
+  }
+]

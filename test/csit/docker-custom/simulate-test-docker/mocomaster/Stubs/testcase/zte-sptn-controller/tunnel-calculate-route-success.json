@@ -1,0 +1,133 @@
+[{
+    "request": {
+      "uri": "/restconf/operations/sptn-service-route:request-routes",
+      "method": "post",
+      "json": {
+        "input": {
+          "route-cal-reqs": {
+            "route-cal-req": [{
+                "route-cal-req-container": {
+                  "sequence-no": "1",
+                  "calculate-policy": "local-protection",
+                  "calculate-type": "besteffort-separate",
+                  "calculate-mode": "simple",
+                  "calculate-interconnection-mode": "nni-nni",
+                  "layer-rate": "lsp",
+                  "left-ne-ids": {
+                    "left-ne-id": [{
+                        "ne-id": "53319217-4670-49c3-8d82-68ba1350c542"
+                      }
+                    ]
+                  },
+                  "right-ne-ids": {
+                    "right-ne-id": [{
+                        "ne-id": "f8d01f79-b2f7-4e4a-bbfc-23f670041e04"
+                      }
+                    ]
+                  },
+                  "work-calculate-constraint": {
+                    "bandwidth": "0",
+                    "cal-policy": "bandwidth-balancing"
+                  },
+                  "protect-calculate-constraint": {
+                    "bandwidth": "0",
+                    "cal-policy": "bandwidth-balancing"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "response": {
+      "status": 200,
+      "json": {
+        "output": {
+          "route-cal-results": {
+            "route-cal-result": [{
+                "route-cal-result-container": {
+                  "sequence-no": "1",
+                  "group-no": "0",
+                  "role": "master",
+                  "ingress-ne-id": "50821048-9164-405c-82d7-6fe4c36e2f6f",
+                  "egress-ne-id": "01b779b0-0cf0-4f4f-8899-151d8360e45b",
+                  "latency": "1000000",
+                  "max-availble-bandwidth": "0"
+                },
+                "xcs": {
+                  "xc-list": [{
+                      "ne-id": "50821048-9164-405c-82d7-6fe4c36e2f6f",
+                      "ingress-ltp-id": "",
+                      "forward-in-label": "0",
+                      "backward-out-label": "0",
+                      "backward-peer-id": "",
+                      "egress-ltp-id": "ad46cef0-8983-4ba7-b687-36ce8903128b",
+                      "forward-out-label": "0",
+                      "backward-in-label": "0",
+                      "forward-peer-id": "2.0.0.1"
+                    }, {
+                      "ne-id": "01b779b0-0cf0-4f4f-8899-151d8360e45b",
+                      "ingress-ltp-id": "dc69bbc4-aea9-4531-8bd5-d6f02e94fb4d",
+                      "forward-in-label": "0",
+                      "backward-out-label": "0",
+                      "backward-peer-id": "2.0.0.2",
+                      "egress-ltp-id": "",
+                      "forward-out-label": "0",
+                      "backward-in-label": "0",
+                      "forward-peer-id": ""
+                    }
+                  ]
+                }
+              }, {
+                "route-cal-result-container": {
+                  "sequence-no": "1",
+                  "group-no": "0",
+                  "role": "slave",
+                  "ingress-ne-id": "50821048-9164-405c-82d7-6fe4c36e2f6f",
+                  "egress-ne-id": "01b779b0-0cf0-4f4f-8899-151d8360e45b",
+                  "latency": "2000000",
+                  "max-availble-bandwidth": "0"
+                },
+                "xcs": {
+                  "xc-list": [{
+                      "ne-id": "50821048-9164-405c-82d7-6fe4c36e2f6f",
+                      "ingress-ltp-id": "",
+                      "forward-in-label": "0",
+                      "backward-out-label": "0",
+                      "backward-peer-id": "",
+                      "egress-ltp-id": "dc41d18a-5ffc-4df0-ab3f-60d860ef60bb",
+                      "forward-out-label": "0",
+                      "backward-in-label": "0",
+                      "forward-peer-id": "3.0.0.3"
+                    }, {
+                      "ne-id": "efa5dd0a-f86d-404d-aaa1-7dad65d6b96d",
+                      "ingress-ltp-id": "b5b6456a-673f-4836-88c9-2892f026c4be",
+                      "forward-in-label": "0",
+                      "backward-out-label": "0",
+                      "backward-peer-id": "3.0.0.2",
+                      "egress-ltp-id": "7cbee50f-3aba-4b2c-b1cb-f63f0cbc3a68",
+                      "forward-out-label": "0",
+                      "backward-in-label": "0",
+                      "forward-peer-id": "4.0.0.1"
+                    }, {
+                      "ne-id": "01b779b0-0cf0-4f4f-8899-151d8360e45b",
+                      "ingress-ltp-id": "7fbab1c6-9d2f-4d63-9fb4-9d82d1202be2",
+                      "forward-in-label": "0",
+                      "backward-out-label": "0",
+                      "backward-peer-id": "4.0.0.3",
+                      "egress-ltp-id": "",
+                      "forward-out-label": "0",
+                      "backward-in-label": "0",
+                      "forward-peer-id": ""
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+]

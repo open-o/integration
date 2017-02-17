@@ -1,0 +1,10 @@
+[{
+    "request": {
+      "uri": "/restconf/data/sptn-service-l3vpn:service/snc-l3vpns/snc-l3vpn=123",
+      "method": "delete"
+    },
+    "response": {
+      "status": 200
+    }
+  }
+]

@@ -9,6 +9,8 @@
 }, {
     "include": "Stubs/testcase/createnslcmsuccess.json"
 }, {
+    "include": "Stubs/testcase/zte-sptn-controller/summary.json"
+}, {
     "include": "Stubs/testcase/osdriver/auth_token.json"
 }, {
     "include": "Stubs/testcase/osdriver/createikepolicy.json"

@@ -1,0 +1,15 @@
+[{
+    "request": {
+      "uri": "/restconf/operations/sptn-service-eline:delete-snc-eline",
+      "method": "delete",
+      "json": {
+        "input": {
+          "eline-id": "123"
+        }
+      }
+    },
+    "response": {
+      "status": 200
+    }
+  }
+]

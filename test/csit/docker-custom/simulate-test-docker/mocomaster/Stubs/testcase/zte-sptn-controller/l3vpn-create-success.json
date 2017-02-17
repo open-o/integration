@@ -1,0 +1,132 @@
+[{
+    "request": {
+      "uri": "/restconf/data/sptn-service-l3vpn:service/snc-l3vpns",
+      "method": "post",
+      "headers": {
+        "ICTAuthentication": "21232F297A57A5A743894A0E4A801FC3",
+		"Content-Type": "application/json"
+      },
+      "json": {
+        "snc-l3vpn": {
+          "id": "0de4547b-50b1-4dcd-80a5-a65bd3c4a835",
+          "user-label": "L3VPNServiceA",
+          "admin-status": "admin-up",
+          "acs": {
+            "l3-acs": [{
+                "id": "9912eaee-8eda-43b8-a991-6d056f57a454",
+                "ne-id": "fe8fe9ab-752d-4b55-a27c-9311d926baa2",
+                "ltp-id": "753ad6b4-295c-47d6-955a-a2b8f7075b59",
+                "ip-addr": "113.1.1.2",
+                "qos": {
+                  "belonged-id": "9912eaee-8eda-43b8-a991-6d056f57a454",
+                  "tunnel-mode": "pipeline",
+                  "cac-mode": "0",
+                  "a2z-policing": "0",
+                  "z2a-policing": "0",
+                  "traffic-class": "CS7"
+                },
+                "protocol-list": {
+                  "protocols": [{
+                      "protocol-type": "static",
+                      "static-routes": {
+                        "static-route-list": [{
+                            "dest-ip": "192.168.233.208",
+                            "dest-mask": "255.255.255.240",
+                            "route-type": "local-route",
+                            "next-hop-ip": "113.1.1.3",
+                            "out-inf": "753ad6b4-295c-47d6-955a-a2b8f7075b59",
+                            "route-weight": "1",
+                            "route-status": "up"
+                          }
+                        ]
+                      }
+                    }, {
+                      "protocol-type": "BGP"
+                    }
+                  ]
+                }
+              }, {
+                "id": "ff9b2bbb-0db1-414b-83db-cde41990e2b9",
+                "ne-id": "c1af5a5c-376c-4ecf-9c52-e3e45895402f",
+                "ltp-id": "480f728d-a9db-4fce-851e-839d50f4324a",
+                "ip-addr": "10.10.10.2",
+                "qos": {
+                  "belonged-id": "ff9b2bbb-0db1-414b-83db-cde41990e2b9",
+                  "tunnel-mode": "pipeline",
+                  "cac-mode": "0",
+                  "a2z-policing": "0",
+                  "z2a-policing": "0",
+                  "traffic-class": "CS7"
+                },
+                "protocol-list": {
+                  "protocols": [{
+                      "protocol-type": "static",
+                      "static-routes": {
+                        "static-route-list": [{
+                            "dest-ip": "9.9.9.9",
+                            "dest-mask": "255.255.255.128",
+                            "route-type": "local-route",
+                            "next-hop-ip": "10.10.10.3",
+                            "out-inf": "480f728d-a9db-4fce-851e-839d50f4324a",
+                            "route-weight": "1",
+                            "route-status": "up"
+                          }
+                        ]
+                      }
+                    }, {
+                      "protocol-type": "BGP"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "topo-mode": "any-to-any",
+          "hub-spoke-policy": {
+            "hub-fullmeshed": true,
+            "primary-backup-connected": true
+          },
+          "tunnel-create-policy": {
+            "direction": "bidirection",
+            "type": "1",
+            "qos": {
+              "tunnel-mode": "pipeline",
+              "cac-mode": "0",
+              "convg-mode": "0",
+              "traffic-adj-mode": "1",
+              "a2z-policing": "0",
+              "z2a-policing": "0",
+              "a2z-color-mode": "0",
+              "z2a-color-mode": "0",
+              "traffic-class": "CS7"
+            },
+            "snc-switch": {
+              "layer-rate": "LSP",
+              "linear-protection-type": "unprotected-with-recovery",
+              "linear-protection-protocol": "APS",
+              "switch-mode": "double-end-switch",
+              "revertive-mode": "revertive",
+              "wtr": "300",
+              "hold-off-time": "0"
+            },
+            "admin-status": "admin-up"
+          }
+        }
+      }
+    },
+    "response": {
+      "status": 201,
+      "json": {
+        "command-result": {
+          "result": 1,
+          "success-resources": {
+            "success-resource-list": [{
+                "resourceId": "668d75c3-dc21-45a4-8e0b-f2d49b617888"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+]
