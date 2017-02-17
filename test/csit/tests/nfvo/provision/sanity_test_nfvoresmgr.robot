@@ -45,9 +45,10 @@ QueryNetworksFuncTest
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${querynetworks_url}
+    ${responese_code}=     Convert To String      ${resp.status_code}
     ${response_json}    json.loads    ${resp.content}
-    ${networks}=    Convert To String      ${response_json['networks']}
-    Should Be Equal    ${networks}    2.0
+    List Should Contain Value    ${return_ok_list}   ${responese_code}
+    ${response_json}    json.loads    ${resp.content}
 
 QueryPortsFuncTest
     [Documentation]    query ports info rest test
@@ -55,6 +56,7 @@ QueryPortsFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${queryports_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 QueryHostsFuncTest
@@ -63,6 +65,7 @@ QueryHostsFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${queryhosts_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 QueryLocationsFuncTest
@@ -71,6 +74,7 @@ QueryLocationsFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${querylocations_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 QueryDatacentersFuncTest
@@ -79,6 +83,7 @@ QueryDatacentersFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${querydatacenters_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 QueryVlsFuncTest
@@ -87,6 +92,7 @@ QueryVlsFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${queryvls_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 QueryVmsFuncTest
@@ -95,6 +101,7 @@ QueryVmsFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${queryvms_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 CreateVmsFuncTest
@@ -115,6 +122,7 @@ QueryVnfinfosFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${queryvnfinfos_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 QueryVnfsFuncTest
@@ -123,6 +131,7 @@ QueryVnfsFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${queryvnfs_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 QueryVnfstatusFuncTest
@@ -131,6 +140,7 @@ QueryVnfstatusFuncTest
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    ${queryvnfstatus_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 
