@@ -8,6 +8,10 @@ sdnhub-driver-huawei-overlay/startup/nqa.robot
 sdnhub-driver-huawei-overlay/startup/staticroute.robot
 sdnhub-driver-huawei-overlay/startup/device.robot
 sdnhub-driver-huawei-overlay/startup/interfaceip.robot
-dnhub-driver-huawei-overlay/startup/localsite.robot
-#sdnhub-driver-huawei-overlay/startup/port.robot
+sdnhub-driver-huawei-overlay/startup/localsite.robot
+sdnhub-driver-huawei-overlay/startup/port.robot
+sdnhub-driver-huawei-overlay/startup/subnetbda.robot
+sdnhub-driver-huawei-overlay/startup/vlan.robot
+sdnhub-driver-huawei-overlay/startup/policyroute.robot
 #sdnhub-driver-huawei-overlay/startup/subnet.robot
+#sdnhub-driver-huawei-overlay/startup/ipsec.robot

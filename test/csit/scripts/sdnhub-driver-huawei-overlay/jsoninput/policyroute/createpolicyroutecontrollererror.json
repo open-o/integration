@@ -1,10 +1,10 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-route/v1/batch-create-policy-routes",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-create-policy-routes",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=abc123"
+			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
 		},
 		"json": null
 	},

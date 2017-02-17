@@ -1,10 +1,10 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/abc123/subnet",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abc123/subnet",
 		"method": "put",
 		"headers": {
 			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
 		},
 		"json": {
 			"tenantId": "acd123",

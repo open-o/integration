@@ -1,12 +1,12 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan",
 		"method": "put",
 		"headers": {
 			"Content-Type": "application/json"
 		},
 		"json":  [{
-			"serviceVlanUuid": "1234654",
+			"serviceVlanUuId": "1234654",
 			"ethInterfaceConfigId": "12345",
 			"ifId": "123456",
 			"ifName": "GigabitEthernet0/0/2",
@@ -15,7 +15,7 @@
 			"vlans": "vlans",
 			"id": "6542134654"
 		}, {
-			"serviceVlanUuid": "12346541",
+			"serviceVlanUuId": "12346541",
 			"ethInterfaceConfigId": "123451",
 			"ifId": "1234561",
 			"ifName": "Vlan IF1",

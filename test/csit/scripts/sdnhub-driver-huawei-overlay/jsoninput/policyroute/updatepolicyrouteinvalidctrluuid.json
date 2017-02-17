@@ -1,6 +1,6 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-route/v1/batch-update-policy-routes",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-update-policy-routes",
 		"method": "put",
 		"headers": {
 			"Content-Type": "application/json",

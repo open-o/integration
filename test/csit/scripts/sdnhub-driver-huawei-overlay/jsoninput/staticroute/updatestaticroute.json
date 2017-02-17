@@ -33,95 +33,10 @@
 	"response": {
 		"status": 200,
 		"json": {
-
 			"type": "object",
 			"properties": {
 				"errorCode": {
 					"type": "string"
-				},
-				"data": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"tenantId": {
-								"type": "string"
-							},
-							"description": {
-								"type": "string"
-							},
-							"activeStatus": {
-								"type": "string"
-							},
-							"runningStatus": {
-								"type": "string"
-							},
-							"deviceId": {
-								"type": "string"
-							},
-							"controllerId": {
-								"type": "string"
-							},
-							"destIp": {
-								"type": "string"
-							},
-							"id": {
-								"type": "string"
-							}
-						},
-						"required": [
-
-							"deviceId",
-							"controllerId",
-
-							"id"
-						]
-					}
-				},
-				"succssed": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"tenantId": {
-								"type": "string"
-							},
-							"description": {
-								"type": "string"
-							},
-							"activeStatus": {
-								"type": "string"
-							},
-							"runningStatus": {
-								"type": "string"
-							},
-							"deviceId": {
-								"type": "string"
-							},
-							"controllerId": {
-								"type": "string"
-							},
-							"destIp": {
-								"type": "string"
-							},
-							"id": {
-								"type": "string"
-							}
-						},
-						"required": [
-
-							"deviceId",
-							"controllerId",
-
-							"id"
-						]
-					}
 				},
 				"descArg": {
 					"type": "string"
@@ -140,6 +55,88 @@
 				},
 				"message": {
 					"type": "string"
+				},
+				"successed": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"tenantId": {
+								"type": "string"
+							},
+							"description": {
+								"type": "string"
+							},
+							"deployStatus": {
+								"type": "string"
+							},
+							"activeStatus": {
+								"type": "string"
+							},
+							"runningStatus": {
+								"type": "string"
+							},
+							"additionalInfo": {
+								"type": "string"
+							},
+							"deviceId": {
+								"type": "string"
+							},
+							"controllerId": {
+								"type": "string"
+							},
+							"externalId": {
+								"type": "string"
+							},
+							"nbiNeRouteId": {
+								"type": "string"
+							},
+							"destIp": {
+								"type": "string"
+							},
+							"enableDhcp": {
+								"type": "string"
+							},
+							"nextHop": {
+								"type": "string"
+							},
+							"outInterface": {
+								"type": "string"
+							},
+							"priority": {
+								"type": "string"
+							},
+							"nqa": {
+								"type": "string"
+							},
+							"id": {
+								"type": "string"
+							},
+							"actionState": {
+								"type": "string"
+							},
+							"createTime": {
+								"type": "integer"
+							},
+							"updateTime": {
+								"type": "integer"
+							}
+						},
+						"required": [
+							"tenantId",
+							"deviceId",
+							"controllerId",
+							"externalId"
+
+						]
+					}
+				},
+				"fail": {
+					"type": "array",
+					"items": {}
 				}
 			}
 		}

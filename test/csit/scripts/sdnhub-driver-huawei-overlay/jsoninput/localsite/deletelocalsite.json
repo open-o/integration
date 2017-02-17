@@ -3,13 +3,13 @@
 		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abc123/snat/123544/acl/1234",
 		"method": "delete",
 		"headers": {
-			"Content-Type": "application/json;charset=UTF-8",
+			"Content-Type": "application/json",
 			"X-Driver-Parameter": "extSysID={ESR_CNTRL_HTTP}"
 		},
-		"json": null
+		"json": {}
 	},
 	"response": {
 		"status": 200,
-		"json": null
+		"json": {}
 	}
 }

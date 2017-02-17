@@ -1,6 +1,7 @@
 *** Settings ***
 Library           Remote    http://127.0.0.1:8271
-Library           Collections
+Library           BuiltIn
+Library           OperatingSystem
 
 *** Variables ***
 ${device_create}    ${SCRIPTS}/sdnhub-driver-huawei-overlay/jsoninput/device/createdevice.json
@@ -19,48 +20,50 @@ ${device_delete_invalid_controller}    ${SCRIPTS}/sdnhub-driver-huawei-overlay/j
 *** Test Cases ***
 DEVICE create test
     [Documentation]    DEVICE create test
-    doOperationAndGetValue    ${device_create}    id
+    ${devicemap}=    Create Dictionary    OVERLAYIP_IP=${OVERLAYIP_IP}    ESR_CNTRL_HTTP=${ESR_CNTRL_HTTP}
+    Replace variables and send REST    ${device_create}    ${devicemap}    id
+    Set Suite Variable    ${devicemap}
 
 DEVICE create invalid input
     [Documentation]    DEVICE create fail test with invalid input
-    doOperationAndGetValue    ${device_create_invalid_input}    status
+    Replace variables and send REST    ${device_create_invalid_input}    ${devicemap}    status
 
 DEVICE create invalid conroller error
     [Documentation]    DEVICE createfail test with controller error
-    doOperationAndGetValue    ${device_create_invalid_controller}    status
+    Replace variables and send REST    ${device_create_invalid_controller}    ${devicemap}    status
 
 DEVICE update test
     [Documentation]    DEVICE update test
-    doOperationAndGetValue    ${device_update}    id
+    Replace variables and send REST    ${device_update}    ${devicemap}    id
 
 DEVICE update invalid input
     [Documentation]    DEVICE update fail test with invalid input
-    doOperationAndGetValue    ${device_update_invalid_input}    status
+    Replace variables and send REST    ${device_update_invalid_input}    ${devicemap}    status
 
 DEVICE update invalid conroller error
     [Documentation]    DEVICE update fail test with controller error
-    doOperationAndGetValue    ${device_update_invalid_controller}    status
+    Replace variables and send REST    ${device_update_invalid_controller}    ${devicemap}    status
 
 DEVICE query test
     [Documentation]    DEVICE query test
-    doOperationAndGetValue    ${device_query}    id
+    Replace variables and send REST    ${device_query}    ${devicemap}    id
 
 DEVICE query invalid input
     [Documentation]    DEVICE query fail test with invalid input
-    doOperationAndGetValue    ${device_query_invalid_input}    status
+    Replace variables and send REST    ${device_query_invalid_input}    ${devicemap}    status
 
 DEVICE queryinvalid conrollererror
     [Documentation]    DEVICE query fail test with controller error
-    doOperationAndGetValue    ${device_query_invalid_controller}    status
+    Replace variables and send REST    ${device_query_invalid_controller}    ${devicemap}    status
 
 DEVICE delete test
     [Documentation]    DEVICE delete test
-    doOperationAndGetValue    ${device_delete}    id
+    Replace variables and send REST    ${device_delete}    ${devicemap}    id
 
 DEVICE delete invalid input
     [Documentation]    DEVICE delete fail test with invalid input
-    doOperationAndGetValue    ${device_delete_invalid_input}    status
+    Replace variables and send REST    ${device_delete_invalid_input}    ${devicemap}    status
 
 DEVICE delete invalid conroller error
     [Documentation]    DEVICE update fail test with controller error
-    doOperationAndGetValue    ${device_delete_invalid_controller}    status
+    Replace variables and send REST    ${device_delete_invalid_controller}    ${devicemap}    status

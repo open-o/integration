@@ -1,13 +1,13 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan",
 		"method": "post",
 		"headers": {
 			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
 		},
 		"json": [{
-			"serviceVlanUuid": "1234654",
+			"serviceVlanUuId": "1234654",
 			"ethInterfaceConfigId": "12345",
 			"ifId": "123456",
 			"ifName": "GigabitEthernet0/0/2",
@@ -16,7 +16,7 @@
 			"vlans": "vlans",
 			"id": "6542134654"
 		}, {
-			"serviceVlanUuid": "12346541",
+			"serviceVlanUuId": "12346541",
 			"ethInterfaceConfigId": "123451",
 			"ifId": "1234561",
 			"ifName": "GigabitEthernet0/0/2",
@@ -40,7 +40,7 @@
 					"items": {
 						"type": "object",
 						"properties": {
-							"serviceVlanUuid": {
+							"serviceVlanUuId": {
 								"type": "string"
 							},
 							"ethInterfaceConfigId": {
@@ -66,7 +66,7 @@
 							}
 						},
 						"required": [
-							"serviceVlanUuid",
+							"serviceVlanUuId",
 							"ethInterfaceConfigId",
 							"ifId",
 							"ifName",

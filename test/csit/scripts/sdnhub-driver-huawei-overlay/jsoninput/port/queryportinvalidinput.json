@@ -1,6 +1,6 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-ipsec/v1/device/abc123/ports",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc123/ports",
 		"method": "get",
 		"headers": {
 			"Content-Type": "application/json"

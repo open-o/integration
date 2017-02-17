@@ -3,7 +3,7 @@
 		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/123/snat/2467a068795b41ee9676bc79168da7a6/acl/7db47412f2b44164a16ef18b16a81c0c",
 		"method": "get",
 		"headers": {
-			"Content-Type": "application/json;charset=UTF-8",
+			"Content-Type": "application/json",
 			"X-Driver-Parameter": "extSysID={ESR_CNTRL_HTTP}"
 		},
 		"json": {}

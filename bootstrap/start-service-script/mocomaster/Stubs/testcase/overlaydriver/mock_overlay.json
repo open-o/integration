@@ -357,23 +357,7 @@
     "headers" : {
         "Content-Type": "application/json"
     },
-    "json" : {
-	"staticRouteConfigs": [{
-		"id": "81244ad0-b4ea-41ed-969e-d5588b32fd5f",
-		"bfdName": null,
-		"description": null,
-		"priority": null,
-		"vpnName": null,
-		"outInterface": null,
-		"nextHop": null,
-		"dhcp": false,
-		"vpnId": null,
-		"mask": null,
-		"nqaId": null,
-		"ip": "192.168.1.1",
-		"ipv6Address": null
-	}]
-}
+    "json" : {"staticRouteConfigs":[{"id":"1234","bfdName":null,"description":null,"priority":"3","vpnName":null,"outInterface":"outer","nextHop":"2","dhcp":true,"vpnId":null,"mask":null,"nqaId":"nqa","ip":"192.168.1.1","ipv6Address":null}]}
   },
   "response" : {
     "status" : "200",
@@ -726,7 +710,7 @@
     "json" : {
          "errcode": "0",
          "errmsg": "",
-         "data": [
+         "data": 
                  {
 			    "name":"deviceOne",
 			    "esn":"esn",
@@ -751,7 +735,7 @@
 			    "modifyTime":null
 			}
              
-        ]
+        
       }
     
   }
@@ -1027,7 +1011,7 @@
 		"headers": {
 			"Content-Type": "application/json"
 		},
-		"json": {"ids":["{","name","IT","tenantId",null,"description",null,"deployStatus",null,"activeStatus","active","runningStatus","none","additionalInfo",null,"deviceId","123","controllerId",null,"externalId",null,"nbiNeRouteId",null,"trafficPolicyName","test1","interfaceName","test1","direction",null,"filterAction",null,"id","1","actionState","Normal","createTime","0","updateTime","0","}"]}
+		"json": {"ids":["2345612"]}
 		
 
 	},
@@ -1108,7 +1092,7 @@
 },
 {
 	"request": {
-		"uri": "/controller/cloud/v2/northbound/config/test1/device/qosmqc",
+		"uri": "/controller/cloud/v2/northbound/config/interfaceName/device/qosmqc",
 		"method": "get",
 		"headers": {
 			"Content-Type": "application/json"
@@ -1177,7 +1161,7 @@
 		"headers": {
 			"Content-Type": "application/json"
 		},
-		"json": {"aclList":[{"id":null,"aclId":"12","netId":null,"aclNumber":21,"aclName":"aclName_21","aclStep":null,"ruleList":[{"id":10,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"10.0.0.0/8","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"3"},{"id":50,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"172.16.0.0/12","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"3"},{"id":100,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"192.168.0.0/16","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"3"},{"id":200,"policy":"permit","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":null,"desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"3"}]}]}
+		"json": {"aclList":[{"id":null,"aclId":"1234","netId":null,"aclNumber":12345,"aclName":"aclName_12345","aclStep":null,"ruleList":[{"id":10,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"10.0.0.0/8","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"},{"id":50,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"172.16.0.0/12","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"},{"id":100,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"192.168.0.0/16","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"},{"id":200,"policy":"permit","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":null,"desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"}]}]}
 	},
 	"response": {
 		"status": 200,
@@ -1216,7 +1200,7 @@
 		"headers": {
 			"Content-Type": "application/json"
 		},
-		"json": {"natList":[{"id":"7","aclId":"7db47412f2b44164a16ef18b16a81c0c","interfaceName":"90","qosPreNat":"123","aclNumber":null}]}
+		"json": {"natList":[{"id":"123544","aclId":"7db47412f2b44164a16ef18b16a81c0c","interfaceName":"ifName","qosPreNat":"qosPreNat","aclNumber":null}]}
 
 
 	},
@@ -1246,7 +1230,7 @@
 		"headers": {
 			"Content-Type": "application/json"
 		},
-		"json": {"natList":[{"id":"7","aclId":"12","interfaceName":"90","qosPreNat":"123","aclNumber":null}]}
+		"json": {"natList":[{"id":"123544","aclId":"1234","interfaceName":"ifName","qosPreNat":"qosPreNat","aclNumber":null}]}
 
 
 	},

@@ -1,6 +1,6 @@
 {
 	"request": {
-		"uri": "http://localhost:8080/overlayvpndriverservice/openoapi/sbi-localsite/v1/device/abc123/subnet/1234",
+		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abc123/subnet/1234",
 		"method": "get",
 		"headers": {
 			"Content-Type": "application/json",
