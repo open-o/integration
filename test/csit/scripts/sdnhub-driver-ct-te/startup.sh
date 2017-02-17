@@ -19,7 +19,7 @@
 source ${SCRIPTS}/common_functions.sh
 
 #Start openoint/sdnhub-driver-ct-te
-run-instance.sh openoint/sdnhub-driver-ct-te $1 " -i -t -e MSB_ADDR=$2"
+run-instance.sh openoint/sdnhub-driver-ct-te $1 " -i -t -e MSB_ADDR=$2 -e CSIT=True"
 
 curl_path='http://'$2'/openoapi/drivermgr/v1/drivers'
 sleep_msg="Waiting_url_for_"$1
