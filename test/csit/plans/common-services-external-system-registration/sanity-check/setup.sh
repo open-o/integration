@@ -22,7 +22,7 @@ MSB_IP=`get-instance-ip.sh i-msb`
 echo MSB_IP=${MSB_IP}
 
 # Start extsys
-${SCRIPTS}/common-services-extsys/startup.sh i-extsys ${MSB_IP}:80
+${SCRIPTS}/common-services-external-system-registration/startup.sh i-extsys ${MSB_IP}:80
 EXTSYS_IP=`get-instance-ip.sh i-extsys`
 echo EXTSYS_IP=${EXTSYS_IP}
 
