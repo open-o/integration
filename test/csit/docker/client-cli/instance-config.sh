@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2017 Huawei Technologies Co., Ltd.
+# Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-if [ -f /usr/sbin/openo ]
-then
-    rm /usr/sbin/openo
-fi
 
-ln ./bin/openo.sh /usr/sbin/openo
