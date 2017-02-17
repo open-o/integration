@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env python
 #
 # Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
@@ -15,15 +15,12 @@
 # limitations under the License.
 #
 
-# specific workarounds to maintain existing job list
-rm -f $BUILD_DIR/integration/autorelease/build/pom.xml
-rm -f $BUILD_DIR/nfvo/monitor/pom.xml
-touch $BUILD_DIR/common-tosca-aria/tox.ini
+import sys, csv, subprocess, os, urllib2
 
+root = subprocess.check_output(["git", "rev-parse", "--show-toplevel"]).rstrip()
 
-SUBPROJECT_MAP=(
-    "nfvo/drivers/vnfm/svnfm/zte/vmanager:drv-vnfm-zte"
-    "nfvo/drivers/vnfm/gvnfm/gvnfmadapter:drv-gvnfm"
-)
+with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
+    reader = csv.DictReader(f)
 
-SPLIT_REPOS=("nfvo" "common-services-common-utilities")
+    for row in reader:
+        print "{} {} {}".format(row["filename"], row["repo"], row["job-trigger-string"])

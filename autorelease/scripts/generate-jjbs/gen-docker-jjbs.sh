@@ -24,11 +24,13 @@ JJB_DIR=$BUILD_DIR/ci-management/jjb
 cd $BUILD_DIR
 
 # docker root dir
-ROOT=`git rev-parse --show-toplevel`/test/csit/docker
+DOCKER=`git rev-parse --show-toplevel`/test/csit/docker
 
-cd $ROOT
+cd $DOCKER
 
-cat > $JJB_DIR/integration/integration-docker-microservices.yaml <<EOF
+OUTFILE=$JJB_DIR/integration/integration-docker-microservices.yaml
+
+cat > $OUTFILE <<EOF
 ---
 - project:
     name: integration-docker-microservices
@@ -43,8 +45,22 @@ cat > $JJB_DIR/integration/integration-docker-microservices.yaml <<EOF
     microservice:
 EOF
 
-for microservice in `$ROOT/scripts/ls-microservices.py | sort`; do
-    cat >> $JJB_DIR/integration/integration-docker-microservices.yaml <<EOF
-      - '${microservice}'
+TMPDIR=`$ROOT/scripts/generate-jjbs/gen-job-lists.sh`
+IFS=$'\n'
+for line in `$ROOT/scripts/ls-microservice-repos.py | sort`; do
+    IFS=' '
+    array=($line)
+    microservice=${array[0]}
+    repo=${array[1]}
+    trigger=${array[2]}
+    echo $microservice $repo $trigger
+    cat >> $OUTFILE <<EOF
+      - '${microservice}':
+          trigger_jobs:
 EOF
+    for job in `cat ${TMPDIR}/merge-jobs/${repo}.txt | grep "${trigger}"`; do
+    cat >> $OUTFILE <<EOF
+            - '${job}'
+EOF
+    done
 done
