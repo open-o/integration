@@ -110,6 +110,9 @@ set -e
 echo "RESULT: " $RESULT
 rsync -av $WORKDIR/ $WORKSPACE/archives
 
+# Record list of active docker containers
+docker ps --format "{{.Image}}" > $WORKSPACE/archives/_docker-images.log
+
 # Run teardown script plan if it exists
 cd ${TESTPLANDIR}
 TEARDOWN=${TESTPLANDIR}/teardown.sh
