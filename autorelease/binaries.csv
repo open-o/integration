@@ -1,4 +1,5 @@
 service,filename,groupId,artifactId,extension,classifier,ports,mysql,tomcat,python,unzip-dir
+Open-O Command-Line interface (CLI),client-cli,org.openo.client.cli,client-cli-deployment,zip,,,,,,
 Common Services Microservice Bus,common-services-msb,org.openo.common-services.microservice-bus,msb-core-standalone,tar.gz,linux64,80 8080,,,,
 Common Services Protocol Stack,common-services-protocolstack,org.openo.common-services.protocol-stack,protocolstackservice-deployment,zip,,8109,,TRUE,,
 Common Services WSO2 Extension,common-services-wso2ext,org.openo.common-services.common-utilities.wso2bpel-ext,standalone,tar.gz,linux64,8101,TRUE,,,

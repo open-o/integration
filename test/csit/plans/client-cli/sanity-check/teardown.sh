@@ -16,4 +16,4 @@
 #
 kill-instance.sh i-msb
 kill-instance.sh i-auth
-kill-instance.sh i-cli
+#kill-instance.sh i-cli

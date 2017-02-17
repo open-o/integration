@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Copyright 2017 Huawei Technologies Co., Ltd.
 #
@@ -13,6 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Test suites are relative paths under [integration.git]/test/csit/tests/.
-# Place the suites in run order.
-client-cli/startup/startup_check.robot
+# Start service
+export OPENO_CLI_HOME=/client-cli
+/bin/bash
