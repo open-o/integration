@@ -1,27 +1,13 @@
 [
 {
     "request": {
-        "uri": "/openoapi/sbi-l2vpn-vpws/v1/paths",
-        "method": "post"
+        "uri": {
+            "startsWith": "/openoapi/"
+        },
+        "method": "get"
     },
     "response": {
-        "status": 201,
-        "json": {
-            "serviceChainPath" : {
-                "id": "l2vpnId1"
-            }
-        }
+        "status": 200
     }
-},
-{
-	"request": {
-		"uri": {
-                      "match": "/openoapi/sbi-l2vpn-vpws/v1/paths/[a-zA-Z0-9\\-\\_]{1,36}"
-                 },
-		"method": "delete"
-	},
-	"response": {
-		"status": 200
-	}
 }
 ]
