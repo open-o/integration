@@ -24,7 +24,7 @@ echo MSB_IP=${MSB_IP}
 # Start policyengine
 ${SCRIPTS}/policy-engine/startup.sh i-policyengine ${MSB_IP}
 POLENGINE_IP=`get-instance-ip.sh i-policyengine`
-echo POLDESIGNER_IP=${POLENGINE_IP}
+echo POLENGINE_IP=${POLENGINE_IP}
 
 # Wait for initialization
 for i in {1..10}; do
