@@ -18,7 +18,7 @@
 # $2 IP address of MSB
 source ${SCRIPTS}/common_functions.sh
 
-#Start openoint/sdno-driver-ct-te
+#Start openoint/sdnhub-driver-ct-te
 run-instance.sh openoint/sdnhub-driver-ct-te $1 " -i -t -e MSB_ADDR=$2"
 
 curl_path='http://'$2'/openoapi/drivermgr/v1/drivers'

@@ -1,0 +1,1 @@
+{"from_router_name": "", "to_router_name": "", "bandwidth": "100", "to_router_uid": "PE14Z", "from_router_uid": "PE14Z", "callback":"http://127.0.0.1/path", "name": "lsp_zte", "hop_list":[], "priority":7, "delay":""}

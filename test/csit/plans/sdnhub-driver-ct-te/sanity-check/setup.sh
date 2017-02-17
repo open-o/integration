@@ -46,13 +46,13 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 ${SCRIPTS}/sdno-driver-huawei-servicechain/startup.sh d-driver-huawei-servicechain ${MSB_IP}:80
 DRIVERMGR_IP=`get-instance-ip.sh d-drivermgr`
 
-#Start openoint/sdno-driver-ct-te
-${SCRIPTS}/sdno-driver-ct-te/startup.sh i-driver-ct-te ${MSB_IP}:80
+#Start openoint/sdnhub-driver-ct-te
+${SCRIPTS}/sdnhub-driver-ct-te/startup.sh i-driver-ct-te ${MSB_IP}:80
 DRIVERMGR_IP=`get-instance-ip.sh i-drivermgr`
 
 DRIVER_IP=`get-instance-ip.sh i-driver-ct-te`
 DRIVER_PORT='8670'
-DRIVER_NAME='sdno-driver-ct-te'
+DRIVER_NAME='sdnhub-driver-ct-te'
 DRIVERMGR_PORT="8103"
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES

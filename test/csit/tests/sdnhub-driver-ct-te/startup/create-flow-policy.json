@@ -1,0 +1,1 @@
+{"flow_name": "", "lsp_uid": "lsp_0", "priority":7, "flow": {"src": "1.2.3.0/24", "dst": "5.6.7.8/24"},"user_data": {'lsp_id': '41', 'from_router_uid': 'PE14Z', 'lsp_name': 'lsp_zte'}, "callback":"http://127.0.0.1/path"}
