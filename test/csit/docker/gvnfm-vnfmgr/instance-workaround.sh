@@ -15,5 +15,4 @@
 # limitations under the License.
 #
 # Change run script to not suppress output
-GVNFM_VNFMGR_PATH = ./gvnfm-vnfmgr/mgr
-sed -i 's|>.*/dev/null||' GVNFM_VNFMGR_PATH/run.sh
+sed -i 's|>.*/dev/null||' ./gvnfm-vnfmgr/mgr/run.sh

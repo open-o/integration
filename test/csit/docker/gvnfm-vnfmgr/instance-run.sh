@@ -17,9 +17,7 @@
 
 redis-server &
 
-GVNFM_VNFMGR_PATH = ./gvnfm-vnfmgr/mgr
-
-cd GVNFM_VNFMGR_PATH
+cd ./gvnfm-vnfmgr/mgr
 ./run.sh
 
 while [ ! -f logs/runtime_vnfmgr.log ]; do

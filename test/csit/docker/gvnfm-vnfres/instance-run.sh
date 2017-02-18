@@ -17,12 +17,10 @@
 
 redis-server &
 
-GVNFM_VNFRES_PATH = ./gvnfm_vnfres/res
-
-cd GVNFM_VNFRES_PATH
+cd ./gvnfm_vnfres/res
 ./run.sh
 
-while [ ! -f logs/runtime_vnfmgr.log ]; do
+while [ ! -f logs/runtime_vnfres.log ]; do
     sleep 1
 done
-tail -F logs/runtime_vnfmgr.log
+tail -F logs/runtime_vnfres.log

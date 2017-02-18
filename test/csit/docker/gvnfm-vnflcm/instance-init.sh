@@ -14,11 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-GVNFM_VNFLCM_PATH = ./gvnfm-vnflcm/lcm
 
 # Initialize DB schema
 ./bin/initDB.sh root rootpass 3306 127.0.0.1
 
 # Install python requirements
-cd GVNFM_VNFLCM_PATH
+cd ./gvnfm-vnflcm/lcm
 ./initialize.sh
