@@ -18,7 +18,8 @@
 # $2 IP address of MSB
 source ${SCRIPTS}/common_functions.sh
 
-#Start openoint/sdnhub-driver-ct-te
+# Start openoint/sdnhub-driver-ct-te
+# CSIT=True: Makes run.sh in docker branch to coverage test
 run-instance.sh openoint/sdnhub-driver-ct-te $1 " -i -t -e MSB_ADDR=$2 -e CSIT=True"
 
 curl_path='http://'$2'/openoapi/drivermgr/v1/drivers'

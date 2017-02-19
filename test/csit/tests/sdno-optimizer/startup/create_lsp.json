@@ -1,0 +1,1 @@
+{"hop_list": ["2", "6"], "ingress_node_uid": "2", "ingress_node_name": "", "lsp_name":"alu_2_6_lsp", "egress_node_uid": "6", "priority": null, "bandwidth": 100.0, "delay": null, "egress_node_name": ""}

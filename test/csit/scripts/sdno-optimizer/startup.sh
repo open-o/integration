@@ -19,10 +19,10 @@
 source ${SCRIPTS}/common_functions.sh
 echo $@
 
-# Start vsitemgr
+#Start Optimize
 # CSIT=True: Makes run.sh in docker branch to coverage test
-run-instance.sh openoint/sdno-vsitemgr $1 " -i -t -e MSB_ADDR=$2 -e CSIT=True"
+run-instance.sh openoint/sdno-optimize $1 " -i -t -e MSB_ADDR=$2 -e CSIT=True"
 
 curl_path='http://'$2'/openoapi/microservices/v1/services/'
 sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=100 GREP_STRING="vsite_mgr"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=100  GREP_STRING="mpls-optimizer"

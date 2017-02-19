@@ -14,15 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# $1 nickname for the CATALOG instance
-# $2 IP address of MSB
-source ${SCRIPTS}/common_functions.sh
-echo $@
+# This script is sourced by run-csit.sh after Robot test completion.
 
-# Start vsitemgr
-# CSIT=True: Makes run.sh in docker branch to coverage test
-run-instance.sh openoint/sdno-vsitemgr $1 " -i -t -e MSB_ADDR=$2 -e CSIT=True"
-
-curl_path='http://'$2'/openoapi/microservices/v1/services/'
-sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=100 GREP_STRING="vsite_mgr"
+kill-instance.sh i-brs
+kill-instance.sh i-mss
+kill-instance.sh i-msb
+kill-instance.sh i-optimizer
