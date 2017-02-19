@@ -15,12 +15,12 @@ ENV JAVA_HOME /usr/lib/jvm/jre
 
 WORKDIR /service
 
-COPY cert.jks ./cert.jks
+#COPY cert.jks ./cert.jkso
+COPY mocomaster ./
 RUN mkdir /var/lib/moco && cd /var/lib/moco
 
 # Set up tomcat
-RUN wget -q https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar \
-    && printf "[]" > /var/lib/moco/main.json \
+RUN wget -q https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar
 
 
 EXPOSE 18009

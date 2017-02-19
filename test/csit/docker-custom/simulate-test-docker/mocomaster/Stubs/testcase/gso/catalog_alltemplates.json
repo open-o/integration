@@ -1,0 +1,228 @@
+[
+  {
+    "serviceTemplateId": "5212b49f-fe70-414f-9519-88bec35b3190",
+    "id": "test_ns_pop_1_0",
+    "templateName": "tetest_ns_pop",
+    "vendor": "ZTE",
+    "version": "v1.0",
+    "csarId": "eea33156-514b-48ad-b165-0a38d0baa623",
+    "type": "NS",
+    "downloadUri": "http://10.229.42.149:80/files/catalog-http/NSAR/ZTE/POP_NS_TEST/v1.0/POP_NS_TEST/Definitions/ztens__POP_NS_TEST.yaml",
+    "inputs": [
+      {
+        "name": "externalDataNetworkName",
+        "type": "string",
+        "description": "External Data Network Name",
+        "defaultValue": "Flow_out_net",
+        "required": false
+      },
+      {
+        "name": "m6000_mng_ip",
+        "type": "string",
+        "description": "M6000 Mng IP",
+        "defaultValue": "181.18.20.2",
+        "required": false
+      },
+      {
+        "name": "externalCompanyFtpDataNetworkName",
+        "type": "string",
+        "description": "External Company Ftp Data Network Name",
+        "defaultValue": "Flow_out_net",
+        "required": false
+      },
+      {
+        "name": "externalPluginManageNetworkName",
+        "type": "string",
+        "description": "External Plugin Management Network Name",
+        "defaultValue": "plugin_net_2014",
+        "required": false
+      },
+      {
+        "name": "externalManageNetworkName",
+        "type": "string",
+        "description": "External Management Network Name",
+        "defaultValue": "mng_net_2017",
+        "required": false
+      },
+      {
+        "name": "sfc_data_network",
+        "type": "string",
+        "description": "SFC Data Network Name",
+        "defaultValue": "sfc_data_net_2016",
+        "required": false
+      },
+      {
+        "name": "NatIpRange",
+        "type": "string",
+        "description": "Nat Ip Range",
+        "defaultValue": "210.1.1.10-210.1.1.20",
+        "required": false
+      }
+    ],
+    "outputs": [],
+    "operations": [],
+    "substitution": {
+      "nodeType": "tosca.nodes.nfv.NS.POP_NS_TEST"
+    }
+  },
+  {
+    "serviceTemplateId": "79244f5a-970b-4c9d-a836-645720c27edd",
+    "id": "gso_site2dc_1_0",
+    "templateName": "gso_site2dc",
+    "vendor": "gso",
+    "version": "v1.0",
+    "csarId": "8937a94d-1799-47a5-971d-58ff7d35def6",
+    "type": "NS",
+    "downloadUri": "http://10.229.42.149:80/files/catalog-http/GSAR/gso/gso_site2dc/v1.0/gso_site2dc/Definitions/gso__gso_site2dc.yaml",
+    "inputs": [],
+    "outputs": [],
+    "operations": []
+  },
+  {
+    "serviceTemplateId": "89395eb5-5713-4968-bafb-66690a554060",
+    "id": "ns_overlayervpn_1_0",
+    "templateName": "enterprise2DC",
+    "vendor": "huawei",
+    "version": "1.0",
+    "csarId": "e141d02b-687a-4a36-b42b-a5740bc7bf2a",
+    "type": "NS",
+    "downloadUri": "http://10.229.42.149:80/files/catalog-http/SSAR/huawei/enterprise2DC/1.0/enterprise2DC/Definitions/sdnns__enterprise2DC.yaml",
+    "inputs": [
+      {
+        "name": "dcGWIP",
+        "type": "string",
+        "description": "mgrIp of dcGW",
+        "required": false
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "description": "description of site2DC connection",
+        "required": false
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "description": "Name of site2DC connection",
+        "required": false
+      },
+      {
+        "name": "dcLBIP",
+        "type": "string",
+        "description": "mgrIp of dc Load Balancer",
+        "required": false
+      },
+      {
+        "name": "vpcSubnetCidr",
+        "type": "string",
+        "description": "vpc cidr",
+        "defaultValue": "10.0.2.0/24",
+        "required": false
+      },
+      {
+        "name": "siteCidr",
+        "type": "string",
+        "description": "enterprise cidr",
+        "defaultValue": "10.0.1.0/24",
+        "required": false
+      },
+      {
+        "name": "vpcVNI",
+        "type": "integer",
+        "description": "in format of domain/project, should keep consistent with NFVO",
+        "defaultValue": 10001,
+        "required": false
+      },
+      {
+        "name": "siteThinCpeIP",
+        "type": "string",
+        "description": "mgrIP of thinCPE which access enterprise",
+        "required": false
+      },
+      {
+        "name": "vCPE_MgrIp",
+        "type": "string",
+        "description": "mgrIp of vCPE, should be provided by NFVO",
+        "defaultValue": "172.15.4.101",
+        "required": false
+      },
+      {
+        "name": "vpcName",
+        "type": "string",
+        "description": "in format of domain/project, should keep consistent with NFVO",
+        "defaultValue": "vdc0/vpc1",
+        "required": false
+      },
+      {
+        "name": "siteVNI",
+        "type": "integer",
+        "description": "VxLAN ID connect site to vCPE",
+        "defaultValue": 20001,
+        "required": false
+      },
+      {
+        "name": "dcFWIP",
+        "type": "string",
+        "description": "mgrIp of dc Firewall",
+        "required": false
+      },
+      {
+        "name": "vpcSubnetName",
+        "type": "string",
+        "description": "in format of domain/project, should keep consistent with NFVO",
+        "defaultValue": "vdc0/vpc1",
+        "required": false
+      },
+      {
+        "name": "id",
+        "type": "string",
+        "description": "connection id",
+        "required": false
+      },
+      {
+        "name": "siteAccessPortVlan",
+        "type": "string",
+        "description": "thinCPE port which connect to enterprise",
+        "defaultValue": "G0/0/1.101",
+        "required": false
+      }
+    ],
+    "outputs": [],
+    "operations": [],
+    "substitution": {
+      "nodeType": "tosca.nodes.sdn.ext.NS.enterprise2DC"
+    }
+  },
+  {
+    "serviceTemplateId": "cb93242b-7664-4cbd-bc3b-16a1d871648e",
+    "id": "ns_pop_1_0",
+    "templateName": "ns_pop",
+    "vendor": "ZTE",
+    "version": "v1.0",
+    "csarId": "363e2175-ec9b-438f-807d-ad3cb6cae68c",
+    "type": "NS",
+    "downloadUri": "http://10.229.42.149:80/files/catalog-http/NSAR/ZTE/POP_NS/v1.0/POP_NS/Definitions/ztens__POP_NS.yaml",
+    "inputs": [],
+    "outputs": [],
+    "operations": [],
+    "substitution": {
+      "nodeType": "tosca.nodes.nfv.NS.POP_NS"
+    }
+  },
+  {
+    "serviceTemplateId": "de1c7d4e-b184-48b8-b107-4e6451bad678",
+    "id": "ns_pop_1_0",
+    "templateName": "ns_dc",
+    "vendor": "ZTE",
+    "version": "v1.0",
+    "csarId": "efb0e0db-c387-4954-956b-60e253f97f29",
+    "type": "NS",
+    "downloadUri": "http://10.229.42.149:80/files/catalog-http/NSAR/ZTE/DC_NS/v1.0/DC_NS/Definitions/ztens__DC_NS.yaml",
+    "inputs": [],
+    "outputs": [],
+    "operations": [],
+    "substitution": {
+      "nodeType": "tosca.nodes.nfv.NS.DC_NS"
+    }
+  }
+]

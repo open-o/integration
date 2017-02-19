@@ -1,0 +1,39 @@
+[{
+    "request": {
+        "uri": "/v2.0/vpn/ipsecpolicies",
+        "method": "post",
+        "json": {
+            "ipsecpolicy": {
+                "name": "ipsecpolicy1",
+                "transform_protocol": "esp",
+                "auth_algorithm": "sha1",
+                "encapsulation_mode": "tunnel",
+                "encryption_algorithm": "aes-128",
+                "pfs": "group5",
+                "lifetime": {
+                    "units": "seconds",
+                    "value": 7200
+                }
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {"ipsecpolicy": {
+            "id": "22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+            "name": "aaa",
+            "description": "aaa",
+            "pfs": "Group5",
+            "lifetime": {
+                "units": "seconds",
+                "value": 7200
+            },
+            "tenant_id": "tenantId1",
+            "transform_protocol": "ESP",
+            "Encapsulation_mode": "tunnel",
+            "auth_algorithm": "sha1",
+            "encryption_algorithm": "aes-128"
+        }
+    }
+    }
+}]

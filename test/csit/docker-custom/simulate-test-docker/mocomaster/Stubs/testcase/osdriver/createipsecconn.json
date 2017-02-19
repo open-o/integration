@@ -1,0 +1,59 @@
+[{
+    "request": {
+        "uri": "/v2.0/vpn/ipsec-site-connections",
+        "method": "post",
+        "json": {
+            "ipsec_site_connection": {
+                "psk": "secret",
+                "initiator": "bi-directional",
+                "ipsecpolicy_id": "22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+                "admin_state_up": true,
+                "peer_cidrs": [
+                    "10.2.0.0/24"
+                ],
+                "mtu": "1500",
+                "ikepolicy_id": "7b347d20-6fa3-4e22-b744-c49ee235a123",
+                "dpd": {
+                    "action": "disabled",
+                    "interval": 60,
+                    "timeout": 240
+                },
+                "vpnservice_id": "7b347d20-6fa3-4e22-b744-c49ee235ae4f",
+                "peer_address": "172.24.4.233",
+                "peer_id": "172.24.4.233",
+                "name": "vpnconnection1"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": { "ipsec_site_connection": {
+            "id": "7b347d20-6fa3-4e22-b744-c49ee235a124",
+            "name": null,
+            "description": null,
+            "mtu": 1500,
+            "psk": "psk",
+            "initiator": "bi-directional",
+            "status": "PENDING_CREATE",
+            "dpd": {
+                "action": "hold",
+                "interval": 30,
+                "timeout": 120
+            },
+            "subnets": null,
+            "tenant_id": "tenantId1",
+            "peer_address": "2.2.2.2",
+            "peer_id": "2.2.2.2",
+            "peer_cidrs":[
+                    "10.2.0.0/24"
+                ],
+            "route_mode": "static",
+            "auth_mode": "psk",
+            "admin_state_up": true,
+            "ikepolicy_id": null,
+            "ipsecpolicy_id": null,
+            "vpnservice_id": null
+        }
+    }
+    }
+}]

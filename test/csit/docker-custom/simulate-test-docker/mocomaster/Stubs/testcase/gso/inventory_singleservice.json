@@ -1,0 +1,73 @@
+{
+    "serviceId":"5212b49f-fe70-414f-9519-88bec35b3190",
+    "serviceName":"test_gso",
+    "serviceType":"GSO",
+    "description":"test_gso",
+    "createTime":"",
+    "templateName":"GSO",
+    "creator":"admin",
+    "inputParameters":{
+        "domainHost":"",
+        "nodeTemplateName":"",
+        "nodeType":"",
+        "segments":[
+            {
+                "domainHost":"100.1.1.10:80",
+                "nodeTemplateName":"gso_domaina",
+                "nodeType":"tosca.nodes.nfv.NS.POP_NS",
+                "segments":[
+                    {
+                        "domainHost":"100.1.1.10:80",
+                        "nodeTemplateName":"pop",
+                        "nodeType":"tosca.nodes.nfv.NS.POP_NS",
+                        "segments":[
+
+                        ],
+                        "additionalParamForNs":{
+                            "externalDataNetworkName":"Flow_out_net",
+                            "m6000_mng_ip":"181.18.20.2",
+                            "externalCompanyFtpDataNetworkName":"Flow_out_net",
+                            "externalPluginManageNetworkName":"plugin_net_2014",
+                            "externalManageNetworkName":"mng_net_2017",
+                            "sfc_data_network":"sfc_data_net_2016",
+                            "NatIpRange":"210.1.1.10-210.1.1.20",
+                            "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
+                            "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                        }
+                    },
+                    {
+                        "domainHost":"100.1.1.10:80",
+                        "nodeTemplateName":"dc",
+                        "nodeType":"tosca.nodes.nfv.NS.DC_NS",
+                        "segments":[
+
+                        ],
+                        "additionalParamForNs":{
+                            "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
+                            "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                        }
+                    }
+                ],
+                "additionalParamForNs":{
+                    "externalDataNetworkName":"Flow_out_net",
+                    "m6000_mng_ip":"181.18.20.2"
+                }
+            },
+            {
+                "domainHost":"100.1.1.12:80",
+                "nodeTemplateName":"ns_aaa",
+                "nodeType":"tosca.nodes.nfv.NS.DC_NS",
+                "segments":[
+
+                ],
+                "additionalParamForNs":{
+                    "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
+                    "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                }
+            }
+        ],
+        "additionalParamForNs":{
+
+        }
+    }
+}

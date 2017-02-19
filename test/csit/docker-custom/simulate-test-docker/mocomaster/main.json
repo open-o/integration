@@ -1,0 +1,67 @@
+[{
+	"include": "Stubs/testcase/l3vpn/getL3vpn.json"
+}, {
+	"include": "Stubs/testcase/l3vpn/authentication.json"
+}, {
+	"include": "Stubs/testcase/l3vpn/CreateSuccess.json"
+}, {
+	"include": "Stubs/testcase/l3vpn/l3VpnUpdateSuccess.json"
+}, {
+	"include": "Stubs/testcase/createnslcmsuccess.json"
+}, {
+	"include": "Stubs/testcase/osdriver/auth_token.json"
+}, {
+	"include": "Stubs/testcase/osdriver/createikepolicy.json"
+}, {
+	"include": "Stubs/testcase/osdriver/createipsecconn.json"
+}, {
+	"include": "Stubs/testcase/osdriver/createipsecpolicy.json"
+}, {
+	"include": "Stubs/testcase/osdriver/createvpnservice.json"
+}, {
+	"include": "Stubs/testcase/osdriver/deleteikepolicy.json"
+}, {
+	"include": "Stubs/testcase/osdriver/deleteipsecconn.json"
+}, {
+	"include": "Stubs/testcase/osdriver/deleteipsecpolicy.json"
+}, {
+	"include": "Stubs/testcase/osdriver/deletevpnservice.json"
+}, {
+	"include": "Stubs/testcase/osdriver/network_create.json"
+}, {
+	"include": "Stubs/testcase/osdriver/network_delete.json"
+}, {
+	"include": "Stubs/testcase/osdriver/network_list.json"
+}, {
+	"include": "Stubs/testcase/osdriver/project_create.json"
+}, {
+	"include": "Stubs/testcase/osdriver/project_delete.json"
+}, {
+	"include": "Stubs/testcase/osdriver/project_list.json"
+}, {
+	"include": "Stubs/testcase/osdriver/router_create.json"
+}, {
+	"include": "Stubs/testcase/osdriver/router_delete.json"
+}, {
+	"include": "Stubs/testcase/osdriver/router_list.json"
+}, {
+	"include": "Stubs/testcase/osdriver/subnet_attach.json"
+}, {
+	"include": "Stubs/testcase/osdriver/subnet_create.json"
+}, {
+	"include": "Stubs/testcase/osdriver/subnet_delete.json"
+}, {
+	"include": "Stubs/testcase/osdriver/subnet_detach.json"
+}, {
+	"include": "Stubs/testcase/osdriver/subnet_list.json"
+}, {
+	"include": "Stubs/testcase/overlaydriver/mock_overlayvpndriver.json"
+}, {
+	"include": "Stubs/testcase/servicechain/moco_servicechain.json"
+}, {
+	"include": "Stubs/testcase/gso/config.json"
+}, {
+	"include": "Stubs/testcase/overlaydriver/mock_overlay.json"
+}, {
+	"include": "Stubs/testcase/nfvo/config.json"
+}]

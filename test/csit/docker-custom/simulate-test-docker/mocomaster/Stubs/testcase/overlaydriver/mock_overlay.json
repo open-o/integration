@@ -1,0 +1,1620 @@
+[{
+	"request":
+	{
+		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/nqa",
+		"method": "put",
+		"headers":{"Content-Type":"application/json"},
+		"json":{"nqaList":[{"testType":"ping","srcPort":null,"sequency":null,"frequency":null,"ttl":null,"id":"externalId","tos":null,"srcIp6":null,"dstIp6":null,"probeCount":null,"srcIp":"1.2.3.4","srcIPv6":null,"timeout":null,"dstIp":"192.168.1.2","dstIPv6":null,"srcPortName":"portName","dstPortName":null,"interval":null}]}
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+		"errcode": "0",
+			"errmsg": null,
+			"pageIndex": 0,
+			"pageSize": 0,	
+			"totalRecords": 0,
+			"data":[ 
+				{
+					"id": "c555c0dcbb334ccf820587443fbedec9",
+					"sequency": 1,
+					"testType": "ping",
+					"dstIp": "12.13.14.15",
+					"srcIp": null,
+					"dstIp6": null,
+					"srcIp6": null,
+					"frequency": 6,
+					"probeCount": 3,
+					"timeout": 2,
+					"ttl": 50,
+					"tos": 10,
+					"deviceId": "abc123",
+					
+					"controllerId": "123",
+					
+					"externalId": null,
+					"neId": "1234"
+				}]
+			,
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request":
+	{
+		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/nqa",
+		"method": "delete",
+		"headers":{"Content-Type":"application/json"},
+		"json":null
+		
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+		"errocode": "0",
+			"errmsg": null,
+			"pageIndex": 0,
+			"pageSize": 0,
+			"totalRecords": 0,
+			"data": {
+					"id": "c555c0dcbb334ccf820587443fbedec9",
+					"sequency": 1,
+					"testType": "ping",
+					"dstIp": "12.13.14.15",
+					"srcIp": null,
+					"dstIp6": null,
+					"srcIp6": null,
+					"frequency": 6,
+					"probeCount": 3,
+					"timeout": 2,
+					"ttl": 50,
+					"tos": 10,
+					
+					"deviceId": "abc123",
+					
+					"controllerId": "123",
+					
+					
+					"neId": "1234"
+			    },
+			"success": [{
+					"id": "c555c0dcbb334ccf820587443fbedec9",
+					"name": null,
+					"description": null
+			    }],
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request":
+	{
+		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/nqa",
+		"method": "get",
+		"headers":{"Content-Type":"application/json"},
+		"json": null
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+		"errcode": "0",
+			"errmsg": null,
+			"pageIndex": 0,
+			"pageSize": 0,
+			"totalRecords": 0,
+			"data": [{
+					"id": "c555c0dcbb334ccf820587443fbedec9",
+					"sequency": 1,
+					"testType": "ping",
+					"dstIp": "12.13.14.15",
+					"srcIp": null,
+					"dstIp6": null,
+					"srcIp6": null,
+					"frequency": 6,
+					"probeCount": 3,
+					"timeout": 2,
+					"ttl": 50,
+					"tos": 10,
+					
+					"deviceId": "abc123",
+					"controllerId": "123",				
+					"neId": "1234"
+			    }],
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"tenantId":"","name":"Subnet model","description":"description","additionalInfo":null,"operStatus":"none","adminStatus":"none","actionState":"Normal","createTime":"","neId":"1234","controllerId":"1234","networkId":"12345","serviceSubnetId":"123456","vni":"","vlanId":"","cidrIpAddress":"","cidrMask":"","gatewayIp":"","enableDhcp":"","ipRangeStartIp":"","ipRangeEndIp":"","useMode":"","changedMode":"","dhcpMode":"","dnsServerMode":"","unlimit":"","ipv6Address":"","prefixLength":"","dhcp6Enable":"","dhcp6Mode":"","priorDnsServer":"","standbyDnsServer":"","id":"bc856ae5ffeb4768a89bb47ca7c196f1"}
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"pageIndex": 0,
+			"pageSize": 0,
+			"totalRecords": 0,
+			"data": {
+				"tenantId": "",
+				"name": "",
+				"description": "",
+				"operStatus": "none",
+				"adminStatus": "none",
+				"actionState": "Normal",
+				"createTime": "",
+				"neId": "123",
+				"controllerId": "1234",
+				"networkId": "12345",
+				"serviceSubnetId": "123456",
+				"vni": "",
+				"vlanId": "",
+				"cidrIpAddress": "",
+				"cidrMask": "",
+				"gatewayIp": "",
+				"enableDhcp": "",
+				"ipRangeStartIp": "",
+				"ipRangeEndIp": "",
+				"useMode": "",
+				"changedMode": "",
+				"dhcpMode": "",
+				"dnsServerMode": "",
+				"unlimit": "",
+				"ipv6Address": "",
+				"prefixLength": "",
+				"dhcp6Enable": "",
+				"dhcp6Mode": "",
+				"priorDnsServer": "",
+				"standbyDnsServer": "",
+				"id": "bc856ae5ffeb4768a89bb47ca7c196f1"
+			},
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"success": [{
+				"id": "bc856ae5ffeb4768a89bb47ca7c196f1",
+				"name": "",
+				"description": ""
+			}, {
+				"id": "e8b578b4528e47c4bbda517166a38161",
+				"name": "",
+				"description": "id not exist"
+			}]
+		}
+
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": {
+				"tenantId": "",
+				"name": "",
+				"description": "",
+				"operStatus": "none",
+				"adminStatus": "none",
+				"actionState": "Normal",
+				"createTime": "",
+				"neId": "123",
+				"controllerId": "1234",
+				"networkId": "12345",
+				"serviceSubnetId": "123456",
+				"vni": "",
+				"vlanId": "",
+				"cidrIpAddress": "",
+				"cidrMask": "",
+				"gatewayIp": "",
+				"enableDhcp": "",
+				"ipRangeStartIp": "",
+				"ipRangeEndIp": "",
+				"useMode": "",
+				"changedMode": "",
+				"dhcpMode": "",
+				"dnsServerMode": "",
+				"unlimit": "",
+				"ipv6Address": "",
+				"prefixLength": "",
+				"dhcp6Enable": "",
+				"dhcp6Mode": "",
+				"priorDnsServer": "",
+				"standbyDnsServer": "",
+				"id": "bc856ae5ffeb4768a89bb47ca7c196f1"
+			}
+		}
+
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {
+			"id": "1234",
+			"name": "Subnet model",
+			"use": "true",
+			"vni": 123,
+			"vlanId": 123,
+			"ipAddress": null,
+			"maskAddress": null,
+			"ipv6Address": "10.12.13.14.15.16",
+			"prefixLength": 2,
+			"description": "description",
+			"subnetList": [],
+			"dhcpEnable": false,
+			"dhcp6Enable": false,
+			"dhcp6Config": {
+				"dhcpMode": "dhcp6Mode",
+				"dnsServer": "10.11.12.13",
+				"excludedAddresses6": null
+			},
+			"dhcpConfig": null,
+			"isChangedMode": false
+		}
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"pageIndex": 0,
+			"pageSize": 0,
+			"totalRecords": 0,
+			"data": {
+				"tenantId": "a",
+				"name": "a",
+				"description": "a",
+				"operStatus": "none",
+				"adminStatus": "none",
+				"actionState": "Normal",
+				"createTime": "a",
+				"neId": "123",
+				"controllerId": "1234",
+				"networkId": "12345",
+				"serviceSubnetId": "123456",
+				"vni": "a",
+				"vlanId": "a",
+				"cidrIpAddress": "a",
+				"cidrMask": "a",
+				"gatewayIp": "a",
+				"enableDhcp": "a",
+				"ipRangeStartIp": "a",
+				"ipRangeEndIp": "a",
+				"useMode": "a",
+				"changedMode": "a",
+				"dhcpMode": "a",
+				"dnsServerMode": "a",
+				"unlimit": "a",
+				"ipv6Address": "a",
+				"prefixLength": "a",
+				"dhcp6Enable": "a",
+				"dhcp6Mode": "a",
+				"priorDnsServer": "a",
+				"standbyDnsServer": "a",
+				"id": "bc856ae5ffeb4768a89bb47ca7c196f1"
+			},
+			"success": {},
+			"fail": {},
+			"sucess": true
+		}
+	}
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/config/81244ad0-b4ea-41ed-969e-d5588b32fd5d/device/staticroutes",
+    "method" : "put",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : {"staticRouteConfigs":[{"id":"1234","bfdName":null,"description":null,"priority":"3","vpnName":null,"outInterface":"outer","nextHop":"2","dhcp":true,"vpnId":null,"mask":null,"nqaId":"nqa","ip":"192.168.1.1","ipv6Address":null}]}
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "0",
+         "errmsg": "",
+         "data": [
+             {
+                 "id": "c3ebcbc532e3439499a9a15e52d49526",
+                  "ip": "192.168.1.1",
+                  "mask": "255.255.0.0",
+                  "ipv6Address": null,
+                  "prefixLength": null,
+                  "vpnId": "c3ebcbc532e3439499a9a15e52d49526",
+                  "vpnName": "test",
+                  "nextHop": "1.1.1.1",
+                  "outInterface": null,
+                  "description": "create static route",
+                  "dhcp": false,
+                  "bfdName": null,
+                  "nqaId": "d8f13fdb21b14c4f9dd574bd83961bef"
+             }
+        ]
+      }
+    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/config/81244ad0-b4ea-41ed-969e-d5588b32fd5d/device/staticroutes",
+    "method" : "get",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "0",
+         "errmsg": "",
+         "data": [
+             {
+                 "id": "c3ebcbc532e3439499a9a15e52d49526",
+                  "ip": "192.168.1.1",
+                  "mask": "255.255.0.0",
+                  "ipv6Address": "",
+                  "prefixLength": "",
+				  "deviceId":"1234",
+				  "controllerId":"123",
+                  "vpnId": "c3ebcbc532e3439499a9a15e52d49526",
+                  "vpnName": "test",
+                  "nextHop": "1.1.1.1",
+                  "outInterface": "",
+                  "description": "create static route",
+                  "dhcp": false,
+                  "bfdName": "",
+                  "nqaId": "d8f13fdb21b14c4f9dd574bd83961bef",
+				  "priority": ""
+				  
+             }
+        ]
+      }
+    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/config/81244ad0-b4ea-41ed-969e-d5588b32fd5d/device/staticroutes",
+    "method" : "put",
+    "headers" : {
+        "X-Auth-Token": "junk"
+    },
+    "json" : {
+        "staticRouteConfigs": [{
+            "id" : "c3ebcbc532e3439499a9a15e52d49526",
+            "ip":"192.168.1.1",
+            "mask" : "255.255.0.0",
+            "vpnId":"c3ebcbc532e3439499a9a15e52d49527",
+            "vpnName":"test",
+            "nextHop":"1.1.1.1",
+            "dhcp" : false,
+            "nqaId":"d8f13fdb21b14c4f9dd574bd83961bef",
+            "description":"create static route"
+        }]
+    }
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "overlayvpn.operation.success",
+         "errmsg": "",
+         "data": [
+             {
+                 "id": "c3ebcbc532e3439499a9a15e52d49526",
+                  "ip": "192.168.1.1",
+                  "mask": "255.255.0.0",
+                  "ipv6Address": null,
+                  "prefixLength": null,
+                  "vpnId": "c3ebcbc532e3439499a9a15e52d49526",
+                  "vpnName": "test",
+                  "nextHop": "1.1.1.1",
+                  "outInterface": null,
+                  "description": "create static route",
+                  "dhcp": false,
+                  "bfdName": null,
+                  "nqaId": "d8f13fdb21b14c4f9dd574bd83961bef"
+             }
+        ]
+      }
+    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/config/abc123/device/staticroutes",
+    "method" : "delete",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "0",
+         "errmsg": "",
+         "success": [
+             {
+                 "id": "c3ebcbc532e3439499a9a15e52d49526",
+                 "name": "static-route1",
+                 "description": "deleted static route"
+             }
+        ]
+      }
+    
+  }
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/devices/abc123/port",
+		
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": null,
+			"pageIndex": 0,
+			"pageSize": 0,
+			"totalRecords": 0,
+			"data": {
+				"ipv4": "192.168.1.2",
+				"ipv6": "",
+				"ipMask": "",
+				"prefixLength": "",
+				"id": ""						
+			},
+			"success": [],
+			"fail": [],
+			"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/vpnsvxlan",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"vxlanList":[{"vneId":0,"name":"123","localAddress":null,"vniList":[{"deleteMode":false,"vni":123,"macLearingMode":"control","evpnRtMode":null,"evpnRtExport":null,"evpnRtImport":null,"peerAddresslist":[null],"portlist":[null],"vlanlist":[],"portvlanlist":[],"id":null}],"id":"123"}]}
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{
+				"id": "9fd84ebf189b457486a521ac187aa733",
+				"vneId": 1,
+				"name": "VXLAN",
+				"localAddress": "12.12.12.12",
+				"vniilist": [{
+					"id": "1b2cc6724a35412d9fa2725f40e37304",
+					"deleteMode": false,
+					"vni": 300,
+					"macLearingMode": null,
+					"evpnRtMode": null,
+					"evpnRtExport": null,
+					"evpnRtImport": null,
+					"peerAddresslist": [
+						"15.15.12.13",
+						"22.22.22.22"
+					],
+					"defaultlist": null,
+					"portlist": null,
+					"vlanlist": [
+						1, 2
+					],
+					"portvlanlist": null
+				}]
+			}, {
+				"id": "a89a892984694367bca7826f56632b5b",
+				"vneId": 2,
+				"name": "VXLAN1",
+				"localAddress": "12.12.12.121",
+				"vniilist": [{
+					"id": "6c942895f1134b939dc7b78c15824382",
+					"deleteMode": false,
+					"vni": 3000,
+					"macLearingMode": null,
+					"evpnRtMode": null,
+					"evpnRtExport": null,
+					"evpnRtImport": null,
+					"peerAddresslist": [
+						"15.15.112.13",
+						"22.22.122.22"
+					],
+					"defaultlist": null,
+					"portlist": [
+						"GigabitEthernet0/0/0",
+						"GigabitEthernet0/0/2"
+					],
+					"vlanlist": null,
+					"portvlanlist": null
+				}]
+			}]
+		}
+
+	}
+},
+{
+	"request":
+	{
+		"uri": "/controller/cloud/v2/northbound/config/123/device/vpnsvxlan",
+		"method": "get",
+		"headers":{"Content-Type":"application/json"},
+		"json":	null
+	},
+	"response":
+	{
+		"status":200,
+		"json":
+		{
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{
+				"id": "9fd84ebf189b457486a521ac187aa733",
+				"vneId": 1,
+				"name": "VXLAN",
+				"localAddress": "12.12.12.12",
+				"vniilist": [{
+					"id": "1b2cc6724a35412d9fa2725f40e37304",
+					"deleteMode": false,
+					"vni": 300,
+					"macLearingMode": null,
+					"evpnRtMode": null,
+					"evpnRtExport": null,
+					"evpnRtImport": null,
+					"peerAddresslist": [
+						"15.15.12.13",
+						"22.22.22.22"
+					],
+					"defaultlist": null,
+					"portlist": null,
+					"vlanlist": [
+						1, 2
+					],
+					"portvlanlist": null
+				}]
+			}, {
+				"id": "a89a892984694367bca7826f56632b5b",
+				"vneId": 2,
+				"name": "VXLAN1",
+				"localAddress": "12.12.12.121",
+				"vniilist": [{
+					"id": "6c942895f1134b939dc7b78c15824382",
+					"deleteMode": false,
+					"vni": 3000,
+					"macLearingMode": null,
+					"evpnRtMode": null,
+					"evpnRtExport": null,
+					"evpnRtImport": null,
+					"peerAddresslist": [
+						"15.15.112.13",
+						"22.22.122.22"
+					],
+					"defaultlist": null,
+					"portlist": [
+						"GigabitEthernet0/0/0",
+						"GigabitEthernet0/0/2"
+					],
+					"vlanlist": null,
+					"portvlanlist": null
+				}]
+			}]
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/vpnsvxlan",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errocode": "0",
+			"errmsg": "",
+			"pageIndex": 0,
+			"pageSize": 0,
+			"totalRecords": 0,
+			"success": [
+				{
+					"vneId": 123,
+					"name": "124",
+					"localAddress": null,
+					"vniilist": null,
+					"id": null
+				}
+			],
+			
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/devices",
+    "method" : "post",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : {"deviceList":[{"name":"deviceOne","esn":"esn-abcdef-123456780","orgnizationName":"huawei","description":"create test device"}]}
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "0",
+         "errmsg": "",
+         "data": 
+                 {
+			    "name":"deviceOne",
+			    "esn":"esn",
+			    "orgnizationName":"huawei",
+			    "description":"create test device",
+			    "id":"81244ad0-b4ea-41ed-969e-d5588b32fd41",
+			    "showTenant":null,
+			    "serviceIp":null,
+			    "neType":null,
+			    "version":null,
+			    "status":null,
+			    "gisLon":null,
+			    "gisLat":null,
+			    "vendor":null,
+			    "tenantId":null,
+			    "tenantName":null,
+			    "orgnizationId":null,
+			    "creator":null,
+			    "createTime":null,
+			    "registerTime":null,
+			    "modifier":null,
+			    "modifyTime":null
+			}
+             
+        
+      }
+    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/devices/81244ad0-b4ea-41ed-969e-d5588b32fd41",
+    "method" : "put",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : {
+        "name":"deviceOne",
+        "esn":"esn-abcdef-123456780",
+        "orgnizationName":"huawei",
+        "description":"create test device",
+        "id":"81244ad0-b4ea-41ed-969e-d5588b32fd41",
+        "showTenant":null,
+        "serviceIp":null,
+        "neType":null,
+        "version":null,
+        "status":null,
+        "gisLon":null,
+        "gisLat":null,
+        "vendor":null,
+        "tenantId":null,
+        "tenantName":null,
+        "orgnizationId":null,
+        "creator":null,
+        "createTime":null,
+        "registerTime":null,
+        "modifier":null,
+        "modifyTime":null}
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "0",
+         "errmsg": "",
+		 "descArg": "",
+		 "reasonArg": "",
+		 "detailArg": "",
+		 "adviceArg": "",
+		 "message": "",
+		 "smallErrorCodeList": null,
+		 "successed": null,
+		 "fail": null
+      }
+    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/devices/list",
+    "method" : "post",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "0",
+         "errmsg": "",
+         "data": [
+                 {
+			    "name":"deviceOne",
+			    "esn":"esn",
+			    "orgnizationName":"huawei",
+			    "description":"create test device",
+			    "id":"81244ad0-b4ea-41ed-969e-d5588b32fd41",
+			    "showTenant":null,
+			    "serviceIp":null,
+			    "neType":null,
+			    "version":null,
+			    "status":null,
+			    "gisLon":null,
+			    "gisLat":null,
+			    "vendor":null,
+			    "tenantId":null,
+			    "tenantName":null,
+			    "orgnizationId":null,
+			    "creator":null,
+			    "createTime":null,
+			    "registerTime":null,
+			    "modifier":null,
+			    "modifyTime":null
+			}
+             
+        ]
+      }
+    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/devices",
+    "method" : "delete",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "0",
+         "errmsg": "",
+         "data": [
+                 {
+			    "name":"deviceOne",
+			    "esn":"esn",
+			    "orgnizationName":"huawei",
+			    "description":"create test device",
+			    "id":"81244ad0-b4ea-41ed-969e-d5588b32fd41",
+			    "showTenant":null,
+			    "serviceIp":null,
+			    "neType":null,
+			    "version":null,
+			    "status":null,
+			    "gisLon":null,
+			    "gisLat":null,
+			    "vendor":null,
+			    "tenantId":null,
+			    "tenantName":null,
+			    "orgnizationId":null,
+			    "creator":null,
+			    "createTime":null,
+			    "registerTime":null,
+			    "modifier":null,
+			    "modifyTime":null
+			}
+             
+        ]
+      }
+    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/config/81244ad0-b4ea-41ed-969e-d5588b32fd41/device/interfacesip",
+    "method" : "put",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : [{"interfaceName":"interfaceOne","mode":"manual","ip":"1.5.6.7","netMask":null,"mode6":"manual","ipv6Address":null,"prefixLength":null}]
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "overlayvpn.operation.success",
+         "errmsg": "",
+         "data": [{"interfaceName":"interfaceOne","mode":"manual","ip":"1.5.6.7","netMask":"","mode6":"manual","ipv6Address":"","prefixLength":""}]
+      }    
+  }
+},
+{
+  "request" : {
+    "uri" : "/controller/cloud/v2/northbound/config/81244ad0-b4ea-41ed-969e-d5588b32fd41/device/interfacesip",
+    "method" : "get",
+    "headers" : {
+        "Content-Type": "application/json"
+    },
+    "json" : null
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {
+         "errcode": "overlayvpn.operation.success",
+         "errmsg": "",
+         "data": [{"interfaceName":"interfaceOne","mode":"manual","ip":"1.5.6.7","netMask":"","mode6":"manual","ipv6Address":"","prefixLength":0}]
+      }    
+  }
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/abd123/device/bdinfo",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{
+				"vni": 3,
+				"bdId": 2,
+				"vbdifName": "vbdif2"
+			}, {
+				"vni": 6,
+				"bdId": 1,
+				"vbdifName": "vbdif1"
+			}],
+		"success": null,
+		"fail": null,
+		"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/qosmqc",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"trafficPolicyList":[{"uuid":"1","filterActionList":null,"interfaceList":null,"trafficpolicyName":"test1"}]
+		}
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": {
+				"trafficPolicyList": [{
+					"uuid": "1",
+					"trafficpolicyName": "test1",
+					"filterActionList": [{
+						"filter": {
+							"vlanId": 1,
+							"vlanPriority": 0,
+							"dscp": 20,
+							"inboundInterface": "GE0",
+							"aclPolicy": [{
+								"policy": "permit",
+								"protocol": 4,
+								"srcIp": "123.34.34.12",
+								"srcNetMask": "255.255.0.0",
+								"srcPort": 8080,
+								"desIp": "123.34.34.12",
+								"desNetMask": "255.255.255.0",
+								"desPort": 63
+							}]
+						},
+						"action": {
+							"remark8021p": 0,
+							"remarkDscp": 0,
+							"car": {
+								"cir": 100000,
+								"pir": 8888
+							},
+							"queue": {
+								"queueType": "af",
+								"bandwidth": 100,
+								"remaining": false,
+								"pct": 50,
+								"queueNumber": 16
+							}
+						}
+					}],
+					"interfaceList": [{
+						"interfaceName": "GigabitEthernet0/0/0",
+						"direction": "outbound"
+					}]
+				}]
+			}
+		}
+
+
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/qosmqc",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"ids":["2345612"]}
+		
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errocode": "0",
+			"errmsg": "",
+			"data": {
+				"trafficPolicyList": [{
+					"uuid": "1",
+					"trafficpolicyName": "test1",
+					"filterActionList": [{
+						"filter": {
+							"vlanId": 1,
+							"vlanPriority": 0,
+							"dscp": 20,
+							"inboundInterface": "GE0",
+							"aclPolicy": [{
+								"policy": "permit",
+								"protocol": 4,
+								"srcIp": "123.34.34.12",
+								"srcNetMask": "255.255.0.0",
+								"srcPort": 8080,
+								"desIp": "123.34.34.12",
+								"desNetMask": "255.255.255.0",
+								"desPort": 63
+							}]
+						},
+						"action": {
+							"remark8021p": 0,
+							"remarkDscp": 0,
+							"car": {
+								"cir": 100000,
+								"pir": 8888
+							},
+							"queue": {
+								"queueType": "af",
+								"bandwidth": 100,
+								"remaining": false,
+								"pct": 50,
+								"queueNumber": 16
+							}
+						}
+					}],
+					"interfaceList": [{
+						"interfaceName": "GigabitEthernet0/0/0",
+						"direction": "outbound"
+					}]
+				}]
+			}
+		}
+
+
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/qosmqc",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errocode": "0",
+			"errmsg": "",
+			"success": [{
+				"id": "9bdcd1809f194d208da3e72770cbdee6",
+				"name": null,
+				"description": null
+			}]
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/interfaceName/device/qosmqc",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": {
+				"trafficPolicyList": [{
+					"id": "1",
+					"uuid": "1",
+					"trafficpolicyName": "test1",
+					"filterActionList": [{
+						"filter": {
+							"vlanId": 1,
+							"vlanPriority": 0,
+							"dscp": 20,
+							"inboundInterface": "GE0",
+							"aclPolicy": [{
+								"policy": "permit",
+								"protocol": 4,
+								"srcIp": "123.34.34.12",
+								"srcNetMask": "255.255.0.0",
+								"srcPort": 8080,
+								"desIp": "123.34.34.12",
+								"desNetMask": "255.255.255.0",
+								"desPort": 63
+							}]
+						},
+						"action": {
+							"remark8021p": 0,
+							"remarkDscp": 0,
+							"car": {
+								"cir": 100000,
+								"pir": 8888
+							},
+							"queue": {
+								"queueType": "af",
+								"bandwidth": 100,
+								"remaining": false,
+								"pct": 50,
+								"queueNumber": 16
+							}
+						}
+					}],
+					"interfaceList": [{
+						"interfaceName": "GigabitEthernet0/0/0",
+						"direction": "outbound"
+					}]
+				}]
+			}
+		}
+
+
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/acl",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"aclList":[{"id":null,"aclId":"1234","netId":null,"aclNumber":12345,"aclName":"aclName_12345","aclStep":null,"ruleList":[{"id":10,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"10.0.0.0/8","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"},{"id":50,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"172.16.0.0/12","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"},{"id":100,"policy":"deny","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":"192.168.0.0/16","desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"},{"id":200,"policy":"permit","protocol":null,"icmpName":null,"tcpSyn":null,"desIp":null,"desPort":null,"desVlan":null,"srcIp":null,"srcPort":null,"description":"description"}]}]}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": {
+				"aclId": "7db47412f2b44164a16ef18b16a81c0c",
+				"aclNumber": 3324,
+				"aclName": "3324",
+				"aclStep": 5,
+				"ruleList":[ {
+					"id": 5,
+					"policy": "permit",
+					"protocol": 1,
+					"icmpName": "icmpName",
+					"tcpSyn": "fin",
+					"srcIp": "12.13.15.16/24",
+					"srcPort": 50,
+					"desIp": "22.23.24.52/24",
+					"desPort": 50,
+					"desVlan": 2,
+					"description": "it is a acl"
+				}]
+			},
+		"success": null,
+		"fail": null,
+		"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/nat",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"natList":[{"id":"123544","aclId":"7db47412f2b44164a16ef18b16a81c0c","interfaceName":"ifName","qosPreNat":"qosPreNat","aclNumber":null}]}
+
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+				"errcode": "0",
+				"errmsg": "",
+				"data": {
+					"id": "2467a068795b41ee9676bc79168da7a6",
+					"interfaceName": "GigabitEthernet0/0/2",
+					"qosPreNat": true,
+					"aclId": "7db47412f2b44164a16ef18b16a81c0c",
+					"aclNumber": 3324
+				},
+			"success": null,
+			"fail": null,
+			"sucess": true
+			}
+		}
+	
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/nat",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"natList":[{"id":"123544","aclId":"1234","interfaceName":"ifName","qosPreNat":"qosPreNat","aclNumber":null}]}
+
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+				"errcode": "0",
+				"errmsg": "",
+				"data": {
+					"id": "2467a068795b41ee9676bc79168da7a6",
+					"interfaceName": "GigabitEthernet0/0/2",
+					"qosPreNat": true,
+					"aclId": "7db47412f2b44164a16ef18b16a81c0c",
+					"aclNumber": 3324
+				},
+			"success": null,
+			"fail": null,
+			"sucess": true
+			}
+		}
+	
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/abc123/device/acl",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"success": [{
+				"id": "53dfcfe29acd4d41b645afe3fcf230f7",
+				"name": null,
+				"description": null
+			}, {
+				"id": "c52688686663409dafaafbc08e6f6443",
+				"name": null,
+				"description": "ACL configuration no more exists"
+			}],
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/abc123/device/nat",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"success": [{
+				"id": "2467a068795b41ee9676bc79168da7a6",
+				"name": null,
+				"description": null
+			}, {
+				"id": "e8b578b4528e47c4bbda517166a38161",
+				"name": null,
+				"description": "The NAT configuration does not exist"
+			}]
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/acl",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{
+				"aclId": "53dfcfe29acd4d41b645afe3fcf230f7",
+				"aclNumber": 3501,
+				"aclName": "3501",
+				"aclStep": 0,
+				"ruleList": [{
+					"id": 0,
+					"policy": "permit",
+					"protocol": 4,
+					"icmpName": null,
+					"tcpSyn": null,
+					"srcIp": "123.34.34.12/16",
+					"srcPort": 8080,
+					"desIp": "123.34.34.12/24",
+					"desPort": 63,
+					"desVlan": null,
+					"description": null
+				}]
+			}, {
+				"aclId": "7db47412f2b44164a16ef18b16a81c0c",
+				"aclNumber": 3324,
+				"aclName": "3324",
+				"aclStep": 5,
+				"ruleList": [{
+					"id": 5,
+					"policy": "permit",
+					"protocol": 1,
+					"icmpName": "icmpName",
+					"tcpSyn": "fin",
+					"srcIp": "12.13.15.16/24",
+					"srcPort": 50,
+					"desIp": "22.23.24.52/24",
+					"desPort": 50,
+					"desVlan": 2,
+					"description": "it is a acl"
+				}]
+			}],
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/nat",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": {
+				"id": "2467a068795b41ee9676bc79168da7a6",
+				"interfaceName": "GigabitEthernet0/0/2",
+				"qosPreNat": true,
+				"aclId": "7db47412f2b44164a16ef18b16a81c0c",
+				"aclNumber": 3324
+			},
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/fab39a41-2579-4554-b55d-5edc990a4de7/device/ethinterfaces",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": {"ethInterfaceConfig":[{"id":"4b8a2551332a4016aef56692a53bb188","name":"GigabitEthernet0/0/2","enable":true,"autoNegotiationEnable":false,"ifAttr":"1","defaultVlan":"1234","trunkVlan":"1234","description":"Ethernet0/0/0 config","duplex":"half","nacType":"1","speed":"10"},{"id":"4b8a2551332a4016aef56692a53bb188","name":"GigabitEthernet0/0/2","enable":true,"autoNegotiationEnable":false,"ifAttr":"1","defaultVlan":"12341","trunkVlan":"12341","description":"Ethernet0/0/0 config","duplex":"half","nacType":"1","speed":"10"}]}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{
+				"id": "4b8a2551332a4016aef56692a53bb188",
+				"name": "GigabitEthernet0/0/2",
+				"enable": true,
+				"description": "Ethernet0/0/0 config",
+				"autoNegotiationEnable": false,
+				"speed": "10",
+				"duplex": "half",
+				"ifAttr": "1",
+				"linkType": null,
+				"defaultVlan": 1,
+				"trunkVlan": "1",
+				"nacType": "1"
+			}],
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/fab39a41-2579-4554-b55d-5edc990a4de7/device/ethinterfaces",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{
+				"id": "4b8a2551332a4016aef56692a53bb188",
+				"name": "GigabitEthernet0/0/2",
+				"enable": true,
+				"description": "Ethernet0/0/0 config",
+				"autoNegotiationEnable": false,
+				"speed": "10",
+				"duplex": "half",
+				"ifAttr": "1",
+				"linkType": null,
+				"defaultVlan": 1,
+				"trunkVlan": "1",
+				"nacType": "1"
+			}],
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/vpnsvxlan",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": {
+		}
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": null,
+			"pageIndex": 0,
+			"pageSize": 0,
+			"totalRecords": 0,
+			"data": [
+				{
+					"vneId": 123,
+					"name": "124",
+					"localAddress": null,
+					"vniilist": null,
+					"id": null
+				}
+			],
+			"success": null,
+			"fail": null,
+			"sucess": true
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/vpnsipsec",
+		"method": "put",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": [{"id":"1","interfaceName":"name","name":null,"ipsecConnection":null}]
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{"id":"1","interfaceName":"name","name":null,"ipsecConnection":null}]
+		}
+
+
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/vpnsipsec",
+		"method": "get",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+	},
+	"response": {
+		"status": 200,
+		"json": {
+			"errcode": "0",
+			"errmsg": "",
+			"data": [{
+				"id": "1",
+				"name": "ipseconn",
+				"interfaceName": "GigabitEthernet0/0/1",
+				"ipsecConnection": [{
+					"seqNumber": 1,
+					"deleteMode": false,
+					"type": false,
+					"routeInject": null,
+					"ipsec": {
+						"name": "proposal2",
+						"espAuthAlgorithm": "md5",
+						"espEncryptionAlgorithm": "3des"
+					},
+					"ike": {
+						"id": 2,
+						"authAlgorithm": "sha1",
+						"encryptionAlgorithm": "des",
+						"version": "v2",
+						"localAddress": null,
+						"peerAddress": "33.33.33.33",
+						"preSharedKey": "huawei"
+					},
+					"aclNumber": 3000,
+					"aclId": "bfd2e7ab23be41fbb9955d4baf3686bc",
+					"ruleList": [{
+						"id": 0,
+						"policy": "permit",
+						"srcIp": "1.1.1.1",
+						"srcNetMask": "255.255.255.0",
+						"desIp": "2.2.2.2",
+						"desNetMask": "255.255.255.0"
+					}]
+				}]
+			}]
+		}
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/vpnsipsec",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json;charset=UTF-8"
+		},
+		"json": null
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+				"errcode": "0",
+				"errmsg": "",
+				"success": [{
+					"id": "c555c0dcbb334ccf820587443fbedec9",
+					"name": null,
+					"description": null
+				}]
+			}
+
+
+	}
+},
+{
+	"request": {
+		"uri": "/controller/cloud/v2/northbound/config/123/device/nqa",
+		"method": "delete",
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"json": null
+
+	},
+	"response": {
+		"status": 200,
+		"json": {
+				"errocode": "0",
+				"errmsg": "",
+				"success": [{
+					"id": "c555c0dcbb334ccf820587443fbedec9",
+					"name": null,
+					"description": null
+				}]
+			}
+
+
+	}
+}
+]

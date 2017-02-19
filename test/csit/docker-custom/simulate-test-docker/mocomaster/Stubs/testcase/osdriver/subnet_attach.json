@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/routers/6fc00cf5-ff29-4f45-a8a6-f03d73674490/add_router_interface",
+    "method" : "put",
+    "json" : {"subnet_id":"4bb48d3c-f53f-46b5-a3da-c7c70d4cd726"}
+  },
+  "response" : {
+    "status" : "200",
+    "json" : {"network_id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "subnet_id": "4bb48d3c-f53f-46b5-a3da-c7c70d4cd726", "subnet_ids": ["4bb48d3c-f53f-46b5-a3da-c7c70d4cd726"], "port_id": "3cd7cea4-5b4f-4aa1-9ee0-322c2d43d780", "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674490"}
+  }
+}]

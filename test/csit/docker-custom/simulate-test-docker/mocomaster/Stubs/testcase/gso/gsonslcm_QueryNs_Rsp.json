@@ -1,0 +1,13 @@
+{
+    "operation":{
+        "operationId":"2c771d38-ec96-4cf9-b024-563d2b95d641",
+        "operation":"create",
+        "result":"finished",
+        "reason":"OMC VMs are decommissioned in VIM",
+        "userId":"",
+        "operationContent":"creating",
+        "progress":100,
+        "operateAt":"",
+        "finished":""
+        }
+}

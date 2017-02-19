@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v2.0/subnets",
+    "method" : "post",
+    "json" : {"subnet":{"name":"sdno_6fc00cf5-ff29-4f45-a8a6-f03d73674412","cidr":"10.11.0.0/24","network_id":"da6f6681-3beb-4249-86bd-3a95690cc28f","tenant_id":"00e55b6d14cd49709b71ffa83e5ee37f","ip_version":"4"}}
+  },
+  "response" : {
+    "status" : "201",
+    "json" : {"subnet": {"description": "", "enable_dhcp": true, "network_id": "da6f6681-3beb-4249-86bd-3a95690cc28f", "tenant_id": "00e55b6d14cd49709b71ffa83e5ee37f", "created_at": "2016-08-08T07:42:20", "dns_nameservers": [], "updated_at": "2016-08-08T07:42:20", "gateway_ip": "10.11.0.1", "ipv6_ra_mode": null, "allocation_pools": [{"start": "10.11.0.2", "end": "10.11.0.254"}], "host_routes": [], "ip_version": 4, "ipv6_address_mode": null, "cidr": "10.11.0.0/24", "id": "4bb48d3c-f53f-46b5-a3da-c7c70d4cd726", "subnetpool_id": null, "name": "sdno_6fc00cf5-ff29-4f45-a8a6-f03d73674412"}}
+  }
+}]

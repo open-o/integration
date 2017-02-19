@@ -1,0 +1,24 @@
+[{
+    "name": "create",
+    "description": "create plan",
+    "processId": "{http://ode/bpel/unit-test}init-18",
+    "inputs": [{
+        "name": "param1",
+        "type": "String",
+        "descritption": "param1 description",
+        "defaultValue": "test",
+        "required": false
+    }]
+},
+{
+    "name": "delete",
+    "description": "delete plan",
+    "processId": "{http://ode/bpel/unit-test}delete-10",
+    "inputs": [{
+        "name": "param1",
+        "type": "String",
+        "descritption": "param1 description",
+        "defaultValue": "test",
+        "required": false
+    }]
+}]

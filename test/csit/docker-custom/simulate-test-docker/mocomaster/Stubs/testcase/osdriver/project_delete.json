@@ -1,0 +1,11 @@
+[{
+  "request" : {
+    "uri" : "/v3/projects/00e55b6d14cd49709b71ffa83e5ee37f",
+    "method" : "delete",
+    "json" : null
+  },
+  "response" : {
+    "status" : "204",
+    "json" : null
+  }
+}]
