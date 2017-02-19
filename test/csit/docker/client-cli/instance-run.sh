@@ -15,5 +15,5 @@
 # limitations under the License.
 #
 # Start service
-export OPENO_CLI_HOME=/client-cli
+export OPENO_CLI_HOME=/service
 /bin/bash
