@@ -1,0 +1,24 @@
+[
+    {
+        "serviceTemplateId":"cb93242b-7664-4cbd-bc3b-16a1d871648e",
+        "id":"ns_pop_1_0",
+        "templateName":"ns_pop",
+        "vendor":"ZTE",
+        "version":"v1.0",
+        "csarId":"363e2175-ec9b-438f-807d-ad3cb6cae68c",
+        "type":"NS",
+        "downloadUri":"http://10.229.42.149:80/files/catalog-http/NSAR/ZTE/POP_NS/v1.0/POP_NS/Definitions/ztens__POP_NS.yaml",
+        "inputs":[
+
+        ],
+        "outputs":[
+
+        ],
+        "operations":[
+
+        ],
+        "substitution":{
+            "nodeType":"tosca.nodes.nfv.NS.POP_NS"
+        }
+    }
+]

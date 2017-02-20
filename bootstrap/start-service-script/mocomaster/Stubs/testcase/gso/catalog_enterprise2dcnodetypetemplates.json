@@ -1,0 +1,121 @@
+[
+    {
+        "serviceTemplateId":"89395eb5-5713-4968-bafb-66690a554060",
+        "id":"ns_overlayervpn_1_0",
+        "templateName":"enterprise2DC",
+        "vendor":"huawei",
+        "version":"1.0",
+        "csarId":"e141d02b-687a-4a36-b42b-a5740bc7bf2a",
+        "type":"NS",
+        "downloadUri":"http://10.229.42.149:80/files/catalog-http/SSAR/huawei/enterprise2DC/1.0/enterprise2DC/Definitions/sdnns__enterprise2DC.yaml",
+        "inputs":[
+            {
+                "name":"dcGWIP",
+                "type":"string",
+                "description":"mgrIp of dcGW",
+                "required":false
+            },
+            {
+                "name":"description",
+                "type":"string",
+                "description":"description of site2DC connection",
+                "required":false
+            },
+            {
+                "name":"name",
+                "type":"string",
+                "description":"Name of site2DC connection",
+                "required":false
+            },
+            {
+                "name":"dcLBIP",
+                "type":"string",
+                "description":"mgrIp of dc Load Balancer",
+                "required":false
+            },
+            {
+                "name":"vpcSubnetCidr",
+                "type":"string",
+                "description":"vpc cidr",
+                "defaultValue":"10.0.2.0/24",
+                "required":false
+            },
+            {
+                "name":"siteCidr",
+                "type":"string",
+                "description":"enterprise cidr",
+                "defaultValue":"10.0.1.0/24",
+                "required":false
+            },
+            {
+                "name":"vpcVNI",
+                "type":"integer",
+                "description":"in format of domain/project, should keep consistent with NFVO",
+                "defaultValue":10001,
+                "required":false
+            },
+            {
+                "name":"siteThinCpeIP",
+                "type":"string",
+                "description":"mgrIP of thinCPE which access enterprise",
+                "required":false
+            },
+            {
+                "name":"vCPE_MgrIp",
+                "type":"string",
+                "description":"mgrIp of vCPE, should be provided by NFVO",
+                "defaultValue":"172.15.4.101",
+                "required":false
+            },
+            {
+                "name":"vpcName",
+                "type":"string",
+                "description":"in format of domain/project, should keep consistent with NFVO",
+                "defaultValue":"vdc0/vpc1",
+                "required":false
+            },
+            {
+                "name":"siteVNI",
+                "type":"integer",
+                "description":"VxLAN ID connect site to vCPE",
+                "defaultValue":20001,
+                "required":false
+            },
+            {
+                "name":"dcFWIP",
+                "type":"string",
+                "description":"mgrIp of dc Firewall",
+                "required":false
+            },
+            {
+                "name":"vpcSubnetName",
+                "type":"string",
+                "description":"in format of domain/project, should keep consistent with NFVO",
+                "defaultValue":"vdc0/vpc1",
+                "required":false
+            },
+            {
+                "name":"id",
+                "type":"string",
+                "description":"connection id",
+                "required":false
+            },
+            {
+                "name":"siteAccessPortVlan",
+                "type":"string",
+                "description":"thinCPE port which connect to enterprise",
+                "defaultValue":"G0/0/1.101",
+                "required":false
+            }
+        ],
+        "outputs":[
+
+        ],
+        "operations":[
+
+        ],
+        "substitution":{
+            "nodeType":"tosca.nodes.sdn.ext.NS.enterprise2DC"
+        }
+    }
+]

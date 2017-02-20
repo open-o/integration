@@ -44,7 +44,7 @@ driverQueryGsoNsProgressForCreateFuncTest
 driverDeleteGsoNsFuncTest
     ${json_value}=     json_from_file      ${driver_deletegsons_json}
     Remove From Dictionary  ${json_value['segments'][0]}   subServiceId
-    Set To Dictionary  ${{json_value['segments'][0]}    subServiceId   ${serviceId}
+    Set To Dictionary  ${json_value['segments'][0]}    subServiceId   ${serviceId}
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}

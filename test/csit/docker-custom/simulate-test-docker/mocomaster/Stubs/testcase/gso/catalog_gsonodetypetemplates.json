@@ -1,0 +1,21 @@
+[
+    {
+        "serviceTemplateId":"79244f5a-970b-4c9d-a836-645720c27edd",
+        "id":"gso_site2dc_1_0",
+        "templateName":"gso_site2dc",
+        "vendor":"gso",
+        "version":"v1.0",
+        "csarId":"8937a94d-1799-47a5-971d-58ff7d35def6",
+        "type":"NS",
+        "downloadUri":"http://10.229.42.149:80/files/catalog-http/GSAR/gso/gso_site2dc/v1.0/gso_site2dc/Definitions/gso__gso_site2dc.yaml",
+        "inputs":[
+
+        ],
+        "outputs":[
+
+        ],
+        "operations":[
+
+        ]
+    }
+]

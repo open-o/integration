@@ -105,7 +105,46 @@
     {
         "request":{
             "method":"get",
-            "uri":"/openoapi/catalog/v1/servicetemplates/nesting"
+            "uri":"/openoapi/catalog/v1/servicetemplates/nesting",
+            "queries":{
+                "nodeTypeIds":"tosca.nodes.GSO"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_gsonodetypetemplates.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates/nesting",
+            "queries":{
+                "nodeTypeIds":"tosca.nodes.nfv.NS.POP"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_popnsnodetypetemplates.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates/nesting",
+            "queries":{
+                "nodeTypeIds":"tosca.nodes.sdn.ext.NS.enterprise2DC"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_enterprise2dcnodetypetemplates.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates/nesting",
+            "queries":{
+                "nodeTypeIds":"tosca.nodes.sdn.ext.NS.enterprise2DC,tosca.nodes.nfv.NS.POP_NS,tosca.nodes.gso.ns_sequence,tosca.nodes.nfv.NS.DC_NS"
+            }
         },
         "response":{
             "file":"./Stubs/testcase/gso/catalog_site2dcnodetypetemplates.json"
@@ -174,6 +213,17 @@
             "method":"post",
             "uri":{
                 "match":"/openoapi/nslcm/v1/ns/.*/terminate"
+            }
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/nfvonslcm_TerminateNs_Rsp.json"
+        }
+    },
+    {
+        "request":{
+            "method":"post",
+            "uri":{
+                "match":"/openoapi/nslcm/v1/ns/.*/scale"
             }
         },
         "response":{

@@ -15,6 +15,9 @@
 # limitations under the License.
 #
 
+#copy the logs files
+docker cp gso:/service/logs/lifecyclemgr.log ${SCRIPTS}/../../../archives
+docker cp gso-sgw:/service/logs/servicegateway.log ${SCRIPTS}/../../../archives
 # kill micro service
 kill-instance.sh i-msb
 kill-instance.sh gso-sgw
