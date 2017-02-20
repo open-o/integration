@@ -24,8 +24,6 @@ else
     MYSQL_PORT=`echo $MYSQL_ADDR | cut -d: -f 2`
 fi
 echo "MYSQL_ADDR=$MYSQL_ADDR"
-sed -i "s|\${jdbc\.host}\:\${jdbc.port}|$MYSQL_ADDR|" webapps/ROOT/WEB-INF/classes/spring/service.xml
-cat webapps/ROOT/WEB-INF/classes/spring/service.xml
 
 sed -i "s|jdbc.host=.*|jdbc.host=$MYSQL_IP|" webapps/ROOT/WEB-INF/classes/jdbc.properties
 sed -i "s|jdbc.port=.*|jdbc.port=$MYSQL_PORT|" webapps/ROOT/WEB-INF/classes/jdbc.properties
