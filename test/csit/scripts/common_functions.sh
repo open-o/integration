@@ -94,7 +94,7 @@ function wait_curl_driver(){
             echo '$wait_message'
             sleep $i
         done
-    '  
+    '
     return 0
 }
 
@@ -103,9 +103,9 @@ function run_simulator ()
     #Start the robottest REST library if not started
     if ! pgrep -f robottest > /dev/null
     then
-        #Download the latest robottest jar 
+        #Download the latest robottest jar
         wget -q -O  ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar  "https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.integration&a=org.openo.robottest&e=jar&v=LATEST"
-        chmod +x  ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar 
+        chmod +x  ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar
         eval `java -cp ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar  org.openo.robot.test.robottest.MyRemoteLibrary` &
     fi
 
@@ -114,11 +114,11 @@ function run_simulator ()
     if [[ -z $SIMULATOR_IP ]]
     then
         echo "Starting simulator docker..."
-        eval `docker run -d -i -t --name simulator -v ${SCRIPTS}/../../../bootstrap/start-service-script/mocomaster:/var/lib/moco   -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker`      
+        eval `docker run -d -i -t --name simulator -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker`
         SIMULATOR_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
-    fi   
+    fi
 
     #Set the simulator IP in robot variables
     ROBOT_VARIABLES=${ROBOT_VARIABLES}" -v SIMULATOR_IP:${SIMULATOR_IP}  -v SCRIPTS:${SCRIPTS}"
-    echo ${ROBOT_VARIABLES}      
+    echo ${ROBOT_VARIABLES}
 }
