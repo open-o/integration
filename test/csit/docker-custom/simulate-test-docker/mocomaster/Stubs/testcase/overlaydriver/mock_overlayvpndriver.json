@@ -1,226 +1,226 @@
 [{
-	"request": {
-		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsipsec",
-		"method": "put"
-		
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"errcode": 0,
-			"data": [{
-				"id": "ca8d7ca7-1df0-4dcf-af2e-60f18b81100e",
-				"name": "ipsec connection",
-				"tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
-				"adminStatus": "active",
-				"controllerId": "31f52b35-1514-453e-a317-44f7b37dca94",
-				"connectionServiceId": "b6a74453-3ce9-48fd-b6b7-e3c0504d7660",
-				"neId": "7dce73f3-d013-9871-b158-0899d2e80498",
-				"sourceIfId": "GigabitEthernet0/0/0.1",
-				"sourceAddress": "172.24.4.230/24",
-				"topoRole": "spoke",
-				"peerAddress": "172.24.4.233",
-				"authMode": "PSK",
-				"psk": "123456",
-				"ipsecConnection": [{
-					"id" : "ca8d7ca7-1df0-4dcf-af2e-60f18b81100e",
-					"ipSecConnectionId": "123",
-					"seqNumber": "2"
-				}],
-				"ikePolicy": {
-					"id": "af44dfd7-cf91-4451-be57-cd4fdd96b5dc",
-					"name": "ike policy",
-					"tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
-					"authAlgorithm": "sha1",
-					"encryptionAlgorithm": "3des",
-					"pfs": "group2",
-					"lifeTime": "120",
-					"ikeVersion": "v1"
-				},
-				"ipSecPolicy": {
-					"id": "1f44d897-c691-8851-be97-cc4fdd8695d1",
-					"name": "ipsec policy",
-					"tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
-					"authAlgorithm": "sha1",
-					"encryptionAlgorithm": "3des",
-					"pfs": "group2",
-					"lifeTime": "120",
-					"transformProtocol": "esp",
-					"encapsulationMode": "tunnel"
-				}
-			}]
-		}
-	}
+    "request": {
+        "uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsipsec",
+        "method": "put"
+        
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "errcode": 0,
+            "data": [{
+                "id": "ca8d7ca7-1df0-4dcf-af2e-60f18b81100e",
+                "name": "ipsec connection",
+                "tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
+                "adminStatus": "active",
+                "controllerId": "31f52b35-1514-453e-a317-44f7b37dca94",
+                "connectionServiceId": "b6a74453-3ce9-48fd-b6b7-e3c0504d7660",
+                "neId": "7dce73f3-d013-9871-b158-0899d2e80498",
+                "sourceIfId": "GigabitEthernet0/0/0.1",
+                "sourceAddress": "172.24.4.230/24",
+                "topoRole": "spoke",
+                "peerAddress": "172.24.4.233",
+                "authMode": "PSK",
+                "psk": "123456",
+                "ipsecConnection": [{
+                    "id" : "ca8d7ca7-1df0-4dcf-af2e-60f18b81100e",
+                    "ipSecConnectionId": "123",
+                    "seqNumber": "2"
+                }],
+                "ikePolicy": {
+                    "id": "af44dfd7-cf91-4451-be57-cd4fdd96b5dc",
+                    "name": "ike policy",
+                    "tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
+                    "authAlgorithm": "sha1",
+                    "encryptionAlgorithm": "3des",
+                    "pfs": "group2",
+                    "lifeTime": "120",
+                    "ikeVersion": "v1"
+                },
+                "ipSecPolicy": {
+                    "id": "1f44d897-c691-8851-be97-cc4fdd8695d1",
+                    "name": "ipsec policy",
+                    "tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
+                    "authAlgorithm": "sha1",
+                    "encryptionAlgorithm": "3des",
+                    "pfs": "group2",
+                    "lifeTime": "120",
+                    "transformProtocol": "esp",
+                    "encapsulationMode": "tunnel"
+                }
+            }]
+        }
+    }
 },
 {
-	"request": {
-		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsipsec",
-		"method": "get"
-		
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"errcode": 0,
-			"data": [{
-				"id": "ca8d7ca7-1df0-4dcf-af2e-60f18b81100e",
-				"name": "ipsec connection",
-				"tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
-				"adminStatus": "active",
-				"controllerId": "31f52b35-1514-453e-a317-44f7b37dca94",
-				"connectionServiceId": "b6a74453-3ce9-48fd-b6b7-e3c0504d7660",
-				"neId": "7dce73f3-d013-9871-b158-0899d2e80498",
-				"sourceIfId": "GigabitEthernet0/0/0.1",
-				"sourceAddress": "172.24.4.230/24",
-				"topoRole": "spoke",
-				"peerAddress": "172.24.4.233",
-				"authMode": "PSK",
-				"psk": "123456",
-				"ipsecConnection": [{
-					"ipSecConnectionId": "123",
-					"seqNumber": "2"
-				}],
-				"ikePolicy": {
-					"id": "af44dfd7-cf91-4451-be57-cd4fdd96b5dc",
-					"name": "ike policy",
-					"tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
-					"authAlgorithm": "sha1",
-					"encryptionAlgorithm": "3des",
-					"pfs": "group2",
-					"lifeTime": "120",
-					"ikeVersion": "v1"
-				},
-				"ipSecPolicy": {
-					"id": "1f44d897-c691-8851-be97-cc4fdd8695d1",
-					"name": "ipsec policy",
-					"tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
-					"authAlgorithm": "sha1",
-					"encryptionAlgorithm": "3des",
-					"pfs": "group2",
-					"lifeTime": "120",
-					"transformProtocol": "esp",
-					"encapsulationMode": "tunnel"
-				}
-			}]
-		}
-	}
+    "request": {
+        "uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsipsec",
+        "method": "get"
+        
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "errcode": 0,
+            "data": [{
+                "id": "ca8d7ca7-1df0-4dcf-af2e-60f18b81100e",
+                "name": "ipsec connection",
+                "tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
+                "adminStatus": "active",
+                "controllerId": "31f52b35-1514-453e-a317-44f7b37dca94",
+                "connectionServiceId": "b6a74453-3ce9-48fd-b6b7-e3c0504d7660",
+                "neId": "7dce73f3-d013-9871-b158-0899d2e80498",
+                "sourceIfId": "GigabitEthernet0/0/0.1",
+                "sourceAddress": "172.24.4.230/24",
+                "topoRole": "spoke",
+                "peerAddress": "172.24.4.233",
+                "authMode": "PSK",
+                "psk": "123456",
+                "ipsecConnection": [{
+                    "ipSecConnectionId": "123",
+                    "seqNumber": "2"
+                }],
+                "ikePolicy": {
+                    "id": "af44dfd7-cf91-4451-be57-cd4fdd96b5dc",
+                    "name": "ike policy",
+                    "tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
+                    "authAlgorithm": "sha1",
+                    "encryptionAlgorithm": "3des",
+                    "pfs": "group2",
+                    "lifeTime": "120",
+                    "ikeVersion": "v1"
+                },
+                "ipSecPolicy": {
+                    "id": "1f44d897-c691-8851-be97-cc4fdd8695d1",
+                    "name": "ipsec policy",
+                    "tenantId": "7f8e77d3-c9df-4209-aa88-0877d2e80488",
+                    "authAlgorithm": "sha1",
+                    "encryptionAlgorithm": "3des",
+                    "pfs": "group2",
+                    "lifeTime": "120",
+                    "transformProtocol": "esp",
+                    "encapsulationMode": "tunnel"
+                }
+            }]
+        }
+    }
 },
 {
-	"request": {
-		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsvxlan",
-		"method": "delete"
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"errcode": "0",
-			"errmsg": null,
-			"pageIndex": 0,
-			"pageSize": 0,
-			"totalRecords": 0,
-			"data": [
-				{
-					"vneId": 123,
-					"name": "124",
-					"localAddress": null,
-					"vniilist": null,
-					"id": null
-				}
-			],
-			"success": null,
-			"fail": null,
-			"sucess": true
-		}
-	}
+    "request": {
+        "uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsvxlan",
+        "method": "delete"
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "errcode": "0",
+            "errmsg": null,
+            "pageIndex": 0,
+            "pageSize": 0,
+            "totalRecords": 0,
+            "data": [
+                {
+                    "vneId": 123,
+                    "name": "124",
+                    "localAddress": null,
+                    "vniilist": null,
+                    "id": null
+                }
+            ],
+            "success": null,
+            "fail": null,
+            "sucess": true
+        }
+    }
 },
 {
-	"request":
-	{
-		"uri": "/controller/cloud/v2/northbound/devices/[a-zA-Z0-9\\-\\_]{1,36}/arwansubinterface",
-		"method": "get"
-		
-	},
-	"response":
-	{
-		"status":200,
-		"json":
-		{
-		"errcode": "0",
-			"errmsg": null,
-			"pageIndex": 0,
-			"pageSize": 0,
-			"totalRecords": 0,
-			"data": [
-				{
-					"neId":"c6f420cd80d1442593b59126fe03c94a",
-					"name": "124",
-					"ipAddress": "192.168.4.220",
-					"mask": "255.255.255.255",
-					"ceHighVlan":858,
-					"ceLowVlan":857
-				}
-			],
-			"success": null,
-			"fail": null,
-			"sucess": true
-		}
-	}
+    "request":
+    {
+        "uri": "/controller/cloud/v2/northbound/devices/[a-zA-Z0-9\\-\\_]{1,36}/arwansubinterface",
+        "method": "get"
+        
+    },
+    "response":
+    {
+        "status":200,
+        "json":
+        {
+        "errcode": "0",
+            "errmsg": null,
+            "pageIndex": 0,
+            "pageSize": 0,
+            "totalRecords": 0,
+            "data": [
+                {
+                    "neId":"c6f420cd80d1442593b59126fe03c94a",
+                    "name": "124",
+                    "ipAddress": "192.168.4.220",
+                    "mask": "255.255.255.255",
+                    "ceHighVlan":858,
+                    "ceLowVlan":857
+                }
+            ],
+            "success": null,
+            "fail": null,
+            "sucess": true
+        }
+    }
 },
 {
-	"request": {
-		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsvxlan",
-		"method": "put"
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"errcode": "0",
-			"errmsg": null,
-			"pageIndex": 0,
-			"pageSize": 0,
-			"totalRecords": 0,
-			"data": [
-				{
-					"vneId": 123,
-					"name": "124",
-					"localAddress": null,
-					"vniilist": null,
-					"id": null
-				}
-			],
-			"success": null,
-			"fail": null,
-			"sucess": true
-		}
-	}
+    "request": {
+        "uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsvxlan",
+        "method": "put"
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "errcode": "0",
+            "errmsg": null,
+            "pageIndex": 0,
+            "pageSize": 0,
+            "totalRecords": 0,
+            "data": [
+                {
+                    "vneId": 123,
+                    "name": "124",
+                    "localAddress": null,
+                    "vniilist": null,
+                    "id": null
+                }
+            ],
+            "success": null,
+            "fail": null,
+            "sucess": true
+        }
+    }
 },
 {
-	"request": {
-		"uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsvxlan",
-		"method": "delete"
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"errcode": "0",
-			"errmsg": null,
-			"pageIndex": 0,
-			"pageSize": 0,
-			"totalRecords": 0,
-			"data": [
-				{
-					"vneId": 123,
-					"name": "124",
-					"localAddress": null,
-					"vniilist": null,
-					"id": null
-				}
-			],
-			"success": null,
-			"fail": null,
-			"sucess": true
-		}
-	}
+    "request": {
+        "uri": "/controller/cloud/v2/northbound/config/[a-zA-Z0-9\\-\\_]{1,36}/device/arvpnsvxlan",
+        "method": "delete"
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "errcode": "0",
+            "errmsg": null,
+            "pageIndex": 0,
+            "pageSize": 0,
+            "totalRecords": 0,
+            "data": [
+                {
+                    "vneId": 123,
+                    "name": "124",
+                    "localAddress": null,
+                    "vniilist": null,
+                    "id": null
+                }
+            ],
+            "success": null,
+            "fail": null,
+            "sucess": true
+        }
+    }
 }
 
 ]

@@ -1,14 +1,14 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/abc123/batch-delete-nqa",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": []
-	},
-	"response": {
-		"status": 500
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/abc123/batch-delete-nqa",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": []
+    },
+    "response": {
+        "status": 500
+    }
 }

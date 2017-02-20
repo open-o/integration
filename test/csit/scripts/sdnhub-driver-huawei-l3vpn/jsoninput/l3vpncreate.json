@@ -1,0 +1,425 @@
+{
+    "request": {
+        "uri": "http://${L3VPN_IP}:8533/openoapi/sbi-l3vpn/v1/l3vpns",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": {
+    "id": "00000000-0000-0000-0000-000000000001",
+    "name": "netl3vpn8",
+    "description": "test",
+    "mtu": 1500,
+    "adminStatus": "adminDown",
+    "operStatus": "operateUp",
+    "topology": "hubSpoke",
+    "frr": false,
+    "diffServ": {
+        "mode": "uniform",
+        "serviceClass": "BE",
+        "color": "yellow"
+    },
+    "topologyService": {
+        "hubGroups": {
+            "hubGroup": [{
+                "acId": "00000000-0000-0000-0001-000000000001",
+                "hubDirection": "IN"
+            }]
+        },
+        "spokeGroup": {
+            "localBridge": false,
+            "spokeAc": [{
+                "acId": "00000000-0000-0000-0001-000000000002"
+            }, {
+                "acId": "00000000-0000-0000-0001-000000000003"
+            }]
+        }
+    },
+    "acs": {
+        "ac": [{
+            "id": "00000000-0000-0000-0001-000000000001",
+            "name": "port1",
+            "localName": "aacc",
+            "neId": "04378ca31a0d4a66b7ff2356bcf3dc58",
+            "ltpId": "04378ca31a0d4a66b7ff2356bcf3dc28",
+            "adminStatus": "adminUp",
+            "operStatus": "operateUp",
+            "description": "aacc",
+            "tenantId": "04378ca31a0d4a66b7ff2356bcf3dcea",
+            "l2Access": {
+                "accessType": "dot1q",
+                "dot1qVlanBitmap": "22",
+                "qinqSvlanBitmap": null,
+                "qinqCvlanBitmap": null,
+                "accessAction": "KEEP",
+                "pushVlanId": 241,
+                "swapVlanId": 210
+            },
+            "l3Access": {
+                "ipv4Address": "192.164.1.1/24",
+                "routes": {
+                    "route": [{
+                        "type": "bgp",
+                        "bgpRoutes": {
+                            "bgpRoute": [{
+                                "remoteAs": "weq",
+                                "localAs": 32,
+                                "peerIp": "13.1.1.1",
+                                "localIp": "10.2.2.1/24",
+                                "keepaliveTime": 213,
+                                "holdTime": 35,
+                                "password": "23asdq",
+                                "advertiseCommunity": false,
+                                "advertiseExtCommunity": true
+                            }, {
+                                "remoteAs": "sxca",
+                                "localAs": 32,
+                                "peerIp": "13.1.1.1",
+                                "localIp": "10.2.2.1/24",
+                                "keepaliveTime": 213,
+                                "holdTime": 35,
+                                "password": "23asdq",
+                                "advertiseCommunity": false,
+                                "advertiseExtCommunity": false
+                            }]
+                        }
+                    }, {
+                        "type": "ospf",
+                        "ospfRoutes": {
+                            "ospfRoute": [{
+                                "id": "weq",
+                                "networks": {
+                                    "network": [{
+                                        "ip-prefix": "10.10.10.10/24"
+                                    }]
+                                }
+                            }, {
+                                "id": "weq",
+                                "networks": {
+                                    "network": [{
+                                        "ip-prefix": "10.10.10.10/24"
+                                    }]
+                                }
+                            }]
+                        }
+                    }, {
+                        "type": "static",
+                        "staticRoutes": {
+                            "staticRoute": [{
+                                "ipPrefix": "192.16.1.1/24",
+                                "nextHop": "192.16.1.121"
+                            }, {
+                                "ipPrefix": "192.16.1.1/24",
+                                "nextHop": "192.16.1.121"
+                            }]
+                        }
+                    }, {
+                        "type": "isis",
+                        "isisRoute": {
+                            "networkEntity": "sasd"
+                        }
+                    }]
+                }
+            },
+            "inboundQosPolicyId": "04378ca31a0d4a66b7ff2356bcf3dc01",
+            "outboundQosPolicyId": "04378ca31a0d4a66b7ff2356bcf3dc11",
+            "inboundQueuePolicyId": "04378ca31a0d4a66b7ff2356bcf3dc22",
+            "outboundQueuePolicyId": "04378ca31a0d4a66b7ff2356bcf3dc33",
+            "upstreamBandwidth": {
+                "enable": true,
+                "cir": 400,
+                "pir": 400,
+                "cbs": 400,
+                "pbs": 400
+            },
+            "downstreamBandwidth": {
+                "enable": true,
+                "cir": 200,
+                "pir": 200,
+                "cbs": 200,
+                "pbs": 200
+            },
+            "overrideFlows": {
+                "overrideFlow": [{
+                    "externalFlowId": "04378ca31a0d4a66b7ff2356bcf3dcea",
+                    "name": "vvdd",
+                    "direction": "ingress",
+                    "car": {
+                        "enable": true,
+                        "cir": 60,
+                        "pir": 60,
+                        "cbs": 60,
+                        "pbs": 60
+                    }
+                }, {
+                    "externalFlowId": "04378ca31a0d4a66b7ff2356bcf3dc12",
+                    "name": "aass",
+                    "direction": "egress",
+                    "car": {
+                        "enable": true,
+                        "cir": 60,
+                        "pir": 60,
+                        "cbs": 60,
+                        "pbs": 60
+                    }
+                }]
+            }
+        }, {
+            "id": "00000000-0000-0000-0001-000000000002",
+            "name": "port2",
+            "localName": "ssaa",
+            "neId": "04378ca31a0d4a66b7ff2356bcf3dc13",
+            "ltpId": "04378ca31a0d4a66b7ff2356bcf3dc09",
+            "adminStatus": "adminUp",
+            "operStatus": "operateUp",
+            "description": "eewww",
+            "tenantId": "04378ca31a0d4a66b7ff2356bcf3dcea",
+            "l2Access": {
+                "accessType": "dot1q",
+                "dot1qVlanBitmap": "22",
+                "qinqSvlanBitmap": null,
+                "qinqCvlanBitmap": null,
+                "accessAction": "KEEP",
+                "pushVlanId": 241,
+                "swapVlanId": 210
+            },
+            "l3Access": {
+                "ipv4Address": "192.168.224.2/24",
+                "routes": {
+                    "route": [{
+                        "type": "bgp",
+                        "bgpRoutes": {
+                            "bgpRoute": [{
+                                "remoteAs": "weq",
+                                "localAs": 32,
+                                "peerIp": "13.1.1.1",
+                                "localIp": "10.2.2.1/24",
+                                "keepaliveTime": 213,
+                                "holdTime": 35,
+                                "password": "23asdq",
+                                "advertiseCommunity": false,
+                                "advertiseExtCommunity": false
+                            }, {
+                                "remoteAs": "sxca",
+                                "localAs": 32,
+                                "peerIp": "13.1.1.1",
+                                "localIp": "10.2.2.1/24",
+                                "keepaliveTime": 213,
+                                "holdTime": 35,
+                                "password": "23asdq",
+                                "advertiseCommunity": false,
+                                "advertiseExtCommunity": false
+                            }]
+                        }
+                    }, {
+                        "type": "ospf",
+                        "ospfRoutes": {
+                            "ospfRoute": [{
+                                "id": "weq",
+                                "networks": {
+                                    "network": [{
+                                        "ip-prefix": "10.10.10.10/24"
+                                    }]
+                                }
+                            }, {
+                                "id": "weq",
+                                "networks": {
+                                    "network": [{
+                                        "ip-prefix": "10.10.10.10/24"
+                                    }]
+                                }
+                            }]
+                        }
+                    }, {
+                        "type": "static",
+                        "staticRoutes": {
+                            "staticRoute": [{
+                                "ipPrefix": "192.16.1.1/24",
+                                "nextHop": "192.16.1.121"
+                            }, {
+                                "ipPrefix": "192.16.1.1/24",
+                                "nextHop": "192.16.1.121"
+                            }]
+                        }
+                    }, {
+                        "type": "isis",
+                        "isisRoute": {
+                            "networkEntity": "sasd"
+                        }
+                    }]
+                }
+            },
+            "inboundQosPolicyId": "04378ca31a0d4a66b7ff2356bcf3dc43",
+            "outboundQosPolicyId": "04378ca31a0d4a66b7ff2356bcf3dc12",
+            "inboundQueuePolicyId": "04378ca31a0d4a66b7ff2356bcf3dc14",
+            "outboundQueuePolicyId": "04378ca31a0d4a66b7ff2356bcf3dc54",
+            "upstreamBandwidth": {
+                "enable": true,
+                "cir": 400,
+                "pir": 400,
+                "cbs": 400,
+                "pbs": 400
+            },
+            "downstreamBandwidth": {
+                "enable": true,
+                "cir": 200,
+                "pir": 200,
+                "cbs": 200,
+                "pbs": 200
+            },
+            "overrideFlows": {
+                "overrideFlow": [{
+                    "externalFlowId": "04378ca31a0d4a66b7ff2356bcf3dc75",
+                    "name": "aabb",
+                    "direction": "ingress",
+                    "car": {
+                        "enable": true,
+                        "cir": 60,
+                        "pir": 60,
+                        "cbs": 60,
+                        "pbs": 60
+                    }
+                }, {
+                    "externalFlowId": "04378ca31a0d4a66b7ff2356bcf3dc20",
+                    "name": "aabb",
+                    "direction": "egress",
+                    "car": {
+                        "enable": true,
+                        "cir": 60,
+                        "pir": 60,
+                        "cbs": 60,
+                        "pbs": 60
+                    }
+                }]
+            }
+        }, {
+            "id": "00000000-0000-0000-0001-000000000003",
+            "name": "port3",
+            "localName": "asdwe",
+            "neId": "04378ca31a0d4a66b7ff2356bcf3dcea",
+            "ltpId": "04378ca31a0d4a66b7ff2356bcf3dcea",
+            "adminStatus": "adminUp",
+            "operStatus": "operateUp",
+            "description": "sdsawe",
+            "tenantId": "04378ca31a0d4a66b7ff2356bcf3dcea",
+            "l2Access": {
+                "accessType": "dot1q",
+                "dot1qVlanBitmap": "22",
+                "qinqSvlanBitmap": null,
+                "qinqCvlanBitmap": null,
+                "accessAction": "KEEP",
+                "pushVlanId": 241,
+                "swapVlanId": 210
+            },
+            "l3Access": {
+                "ipv4Address": "192.168.54.2/24",
+                "routes": {
+                    "route": [{
+                        "type": "bgp",
+                        "bgpRoutes": {
+                            "bgpRoute": [{
+                                "remoteAs": "weq",
+                                "localAs": 32,
+                                "peerIp": "13.1.1.1",
+                                "localIp": "10.2.2.1/24",
+                                "keepaliveTime": 213,
+                                "holdTime": 35,
+                                "password": "23asdq",
+                                "advertiseCommunity": false,
+                                "advertiseExtCommunity": false
+                            }, {
+                                "remoteAs": "sxca",
+                                "localAs": 32,
+                                "peerIp": "13.1.1.1",
+                                "localIp": "10.2.2.1",
+                                "keepaliveTime": 213,
+                                "holdTime": 35,
+                                "password": "23asdq",
+                                "advertiseCommunity": false,
+                                "advertiseExtCommunity": false
+                            }]
+                        }
+                    }, {
+                        "type": "static",
+                        "staticRoutes": {
+                            "staticRoute": [{
+                                "ipPrefix": "192.16.1.1/24",
+                                "nextHop": "192.16.1.121"
+                            }, {
+                                "ipPrefix": "192.16.1.1/24",
+                                "nextHop": "192.16.1.121"
+                            }]
+                        }
+                    }]
+                }
+            },
+            "inboundQosPolicyId": "04378ca31a0d4a66b7ff2356bcf3dcab",
+            "outboundQosPolicyId": "04378ca31a0d4a66b7ff2356bcf3dc90",
+            "inboundQueuePolicyId": "04378ca31a0d4a66b7ff2356bcf3dc62",
+            "outboundQueuePolicyId": "04378ca31a0d4a66b7ff2356bcf3dc14",
+            "upstreamBandwidth": {
+                "enable": true,
+                "cir": 400,
+                "pir": 400,
+                "cbs": 400,
+                "pbs": 400
+            },
+            "downstreamBandwidth": {
+                "enable": true,
+                "cir": 200,
+                "pir": 200,
+                "cbs": 200,
+                "pbs": 200
+            },
+            "overrideFlows": {
+                "overrideFlow": [{
+                    "externalFlowId": "04378ca31a0d4a66b7ff2356bcf3dc09",
+                    "name": "ssaa",
+                    "direction": "ingress",
+                    "car": {
+                        "enable": true,
+                        "cir": 60,
+                        "pir": 60,
+                        "cbs": 60,
+                        "pbs": 60
+                    }
+                }, {
+                    "externalFlowId": "04378ca31a0d4a66b7ff2356bcf3dc01",
+                    "name": "ddss",
+                    "direction": "egress",
+                    "car": {
+                        "enable": true,
+                        "cir": 60,
+                        "pir": 60,
+                        "cbs": 60,
+                        "pbs": 60
+                    }
+                }]
+            }
+        }]
+    },
+    "tunnelService": {
+        "type": "auto-select",
+        "autoSelect": {
+            "loadBalanceNumber": 1
+        }
+    },
+    "protectGroup": {
+        "masterAc": "00000000-0000-0000-0001-000000000001",
+        "backupAc": "00000000-0000-0000-0001-000000000002",
+        "vrrp": {
+            "virtualIp": "10.10.10.20",
+            "vrrpTrackBfd": "vrrpTrackBfd",
+            "bfdParamter": {
+                "minTxInterval": 10,
+                "minRxInterval": 20
+            }
+        }
+    }
+}
+    },
+    "response": {
+        "status": 500
+        }
+}

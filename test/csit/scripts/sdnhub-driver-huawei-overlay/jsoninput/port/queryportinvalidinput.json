@@ -1,14 +1,14 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc123/ports",
-		"method": "get",
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"json": {}
-	},
-	"response": {
-		"status": 500,
-		"json": null
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc123/ports",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json": {}
+    },
+    "response": {
+        "status": 500,
+        "json": null
+    }
 }

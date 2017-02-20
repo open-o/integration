@@ -1,0 +1,17 @@
+{
+    "request": {
+        "uri": "http://${L3VPN_IP}:8533/openoapi/sbi-l3vpn/v1/l3vpns/123",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": {
+            "id": "123",
+            "adminStatus": "adminDown"
+        }
+    },
+    "response": {
+        "status": 500
+     }
+}

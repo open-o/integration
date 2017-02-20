@@ -1,47 +1,47 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abc123/snat",
-		"method": "put",
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"json": {
-			"tenantId": "1111",
-			"name": "name",
-			"description": "description",
-			"additionalInfo": [{
-				"name": "info name",
-				"value": "value",
-				"firstParentUuid": "856-2845-2341",
-				"id": "856-2845-2341-1"
-			}],
-			"operStatus": "down",
-			"adminStatus": "none",
-			"actionState": "None",
-			"createTime": "12:00:00",
-			"neId": "123",
-			"deviceId": "123455",
-			"controllerId": "1234",
-			"natId": "123544",
-			"internetGatewayId": "12354",
-			"subnetId": "123456",
-			"ifName": "ifName",
-			"privatePrefix": "11",
-			"aclNumber": "12345",
-			"aclId": "1234",
-			"startPublicIpAddress": "10.12.13.14",
-			"endPublicIpAddress": "10.2.03.5",
-			"qosPreNat": "qosPreNat",
-			"createtime": null,
-			"updatetime": "05:30",
-			"type": "none",
-			"id": "856-2845-2341",
-			"privateCidr": "10.10.10.10"
-		}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abc123/snat",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json": {
+            "tenantId": "1111",
+            "name": "name",
+            "description": "description",
+            "additionalInfo": [{
+                "name": "info name",
+                "value": "value",
+                "firstParentUuid": "856-2845-2341",
+                "id": "856-2845-2341-1"
+            }],
+            "operStatus": "down",
+            "adminStatus": "none",
+            "actionState": "None",
+            "createTime": "12:00:00",
+            "neId": "123",
+            "deviceId": "123455",
+            "controllerId": "1234",
+            "natId": "123544",
+            "internetGatewayId": "12354",
+            "subnetId": "123456",
+            "ifName": "ifName",
+            "privatePrefix": "11",
+            "aclNumber": "12345",
+            "aclId": "1234",
+            "startPublicIpAddress": "10.12.13.14",
+            "endPublicIpAddress": "10.2.03.5",
+            "qosPreNat": "qosPreNat",
+            "createtime": null,
+            "updatetime": "05:30",
+            "type": "none",
+            "id": "856-2845-2341",
+            "privateCidr": "10.10.10.10"
+        }
 
-	},
-	"response": {
-		"status": 500,
-		"json":null
-	}
+    },
+    "response": {
+        "status": 500,
+        "json":null
+    }
 }

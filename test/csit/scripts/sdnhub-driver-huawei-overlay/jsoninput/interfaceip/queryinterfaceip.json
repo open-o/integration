@@ -1,78 +1,78 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41/interfaces",
-		"method": "get",
-		"headers": {
-			"Content-Type": "application/json;charset=UTF-8",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": null
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"data": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"interfaceName": {
-								"type": "string"
-							},
-							"mode": {
-								"type": "string"
-							},
-							"ip": {
-								"type": "string"
-							},
-							"netMask": {
-								"type": "string"
-							},
-							"mode6": {
-								"type": "string"
-							},
-							"ipv6Address": {
-								"type": "string"
-							},
-							"prefixLength": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"interfaceName",
-							"mode",
-							"ip",
-							"netMask",
-							"mode6",
-							"ipv6Address",
-							"prefixLength"
-						]
-					}
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				}
-			}
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41/interfaces",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": null
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "interfaceName": {
+                                "type": "string"
+                            },
+                            "mode": {
+                                "type": "string"
+                            },
+                            "ip": {
+                                "type": "string"
+                            },
+                            "netMask": {
+                                "type": "string"
+                            },
+                            "mode6": {
+                                "type": "string"
+                            },
+                            "ipv6Address": {
+                                "type": "string"
+                            },
+                            "prefixLength": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "interfaceName",
+                            "mode",
+                            "ip",
+                            "netMask",
+                            "mode6",
+                            "ipv6Address",
+                            "prefixLength"
+                        ]
+                    }
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }

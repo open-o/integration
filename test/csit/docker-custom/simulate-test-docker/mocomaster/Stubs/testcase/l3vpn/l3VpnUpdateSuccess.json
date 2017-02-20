@@ -1,18 +1,18 @@
 [{
-	"request": {
-		"uri": "/restconf/config/huawei-ac-net-l3vpn:l3vpn-cfg/instances/instance/123",
-		"method": "put",
-		"json": {
-			"instance": {
-				"id": "123"
-			}
-		}
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"adminStatus": "adminDown",
-			"id": "123"
-		}
-	}
+    "request": {
+        "uri": "/restconf/config/huawei-ac-net-l3vpn:l3vpn-cfg/instances/instance/123",
+        "method": "put",
+        "json": {
+            "instance": {
+                "id": "123"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "adminStatus": "adminDown",
+            "id": "123"
+        }
+    }
 }]

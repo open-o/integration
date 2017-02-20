@@ -1,33 +1,33 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan",
-		"method": "put",
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"json":  [{
-			"serviceVlanUuId": "1234654",
-			"ethInterfaceConfigId": "12345",
-			"ifId": "123456",
-			"ifName": "GigabitEthernet0/0/2",
-			"defaultVlan": 1234,
-			"linkType": "trunk",
-			"vlans": "vlans",
-			"id": "6542134654"
-		}, {
-			"serviceVlanUuId": "12346541",
-			"ethInterfaceConfigId": "123451",
-			"ifId": "1234561",
-			"ifName": "Vlan IF1",
-			"defaultVlan": 12341,
-			"linkType": "trunk",
-			"vlans": "vlans1",
-			"id": "65421346541"
-		}]
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/localsite/vlan",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json":  [{
+            "serviceVlanUuId": "1234654",
+            "ethInterfaceConfigId": "12345",
+            "ifId": "123456",
+            "ifName": "GigabitEthernet0/0/2",
+            "defaultVlan": 1234,
+            "linkType": "trunk",
+            "vlans": "vlans",
+            "id": "6542134654"
+        }, {
+            "serviceVlanUuId": "12346541",
+            "ethInterfaceConfigId": "123451",
+            "ifId": "1234561",
+            "ifName": "Vlan IF1",
+            "defaultVlan": 12341,
+            "linkType": "trunk",
+            "vlans": "vlans1",
+            "id": "65421346541"
+        }]
 
-	},
-	"response": {
-		"status": 500,
-		"json":null
-	}
+    },
+    "response": {
+        "status": 500,
+        "json":null
+    }
 }

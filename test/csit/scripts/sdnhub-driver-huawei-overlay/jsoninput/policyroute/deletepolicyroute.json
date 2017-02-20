@@ -1,40 +1,40 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/123/batch-delete-policy-routes",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": ["2345612"]
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				}
-			}
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/123/batch-delete-policy-routes",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": ["2345612"]
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }

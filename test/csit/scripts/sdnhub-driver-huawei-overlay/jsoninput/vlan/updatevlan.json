@@ -1,87 +1,87 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan",
-		"method": "put",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": [{
-			"serviceVlanUuId": "1234654",
-			"ethInterfaceConfigId": "12345",
-			"ifId": "123456",
-			"ifName": "GigabitEthernet0/0/2",
-			"defaultVlan": 1234,
-			"linkType": "trunk",
-			"vlans": "vlans",
-			"id": "6542134654"
-		}, {
-			"serviceVlanUuId": "12346541",
-			"ethInterfaceConfigId": "123451",
-			"ifId": "1234561",
-			"ifName": "GigabitEthernet0/0/2",
-			"defaultVlan": 12341,
-			"linkType": "trunk",
-			"vlans": "vlans1",
-			"id": "65421346541"
-		}]
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/localsite/vlan",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": [{
+            "serviceVlanUuId": "1234654",
+            "ethInterfaceConfigId": "12345",
+            "ifId": "123456",
+            "ifName": "GigabitEthernet0/0/2",
+            "defaultVlan": 1234,
+            "linkType": "trunk",
+            "vlans": "vlans",
+            "id": "6542134654"
+        }, {
+            "serviceVlanUuId": "12346541",
+            "ethInterfaceConfigId": "123451",
+            "ifId": "1234561",
+            "ifName": "GigabitEthernet0/0/2",
+            "defaultVlan": 12341,
+            "linkType": "trunk",
+            "vlans": "vlans1",
+            "id": "65421346541"
+        }]
 
 
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"data": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"ethInterfaceConfigId": {
-								"type": "string"
-							},
-							"ifName": {
-								"type": "string"
-							},
-							"defaultVlan": {
-								"type": "integer"
-							},
-							"vlans": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"ethInterfaceConfigId",
-							"ifName",
-							"defaultVlan",
-							
-							"vlans"
-						]
-					}
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				}
-			}
-		}
-	}
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "ethInterfaceConfigId": {
+                                "type": "string"
+                            },
+                            "ifName": {
+                                "type": "string"
+                            },
+                            "defaultVlan": {
+                                "type": "integer"
+                            },
+                            "vlans": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "ethInterfaceConfigId",
+                            "ifName",
+                            "defaultVlan",
+                            
+                            "vlans"
+                        ]
+                    }
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }

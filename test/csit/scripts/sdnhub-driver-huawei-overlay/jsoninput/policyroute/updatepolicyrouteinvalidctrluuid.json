@@ -1,35 +1,35 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-update-policy-routes",
-		"method": "put",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=abc12#$"
-		},
-		"json": [{
-			"name": "IT",
-			"tenantId": null,
-			"description": null,
-			"deployStatus": null,
-			"activeStatus": "active",
-			"runningStatus": "none",
-			"additionalInfo": null,
-			"deviceId": "123",
-			"controllerId": null,
-			"externalId": null,
-			"nbiNeRouteId": null,
-			"trafficPolicyName": "test1",
-			"interfaceName": null,
-			"direction": null,
-			"filterAction": null,
-			"id": "1",
-			"actionState": "Normal",
-			"createTime": 0,
-			"updateTime": 0
-		}]
-	},
-	"response": {
-		"status": 500,
-		"json": null
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-update-policy-routes",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=abc12#$"
+        },
+        "json": [{
+            "name": "IT",
+            "tenantId": null,
+            "description": null,
+            "deployStatus": null,
+            "activeStatus": "active",
+            "runningStatus": "none",
+            "additionalInfo": null,
+            "deviceId": "123",
+            "controllerId": null,
+            "externalId": null,
+            "nbiNeRouteId": null,
+            "trafficPolicyName": "test1",
+            "interfaceName": null,
+            "direction": null,
+            "filterAction": null,
+            "id": "1",
+            "actionState": "Normal",
+            "createTime": 0,
+            "updateTime": 0
+        }]
+    },
+    "response": {
+        "status": 500,
+        "json": null
+    }
 }

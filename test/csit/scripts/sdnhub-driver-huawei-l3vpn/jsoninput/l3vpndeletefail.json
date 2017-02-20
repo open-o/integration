@@ -1,0 +1,14 @@
+{
+    "request": {
+        "uri": "http://${L3VPN_IP}:8533/openoapi/sbi-l3vpn/v1/l3vpns/test1234",
+        "method": "delete",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        }
+    },
+    "response": {
+        "status": 500,
+        "json": null
+    }
+}

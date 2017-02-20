@@ -1,147 +1,147 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-query-static-routes",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json;charset=UTF-8",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": [{
-			"name": "staticRoute01",
-			"tenantId": "71244ad0-b4ea-41ed-969e-d5588b32fd5f",
-			"description": "create static route",
-			"deployStatus": "deploy",
-			"activeStatus": "none",
-			"runningStatus": "none",
-			"additionalInfo": "info",
-			"deviceId": "81244ad0-b4ea-41ed-969e-d5588b32fd5d",
-			"controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
-			"externalId": "1234",
-			"nbiNeRouteId": "123456",
-			"destIp": "192.168.1.1",
-			"enableDhcp": "true",
-			"nextHop": "2",
-			"outInterface": "outer",
-			"priority": "3",
-			"nqa": "nqa",
-			"id": "81244ad0-b4ea-41ed-969e-d5588b32fd5f",
-			"actionState": "Normal",
-			"createTime": 0,
-			"updateTime": 0
-		}]
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				},
-				"successed": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"tenantId": {
-								"type": "string"
-							},
-							"description": {
-								"type": "string"
-							},
-							"deployStatus": {
-								"type": "string"
-							},
-							"activeStatus": {
-								"type": "string"
-							},
-							"runningStatus": {
-								"type": "string"
-							},
-							"additionalInfo": {
-								"type": "string"
-							},
-							"deviceId": {
-								"type": "string"
-							},
-							"controllerId": {
-								"type": "string"
-							},
-							"externalId": {
-								"type": "string"
-							},
-							"nbiNeRouteId": {
-								"type": "string"
-							},
-							"destIp": {
-								"type": "string"
-							},
-							"enableDhcp": {
-								"type": "string"
-							},
-							"nextHop": {
-								"type": "string"
-							},
-							"outInterface": {
-								"type": "string"
-							},
-							"priority": {
-								"type": "string"
-							},
-							"nqa": {
-								"type": "string"
-							},
-							"id": {
-								"type": "string"
-							},
-							"actionState": {
-								"type": "string"
-							},
-							"createTime": {
-								"type": "integer"
-							},
-							"updateTime": {
-								"type": "integer"
-							}
-						},
-						"required": [
-							"tenantId",
-							"deviceId",
-							"controllerId",
-							"externalId",
-							"nbiNeRouteId",
-							"destIp",
-							"outInterface",
-							"id"
-						]
-					}
-				},
-				"fail": {
-					"type": "array",
-					"items": {}
-				}
-			}
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-query-static-routes",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": [{
+            "name": "staticRoute01",
+            "tenantId": "71244ad0-b4ea-41ed-969e-d5588b32fd5f",
+            "description": "create static route",
+            "deployStatus": "deploy",
+            "activeStatus": "none",
+            "runningStatus": "none",
+            "additionalInfo": "info",
+            "deviceId": "81244ad0-b4ea-41ed-969e-d5588b32fd5d",
+            "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+            "externalId": "1234",
+            "nbiNeRouteId": "123456",
+            "destIp": "192.168.1.1",
+            "enableDhcp": "true",
+            "nextHop": "2",
+            "outInterface": "outer",
+            "priority": "3",
+            "nqa": "nqa",
+            "id": "81244ad0-b4ea-41ed-969e-d5588b32fd5f",
+            "actionState": "Normal",
+            "createTime": 0,
+            "updateTime": 0
+        }]
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "tenantId": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "deployStatus": {
+                                "type": "string"
+                            },
+                            "activeStatus": {
+                                "type": "string"
+                            },
+                            "runningStatus": {
+                                "type": "string"
+                            },
+                            "additionalInfo": {
+                                "type": "string"
+                            },
+                            "deviceId": {
+                                "type": "string"
+                            },
+                            "controllerId": {
+                                "type": "string"
+                            },
+                            "externalId": {
+                                "type": "string"
+                            },
+                            "nbiNeRouteId": {
+                                "type": "string"
+                            },
+                            "destIp": {
+                                "type": "string"
+                            },
+                            "enableDhcp": {
+                                "type": "string"
+                            },
+                            "nextHop": {
+                                "type": "string"
+                            },
+                            "outInterface": {
+                                "type": "string"
+                            },
+                            "priority": {
+                                "type": "string"
+                            },
+                            "nqa": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "actionState": {
+                                "type": "string"
+                            },
+                            "createTime": {
+                                "type": "integer"
+                            },
+                            "updateTime": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "tenantId",
+                            "deviceId",
+                            "controllerId",
+                            "externalId",
+                            "nbiNeRouteId",
+                            "destIp",
+                            "outInterface",
+                            "id"
+                        ]
+                    }
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
+                }
+            }
+        }
+    }
 }

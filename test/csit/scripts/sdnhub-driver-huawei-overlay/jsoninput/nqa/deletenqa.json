@@ -1,54 +1,54 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/abc123/batch-delete-nqa",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": ["c555c0dcbb334ccf820587443fbedec9"]
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"data": {
-					"type": "null"
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				},
-				"smallErrorCodeList": {
-					"type": "null"
-				},
-				"successed": {
-					"type": "array",
-					"items": {}
-				},
-				"fail": {
-					"type": "array",
-					"items": {}
-				}
-			}
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/abc123/batch-delete-nqa",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": ["c555c0dcbb334ccf820587443fbedec9"]
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "null"
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "smallErrorCodeList": {
+                    "type": "null"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {}
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
+                }
+            }
+        }
+    }
 }

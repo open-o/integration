@@ -1,26 +1,26 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/overlayvpndriverservice/healthcheck",
-		"method": "get",
-		"headers": {
-			"Content-Type": "application/json"
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/overlayvpndriverservice/healthcheck",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json"
 
-		},
-		"json": {}
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"MSB": {
-					"type": "string",
-					"default": "UP"
-				}
-			},
-			"required": [
-				"MSB"
-			]
-		}
-	}
+        },
+        "json": {}
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "MSB": {
+                    "type": "string",
+                    "default": "UP"
+                }
+            },
+            "required": [
+                "MSB"
+            ]
+        }
+    }
 }

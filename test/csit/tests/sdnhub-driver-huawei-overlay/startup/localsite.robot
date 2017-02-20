@@ -46,7 +46,7 @@ LOCALSITE update invalid conroller id
 
 LOCALSITE query test
     [Documentation]    LOCALSITE query test
-    ${retcode}=    Replace variables and send REST    ${localsite_query}    ${localsitemap}    httpCode
+    ${retcode}=    Replace variables and send REST    ${localsite_query}    ${localsitemap}    status
 
 LOCALSITE query invalid ctrluuid
     [Documentation]    LOCALSITE query fail test with invalid ctrluuid
@@ -58,7 +58,7 @@ LOCALSITE query invalid conroller id
 
 LOCALSITE delete test
     [Documentation]    LOCALSITE delete test
-    ${retdcode}=    Replace variables and send REST    ${localsite_delete}    ${localsitemap}    null
+    ${retdcode}=    Replace variables and send REST    ${localsite_delete}    ${localsitemap}    status
 
 LOCALSITE delete invalid ctrluuid
     [Documentation]    LOCALSITE delete fail test with invalid ctrluuid

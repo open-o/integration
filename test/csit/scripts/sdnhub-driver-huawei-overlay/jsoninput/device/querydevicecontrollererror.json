@@ -1,14 +1,14 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/devices",
-		"method": "get",
-		"headers": {
-			"Content-Type": "application/json;charset=UTF-8"
-		},
-		"json": null
-	},
-	"response": {
-		"status": 500,
-		"json": null
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/devices",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": null
+    },
+    "response": {
+        "status": 500,
+        "json": null
+    }
 }

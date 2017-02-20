@@ -1,34 +1,34 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/123/batch-delete-policy-routes",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=abc12#$"
-		},
-		"json": [{
-			"name": "IT",
-			"tenantId": "",
-			"description": "desc",
-			"deployStatus": "deploy",
-			"activeStatus": "active",
-			"runningStatus": "none",
-			"deviceId": "123",
-			"controllerId": "123456",
-			"externalId": "1234",
-			"nbiNeRouteId": "145",
-			"trafficPolicyName": "test1",
-			"interfaceName": "interfaceName",
-			"direction": "inbound",
-			"filterAction": "2",
-			"id": "1",
-			"actionState": "Normal",
-			"createTime": 0,
-			"updateTime": 0
-		}]
-	},
-	"response": {
-		"status": 500,
-		"json": null
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/device/123/batch-delete-policy-routes",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=abc12#$"
+        },
+        "json": [{
+            "name": "IT",
+            "tenantId": "",
+            "description": "desc",
+            "deployStatus": "deploy",
+            "activeStatus": "active",
+            "runningStatus": "none",
+            "deviceId": "123",
+            "controllerId": "123456",
+            "externalId": "1234",
+            "nbiNeRouteId": "145",
+            "trafficPolicyName": "test1",
+            "interfaceName": "interfaceName",
+            "direction": "inbound",
+            "filterAction": "2",
+            "id": "1",
+            "actionState": "Normal",
+            "createTime": 0,
+            "updateTime": 0
+        }]
+    },
+    "response": {
+        "status": 500,
+        "json": null
+    }
 }

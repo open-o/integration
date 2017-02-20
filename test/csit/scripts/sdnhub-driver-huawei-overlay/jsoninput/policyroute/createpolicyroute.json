@@ -1,115 +1,115 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-create-policy-routes",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": [{
-			"name": "IT",
-			"tenantId": "",
-			"description": "desc",
-			"deployStatus": "deploy",
-			"activeStatus": "active",
-			"runningStatus": "none",
-			"deviceId": "123",
-			"controllerId": "123456",
-			"externalId": "1234",
-			"nbiNeRouteId": "145",
-			"trafficPolicyName": "test1",
-			"interfaceName": "interfaceName",
-			"direction": "inbound",
-			"filterAction": "2",
-			"id": "1",
-			"actionState": "Normal",
-			"createTime": 0,
-			"updateTime": 0
-		}]
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				},
-				"successed": {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"properties": {
-							"name": {
-								"type": "string"
-							},
-							"tenantId": {
-								"type": "string"
-							},
-							"activeStatus": {
-								"type": "string"
-							},
-							"runningStatus": {
-								"type": "string"
-							},
-							"deviceId": {
-								"type": "string"
-							},
-							"controllerId": {
-								"type": "string"
-							},
-							"externalId": {
-								"type": "string"
-							},
-							"nbiNeRouteId": {
-								"type": "string"
-							},
-							"trafficPolicyName": {
-								"type": "string"
-							},
-							"interfaceName": {
-								"type": "string"
-							},
-							"id": {
-								"type": "string"
-							}
-						},
-						"required": [
-							"name",
-							"tenantId",
-							"deviceId",
-							"controllerId",
-							"externalId",
-							"nbiNeRouteId",
-							"trafficPolicyName",
-							"interfaceName",
-							"id"
-						]
-					}
-				},
-				"fail": {
-					"type": "array",
-					"items": {}
-				}
-			}
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-route/v1/batch-create-policy-routes",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": [{
+            "name": "IT",
+            "tenantId": "",
+            "description": "desc",
+            "deployStatus": "deploy",
+            "activeStatus": "active",
+            "runningStatus": "none",
+            "deviceId": "123",
+            "controllerId": "123456",
+            "externalId": "1234",
+            "nbiNeRouteId": "145",
+            "trafficPolicyName": "test1",
+            "interfaceName": "interfaceName",
+            "direction": "inbound",
+            "filterAction": "2",
+            "id": "1",
+            "actionState": "Normal",
+            "createTime": 0,
+            "updateTime": 0
+        }]
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "tenantId": {
+                                "type": "string"
+                            },
+                            "activeStatus": {
+                                "type": "string"
+                            },
+                            "runningStatus": {
+                                "type": "string"
+                            },
+                            "deviceId": {
+                                "type": "string"
+                            },
+                            "controllerId": {
+                                "type": "string"
+                            },
+                            "externalId": {
+                                "type": "string"
+                            },
+                            "nbiNeRouteId": {
+                                "type": "string"
+                            },
+                            "trafficPolicyName": {
+                                "type": "string"
+                            },
+                            "interfaceName": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "tenantId",
+                            "deviceId",
+                            "controllerId",
+                            "externalId",
+                            "nbiNeRouteId",
+                            "trafficPolicyName",
+                            "interfaceName",
+                            "id"
+                        ]
+                    }
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
+                }
+            }
+        }
+    }
 }

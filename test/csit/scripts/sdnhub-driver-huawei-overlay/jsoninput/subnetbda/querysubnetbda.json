@@ -1,67 +1,67 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abd123/bdinfo/vni/1234",
-		"method": "get",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": {}
-	},
-	"response": {
-		"status": 200,
-		"json": {
-	"type": "object",
-	"properties": {
-		"errorCode": {
-			"type": "string"
-		},
-		"data": {
-			"type": "object",
-			"properties": {
-				"controllerId": {
-					"type": "string"
-				},
-				"deviceId": {
-					"type": "string"
-				},
-				"vni": {
-					"type": "string"
-				},
-				"bdId": {
-					"type": "string"
-				},
-				"vbdifName": {
-					"type": "string"
-				}
-			},
-			"required": [
-				"controllerId",
-				"deviceId",
-				"vni",
-				"bdId",
-				"vbdifName"
-			]
-		},
-		"descArg": {
-			"type": "string"
-		},
-		"reasonArg": {
-			"type": "string"
-		},
-		"detailArg": {
-			"type": "string"
-		},
-		"adviceArg": {
-			"type": "string"
-		},
-		"httpCode": {
-			"type": "integer"
-		},
-		"message": {
-			"type": "string"
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/abd123/bdinfo/vni/1234",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": {}
+    },
+    "response": {
+        "status": 200,
+        "json": {
+    "type": "object",
+    "properties": {
+        "errorCode": {
+            "type": "string"
+        },
+        "data": {
+            "type": "object",
+            "properties": {
+                "controllerId": {
+                    "type": "string"
+                },
+                "deviceId": {
+                    "type": "string"
+                },
+                "vni": {
+                    "type": "string"
+                },
+                "bdId": {
+                    "type": "string"
+                },
+                "vbdifName": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "controllerId",
+                "deviceId",
+                "vni",
+                "bdId",
+                "vbdifName"
+            ]
+        },
+        "descArg": {
+            "type": "string"
+        },
+        "reasonArg": {
+            "type": "string"
+        },
+        "detailArg": {
+            "type": "string"
+        },
+        "adviceArg": {
+            "type": "string"
+        },
+        "httpCode": {
+            "type": "integer"
+        },
+        "message": {
+            "type": "string"
+        }
+    }
 }
-	}
+    }
 }

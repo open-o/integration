@@ -1,81 +1,81 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41",
-		"method": "put",
-		"headers": {
-			"Content-Type": "application/json;charset=UTF-8",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": {
-			"name": "deviceOne",
-			"esn": "esn-abcdef-123456780",
-			"orgnizationName": "huawei",
-			"description": "create test device",
-			"id": "81244ad0-b4ea-41ed-969e-d5588b32fd41",
-			"showTenant": null,
-			"serviceIp": null,
-			"neType": null,
-			"version": null,
-			"status": null,
-			"gisLon": null,
-			"gisLat": null,
-			"vendor": null,
-			"tenantId": null,
-			"tenantName": null,
-			"orgnizationId": null,
-			"creator": null,
-			"createTime": null,
-			"registerTime": null,
-			"modifier": null,
-			"modifyTime": null
-		}
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				},
-				"successed": {
-					"type": "array",
-					"items": {}
-				},
-				"fail": {
-					"type": "array",
-					"items": {}
-				}
-			},
-			"required": [
-				"errorCode",
-				"descArg",
-				"reasonArg",
-				"detailArg",
-				"adviceArg",
-				"httpCode",
-				"message",
-				"successed",
-				"fail"
-			]
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": {
+            "name": "deviceOne",
+            "esn": "esn-abcdef-123456780",
+            "orgnizationName": "huawei",
+            "description": "create test device",
+            "id": "81244ad0-b4ea-41ed-969e-d5588b32fd41",
+            "showTenant": null,
+            "serviceIp": null,
+            "neType": null,
+            "version": null,
+            "status": null,
+            "gisLon": null,
+            "gisLat": null,
+            "vendor": null,
+            "tenantId": null,
+            "tenantName": null,
+            "orgnizationId": null,
+            "creator": null,
+            "createTime": null,
+            "registerTime": null,
+            "modifier": null,
+            "modifyTime": null
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {}
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
+                }
+            },
+            "required": [
+                "errorCode",
+                "descArg",
+                "reasonArg",
+                "detailArg",
+                "adviceArg",
+                "httpCode",
+                "message",
+                "successed",
+                "fail"
+            ]
+        }
+    }
 }

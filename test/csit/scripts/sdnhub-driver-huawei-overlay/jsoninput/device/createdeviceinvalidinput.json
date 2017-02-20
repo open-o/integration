@@ -1,15 +1,15 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/devices",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json;charset=UTF-8",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": null
-	},
-	"response": {
-		"status": 500,
-		"json": null
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/devices",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": null
+    },
+    "response": {
+        "status": 500,
+        "json": null
+    }
 }

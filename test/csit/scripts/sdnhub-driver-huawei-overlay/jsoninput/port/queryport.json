@@ -1,67 +1,67 @@
 {
-	"request": {
-		"uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc123/ports",
-		"method": "get",
-		"headers": {
-			"Content-Type": "application/json",
-			"X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
-		},
-		"json": {}
-	},
-	"response": {
-		"status": 200,
-		"json": {
-			"type": "object",
-			"properties": {
-				"errorCode": {
-					"type": "string"
-				},
-				"data": {
-					"type": "object",
-					"properties": {
-						"ipv4": {
-							"type": "string"
-						},
-						"ipv6": {
-							"type": "string"
-						},
-						"ipMask": {
-							"type": "string"
-						},
-						"prefixLength": {
-							"type": "string"
-						},
-						"id": {
-							"type": "string"
-						}
-					},
-					"required": [
-						"ipv4",
-						"ipv6",
-						"ipMask",
-						"prefixLength",
-						"id"
-					]
-				},
-				"descArg": {
-					"type": "string"
-				},
-				"reasonArg": {
-					"type": "string"
-				},
-				"detailArg": {
-					"type": "string"
-				},
-				"adviceArg": {
-					"type": "string"
-				},
-				"httpCode": {
-					"type": "integer"
-				},
-				"message": {
-					"type": "string"
-				}
-			}
-		}
-	}
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc123/ports",
+        "method": "get",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": {}
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "object",
+                    "properties": {
+                        "ipv4": {
+                            "type": "string"
+                        },
+                        "ipv6": {
+                            "type": "string"
+                        },
+                        "ipMask": {
+                            "type": "string"
+                        },
+                        "prefixLength": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ipv4",
+                        "ipv6",
+                        "ipMask",
+                        "prefixLength",
+                        "id"
+                    ]
+                },
+                "descArg": {
+                    "type": "string"
+                },
+                "reasonArg": {
+                    "type": "string"
+                },
+                "detailArg": {
+                    "type": "string"
+                },
+                "adviceArg": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
 }
