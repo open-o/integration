@@ -37,14 +37,10 @@ sleep_msg="Waiting_connection_for_url_for: common-services-extsys"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
 
 #Start openoint/common-services-drivermanager
-run-instance.sh openoint/common-services-drivermanager d-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
+run-instance.sh openoint/common-services-drivermanager i-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
 curl_path='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
 sleep_msg="DRIVER_MANAGER_load"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
-
-#Start openoint/sdno-driver-huawei-servicechain
-${SCRIPTS}/sdno-driver-huawei-servicechain/startup.sh d-driver-huawei-servicechain ${MSB_IP}:80
-DRIVERMGR_IP=`get-instance-ip.sh d-drivermgr`
 
 #Start openoint/sdnhub-driver-ct-te
 ${SCRIPTS}/sdnhub-driver-ct-te/startup.sh i-driver-ct-te ${MSB_IP}:80
@@ -52,7 +48,7 @@ DRIVERMGR_IP=`get-instance-ip.sh i-drivermgr`
 
 DRIVER_IP=`get-instance-ip.sh i-driver-ct-te`
 DRIVER_PORT='8670'
-DRIVER_NAME='sdnhub-driver-ct-te'
+DRIVER_NAME='sdno-driver-ct-te'
 DRIVERMGR_PORT="8103"
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
