@@ -51,9 +51,8 @@ ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"
 docker ps | grep '18009' | awk '{print $1}' | xargs --no-run-if-empty docker kill
 docker ps | grep '18009' | awk '{print $1}' | xargs --no-run-if-empty docker rm
 #run simulator
-docker run -d -i -t --name gso_csit_simulator -v ${SCRIPTS}/../../../bootstrap/start-service-script/mocomaster:/var/lib/moco   -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
+docker run -d -i -t --name gso_csit_simulator -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
 SIMULATOR_IP=`get-instance-ip.sh gso_csit_simulator`
-
 sleep_msg="Waiting_for_simulator"
 curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
@@ -61,6 +60,3 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
 robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/gso/sanity-check/register_simulator_to_msb.robot
-
-
-

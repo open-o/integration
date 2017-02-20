@@ -96,6 +96,15 @@
     {
         "request":{
             "method":"get",
+            "uri":"/openoapi/catalog/v1/servicetemplates/cb93242b-7664-4cbd-bc3b-16a1d871648e"
+        },
+        "response":{
+            "file":"./Stubs/testcase/gso/catalog_popnstemplate.json"
+        }
+    },
+    {
+        "request":{
+            "method":"get",
             "uri":"/openoapi/catalog/v1/servicetemplates/nesting"
         },
         "response":{

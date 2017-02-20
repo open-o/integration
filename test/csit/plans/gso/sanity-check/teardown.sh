@@ -20,4 +20,5 @@ kill-instance.sh i-msb
 kill-instance.sh gso-sgw
 kill-instance.sh gso
 kill-instance.sh gso_csit_simulator
+kill-instance.sh inventory
 

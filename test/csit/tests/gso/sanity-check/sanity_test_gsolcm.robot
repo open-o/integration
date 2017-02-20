@@ -35,7 +35,8 @@ Test: Create service instances
     ${response_json}    json.loads    ${resp.content}
     ${service_id}=    Convert To String      ${response_json['service']['serviceId']}
     ${operation_id}=    Convert To String      ${response_json['service']['operationId']}
-
+    Set Global Variable     ${service_id}
+    Set Global Variable     ${operation_id}
 Test: Query all service instances
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
@@ -52,7 +53,7 @@ Test: Query detail of a service instances
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 Test: Query operation result of service instance
-    ${query_operation_link}=    Catenate    SEPARATOR=    ${gso_lcm_common_path_link}${service_id}${path_field_operation}{operation_id}
+    ${query_operation_link}=    Catenate    SEPARATOR=    ${gso_lcm_common_path_link}${service_id}${path_field_operation}${operation_id}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=    Get Request    web_session     ${query_operation_link}

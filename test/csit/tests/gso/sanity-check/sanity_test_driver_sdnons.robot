@@ -9,8 +9,6 @@ Library     HttpLibrary.HTTP
 *** Variables ***
 @{return_ok_list}=   200  201  202
 ${createsdnons_url}    /openoapi/gso/v1/sdnodrivers/ns
-${instantiatesdnons_url}    /openoapi/gso/v1/sdnodrivers/{nsInstanceId}/instantiate
-${querysdnons_url}    /openoapi/gso/v1/sdnodrivers/jobs/{jobId}
 ${terminatesdnons_url}    /openoapi/gso/v1/sdnodrivers/ns/terminate
 ${deletesdnons_url}    /openoapi/gso/v1/sdnodrivers/ns/delete
 
@@ -20,8 +18,6 @@ ${driver_instantiatesdnons_json}    ${SCRIPTS}/../plans/gso/sanity-check/jsoninp
 ${driver_querysdnons_json}    ${SCRIPTS}/../plans/gso/sanity-check/jsoninput/driver_querysdnons.json
 ${driver_terminatesdnons_json}    ${SCRIPTS}/../plans/gso/sanity-check/jsoninput/driver_terminatesdnons.json
 ${driver_deletesdnons_json}    ${SCRIPTS}/../plans/gso/sanity-check/jsoninput/driver_deletesdnons.json
-
-#global variables
 ${nsInstanceId}
 ${jobId}
 
@@ -36,7 +32,8 @@ driverCreateSdnoNsFuncTest
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
     ${response_json}    json.loads    ${resp.content}
-    ${nsInstantceId}=    Convert To String      ${response_json['nsInstantceId']}
+    ${nsInstanceId}=    Convert To String      ${response_json['nsInstanceId']}
+    Set Global Variable   ${nsInstanceId}
 
 driverInstantiateSdnoNsFuncTest
     ${json_value}=     json_from_file      ${driver_instantiatesdnons_json}
@@ -44,16 +41,17 @@ driverInstantiateSdnoNsFuncTest
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${instantiatesdnons_url}    ${json_string}
+    ${resp}=    Post Request    web_session     /openoapi/gso/v1/sdnodrivers/${nsInstanceId}/instantiate    ${json_string}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
     ${response_json}    json.loads    ${resp.content}
     ${jobId}=    Convert To String      ${response_json['jobId']}
+    Set Global Variable   ${jobId}
 
-driverQuerySdnoNsProgressFuncTest
+driverQuerySdnoNsProgressForCreateFuncTest
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    ${result}=    Get Request    web_session    ${querysdnons_url}
+    ${result}=    Get Request    web_session    /openoapi/gso/v1/sdnodrivers/jobs/${jobId}
     BuiltIn.log   ${result}
     Should Be Equal  ${result.status_code}  ${200}
 
@@ -68,11 +66,12 @@ driverTerminateSdnoNsFuncTest
     List Should Contain Value    ${return_ok_list}   ${response_code}
     ${response_json}    json.loads    ${resp.content}
     ${jobId}=    Convert To String      ${response_json['jobId']}
+    Set Global Variable    ${jobId}
 
-driverQuerySdnoNsProgressFuncTest
+driverQuerySdnoNsProgressForDeleteFuncTest
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    ${result}=    Get Request    web_session    ${querysdnons_url}
+    ${result}=    Get Request    web_session    /openoapi/gso/v1/sdnodrivers/jobs/${jobId}
     BuiltIn.log   ${result}
     Should Be Equal  ${result.status_code}  ${200}
 

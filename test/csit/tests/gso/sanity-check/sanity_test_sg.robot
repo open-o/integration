@@ -15,6 +15,7 @@ ${querydomains_url}       /openoapi/servicegateway/v1/domains
 ${genparam_url}           /openoapi/servicegateway/v1/createparameters/79244f5a-970b-4c9d-a836-645720c27edd
 ${createservice_url}      /openoapi/servicegateway/v1/services
 ${createservice_reqjson}  ${SCRIPTS}/../plans/gso/sanity-check/jsoninput/sg_create_service.json
+${createnongsoservice_reqjson}  ${SCRIPTS}/../plans/gso/sanity-check/jsoninput/sg_create_nongso_service.json
 ${service_id}
 ${operation_id}
 *** Test Cases ***
@@ -59,8 +60,8 @@ sgGenParametersFuncTest
     ${templateId}=    Convert To String      ${response_json['templateId']}
     Should Be Equal    ${templateId}    79244f5a-970b-4c9d-a836-645720c27edd
 sgCreateServiceFunTest
-    [Documentation]    create service rest test
-    ${json_value}=     json_from_file      ${register_json}
+    [Documentation]    create service rest test 0
+    ${json_value}=     json_from_file      ${createservice_reqjson}
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
@@ -70,8 +71,24 @@ sgCreateServiceFunTest
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
     ${response_json}    json.loads    ${resp.content}
-    ${service_id}=    Convert To String      ${response_json['service']['service_Id']}
-    ${operation_id}=    Convert To String      ${response_json['service']['operation_Id']}
+    ${service_id}=    Convert To String      ${response_json['service']['serviceId']}
+    ${operation_id}=    Convert To String      ${response_json['service']['operationId']}
+sgCreateNonGsoServiceFunTest
+    [Documentation]    create service rest test 1
+    ${json_value}=     json_from_file      ${createnongsoservice_reqjson}
+    ${json_string}=     string_from_json   ${json_value}
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    Set Request Body    ${json_string}
+    ${resp}=    Post Request    web_session     ${createservice_url}    ${json_string}
+    Log   ${resp}
+    ${responese_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${responese_code}
+    ${response_json}    json.loads    ${resp.content}
+    ${service_id}=    Convert To String      ${response_json['service']['serviceId']}
+    ${operation_id}=    Convert To String      ${response_json['service']['operationId']}
+    Set Global Variable    ${service_id}
+    Set Global Variable    ${operation_id}
 sgQueryProgressFunctionTest
     [Documentation]    query progress info rest test
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
@@ -80,7 +97,7 @@ sgQueryProgressFunctionTest
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
     ${response_json}    json.loads    ${resp.content}
-    ${response_operationId}=    Convert To String      ${response_json['operation']['operation_Id']}
+    ${response_operationId}=    Convert To String      ${response_json['operation']['operationId']}
     Should Be Equal    ${response_operationId}    ${operation_id}
 sgDeleteServiceFunctionTest
     [Documentation]    delete service rest test
@@ -90,4 +107,4 @@ sgDeleteServiceFunctionTest
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
     ${response_json}    json.loads    ${resp.content}
-    ${response_operationId}=    Convert To String      ${response_json['operation_Id']}
+    ${response_operationId}=    Convert To String      ${response_json['operationId']}

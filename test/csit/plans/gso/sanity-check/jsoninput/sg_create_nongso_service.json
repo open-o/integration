@@ -1,0 +1,20 @@
+{
+    "service":{
+        "name":"CSIT_testNFVOCreate",
+        "description":"CSIT_testCreate",
+        "serviceDefId":"363e2175-ec9b-438f-807d-ad3cb6cae68c",
+        "templateId":"cb93242b-7664-4cbd-bc3b-16a1d871648e",
+        "parameters":{
+            "domainHost":"",
+            "nodeTemplateName":"pop",
+            "nodeType":"tosca.nodes.nfv.NS.POP_NS",
+            "segments":[
+
+            ],
+            "additionalParamForNs":{
+                "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
+                "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+            }
+        }
+    }
+}
