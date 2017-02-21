@@ -21,6 +21,9 @@ mkdir -p $logs_path
 # proxy connection to MSB
 nohup socat TCP-LISTEN:8080,fork TCP:$MSB_ADDR  </dev/null >/dev/null 2>&1 &
 
+# assign the ip provided from command line while running docker to SDNO_LCM_IP environment variable
+export SDNO_LCM_IP=$SERVICE_IP
+
 #Starting LCM service
 java -jar sdno-lcm-webapp*.jar | tee -a $logs_path/sdno-lcm.log
 
