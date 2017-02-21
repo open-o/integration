@@ -48,7 +48,7 @@ DRIVERMGR_IP=`get-instance-ip.sh i-drivermgr`
 
 DRIVER_IP=`get-instance-ip.sh i-driver-ct-te`
 DRIVER_PORT='8670'
-DRIVER_NAME='sdno-driver-ct-te'
+DRIVER_NAME='sdnhub-driver-ct-te'
 DRIVERMGR_PORT="8103"
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
