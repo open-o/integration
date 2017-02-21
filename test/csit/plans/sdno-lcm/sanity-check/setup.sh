@@ -28,7 +28,7 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING
 ${SCRIPTS}/sdno-lcm/startup.sh s-lcm
 
 SERVICE_IP=`get-instance-ip.sh s-lcm`
-SERVICE_PORT='8080'
+SERVICE_PORT='8554'
 echo ${SERVICE_IP}
 
 curl_path='http://'$SERVICE_IP':'$SERVICE_PORT'/'
