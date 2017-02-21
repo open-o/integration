@@ -21,8 +21,8 @@
 # cd /var/lib/moco
 
 # Run both HTTP and HTTPS server
-java -jar moco-runner-0.11.0-standalone.jar http -p 18009 -g main.json &
-java -jar moco-runner-0.11.0-standalone.jar https -p 18008 -g main.json -https cert.jks -cert mocohttps --keystore mocohttps
+java -jar moco-runner-0.11.0-standalone.jar http -p 18009 -g $SIMULATOR_JSON &
+java -jar moco-runner-0.11.0-standalone.jar https -p 18008 -g $SIMULATOR_JSON -https cert.jks -cert mocohttps --keystore mocohttps
 
 # Keep shell running to prevent container from exit
 # tail -f /service/init.log

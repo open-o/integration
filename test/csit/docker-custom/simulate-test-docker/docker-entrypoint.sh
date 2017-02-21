@@ -23,9 +23,14 @@
 if [ -z "$SERVICE_IP" ]; then
     export SERVICE_IP=`hostname -i`
 fi
+
+if [ -z "$SIMULATOR_JSON" ]; then
+    export SIMULATOR_JSON=main.json
+fi
+
 echo
 echo Environment Variables:
-echo "SERVICE_IP=$SERVICE_IP"
+echo "SERVICE_IP=$SERVICE_IP  SIMULATOR_JSON=$SIMULATOR_JSON"
 
 
 
