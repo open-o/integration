@@ -12,7 +12,8 @@
 			"vnfdId":"testVnfdId",
 			"version":"1"
 		}
-    },
+    }
+	},
 	{
         "request": {
 		    "method": "get",
@@ -33,7 +34,7 @@
 			}
 			
 		}
-    },
+    }},
 	{
         "request": {
             "method": "post",

@@ -45,7 +45,7 @@ run-instance.sh openoint/nfvo-driver-vnfm-juju jujuvnfm " -i -t -e MSB_ADDR=${MS
 extsys_ip=`get-instance-ip.sh jujuvnfm`
 sleep_msg="Waiting_for_jujudriver"
 curl_path='http://'${MSB_IP}':80/openoapi/jujuvnfm/v1/config'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=10 GREP_STRING="{"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="debug"
 
 echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
@@ -55,6 +55,11 @@ ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"
 docker run -d -i -t --name simulator  -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
 
 SIMULATOR_IP=`get-instance-ip.sh simulator`
+
+sleep_msg="Waiting_for_simulator"
+curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
+
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
 robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/sanity-check/jujuvnfm_driver.robot
 
