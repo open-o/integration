@@ -66,4 +66,6 @@
     "include": "Stubs/testcase/nfvo/config.json"
 }, {
     "include": "Stubs/testcase/l3vpn/mock_l3vpn.json"
+}, {
+    "include": "Stubs/testcase/nfvo/nvfo_vnfm_driver_juju.json"
 }]

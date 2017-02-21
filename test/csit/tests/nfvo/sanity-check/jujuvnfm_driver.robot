@@ -8,7 +8,7 @@ Library     json
 Library     HttpLibrary.HTTP
 
 *** Variables ***
-@{return_ok_list}=   200  201  202
+@{return_ok_list}=   200  201  202 204
 ${vnfmId}             test_vnfm_id
 ${queryconfig_url}    /openoapi/jujuvnfm/v1/config
 ${addvnf_url}    /openoapi/jujuvnfm/v1/${vnfmId}/vnfs

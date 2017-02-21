@@ -52,11 +52,11 @@ echo SCRIPTS
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"
 
 #run simulator
-docker run -d -i -t --name simulator -v ${SCRIPTS}/../../../bootstrap/start-service-script/mocomaster:/var/lib/moco   -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
+docker run -d -i -t --name simulator  -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
 
 SIMULATOR_IP=`get-instance-ip.sh simulator`
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
-robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/sanity-check/jujuvnfm_config.robot
+robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/sanity-check/jujuvnfm_driver.robot
 
 
 
