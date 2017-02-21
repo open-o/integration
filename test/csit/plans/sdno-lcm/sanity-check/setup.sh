@@ -33,6 +33,6 @@ echo ${SERVICE_IP}
 
 curl_path='http://'$SERVICE_IP':'$SERVICE_PORT'/'
 sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="refused" EXCLUDE_STRING REPEAT_NUMBER="25"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="refused" EXCLUDE_STRING REPEAT_NUMBER="25" MAX_TIME=30
 
 ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP} -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT}"

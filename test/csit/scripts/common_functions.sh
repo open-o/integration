@@ -21,6 +21,7 @@ function wait_curl_driver(){
     #EXCLUDE_STRING - eliminates the string from the curl result
     #WAIT_MESSAGE - the message displayed if the curl command needs to be repeated
     #REPEAT_NUMBER - the maxm number of times the curl command is allowed to be repeated
+    #MAX_TIME - Maximum time allowed for the transfer (in seconds)
 
     repeat_max=15
     parameters="$@"
@@ -61,6 +62,15 @@ function wait_curl_driver(){
         return 0
     fi
 
+    #MAX_TIME
+    if [[ $parameters == *"MAX_TIME"* ]]
+    then
+        max_time=`echo $parameters | sed -e 's/.*MAX_TIME=//g'`
+        max_time=`echo $max_time | sed -e 's/ .*//g'`
+    else
+        max_time="5"
+    fi
+
     exclude_string=""
     #EXCLUDE_STRING
     if [[ $parameters == *"EXCLUDE_STRING"* ]]
@@ -70,7 +80,7 @@ function wait_curl_driver(){
 
     eval '
         for i in {1..'"$repeat_max"'}; do
-            str=`curl -sS -m5 $curl_command | grep $grep_command` || str=''
+            str=`curl -sS -m$max_time $curl_command | grep $grep_command` || str=''
             if [[ ! -z $exclude_string ]] ; then
                 str_exclude=`echo $str | grep -v $grep_command`;
                 #break;
@@ -79,7 +89,6 @@ function wait_curl_driver(){
                     break;
                 fi
             fi
-             #str=`curl -sS -m5 $curl_command | grep $exclude_string $grep_command` || str=''
             echo $str
             if [ "$?" = "7" ]; then
                 echo 'Connection refused or cant connect to server/proxy';
