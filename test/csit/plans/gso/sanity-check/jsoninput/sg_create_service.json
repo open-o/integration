@@ -16,20 +16,22 @@
                     "segments":[
 
                     ],
-                    "additionalParamForNs":{
-                        "dcGWIP":"10.1.1.1",
-                        "description":"testoverlay",
-                        "name":"testoverlay",
-                        "dcLBIP":"10.10.10.1",
-                        "vpcSubnetCidr":"10.0.2.0/24",
-                        "siteCidr":"10.0.1.0/24",
-                        "siteThinCpeIP":"10.10.10.5",
-                        "vCPE_MgrIp":"172.15.4.101",
-                        "vpcName":"vdc0/vpc1",
-                        "dcFWIP":"1.0.0.54",
-                        "vpcSubnetName":"vdc0/vpc1",
-                        "id":"999",
-                        "siteAccessPortVlan":"G0/0/1.101"
+                    "nsParameters":{
+                        "additionalParamForNs":{
+                            "dcGWIP":"12.12.12.1",
+                            "description":"456454",
+                            "name":"46456",
+                            "dcLBIP":"13.13.13.1",
+                            "vpcSubnetCidr":"10.0.2.0/24",
+                            "siteCidr":"10.0.1.0/24",
+                            "siteThinCpeIP":"10.10.10.1",
+                            "vCPE_MgrIp":"172.15.4.101",
+                            "vpcName":"vdc0/vpc1",
+                            "dcFWIP":"11.11.11.1",
+                            "vpcSubnetName":"vdc0/vpc1",
+                            "id":"1212",
+                            "siteAccessPortVlan":"G0/0/1.101"
+                        }
                     }
                 },
                 {
@@ -39,9 +41,17 @@
                     "segments":[
 
                     ],
-                    "additionalParamForNs":{
-                        "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
-                        "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                    "nsParameters":{
+                        "locationConstraints": [{
+                            "vnfProfileId": "zte-CSCF-1.0",
+                            "locationConstraints": {
+                                "vimId": "1"
+                            }
+                        }],
+                        "additionalParamForNs":{
+                            "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
+                            "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                        }
                     }
                 },
                 {
@@ -51,14 +61,23 @@
                     "segments":[
 
                     ],
-                    "additionalParamForNs":{
-                        "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
-                        "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                    "nsParameters":{
+                        "locationConstraints": [{
+                            "vnfProfileId": "zte-CSCF-1.0",
+                            "locationConstraints": {
+                                "vimId": "1"
+                            }
+                        }],
+                        "additionalParamForNs":{
+                            "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
+                            "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                        }
                     }
                 }
             ],
-            "additionalParamForNs":{
-
+            "nsParameters":{
+                "additionalParamForNs":{
+                }
             }
         }
     }

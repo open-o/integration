@@ -11,9 +11,17 @@
             "segments":[
 
             ],
-            "additionalParamForNs":{
-                "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
-                "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+            "nsParameters":{
+                "locationConstraints": [{
+                    "vnfProfileId": "zte-CSCF-1.0",
+                    "locationConstraints": {
+                        "vimId": "1"
+                    }
+                }],
+                "additionalParamForNs":{
+                    "location":"8937a94d-1799-47a5-971d-58ff7d35def6",
+                    "sdncontroller":"8937a94d-1799-47a5-971d-58ff7d35de56"
+                }
             }
         }
     }

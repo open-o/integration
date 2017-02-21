@@ -8,9 +8,11 @@
         "nodeTemplateName": "GSO_A",
         "nodeType": "tosca.nodes.GSO",
         "segments": [],
-        "additionalParamForNs": {
-            "gso_a.param1": "value1",
-            "gso_a.param2": "value2"        
+        "nsParameters":{
+            "additionalParamForNs": {
+                "gso_a.param1": "value1",
+                "gso_a.param2": "value2"        
+            }
         }
     },
     {
@@ -21,9 +23,11 @@
         "nodeTemplateName": "GSO_B",
         "nodeType": "tosca.nodes.GSO",
         "segments": [],
-        "additionalParamForNs": {
-            "gso_b.param1": "value1",
-             "gso_b.param2": "value2"
+        "nsParameters":{
+            "additionalParamForNs": {
+                "gso_b.param1": "value1",
+                "gso_b.param2": "value2"
+            }
         }
     }]        
 }
