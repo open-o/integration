@@ -99,6 +99,18 @@ sgQueryProgressFunctionTest
     ${response_json}    json.loads    ${resp.content}
     ${response_operationId}=    Convert To String      ${response_json['operation']['operationId']}
     Should Be Equal    ${response_operationId}    ${operation_id}
+sgScaleServiceFunTest
+    [Documentation]    scale service rest test
+    ${json_value}=     json_from_file      ${createservice_reqjson}
+    ${json_string}=     string_from_json   ${json_value}
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    Set Request Body    ${json_string}
+    ${resp}=    Post Request    web_session     /openoapi/servicegateway/v1/services/${service_id}/scale    ${json_string}
+    Log   ${resp}
+    ${responese_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${responese_code}
+
 sgDeleteServiceFunctionTest
     [Documentation]    delete service rest test
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
