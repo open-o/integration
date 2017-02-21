@@ -21,7 +21,7 @@ sed -i '/#!\/bin\/bash/a export JAVA_OPTS="$JAVA_OPTS -Djava.security.egd=file:/
 # code stick to 127.0.0.1:8080, socat proxy it to actual MSB
 sed -i 's/"msb.openo.org"/"127.0.0.1"/g;s/"port":"80"/"port":"8080"/g' /service/etc/conf/restclient.json
 
-# replace empty ip address with service ip, provided from command line while running docker
-sed -i "s/\"ip\": \"\"/\"ip\": \"$SERVICE_IP\"/g" /service/generalconfig/msbRegistion.json
+# assignn the ip provided from command line while running docker to SDNO_LCM_IP environment variable
+export SDNO_LCM_IP=$SERVICE_IP
 
 # done
