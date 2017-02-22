@@ -4,8 +4,8 @@ Library           OperatingSystem
 
 
 *** Variables ***
-${vnfsdktest_json}    ${SCRIPTS}/../plans/vnf-sdk-validate-lc/sanity-check/jsoninput/vnfsdktestfunc.json
-${getresult_json}    ${SCRIPTS}/../plans/vnf-sdk-validate-lc/sanity-check/jsoninput/getresult_failure.json
+${vnfsdktest_json}    ${SCRIPTS}/../plans/vnf-sdk-validate-lc-test/sanity-check/jsoninput/vnfsdktestfunc.json
+${getresult_json}    ${SCRIPTS}/../plans/vnf-sdk-validate-lc-test/sanity-check/jsoninput/getresult_failure.json
 
 
 *** Test Cases ***
