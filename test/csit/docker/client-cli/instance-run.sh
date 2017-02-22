@@ -16,4 +16,5 @@
 #
 # Start service
 export OPENO_CLI_HOME=/service
+export MSB_URL=http://$MSB_ADDR:80
 /bin/bash

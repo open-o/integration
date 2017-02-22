@@ -30,6 +30,17 @@ docker run -d -i -t -e MSB_ADDR=$MSB_IP --name i-auth -p 8100:8100 openoint/comm
 # Start client-cli
 #docker run -d -i -t -e MSB_ADDR=http://$MSB_IP --name i-cli -e OPENO_USERNAME=admin -e OPENO_PASSWORD=Changeme_123 openoint/client-cli --entrypoint openo
 
+export CLI_ZIP=client-cli-deployment-1.1.0-20170221.090136-5.zip
+export OPENO_CLI_HOME=/opt/client-cli
+
+sudo apt-get install unzip -y
+
+wget "https://nexus.open-o.org/content/repositories/snapshots/org/openo/client/cli/client-cli-deployment/1.1.0-SNAPSHOT/$CLI_ZIP" -P $OPENO_CLI_HOME
+
+unzip $OPENO_CLI_HOME/ -d $OPENO_CLI_HOME
+
+chmod -R 766 /opt/client-cli
+
 echo SCRIPTS
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
