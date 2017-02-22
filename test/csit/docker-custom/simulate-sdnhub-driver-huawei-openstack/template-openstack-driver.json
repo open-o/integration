@@ -1,0 +1,14 @@
+{
+    "driverInfo": {
+        "driverName": "sdnhub-driver-huawei-openstack-1",
+        "instanceID": "sdnhub-driver-huawei-openstack-1",
+        "ip": "OVERLAY_IP",
+        "port": "8539",
+        "protocol": "http",
+        "services": [
+            {
+                "service_url": "/openoapi/sbi-openstack/v1"
+            }
+        ]
+    }
+}
