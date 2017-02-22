@@ -2,7 +2,6 @@
 Resource    ../../common.robot
 Library     Collections
 Library     RequestsLibrary
-Library     simplejson
 Library     OperatingSystem
 Library     json
 Library     HttpLibrary.HTTP

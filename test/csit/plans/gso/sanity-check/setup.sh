@@ -35,13 +35,13 @@ sleep 8
 run-instance.sh openoint/gso-service-gateway gso-sgw " -i -t -e MSB_ADDR=${MSB_IP}:80"
 sleep_msg="Waiting_for_gso-sgw"
 curl_path='http://'${MSB_IP}':80/openoapi/servicegateway/v1/domains'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=15 GREP_STRING="\["
 
 #Start gso
 run-instance.sh openoint/gso-service-manager gso " -i -t -e MSB_ADDR=${MSB_IP}:80 -e MYSQL_ADDR=${INV_ADDR}:3306"
 sleep_msg="Waiting_for_gso-sgw"
 curl_path='http://'${MSB_IP}':80/openoapi/gso/v1/services'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
 
 echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
@@ -55,7 +55,7 @@ docker run -d -i -t --name gso_csit_simulator -p 18009:18009 -p 18008:18008  ope
 SIMULATOR_IP=`get-instance-ip.sh gso_csit_simulator`
 sleep_msg="Waiting_for_simulator"
 curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=15 GREP_STRING="\["
 
 
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
