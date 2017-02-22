@@ -22,6 +22,9 @@ holmes-rule-management
 integration
 modelling-csar
 modelling-specs
+multivimdriver-broker
+multivimdriver-openstack
+multivimdriver-vmware-vio
 nfvo
 oparent
 policy-designer
