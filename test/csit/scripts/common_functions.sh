@@ -109,6 +109,12 @@ function wait_curl_driver(){
 
 function run_simulator ()
 {
+   run_robottestlib 
+   run_simulator_docker $1
+}
+
+function run_robottestlib ()
+{
     #Start the robottest REST library if not started
     if ! pgrep -f robottest > /dev/null
     then
@@ -117,13 +123,21 @@ function run_simulator ()
         chmod +x  ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar
         eval `java -cp ${SCRIPTS}/integration/mockserver/org.openo.robottest.jar  org.openo.robot.test.robottest.MyRemoteLibrary` &
     fi
+}
 
+function run_simulator_docker ()
+{
     #Start the simulator docker if not started
     SIMULATOR_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
     if [[ -z $SIMULATOR_IP ]]
     then
         echo "Starting simulator docker..."
-        eval `docker run -d -i -t --name simulator -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker`
+        SIMULATOR_JSON=$1
+        if [[ -z $SIMULATOR_JSON ]]
+        then
+            SIMULATOR_JSON=main.json
+        fi
+        docker run -d -i -t --name simulator -e SIMULATOR_JSON=$SIMULATOR_JSON -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
         SIMULATOR_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' simulator`
     fi
 
