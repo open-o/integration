@@ -289,7 +289,7 @@
       <outputDirectory>policy-engine</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.policy.engine:policy-engine:tar.gz:linux64</include>
+        <include>org.openo.policy.engine:policy-engine-core:tar.gz:linux64</include>
       </includes>
       <outputFileNameMapping>policy-engine-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>

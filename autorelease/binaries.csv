@@ -27,7 +27,7 @@ nfvo,monitor-dac,NFVO Monitor Data Acquire Component,nfvo-dac,org.openo.nfvo.mon
 nfvo,monitor-umc,NFVO Monitor Unified Monitor Component,nfvo-umc,org.openo.nfvo.monitor.umc.umc-api,umc-standalone,zip,,8205,TRUE,,,
 nfvo,sdnc-zte,NFVO SDNC Driver ZTE,nfvo-driver-sdnc-zte,org.openo.nfvo.sfc-driver-standalone,nfvo-drivers-sdnc-zte-sfc-driver,zip,,8411,,,,
 policy-designer,,Policy Designer,policy-designer,org.openo.policy.designer,policydesigner-resource,tar.gz,linux64,8901,TRUE,,,
-policy-engine,,Policy Engine,policy-engine,org.openo.policy.engine,policy-engine,tar.gz,linux64,8902,,,,
+policy-engine,,Policy Engine,policy-engine,org.openo.policy.engine,policy-engine-core,tar.gz,linux64,8902,,,,
 policy-lcm,,Policy Lcm,policy-lcm,org.openo.policy.lcm,apply,tar.gz,linux64,8903,,,,
 sdnhub-driver-ct-te,,SDNHUB Driver CT TE,sdnhub-driver-ct-te,org.openo.sdnhub.driver-ct-te,ct_tedriver,zip,,8670,,,TRUE,
 sdnhub-driver-huawei-l3vpn,,SDNHUB Driver Huawei L3VPN,sdnhub-driver-huawei-l3vpn,org.openo.sdnhub.driver-huawei-l3vpn,l3vpndriver-deployment,zip,,8533,,TRUE,,
