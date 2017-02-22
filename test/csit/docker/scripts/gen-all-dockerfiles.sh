@@ -42,6 +42,16 @@ cat > $ROOT/target/pom.xml <<EOF
   <artifactId>docker-root</artifactId>
   <version>${VERSION}</version>
   <packaging>pom</packaging>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>0.19.0</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
   <modules>
 EOF
 for dirsrc in `$ROOT/scripts/ls-microservices.py | sort`; do
