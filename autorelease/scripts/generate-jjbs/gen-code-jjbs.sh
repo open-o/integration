@@ -33,6 +33,7 @@ find . -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | while read repo; 
 
     in_sun_branch=`git show sun:autorelease/all-projects.txt | grep -x ${repo}`
 
+    mkdir -p $JJB_DIR/$repo
 
     if [ ! -z "$toxs" ]; then
 	rm -f $JJB_DIR/$repo/${repo}-python.yaml
