@@ -19,7 +19,7 @@ DRIVERMANAGER_URL="/openoapi/drivermgr/v1/drivers"
 
 OVERLAY_TEMPLATE_FILE="template-overlay-driver.json"
 OVERLAY_SIMU_FILE="overlay_sim_file.json"
-OVERLAY_DRIVER_SIMU_FILENAME="OverlayDriver.json"
+OVERLAY_DRIVER_SIMU_FILENAME="sdnhub-driver-huawei-overlay.json"
 
 SERVICE_TYPE="http"
 DRIVER_LISTEN_PORT="8536";
