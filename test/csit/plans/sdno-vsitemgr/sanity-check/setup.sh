@@ -25,10 +25,6 @@ curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
-# Start BRS
-#${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
-#BRS_IP=`get-instance-ip.sh i-brs`
-
 ${SCRIPTS}/sdno-vsitemgr/startup.sh i-vsitemgr ${MSB_IP}:80
 SERVICE_IP=`get-instance-ip.sh i-vsitemgr`
 
