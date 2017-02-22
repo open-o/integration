@@ -44,11 +44,15 @@
     <module>gvnfm-vnfmgr/mgr</module>
     <module>gvnfm-vnfres/res</module>
     <module>holmes-actions</module>
+    <module>holmes-engine-management</module>
     <module>holmes-rule-management</module>
     <module>integration/test/robottest</module>
     <module>integration/test/sdno-testframework</module>
     <module>modelling-csar</module>
     <module>modelling-specs</module>
+    <module>multivimdriver-broker/multivimbroker</module>
+    <module>multivimdriver-openstack</module>
+    <module>multivimdriver-vmware-vio</module>
     <module>nfvo</module>
     <module>oparent</module>
     <module>policy-designer</module>
@@ -83,28 +87,21 @@
   </modules>
   <dependencies>
     <dependency>
-      <groupId>org.openo.common-services.microservice-bus</groupId>
-      <artifactId>msb-core-standalone</artifactId>
+      <groupId>org.openo.client.cli</groupId>
+      <artifactId>client-cli-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
-      <type>tar.gz</type>
-      <classifier>linux64</classifier>
+      <type>zip</type>
+      <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.common-services.protocol-stack</groupId>
-      <artifactId>protocolstackservice-deployment</artifactId>
+      <groupId>org.openo.common-services.auth</groupId>
+      <artifactId>auth-service-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
     </dependency>
     <dependency>
       <groupId>org.openo.common-services.common-utilities.wso2bpel-ext</groupId>
-      <artifactId>standalone</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>tar.gz</type>
-      <classifier>linux64</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.common-services.external-system-registration</groupId>
       <artifactId>standalone</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>tar.gz</type>
@@ -118,8 +115,22 @@
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.common-services.auth</groupId>
-      <artifactId>auth-service-deployment</artifactId>
+      <groupId>org.openo.common-services.external-system-registration</groupId>
+      <artifactId>standalone</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>tar.gz</type>
+      <classifier>linux64</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.common-services.microservice-bus</groupId>
+      <artifactId>msb-core-standalone</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>tar.gz</type>
+      <classifier>linux64</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.common-services.protocol-stack</groupId>
+      <artifactId>protocolstackservice-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -153,11 +164,144 @@
       <classifier>linux.gtk.x86_64</classifier>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdnhub.driver-zte-sptn</groupId>
-      <artifactId>standalone</artifactId>
+      <groupId>org.openo.gso</groupId>
+      <artifactId>service-gateway-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gso</groupId>
+      <artifactId>servicemanagerservice-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gso.gui</groupId>
+      <artifactId>portal-package</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gvnfm.vnflcm</groupId>
+      <artifactId>gvnfm-vnflcm</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gvnfm.vnfmgr</groupId>
+      <artifactId>gvnfm-vnfmgr</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.gvnfm.vnfres</groupId>
+      <artifactId>gvnfm-vnfres</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>vimadapter-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>drivers-vnfm-gvnfm-gvnfmadapter</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>hw-vnfmadapter-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>juju-vnfmadapterservice-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>drivers-vnfm-svnfm-zte-vmanager</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>nfvo-lcm</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo</groupId>
+      <artifactId>resmanagement-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo.monitor.dac.dac-api</groupId>
+      <artifactId>dac-standalone</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo.monitor.umc.umc-api</groupId>
+      <artifactId>umc-standalone</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.nfvo.sfc-driver-standalone</groupId>
+      <artifactId>nfvo-drivers-sdnc-zte-sfc-driver</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.policy.designer</groupId>
+      <artifactId>policydesigner-resource</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>tar.gz</type>
       <classifier>linux64</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.policy.engine</groupId>
+      <artifactId>policy-engine</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>tar.gz</type>
+      <classifier>linux64</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.policy.lcm</groupId>
+      <artifactId>apply</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>tar.gz</type>
+      <classifier>linux64</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.sdnhub.driver-ct-te</groupId>
+      <artifactId>ct_tedriver</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
     </dependency>
     <dependency>
       <groupId>org.openo.sdnhub.driver-huawei-l3vpn</groupId>
@@ -188,8 +332,15 @@
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdnhub.driver-ct-te</groupId>
-      <artifactId>ct_tedriver</artifactId>
+      <groupId>org.openo.sdnhub.driver-zte-sptn</groupId>
+      <artifactId>standalone</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>tar.gz</type>
+      <classifier>linux64</classifier>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.sdno.brs</groupId>
+      <artifactId>brs-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -197,13 +348,6 @@
     <dependency>
       <groupId>org.openo.sdno.brs</groupId>
       <artifactId>mss-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.sdno.brs</groupId>
-      <artifactId>brs-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -230,6 +374,20 @@
       <classifier/>
     </dependency>
     <dependency>
+      <groupId>org.openo.sdno.lcm</groupId>
+      <artifactId>lcm-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
+      <groupId>org.openo.sdno.monitoring</groupId>
+      <artifactId>ct_monitoring</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
       <groupId>org.openo.sdno.nslcm</groupId>
       <artifactId>nslcm-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
@@ -237,8 +395,8 @@
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.site</groupId>
-      <artifactId>localsiteservice-deployment</artifactId>
+      <groupId>org.openo.sdno.optimize</groupId>
+      <artifactId>ct_optimizer</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -265,29 +423,15 @@
       <classifier/>
     </dependency>
     <dependency>
+      <groupId>org.openo.sdno.site</groupId>
+      <artifactId>localsiteservice-deployment</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
+    <dependency>
       <groupId>org.openo.sdno.vpc</groupId>
       <artifactId>vpcservice-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.sdno.vxlan</groupId>
-      <artifactId>vxlanservice-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.sdno.monitoring</groupId>
-      <artifactId>ct_monitoring</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.sdno.optimize</groupId>
-      <artifactId>ct_optimizer</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -300,99 +444,8 @@
       <classifier/>
     </dependency>
     <dependency>
-      <groupId>org.openo.sdno.lcm</groupId>
-      <artifactId>lcm-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.gso</groupId>
-      <artifactId>servicemanagerservice-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.gso</groupId>
-      <artifactId>service-gateway-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo</groupId>
-      <artifactId>vimadapter-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo</groupId>
-      <artifactId>juju-vnfmadapterservice-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo</groupId>
-      <artifactId>hw-vnfmadapter-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo</groupId>
-      <artifactId>resmanagement-deployment</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo.monitor.umc.umc-api</groupId>
-      <artifactId>umc-standalone</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo.monitor.dac.dac-api</groupId>
-      <artifactId>dac-standalone</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo</groupId>
-      <artifactId>nfvo-lcm</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo</groupId>
-      <artifactId>drivers-vnfm-svnfm-zte-vmanager</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo</groupId>
-      <artifactId>drivers-vnfm-gvnfm-gvnfmadapter</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.nfvo.sfc-driver-standalone</groupId>
-      <artifactId>nfvo-drivers-sdnc-zte-sfc-driver</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.gso.gui</groupId>
-      <artifactId>portal-package</artifactId>
+      <groupId>org.openo.sdno.vxlan</groupId>
+      <artifactId>vxlanservice-deployment</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>zip</type>
       <classifier/>
@@ -400,48 +453,6 @@
     <dependency>
       <groupId>org.openo.vnf-sdk.function-test</groupId>
       <artifactId>standalone</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>tar.gz</type>
-      <classifier>linux64</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.gvnfm.vnflcm</groupId>
-      <artifactId>gvnfm-vnflcm</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.gvnfm.vnfres</groupId>
-      <artifactId>gvnfm-vnfres</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.gvnfm.vnfmgr</groupId>
-      <artifactId>gvnfm-vnfmgr</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>zip</type>
-      <classifier/>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.policy.lcm</groupId>
-      <artifactId>apply</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>tar.gz</type>
-      <classifier>linux64</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.policy.designer</groupId>
-      <artifactId>policydesigner-resource</artifactId>
-      <version>1.1.0-SNAPSHOT</version>
-      <type>tar.gz</type>
-      <classifier>linux64</classifier>
-    </dependency>
-    <dependency>
-      <groupId>org.openo.policy.engine</groupId>
-      <artifactId>policy-engine</artifactId>
       <version>1.1.0-SNAPSHOT</version>
       <type>tar.gz</type>
       <classifier>linux64</classifier>
