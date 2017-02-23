@@ -47,7 +47,7 @@ ${SCRIPTS}/sdnhub-driver-huawei-openstack/startup.sh d-driver-huawei-openstack $
 DRIVERMGR_IP=`get-instance-ip.sh d-drivermgr`
 
 DRIVER_PORT='8539'
-DRIVER_NAME='sdnoopenstackdriver-0-1'
+DRIVER_NAME='sdnhubopenstackdriver-0-1'
 DRIVERMGR_PORT="8103"
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES

@@ -46,7 +46,7 @@ L3VPN_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' d-driver-hu
 DRIVERMGR_IP=`get-instance-ip.sh d-drivermgr`
 
 DRIVER_PORT='8533'
-DRIVER_NAME='sdnol3vpndriver-0-1'
+DRIVER_NAME='sdnhubl3vpndriver-0-1'
 DRIVERMGR_PORT="8103"
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES

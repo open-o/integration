@@ -51,7 +51,7 @@ OVERLAYIP_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' d-drive
 DRIVERMGR_IP=`get-instance-ip.sh d-drivermgr`
 
 DRIVER_PORT='8536'
-DRIVER_NAME='sdnooverlaydriver-0-1'
+DRIVER_NAME='sdnhuboverlaydriver-0-1'
 DRIVERMGR_PORT="8103"
 
 # debug logs : to check running instances
