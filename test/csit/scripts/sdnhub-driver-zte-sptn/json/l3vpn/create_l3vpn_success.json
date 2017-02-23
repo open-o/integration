@@ -1,0 +1,122 @@
+{
+  "request": {
+    "uri": "http://${DRIVER_IP}:${DRIVER_PORT}/openoapi/sbi-l3vpn/v1/l3vpns",
+    "method": "post",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Driver-Parameter": "extSysID=${SPTN_CONTROLLER_ID}"
+    },
+    "json": {
+      "l3vpn": {
+        "name": "L3VPNServiceA",
+        "description": "ASDDS",
+        "topology": "full-mesh",
+        "adminStatus": "adminUp",
+        "tunnelService": {
+          "mplsTe": {
+            "signalType": "rsvp-te",
+            "manageProtocol": "netconf",
+            "sharing": true,
+            "besteffort": false,
+            "coRoute": true,
+            "bfdEnable": true,
+            "pathConstraint": {
+              "latency": 2016,
+              "setupPriority": 4,
+              "holdupPriority": 4
+            }
+          }
+        },
+        "acs": {
+          "ac": [{
+              "neId": "fe8fe9ab-752d-4b55-a27c-9311d926baa2",
+              "ltpId": "753ad6b4-295c-47d6-955a-a2b8f7075b59",
+              "name": "6500-8-1:9-3",
+              "description": "",
+              "adminStatus": "adminUp",
+              "l2Access": {
+                "dot1qVlanBitmap": 23,
+                "accessAction": "keep",
+                "accessType": "dot1q"
+              },
+              "l3Access": {
+                "ipv4Address": "113.1.1.2/24",
+                "routes": {
+                  "route": [{
+                      "type": "static",
+                      "staticRoutes": {
+                        "staticRoute": [{
+                            "ipPrefix": "192.168.233.208/28",
+                            "nextHop": "113.1.1.3"
+                          }
+                        ]
+                      }
+                    }, {
+                      "type": "bgp",
+                      "bgpRoutes": {
+                        "bgpRoute": [{
+                            "remoteAs": "100",
+                            "peerIp": "1.1.1.1",
+                            "password": "Test_1234",
+                            "advertiseCommunity": false,
+                            "advertiseExtCommunity": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "id": "9912eaee-8eda-43b8-a991-6d056f57a454"
+            }, {
+              "neId": "c1af5a5c-376c-4ecf-9c52-e3e45895402f",
+              "ltpId": "480f728d-a9db-4fce-851e-839d50f4324a",
+              "name": "6500-8-2:16-9",
+              "description": "",
+              "adminStatus": "adminUp",
+              "l2Access": {
+                "dot1qVlanBitmap": 14,
+                "accessAction": "keep",
+                "accessType": "dot1q"
+              },
+              "l3Access": {
+                "ipv4Address": "10.10.10.2/24",
+                "routes": {
+                  "route": [{
+                      "type": "static",
+                      "staticRoutes": {
+                        "staticRoute": [{
+                            "ipPrefix": "9.9.9.9/25",
+                            "nextHop": "10.10.10.3"
+                          }
+                        ]
+                      }
+                    }, {
+                      "type": "bgp",
+                      "bgpRoutes": {
+                        "bgpRoute": [{
+                            "remoteAs": "100",
+                            "peerIp": "1.1.1.1",
+                            "password": "Test_1234",
+                            "advertiseCommunity": false,
+                            "advertiseExtCommunity": false
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "id": "ff9b2bbb-0db1-414b-83db-cde41990e2b9"
+            }
+          ]
+        },
+        "id": "0de4547b-50b1-4dcd-80a5-a65bd3c4a835"
+      }
+    }
+
+  },
+  "response": {
+    "status": 201
+  }
+}

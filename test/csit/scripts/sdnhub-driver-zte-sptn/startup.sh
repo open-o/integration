@@ -24,4 +24,4 @@ echo Starting driver zte sptn
 run-instance.sh openoint/sdnhub-driver-zte-sptn i-driver-zte-sptn " -i -t -e MSB_ADDR=$2"
 curl_path='http://'$2'/openoapi/drivermgr/v1/drivers'
 sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="sdno-zte-sptn-driver-1"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="sdno-zte-sptn-driver-1"

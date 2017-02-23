@@ -1,0 +1,13 @@
+{
+  "request": {
+    "uri": "http://${DRIVER_IP}:${DRIVER_PORT}/openoapi/sbi-l3vpn/v1/l3vpns/0de4547b-50b1-4dcd-80a5-a65bd3c4a835",
+    "method": "delete",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Driver-Parameter": "extSysID=${SPTN_CONTROLLER_ID}"
+    }
+  },
+  "response": {
+    "status": 200
+  }
+}

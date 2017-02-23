@@ -1,0 +1,130 @@
+{
+  "request": {
+    "uri": "http://${DRIVER_IP}:${DRIVER_PORT}/openoapi/sbi-l2vpn-vpws/v1/l2vpn_vpwss",
+    "method": "post",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Driver-Parameter": "extSysID=${SPTN_CONTROLLER_ID}"
+    },
+    "json": {
+      "l2vpnVpws": {
+        "id": "ea20c72a-09bb-41a7-a468-8feb3d5176c6",
+        "name": "l2vpnname",
+        "tenantId": "tenantId",
+        "description": "descripition",
+        "topology": "hub-spoke",
+        "adminStatus": "adminUp",
+        "operStatus": "operateUp",
+        "tunnelService": {
+          "type": "mpls-te",
+          "autoSelect": {
+            "autoSelectTunnels": {
+              "autoSelectTunnel": []
+            }
+          },
+          "mplsTe": {
+            "signalType": "static-lsp",
+            "manageProtocol": "netconf",
+            "pathConstraint": {},
+            "pathProtectPolicy": {
+              "type": "ss",
+              "revertive": true,
+              "bandwidthMode": "original-bandwidth",
+              "wtr": 100
+            }
+          },
+          "particularConstraints": {
+            "particularConstraint": []
+          }
+        },
+        "mtu": 4600,
+        "acs": {
+          "ac": [{
+              "id": "l2ac1",
+              "name": "ac1name",
+              "tenantId": "tenantId-ac",
+              "localName": "l2ac1-local",
+              "description": "l2acdescription",
+              "neId": "53319217-4670-49c3-8d82-68ba1350c542",
+              "ltpId": "0f2d13f6-b659-49d6-a9f4-b28211eb98e7",
+              "adminStatus": "adminUp",
+              "operStatus": "operateUp",
+              "l2Access": {
+                "accessType": "port",
+                "dot1qVlanBitmap": "1",
+                "qinqSvlanBitmap": "1",
+                "qinqCvlanBitmap": "1",
+                "pushVlanId": 1,
+                "swapVlanId": 1,
+                "accessAction": "push"
+              },
+              "inboundQosIfPhb": {},
+              "outboundQosIfPhb": {},
+              "upstreamBandwidth": {},
+              "downstreamBandwidth": {},
+              "overrideFlow": {
+                "overrideFlow": []
+              }
+            }, {
+              "id": "ac2uuid",
+              "name": "ac2name",
+              "tenantId": "ac2tenant",
+              "localName": "ac2localname",
+              "description": "description",
+              "neId": "f8d01f79-b2f7-4e4a-bbfc-23f670041e04",
+              "ltpId": "13e26387-1942-42c6-9be1-d359d44c8428",
+              "adminStatus": "adminUp",
+              "operStatus": "operateUp",
+              "l2Access": {
+                "accessType": "port",
+                "dot1qVlanBitmap": "1",
+                "qinqSvlanBitmap": "1",
+                "qinqCvlanBitmap": "1",
+                "pushVlanId": 1,
+                "swapVlanId": 1,
+                "accessAction": "push"
+              },
+              "inboundQosIfPhb": {},
+              "outboundQosIfPhb": {},
+              "upstreamBandwidth": {},
+              "downstreamBandwidth": {},
+              "overrideFlow": {
+                "overrideFlow": []
+              }
+            }
+          ]
+        },
+        "ctrlWordType": "enable",
+        "pws": {
+          "uuid": "pwsuuid",
+          "pws": [{
+              "id": "pw1uuid",
+              "name": "pw1name",
+              "description": "pw1description",
+              "tenantId": "pw1tenantId",
+              "neId": "53319217-4670-49c3-8d82-68ba1350c542",
+              "peerAddress": "0.0.0.0",
+              "topoRole": "hub",
+              "protectionRole": "primary"
+            }, {
+              "id": "pw2uuid",
+              "name": "pw2name",
+              "description": "pw2description",
+              "tenantId": "p2wtenantId",
+              "neId": "f8d01f79-b2f7-4e4a-bbfc-23f670041e04",
+              "peerAddress": "0.0.0.0",
+              "topoRole": "hub",
+              "protectionRole": "primary"
+            }
+          ]
+        },
+        "signalingType": "static",
+        "encapsulation": "eth"
+      }
+    }
+
+  },
+  "response": {
+    "status": 201
+  }
+}

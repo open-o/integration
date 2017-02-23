@@ -20,3 +20,4 @@ kill-instance.sh i-msb
 kill-instance.sh i-common-services-extsys
 kill-instance.sh i-drivermgr
 kill-instance.sh i-driver-zte-sptn
+kill-instance.sh simulator

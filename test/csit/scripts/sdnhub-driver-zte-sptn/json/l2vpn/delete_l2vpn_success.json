@@ -1,0 +1,13 @@
+{
+  "request": {
+    "uri": "http://${DRIVER_IP}:${DRIVER_PORT}/openoapi/sbi-l2vpn-vpws/v1/l2vpn_vpwss/ea20c72a-09bb-41a7-a468-8feb3d5176c6",
+    "method": "delete",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Driver-Parameter": "extSysID=${SPTN_CONTROLLER_ID}"
+    }
+  },
+  "response": {
+    "status": 200
+  }
+}

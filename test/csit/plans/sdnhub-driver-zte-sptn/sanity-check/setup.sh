@@ -31,6 +31,9 @@ curl_path='http://'$extsys_ip':8100/openoapi/extsys/v1/vims'
 sleep_msg="Waiting_connection_for_url_for: common-services-extsys"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
 
+# Pass any variables required by Robot test suites in ROBOT_VARIABLES
+run_simulator /service/Stubs/testcase/zte-sptn-controller/summary.json
+
 #Start openoint/common-services-drivermanager
 run-instance.sh openoint/common-services-drivermanager i-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
 curl_path='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
@@ -40,10 +43,14 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 #Start openoint/sdno-driver-zte-sptn
 ${SCRIPTS}/sdnhub-driver-zte-sptn/startup.sh i-driver-zte-sptn ${MSB_IP}:80
 
+# debug logs : to check running instances
+docker exec -it `docker ps -a | grep simulator | awk '{print $1}'`  ps -ax
+
 DRIVERMGR_IP=`get-instance-ip.sh i-drivermgr`
+DRIVER_IP=`get-instance-ip.sh i-driver-zte-sptn`
 DRIVER_PORT='8640'
 DRIVER_NAME='sdno-zte-sptn-driver-1'
 DRIVERMGR_PORT="8103"
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v DRIVERMGR_IP:${DRIVERMGR_IP} -v DRIVERMGR_PORT:${DRIVERMGR_PORT} -v DRIVER_PORT:${DRIVER_PORT} -v DRIVER_NAME:${DRIVER_NAME} "
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v DRIVERMGR_IP:${DRIVERMGR_IP} -v DRIVERMGR_PORT:${DRIVERMGR_PORT} -v DRIVER_IP:${DRIVER_IP} -v DRIVER_PORT:${DRIVER_PORT} -v DRIVER_NAME:${DRIVER_NAME} -v SIMULATOR_IP:${SIMULATOR_IP} -v SCRIPTS:${SCRIPTS}"

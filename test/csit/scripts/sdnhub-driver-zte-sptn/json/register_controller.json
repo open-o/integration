@@ -1,0 +1,36 @@
+{
+  "request": {
+    "uri": "http://${MSB_IP}/openoapi/extsys/v1/sdncontrollers",
+    "method": "post",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "json": {
+      "name": "zte-sptn-controller-simulator",
+      "url": "http://${SIMULATOR_IP}:18009",
+      "userName": "admin",
+      "password": "",
+      "version": "STN-1.10.00.B11",
+      "vendor": "ZTE",
+      "description": "",
+      "protocol": "netconf",
+      "productName": "",
+      "type": "zte-sptn-controller"
+    }
+  },
+  "response": {
+    "status": 201,
+    "json": {
+      "type": "object",
+      "properties": {
+        "createTime": {
+          "type": "string"
+        },
+        "sdnControllerId": {
+          "type": "string"
+        }
+      }
+    },
+    "required": ["sdnControllerId"]
+  }
+}
