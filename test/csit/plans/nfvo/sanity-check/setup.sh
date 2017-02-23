@@ -35,7 +35,7 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 
 # Start hwvnfmdriver
 run-instance.sh openoint/nfvo-driver-vnfm-huawei hwvnfmdriver " -i -t -e MSB_ADDR=${MSB_IP}:80"
-extsys_ip=`get-instance-ip.sh hwvnfmdriver`
+HWNFVM_IP=`get-instance-ip.sh hwvnfmdriver`
 sleep_msg="Waiting_for_hwvnfmdriver"
 curl_path='http://'${MSB_IP}':80/openoapi/hwvnfm/v1/swagger.json'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
@@ -60,7 +60,7 @@ sleep_msg="Waiting_for_simulator"
 curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=15 GREP_STRING="\["
 
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}  -v HWNFVM_IP:${HWNFVM_IP}"
 robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/sanity-check/register_simulator_to_msb.robot
 
 
