@@ -19,6 +19,7 @@
 rm -f $BUILD_DIR/integration/autorelease/build/pom.xml
 rm -f $BUILD_DIR/nfvo/monitor/pom.xml
 rm -f $BUILD_DIR/multivimdriver-openstack/pom.xml
+rm -f $BUILD_DIR/multivimdriver-vmware-vio/pom.xml
 touch $BUILD_DIR/common-tosca-aria/tox.ini
 
 
