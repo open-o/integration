@@ -29,7 +29,7 @@ $ROOT/scripts/get-all-repos.sh | while read p; do
 	git checkout $GERRIT_BRANCH
 	git reset --hard origin
 	git clean -f
-	# git pull
+	git pull
     else
 	#TODO: replace with https once repo is open to public
 	git clone -b $GERRIT_BRANCH ssh://gerrit.open-o.org:29418/$p
