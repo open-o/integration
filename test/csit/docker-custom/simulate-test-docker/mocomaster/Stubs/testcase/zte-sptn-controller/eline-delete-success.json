@@ -1,7 +1,7 @@
 [{
     "request": {
       "uri": "/restconf/operations/sptn-service-eline:delete-snc-eline",
-      "method": "delete",
+      "method": "post",
       "headers": {
         "ICTAuthentication": "21232F297A57A5A743894A0E4A801FC3"
       },
@@ -12,7 +12,7 @@
       }
     },
     "response": {
-      "status": 204
+      "status": 200
     }
   }
 ]
