@@ -510,6 +510,15 @@
       <outputFileNameMapping>vnfsdk-function-test-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
+    <dependencySet>
+      <outputDirectory>multivim-broker</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.multivimdriver.broker:multivimbroker:zip</include>
+      </includes>
+      <outputFileNameMapping>multivim-broker-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
   </dependencySets>
 </assembly>
 
