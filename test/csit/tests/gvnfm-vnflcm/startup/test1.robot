@@ -6,8 +6,7 @@ Library     OperatingSystem
 Library     json
 Library     HttpLibrary.HTTP
 
-#global variables
-${vnfInstId}
+
 
 *** Variables ***
 ${queryswagger_url}   /openoapi/vnflcm/v1/swagger.json
@@ -16,6 +15,9 @@ ${deletevnf_url}      /openoapi/vnflcm/v1/vnf_instances
 
 #json files
 ${vnflcm_createvnf_json}    ${SCRIPTS}/../plans/gvnfm-vnflcm/sanity-check/jsoninput/vnflcm_createvnf.json
+
+#global variables
+${vnfInstId}
 
 *** Test Cases ***
 Liveness Test

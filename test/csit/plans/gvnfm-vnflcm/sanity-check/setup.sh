@@ -34,5 +34,5 @@ for i in {1..10}; do
 done
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MSB_IP:${MSB_IP} -v VNFLCM_IP:${VNFLCM_IP}"
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP} -v VNFLCM_IP:${VNFLCM_IP} -v SCRIPTS:${SCRIPTS}"
 
