@@ -58,10 +58,9 @@ SIMULATOR_IP=`get-instance-ip.sh simulator`
 
 sleep_msg="Waiting_for_simulator"
 curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=5 GREP_STRING="\["
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=15 GREP_STRING="\["
 
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
-robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/sanity-check/jujuvnfm_driver.robot
-
+robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/sanity-check/register_simulator_to_msb.robot
 
 

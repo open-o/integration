@@ -1,0 +1,9 @@
+{
+    "vimId": "123",
+    "vimName": "vim1",
+    "limits": {
+        "volumes": 1000,
+        "gigabytes": 42000,
+        "snapshots": 100
+    }
+}

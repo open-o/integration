@@ -1,75 +1,72 @@
-[
-    {
-        "request": {
-		    "method": "get",
-            "uri": "/openoapi/extsys/v1/vnfms/test_vnfm_id"
-        },
-        "response": {
-		"status": 200,
-		"json": {
-			"url":"http://127.0.0.1:8483",
-			"vnfmId":"test_vnfm_id",
-			"vnfdId":"testVnfdId",
-			"version":"1"
-		}
-    }
-	},
-	{
-        "request": {
-		    "method": "get",
-            "uri": "/openoapi/jujuvnfm/v1/vnfms/status?modelName=modelName007"
-        },
-        "response": {
-		"status": 200,
-		"json": {
-			"vnfInfo":{
-				"vnfInstanceId":"",
-				"vnfInstanceName":"test_vnfm_id",
-				"vnfInstanceDescription":"testVnfdId",
-				"vnfdId":"1",
-				"vnfdPackageId":"",
-				"vnfProvider":"",
-				"vnfType":"",
-				"vnfStatus":""
-			}
-			
-		}
-    }},
-	{
-        "request": {
-            "method": "post",
-            "uri": "/openoapi/jujuvnfm/v1/vnfms/destroy"
-        },
-        "response": {
-		"status": 204,
+[{
+		"request": {
+			"method": "get",
+			"uri": "/openoapi/extsys/v1/vnfms/test_vnfm_id"
+		},
+		"response": {
+			"status": 200,
 			"json": {
-				"retCode":"0",
-				"msg":"success",
-				"vnfId":"007vnfId"
-				
+				"url": "http://127.0.0.1:8483",
+				"vnfmId": "test_vnfm_id",
+				"vnfdId": "testVnfdId",
+				"version": "1"
 			}
-        }
-    },
-    {
-        "request": {
-            "method": "post",
-            "uri": "/openoapi/jujuvnfm/v1/vnfms/deploy"
-        },
-        "response": {
-            "status": 200,
+		}
+	}, {
+		"request": {
+			"method": "get",
+			"uri": "/openoapi/jujuvnfm/v1/vnfms/status"
+			"queries": {
+				"modelName": "modelName007"
+			}
+		},
+		"response": {
+			"status": 200,
 			"json": {
-				"vnfInfo":{
-					"vnfInstanceId":"",
-					"vnfInstanceName":"test_vnfm_id",
-					"vnfInstanceDescription":"testVnfdId",
-					"vnfdId":"1",
-					"vnfdPackageId":"",
-					"vnfProvider":"",
-					"vnfType":"",
-					"vnfStatus":""
+				"vnfInfo": {
+					"vnfInstanceId": "",
+					"vnfInstanceName": "test_vnfm_id",
+					"vnfInstanceDescription": "testVnfdId",
+					"vnfdId": "1",
+					"vnfdPackageId": "",
+					"vnfProvider": "",
+					"vnfType": "",
+					"vnfStatus": ""
 				}
-				
 			}
-        }
-    }
+		}
+	}, {
+		"request": {
+			"method": "post",
+			"uri": "/openoapi/jujuvnfm/v1/vnfms/destroy"
+		},
+		"response": {
+			"status": 204,
+			"json": {
+				"retCode": "0",
+				"msg": "success",
+				"vnfId": "007vnfId"
+			}
+		}
+	}, {
+		"request": {
+			"method": "post",
+			"uri": "/openoapi/jujuvnfm/v1/vnfms/deploy"
+		},
+		"response": {
+			"status": 200,
+			"json": {
+				"vnfInfo": {
+					"vnfInstanceId": "",
+					"vnfInstanceName": "test_vnfm_id",
+					"vnfInstanceDescription": "testVnfdId",
+					"vnfdId": "1",
+					"vnfdPackageId": "",
+					"vnfProvider": "",
+					"vnfType": "",
+					"vnfStatus": ""
+				}
+			}
+		}
+	}
 ]

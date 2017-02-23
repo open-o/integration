@@ -1,0 +1,11 @@
+{
+    "limits": {
+        "rate": [],
+        "absolute": {
+            "maxTotalVolumes": 1000,
+            "totalVolumesUsed": 14,
+            "maxTotalVolumeGigabytes": 42000,
+            "totalGigabytesUsed": 1054
+        }
+    }
+}

@@ -1,38 +1,24 @@
-[
-    {
+[{
         "request": {
-            "uri": "/openoapi/extsys/v1/vnfms/test_vnfm_id"
-        },
-        "response": {
-            "file": "./Stubs/testcase/nfvo/extsys_vnfms.json"
-        }
-    },
-    {
-        "request": {
-            "uri": "/openoapi/extsys/v1/sdncontrollers"
-        },
-        "response": {
-            "file": "./Stubs/testcase/gso/extsys_sdncontrollers.json"
-        }
-    },
-    {
-        "request": {
-            "method": "post",
-            "uri": "/openoapi/inventory/v1/services"
-        },
-        "response": {
-            "file": "./Stubs/testcase/gso/inventory_allservices.json"
-        }
-    },
-    {
-        "request": {
-            "method": "get",
-            "uri": {
-                "match": "/openoapi/inventory/v1/services/.*"
+            "method":"get",
+            "uri": "/openoapi/vimdriver/v1/limits/.*/cpumemory",
+            "queries":{
+                "vimId":"1234"
             }
         },
         "response": {
-            "file": "./Stubs/testcase/gso/inventory_singleservice.json"
+            "file": "./Stubs/testcase/nfvo/resmgr/cpumemory.json"
+        }
+    }, {
+        "request": {
+            "method":"get",
+            "uri": "/openoapi/vimdriver/v1/limits/.*/disk",
+            "queries":{
+                "vimId":"1234"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/nfvo/resmgr/disk.json"
         }
     }
 ]

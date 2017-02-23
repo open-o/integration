@@ -1,5 +1,5 @@
 # Test suites are relative paths under [integration.git]/test/csit/tests/.
 # Place the suites in run order.
+nfvo/sanity-check/sanity_test_nfvoresmgr.robot
+nfvo/sanity-check/sanity_test_hwvnfmdriver.robot
 nfvo/sanity-check/jujuvnfm_driver.robot
-nfvo/provision/sanity_test_nfvoresmgr.robot
-nfvo/provision/sanity_test_hwvnfmdriver.robot

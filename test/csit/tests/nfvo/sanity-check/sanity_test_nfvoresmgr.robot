@@ -21,6 +21,9 @@ ${createvm_url}    /openoapi/resmgr/v1/vm
 ${queryvnfinfos_url}    /openoapi/resmgr/v1/vnfinfo
 ${queryvnfs_url}    /openoapi/resmgr/v1/vnf
 ${queryvnfstatus_url}    /openoapi/resmgr/v1/vnfstatus
+${querycpumemory_url}    /openoapi/resmgr/v1/limits/1234/cpu?vimId=1234
+${querydisk_url}    /openoapi/resmgr/v1/limits/1234/disk?vimId=1234
+querydisk_url
 
 #json files
 ${resmgr_createvm_json}    ${SCRIPTS}/../plans/nfvo/sanity-check/jsoninput/resmgr_createvm.json
@@ -143,4 +146,20 @@ QueryVnfstatusFuncTest
     ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
 
+QueryCpuLimitsFuncTest
+    [Documentation]    query cpu memory limits info rest test
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    ${resp}=  Get Request    web_session    ${querycpumemory_url}
+    ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
+    List Should Contain Value    ${return_ok_list}   ${responese_code}
 
+QueryDiskFuncTest
+    [Documentation]    query disk limits info rest test
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    ${resp}=  Get Request    web_session    ${querydisk_url}
+    ${responese_code}=     Convert To String      ${resp.status_code}
+    ${response_json}    json.loads    ${resp.content}
+    List Should Contain Value    ${return_ok_list}   ${responese_code}
