@@ -1,0 +1,3 @@
+# 80-workaround.txt
+# need MySQL initDB script
+RUN wget -q -O multivim-driver-newton.zip 'https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.multivimdriver.openstack&a=multivimdriver-openstack-newton&v=1.1.0-SNAPSHOT&e=zip' && unzip multivim-driver-newton.zip  rm -rf multivim-driver-newton.zip
