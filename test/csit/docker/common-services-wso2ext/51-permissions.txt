@@ -1,2 +1,0 @@
-# 51-permissions.txt
-RUN chmod +x *.sh

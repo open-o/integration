@@ -81,6 +81,10 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
                     unzip_opt = " -d {}".format(row["unzip-dir"])
                 outfile.write(" && unzip -q -o -B {}{}".format(dest, unzip_opt))
             outfile.write(" && rm -f {}\n".format(dest))
+
+            outfile.write("# Set permissions\n")
+            outfile.write("RUN find . -type d -exec chmod o-w {} \;\n")
+            outfile.write("RUN find . -name \"*.sh\" -exec chmod +x {} \;\n")
             
             if row["ports"]:
                 ports = row["ports"].split()

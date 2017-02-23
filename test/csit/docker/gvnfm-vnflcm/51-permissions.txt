@@ -1,3 +1,0 @@
-# 51-permissions.txt
-RUN find -type d -exec chmod o-w {} \;
-RUN chmod +x gvnfm-vnflcm/lcm/*.sh
