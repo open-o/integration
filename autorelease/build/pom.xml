@@ -478,6 +478,13 @@
       <type>zip</type>
       <classifier/>
     </dependency>
+    <dependency>
+      <groupId>org.openo.multivimdriver.vmware.vio</groupId>
+      <artifactId>multivimdriver-vio</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier/>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
