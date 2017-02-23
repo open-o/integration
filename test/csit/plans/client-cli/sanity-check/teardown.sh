@@ -17,4 +17,4 @@
 kill-instance.sh i-msb
 kill-instance.sh i-auth
 #kill-instance.sh i-cli
-rm -rf /opt/client-cli
+rm -rf /tmp/client-cli

@@ -30,16 +30,17 @@ docker run -d -i -t -e MSB_ADDR=$MSB_IP --name i-auth -p 8100:8100 openoint/comm
 # Start client-cli
 #docker run -d -i -t -e MSB_ADDR=http://$MSB_IP --name i-cli -e OPENO_USERNAME=admin -e OPENO_PASSWORD=Changeme_123 openoint/client-cli --entrypoint openo
 
-export CLI_ZIP=client-cli-deployment-1.1.0-20170221.090136-5.zip
-export OPENO_CLI_HOME=/opt/client-cli
+export OPENO_CLI_HOME=/tmp/client-cli
+if [ ! -d $OPENO_CLI_HOME ]
+then
+	mkdir $OPENO_CLI_HOME
+fi
 
-sudo apt-get install unzip -y
+export OPENO_CLI_LATEST=client-cli-latest.zip
 
-wget "https://nexus.open-o.org/content/repositories/snapshots/org/openo/client/cli/client-cli-deployment/1.1.0-SNAPSHOT/$CLI_ZIP" -P $OPENO_CLI_HOME
-
-unzip $OPENO_CLI_HOME/ -d $OPENO_CLI_HOME
-
-chmod -R 766 /opt/client-cli
+wget "https://nexus.open-o.org/service/local/artifact/maven/redirect?r=snapshots&g=org.openo.client.cli&a=client-cli-deployment&e=zip&v=LATEST" -O $OPENO_CLI_HOME/$OPENO_CLI_LATEST
+unzip $OPENO_CLI_HOME/$OPENO_CLI_LATEST -d $OPENO_CLI_HOME
+chmod -R 766 $OPENO_CLI_HOME/bin/openo.sh
 
 echo SCRIPTS
 

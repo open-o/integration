@@ -7,7 +7,7 @@ Library           String
 
 
 *** Variables ***
-${command}         /opt/client-cli/bin/openo.sh
+${command}         /tmp/client-cli/bin/openo.sh
 
 
 *** Test Cases ***
@@ -47,14 +47,7 @@ List out registered microservice in openo commands
         Should Be Equal    ${value.rc}    ${0}
 
 Verify openo help commands
-    ${value} =    Run Process    ${command}     -h    shell=True
+    ${value} =    Run Process    ${command}     -h
     ${result} =    OperatingSystem.Get File    OpenoHelpcmd.txt
     Should Be Equal    ${value.stdout}    ${result}
-    Should Be Equal    ${value.rc}    ${0}
-
-Verify registered microservice openo help commands
-    Set Environment Variable     OPENO_USERNAME     admin
-    Set Environment Variable     OPENO_PASSWORD     Changeme_123
-    ${value} =    Run Process    ${command}     microservice-list    -m      http://${MSB_IP}     -f     csv     -t
-    Get Regexp Matches    ${value.stdout}    auth
     Should Be Equal    ${value.rc}    ${0}
