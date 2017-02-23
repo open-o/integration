@@ -1,8 +1,8 @@
 {
     "driverInfo": {
-        "driverName": "sdnodriver-zte-sptn-0-1",
-        "instanceID": "sdnodriver-zte-sptn-0-1",
-        "ip": "L2VPN_IP",
+        "driverName": "sdnodriver-zte-sptn-0",
+        "instanceID": "sdnodriver-zte-sptn-0",
+        "ip": "DRIVER_IP",
         "port": "8641",
         "protocol": "http",
         "services": [
