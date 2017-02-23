@@ -40,20 +40,24 @@ sleep_msg="Waiting_connection_for_url_for:"$1
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="25" 
 sleep 5
 
-#Start openoint/sdno-driver-simul-l2vpn
-docker run -d -i -t --name d-l2vpn -e MSB_ADDR=$MSB_ADDR openoint/sdno-driver-simul-l2vpn
+#Start openoint/simulate-sdnhub-driver-zte-sptn
+docker run -d -i -t --name d-l2vpn -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-zte-sptn
 sleep 5
 
 #Start openoint/sdno-driver-simul-l3vpn
-docker run -d -i -t --name d-l3vpn -e MSB_ADDR=$MSB_ADDR openoint/sdno-driver-simul-l3vpn
+docker run -d -i -t --name d-l3vpn -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-huawei-l3vpn
 sleep 5
 
 #Start openoint/sdno-driver-simul-sfc
 docker run -d -i -t --name d-sfc -e MSB_ADDR=$MSB_ADDR openoint/sdno-driver-simul-sfc
 sleep 5
 
-#Start openoint/sdno-driver-simul-overlay
-docker run -d -i -t --name d-overlay -e MSB_ADDR=$MSB_ADDR openoint/sdno-driver-simul-overlay
+#Start openoint/simulate-sdnhub-driver-huawei-overlay
+docker run -d -i -t --name d-overlay -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-huawei-overlay
+sleep 5
+
+#Start openoint/simulate-sdnhub-driver-huawei-openstack
+docker run -d -i -t --name d-openstack -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-huawei-openstack
 sleep 5
 
 #Start openoint/sdno-service-nslcm
@@ -62,3 +66,63 @@ sleep 5
 
 #Start openoint/sdno-service-vpc
 docker run -d -i -t --name s-vpc -e MSB_ADDR=$MSB_ADDR openoint/sdno-service-vpc
+sleep 5
+
+#Start openoint/sdnhub-driver-ct-te
+docker run -d -i -t --name d-ct-te -e MSB_ADDR=$MSB_ADDR openoint/sdnhub-driver-ct-te
+sleep 5
+
+#Start openoint/sdno-ipsec
+docker run -d -i -t --name s-ipsec -e MSB_ADDR=$MSB_ADDR openoint/sdno-ipsec
+sleep 5
+
+#Start openoint/sdno-l2vpn
+docker run -d -i -t --name s-l2vpn -e MSB_ADDR=$MSB_ADDR openoint/sdno-l2vpn
+sleep 5
+
+#Start openoint/sdno-l3vpn
+docker run -d -i -t --name s-l3vpn -e MSB_ADDR=$MSB_ADDR openoint/sdno-l3vpn
+sleep 5
+
+#Start openoint/sdno-lcm
+docker run -d -i -t --name s-lcm -e MSB_ADDR=$MSB_ADDR openoint/sdno-lcm
+sleep 5
+
+#Start openoint/sdno-monitoring
+docker run -d -i -t --name s-monitoring -e MSB_ADDR=$MSB_ADDR openoint/sdno-monitoring
+sleep 5
+
+#Start openoint/sdno-nslcm
+docker run -d -i -t --name s-nslcm -e MSB_ADDR=$MSB_ADDR openoint/sdno-nslcm
+sleep 5
+
+#Start openoint/sdno-optimize
+docker run -d -i -t --name s-optimize -e MSB_ADDR=$MSB_ADDR openoint/sdno-optimize
+sleep 5
+
+#Start openoint/sdno-overlay
+docker run -d -i -t --name s-overlay -e MSB_ADDR=$MSB_ADDR openoint/sdno-overlay
+sleep 5
+
+#Start openoint/sdno-route
+docker run -d -i -t --name s-route -e MSB_ADDR=$MSB_ADDR openoint/sdno-route
+sleep 5
+
+#Start openoint/sdno-servicechain
+docker run -d -i -t --name s-servicechain -e MSB_ADDR=$MSB_ADDR openoint/sdno-servicechain
+sleep 5
+
+#Start openoint/sdno-site
+docker run -d -i -t --name s-site -e MSB_ADDR=$MSB_ADDR openoint/sdno-site
+sleep 5
+
+#Start openoint/sdno-vpc
+docker run -d -i -t --name s-vpc -e MSB_ADDR=$MSB_ADDR openoint/sdno-vpc
+sleep 5
+
+#Start openoint/sdno-vsitemgr
+docker run -d -i -t --name s-vsitemgr -e MSB_ADDR=$MSB_ADDR openoint/sdno-vsitemgr
+sleep 5
+
+#Start openoint/sdno-vxlan
+docker run -d -i -t --name s-vxlan -e MSB_ADDR=$MSB_ADDR openoint/sdno-vxlan
