@@ -32,7 +32,7 @@ sleep_msg="Waiting_connection_for_url_for: common-services-extsys"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
-run_simulator
+run_simulator "sdnhub-driver-main.json"
 
 #Start openoint/common-services-drivermanager
 run-instance.sh openoint/common-services-drivermanager d-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
