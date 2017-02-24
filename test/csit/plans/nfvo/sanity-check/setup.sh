@@ -47,6 +47,27 @@ sleep_msg="Waiting_for_jujudriver"
 curl_path='http://'${MSB_IP}':80/openoapi/jujuvnfm/v1/config'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="debug"
 
+# Start nfvo-lcm
+run-instance.sh openoint/nfvo-lcm nslcm " -i -t -e MSB_ADDR=${MSB_IP}:80"
+extsys_ip=`get-instance-ip.sh nslcm`
+sleep_msg="Waiting_for_nslcm"
+curl_path='http://'${MSB_IP}':80/openoapi/nslcm/v1/swagger.json'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
+
+# Start nfvo-driver-vnfm-gvnfm
+run-instance.sh openoint/nfvo-driver-vnfm-gvnfm gvnfmdriver " -i -t -e MSB_ADDR=${MSB_IP}:80"
+extsys_ip=`get-instance-ip.sh gvnfmdriver`
+sleep_msg="Waiting_for_gvnfmdriver"
+curl_path='http://'${MSB_IP}':80/openoapi/gvnfmdriver/v1/swagger.json'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
+
+# Start nfvo-driver-vnfm-zte
+run-instance.sh openoint/nfvo-driver-vnfm-zte ztevmanagerdriver " -i -t -e MSB_ADDR=${MSB_IP}:80"
+extsys_ip=`get-instance-ip.sh ztevmanagerdriver`
+sleep_msg="Waiting_for_ztevmanagerdriver"
+curl_path='http://'${MSB_IP}':80/openoapi/ztevmanagerdriver/v1/swagger.json'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
+
 echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"

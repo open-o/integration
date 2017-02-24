@@ -3,3 +3,6 @@
 nfvo/sanity-check/sanity_test_nfvoresmgr.robot
 nfvo/sanity-check/sanity_test_hwvnfmdriver.robot
 nfvo/sanity-check/jujuvnfm_driver.robot
+nfvo/sanity-check/sanity_test_nslcm.robot
+nfvo/sanity-check/sanity_test_gvnfmdriver.robot
+nfvo/sanity-check/sanity_test_ztevmanagerdriver.robot
