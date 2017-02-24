@@ -28,7 +28,7 @@ echo VNFLCM_IP=${VNFLCM_IP}
 
 # Wait for initialization
 for i in {1..10}; do
-    curl -sS -m 1 ${VNFLCM_IP}:8801 && curl -sS -m 1 ${MSB_IP}:80 && break
+    curl -sS -m 1 ${VNFLCM_IP}:8801/openoapi/vnflcm/v1/swagger.json && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
 done
