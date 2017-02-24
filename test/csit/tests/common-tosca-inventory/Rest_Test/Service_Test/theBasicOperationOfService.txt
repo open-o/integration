@@ -1,0 +1,15 @@
+*** Settings ***
+Library           json
+Library           Collections
+Library           requests
+Library           RequestsLibrary
+
+*** Test Cases ***
+Query the Common Information of services
+    [Setup]    Create Session    service    http://10.74.206.42:8080/inventory
+    ${header}    Define the header
+    ${data}    Set Variable    { \ \ "sort":[ \ \ \ \ { \ \ \ \ \ \ "fieldName":"serviceName", \ \ \ \ \ \ "direction":"ASC" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "fieldName":"templateName", \ \ \ \ \ \ "direction":"DESC" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "fieldName":"createTime", \ \ \ \ \ \ "direction":"DESC" \ \ \ \ } \ \ ], \ \ "pagination":1, \ \ "pagesize":25, \ \ "condition":{ \ \ \ \ "serviceName":"ABC", \ \ \ \ "templateName":"DEF" \ \ }, \ \ "serviceId":"231433" }
+    ${data}    toJson    ${data}
+    ${responseContent}    Post Request    service    /openoapi/inventory/v1/services    data=${data}    headers=${header}
+    Should Be Equal As Strings    ${responseContent.status_code}    200
+    Log    ${responseContent.content}
