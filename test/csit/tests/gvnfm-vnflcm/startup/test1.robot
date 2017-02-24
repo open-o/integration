@@ -32,7 +32,7 @@ CreateVnf Test
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${createvm_url}    ${json_string}
+    ${resp}=    Post Request    web_session     ${createvnf_url}    ${json_string}
     Should Be Equal As Integers   ${resp.status_code}  201
     ${response_json}    json.loads    ${resp.content}
     ${vnfInstId}=    Convert To String      ${response_json['vnfInstanceId']}
