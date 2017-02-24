@@ -29,36 +29,3 @@ jujuConfigTest
     ${resp}=  Get Request    web_session    ${queryconfig_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
-	
-jujuAddVnfTest
-    ${json_value}=     json_from_file      ${juju_addvnf_json}
-    ${json_string}=     string_from_json   ${json_value}
-    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${addvnf_url}    ${json_string}
-    ${response_code}=     Convert To String      ${resp.status_code}
-    List Should Contain Value    ${return_ok_list}   ${response_code}
-	${response_json}    json.loads    ${resp.content}
-    ${vnfInstanceId}=    Convert To String      ${response_json['vnfInstanceId']}
-
-jujuGetVnfTest
-    [Documentation]    query vnf info rest test
-    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    ${resp}=  Get Request    web_session    ${getvnf_url}
-    ${responese_code}=     Convert To String      ${resp.status_code}
-    List Should Contain Value    ${return_ok_list}   ${responese_code}	
-
-jujuDelVnfTest
-	[Documentation]    query vnf info rest test
-    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    ${resp}=    Post Request    web_session     ${delvnf_url}
-    ${response_code}=     Convert To String      ${resp.status_code}
-    List Should Contain Value    ${return_ok_list}   ${response_code}
-	
-	
-	
-	
-	

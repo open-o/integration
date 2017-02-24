@@ -34,8 +34,8 @@ AuthTokenFuncTest
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${HWNFVM_IP}:8482    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=  Post Request    web_session    ${createauthtoken_url}
+    ${resp}=  Post Request    web_session    ${createauthtoken_url}    ${json_string}
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
     ${response_json}    json.loads    ${resp.content}
-    Dictionary Should Contain Key    ${swagger_version}    token
+    Dictionary Should Contain Key    ${response_json}    token
