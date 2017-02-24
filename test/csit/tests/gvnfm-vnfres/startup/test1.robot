@@ -10,14 +10,13 @@ Library     HttpLibrary.HTTP
 ${queryswagger_url}   /openoapi/vnfres/v1/swagger.json
 
 *** Test Cases ***
-Liveness Test
-    [Documentation]        Check various endpoints for basic liveness check
-    Create Session         vnfres              http://${VNFRES_IP}:8802
-    CheckUrl               vnfres              ${queryswagger_url}
-
-*** Keywords ***
-CheckUrl
-    [Arguments]                   ${session}  ${path}
-    ${resp}=                      Get Request          ${session}  ${path}
+SwaggerFuncTest
+    [Documentation]    query swagger info rest test
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    ${resp}=  Get Request    web_session    ${queryswagger_url}
     Should Be Equal As Integers   ${resp.status_code}  200
+    ${response_json}    json.loads    ${resp.content}
+    ${swagger_version}=    Convert To String      ${response_json['swagger']}
+    Should Be Equal    ${swagger_version}    2.0
 

@@ -6,8 +6,6 @@ Library     OperatingSystem
 Library     json
 Library     HttpLibrary.HTTP
 
-
-
 *** Variables ***
 ${queryswagger_url}   /openoapi/vnflcm/v1/swagger.json
 ${createvnf_url}      /openoapi/vnflcm/v1/vnf_instances
@@ -20,10 +18,15 @@ ${vnflcm_createvnf_json}    ${SCRIPTS}/../plans/gvnfm-vnflcm/sanity-check/jsonin
 ${vnfInstId}
 
 *** Test Cases ***
-Liveness Test
-    [Documentation]        Check various endpoints for basic liveness check
-    Create Session         vnflcm              http://${VNFLCM_IP}:8801
-    CheckUrl               vnflcm              ${queryswagger_url}
+SwaggerFuncTest
+    [Documentation]    query swagger info rest test
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    ${resp}=  Get Request    web_session    ${queryswagger_url}
+    Should Be Equal As Integers   ${resp.status_code}  200
+    ${response_json}    json.loads    ${resp.content}
+    ${swagger_version}=    Convert To String      ${response_json['swagger']}
+    Should Be Equal    ${swagger_version}    2.0
 
 CreateVnf Test
     [Documentation]    Create vnf function test
@@ -43,11 +46,3 @@ DeleteVnf Test
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=    Delete Request    web_session     ${deletevnf_url}/${vnfInstId}
     Should Be Equal As Integers   ${resp.status_code}  204
-
-*** Keywords ***
-CheckUrl
-    [Arguments]                   ${session}  ${path}
-    ${resp}=                      Get Request          ${session}  ${path}
-    Should Be Equal As Integers   ${resp.status_code}  200
-
-
