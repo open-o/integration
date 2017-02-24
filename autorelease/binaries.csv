@@ -13,9 +13,9 @@ common-tosca-model-designer,,Common TOSCA Model Designer,common-tosca-modeldesig
 gso,,GSO Service Gateway,gso-service-gateway,org.openo.gso,service-gateway-deployment,zip,,8305,,TRUE,,
 gso,,GSO Service Manager,gso-service-manager,org.openo.gso,servicemanagerservice-deployment,zip,,8301,TRUE,TRUE,,
 gso-gui,,GSO GUI Portal,gso-gui-portal,org.openo.gso.gui,portal-package,zip,,8300,,TRUE,,webapps/openoui
-gvnfm-vnflcm,,GVNFM Lifecycle Management,gvnfm-vnflcm,org.openo.gvnfm.vnflcm,gvnfm-vnflcm,zip,,8801,,,TRUE,
-gvnfm-vnfmgr,,GVNFM Init Configuration and Management,gvnfm-vnfmgr,org.openo.gvnfm.vnfmgr,gvnfm-vnfmgr,zip,,8803,,,TRUE,
-gvnfm-vnfres,,GVNFM Virtual Resource Management,gvnfm-vnfres,org.openo.gvnfm.vnfres,gvnfm-vnfres,zip,,8802,,,TRUE,
+gvnfm-vnflcm,,GVNFM Lifecycle Management,gvnfm-vnflcm,org.openo.gvnfm.vnflcm,gvnfm-vnflcm,zip,,8801,TRUE,,TRUE,
+gvnfm-vnfmgr,,GVNFM Init Configuration and Management,gvnfm-vnfmgr,org.openo.gvnfm.vnfmgr,gvnfm-vnfmgr,zip,,8803,TRUE,,TRUE,
+gvnfm-vnfres,,GVNFM Virtual Resource Management,gvnfm-vnfres,org.openo.gvnfm.vnfres,gvnfm-vnfres,zip,,8802,TRUE,,TRUE,
 nfvo,vim-vimadapter,NFVO VIM Driver,nfvo-driver-vim,org.openo.nfvo,vimadapter-deployment,zip,,8481,,TRUE,,
 nfvo,gvnfm-gvnfmadapter,NFVO VNFM Driver GVNFM,nfvo-driver-vnfm-gvnfm,org.openo.nfvo,drivers-vnfm-gvnfm-gvnfmadapter,zip,,8484,,,TRUE,
 nfvo,svnfm-huawei,NFVO VNFM Driver Huawei,nfvo-driver-vnfm-huawei,org.openo.nfvo,hw-vnfmadapter-deployment,zip,,8482,TRUE,TRUE,,
