@@ -1,6 +1,6 @@
 *** Settings ***
 Library       RequestsLibrary
-
+     
 *** Test Cases ***
 Liveness Test
     [Documentation]        Check various endpoints for basic liveness check

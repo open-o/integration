@@ -1,0 +1,25 @@
+*** Settings ***
+Library           Collections
+Library           requests
+Library           RequestsLibrary
+
+*** Keywords ***
+Prepare a test model called transcript
+    ${header}    Define the header
+    ${modelData}    Set Variable    { \ \ "attributes":[ \ \ \ \ { \ \ \ \ \ \ "name":"_id", \ \ \ \ \ \ "label":"ObjectID" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"name", \ \ \ \ \ \ "label":"name", \ \ \ \ \ \ "type":"string", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":true, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"grade", \ \ \ \ \ \ "label":"grade", \ \ \ \ \ \ "type":"string", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":false, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ } \ \ ], \ \ "name":"transcript", \ \ "enable":true, \ \ "label":"transcript", \ \ "description":"", \ \ "display-attribute":"name" }
+    ${response}    Post Request    inventory    /openoapi/inventory/v1/model    data=${modelData}    headers=${header}
+
+Delete useless model
+    ${responseDeleteModel}    Delete Request    inventory    /openoapi/inventory/v1/model/transcript
+    Should Be Equal As Strings    ${responseDeleteModel.status_code}    200
+    ${responseDeleteModel}    Delete Request    inventory    /openoapi/inventory/v1/model/credits
+    Should Be Equal As Strings    ${responseDeleteModel.status_code}    200
+
+Prepare a test model called credits
+    ${header}    Define the header
+    ${modelData}    Set Variable    { \ \ "attributes":[ \ \ \ \ { \ \ \ \ \ \ "name":"_id", \ \ \ \ \ \ "label":"ObjectID" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"name", \ \ \ \ \ \ "label":"name", \ \ \ \ \ \ "type":"string", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":true, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"Remark", \ \ \ \ \ \ "label":"Remark", \ \ \ \ \ \ "type":"string", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":false, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"Status", \ \ \ \ \ \ "label":"Status", \ \ \ \ \ \ "type":"reference", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":false, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false, \ \ \ \ \ \ "ref":"Status" \ \ \ \ } \ \ ], \ \ "name":"credits", \ \ "enable":true, \ \ "label":"credits", \ \ "description":"", \ \ "display-attribute":"name" }
+    ${response}    Post Request    inventory    /openoapi/inventory/v1/model    data=${modelData}    headers=${header}
+
+Define the header
+    ${header}    Create Dictionary    Accept=application/json    Content-Type=application/json
+    [Return]    ${header}
