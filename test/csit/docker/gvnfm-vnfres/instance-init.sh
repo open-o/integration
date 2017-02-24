@@ -16,8 +16,8 @@
 #
 
 # Initialize DB schema
-./gvnfm_vnfres/res/assembly/bin/initDB.sh root rootpass 3306 127.0.0.1
+./gvnfm-vnfres/res/assembly/bin/initDB.sh root rootpass 3306 127.0.0.1
 
 # Install python requirements
-cd ./gvnfm_vnfres/res
+cd ./gvnfm-vnfres/res
 ./initialize.sh

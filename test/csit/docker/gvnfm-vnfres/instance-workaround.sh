@@ -15,4 +15,4 @@
 # limitations under the License.
 #
 # Change run script to not suppress output
-sed -i 's|>.*/dev/null||' ./gvnfm_vnfres/res/run.sh
+sed -i 's|>.*/dev/null||' ./gvnfm-vnfres/res/run.sh

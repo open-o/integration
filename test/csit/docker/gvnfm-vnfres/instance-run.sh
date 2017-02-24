@@ -17,7 +17,7 @@
 
 redis-server &
 
-cd ./gvnfm_vnfres/res
+cd ./gvnfm-vnfres/res
 ./run.sh
 
 while [ ! -f logs/runtime_vnfres.log ]; do

@@ -18,12 +18,12 @@
 MSB_IP=`echo $MSB_ADDR | cut -d: -f 1`
 MSB_PORT=`echo $MSB_ADDR | cut -d: -f 2`
 
-sed -i "s|MSB_SERVICE_IP.*|MSB_SERVICE_IP = '$MSB_IP'|" gvnfm_vnfres/res/res/pub/config/config.py
-sed -i "s|MSB_SERVICE_PORT.*|MSB_SERVICE_PORT = '$MSB_PORT'|" gvnfm_vnfres/res/res/pub/config/config.py
-sed -i "s|DB_NAME.*|DB_NAME = 'gvnfm'|" gvnfm_vnfres/res/res/pub/config/config.py
-sed -i "s|DB_USER.*|DB_USER = 'gvnfm'|" gvnfm_vnfres/res/res/pub/config/config.py
-sed -i "s|DB_PASSWD.*|DB_PASSWD = 'gvnfm'|" gvnfm_vnfres/res/res/pub/config/config.py
-sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" gvnfm_vnfres/res/res/pub/config/config.py
+sed -i "s|MSB_SERVICE_IP.*|MSB_SERVICE_IP = '$MSB_IP'|" gvnfm-vnfres/res/res/pub/config/config.py
+sed -i "s|MSB_SERVICE_PORT.*|MSB_SERVICE_PORT = '$MSB_PORT'|" gvnfm-vnfres/res/res/pub/config/config.py
+sed -i "s|DB_NAME.*|DB_NAME = 'gvnfm'|" gvnfm-vnfres/res/res/pub/config/config.py
+sed -i "s|DB_USER.*|DB_USER = 'gvnfm'|" gvnfm-vnfres/res/res/pub/config/config.py
+sed -i "s|DB_PASSWD.*|DB_PASSWD = 'gvnfm'|" gvnfm-vnfres/res/res/pub/config/config.py
+sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" gvnfm-vnfres/res/res/pub/config/config.py
 
 # Configure MYSQL
 if [ -z "$MYSQL_ADDR" ]; then
@@ -35,10 +35,10 @@ else
     MYSQL_PORT=`echo $MYSQL_ADDR | cut -d: -f 2`
 fi
 echo "MYSQL_ADDR=$MYSQL_ADDR"
-sed -i "s|DB_IP.*|DB_IP = '$MYSQL_IP'|" gvnfm_vnfres/res/res/pub/config/config.py
-sed -i "s|DB_PORT.*|DB_PORT = $MYSQL_PORT|" gvnfm_vnfres/res/res/pub/config/config.py
+sed -i "s|DB_IP.*|DB_IP = '$MYSQL_IP'|" gvnfm-vnfres/res/res/pub/config/config.py
+sed -i "s|DB_PORT.*|DB_PORT = $MYSQL_PORT|" gvnfm-vnfres/res/res/pub/config/config.py
 
-cat gvnfm_vnfres/res/res/pub/config/config.py
+cat gvnfm-vnfres/res/res/pub/config/config.py
 
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" ./gvnfm_vnfres/res/run.sh
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" ./gvnfm_vnfres/res/stop.sh
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" ./gvnfm-vnfres/res/run.sh
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" ./gvnfm-vnfres/res/stop.sh
