@@ -1,0 +1,13 @@
+*** Settings ***
+Resource          ../Model_Test/keyword.txt
+
+*** Keywords ***
+Prepare 10 data records
+    ${dataList}    Set Variable    [ \ \ { \ \ \ \ "_id":"dataOne", \ \ \ \ "name":"Silina", \ \ \ \ "grade":97 \ \ }, \ \ { \ \ \ \ "_id":"dataTwo", \ \ \ \ "name":"Mary", \ \ \ \ "grade":95 \ \ }, \ \ { \ \ \ \ "_id":"dataThree", \ \ \ \ "name":"Found", \ \ \ \ "grade":98 \ \ }, \ \ { \ \ \ \ "_id":"dataFour", \ \ \ \ "name":"Maria", \ \ \ \ "grade":95 \ \ }, \ \ { \ \ \ \ "_id":"dataFive", \ \ \ \ "name":"Mark", \ \ \ \ "grade":99 \ \ }, \ \ { \ \ \ \ "_id":"dataSix", \ \ \ \ "name":"Tigger", \ \ \ \ "grade":100 \ \ }, \ \ { \ \ \ \ "_id":"dataSeven", \ \ \ \ "name":"Sen", \ \ \ \ "grade":86 \ \ }, \ \ { \ \ \ \ "_id":"dataEight", \ \ \ \ "name":"Lily", \ \ \ \ "grade":98 \ \ }, \ \ { \ \ \ \ "_id":"dataNine", \ \ \ \ "name":"Kary", \ \ \ \ "grade":93 \ \ }, \ \ { \ \ \ \ "_id":"dataTen", \ \ \ \ "name":"Wonder", \ \ \ \ "grade":100 \ \ } ]
+    [Return]    ${dataList}
+
+Prepare 10 data records for transcript
+    ${header}    Define the header
+    ${multipleData}    Prepare 10 data records
+    ${multipleData}    tojson    ${multipleData}
+    ${responseComment}    Post Request    inventory    /openoapi/inventory/v1/data/transcript    data=${multipleData}    headers=${header}
