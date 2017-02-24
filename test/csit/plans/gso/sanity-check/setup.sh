@@ -51,7 +51,7 @@ ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"
 docker ps | grep '18009' | awk '{print $1}' | xargs --no-run-if-empty docker kill
 docker ps | grep '18009' | awk '{print $1}' | xargs --no-run-if-empty docker rm
 #run simulator
-docker run -d -i -t --name gso_csit_simulator -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
+docker run -d -i -t --name gso_csit_simulator -e SIMULATOR_JSON=Stubs/testcase/gso/main.json -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
 SIMULATOR_IP=`get-instance-ip.sh gso_csit_simulator`
 sleep_msg="Waiting_for_simulator"
 curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
