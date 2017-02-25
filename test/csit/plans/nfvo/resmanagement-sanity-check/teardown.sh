@@ -16,9 +16,11 @@
 #
 
 #copy the logs files
-docker cp jujuvnfm:/service/logs/jujuvnfmadapterservice.log ${SCRIPTS}/../../../archives
+docker cp resmgr:/service/logs/resmanagement.log ${SCRIPTS}/../../../archives
 
 
 # This script is sourced by run-csit.sh after Robot test completion.
 kill-instance.sh i-msb
-kill-instance.sh jujuvnfm
+kill-instance.sh resmgr
+kill-instance.sh simulator
+
