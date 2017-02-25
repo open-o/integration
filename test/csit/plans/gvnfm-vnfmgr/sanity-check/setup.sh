@@ -22,13 +22,13 @@ MSB_IP=`get-instance-ip.sh i-msb`
 echo MSB_IP=${MSB_IP}
 
 # Start vnfmgr
-${SCRIPTS}/gvnfm-vnfmgr/startup.sh i-vnfmgr ${MSB_IP}
+${SCRIPTS}/gvnfm-vnfmgr/startup.sh i-vnfmgr ${MSB_IP}:80
 VNFMGR_IP=`get-instance-ip.sh i-vnfmgr`
 echo VNFMGR_IP=${VNFMGR_IP}
 
 # Wait for initialization
-for i in {1..10}; do
-    curl -sS -m 1 ${VNFMGR_IP}:8803/openoapi/vnfmgr/v1/swagger.json && curl -sS -m 1 ${MSB_IP}:80 && break
+for i in {1..20}; do
+    curl -sS -m 1 ${MSB_IP}:80/openoapi/vnfmgr/v1/swagger.json && curl -sS -m 1 ${MSB_IP}:80/openoui/microservices/index.html && break
     echo sleep $i
     sleep $i
 done

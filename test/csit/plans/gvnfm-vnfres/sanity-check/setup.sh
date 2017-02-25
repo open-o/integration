@@ -22,13 +22,13 @@ MSB_IP=`get-instance-ip.sh i-msb`
 echo MSB_IP=${MSB_IP}
 
 # Start vnfres
-${SCRIPTS}/gvnfm-vnfres/startup.sh i-vnfres ${MSB_IP}
+${SCRIPTS}/gvnfm-vnfres/startup.sh i-vnfres ${MSB_IP}:80
 VNFRES_IP=`get-instance-ip.sh i-vnfres`
 echo VNFRES_IP=${VNFRES_IP}
 
 # Wait for initialization
-for i in {1..10}; do
-    curl -sS -m 1 ${VNFRES_IP}:8802/openoapi/vnfres/v1/swagger.json && curl -sS -m 1 ${MSB_IP}:80 && break
+for i in {1..20}; do
+    curl -sS -m 1 ${MSB_IP}:80/openoapi/vnfres/v1/swagger.json && curl -sS -m 1 ${MSB_IP}:80/openoui/microservices/index.html && break
     echo sleep $i
     sleep $i
 done
