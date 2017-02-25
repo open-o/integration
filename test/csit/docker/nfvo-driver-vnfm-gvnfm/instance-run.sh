@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+# Copyright 2017 ZTE Corporation.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+cd ./nfvo/drivers/vnfm/gvnfm/gvnfmadapter
+./run.sh
 
+while [ ! -f logs/runtime_driver_gvnfm.log ]; do
+    sleep 1
+done
+tail -F logs/runtime_driver_gvnfm.log

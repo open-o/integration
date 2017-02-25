@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+# Copyright 2017 ZTE Corporation.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Configure MSB IP address
+MSB_IP=`echo $MSB_ADDR | cut -d: -f 1`
+MSB_PORT=`echo $MSB_ADDR | cut -d: -f 2`
+GVNFM_DRIVER_PATH = nfvo/drivers/vnfm/gvnfm/gvnfmadapter
+GVNFM_DRIVER_CONFIG_PATH = nfvo/drivers/vnfm/gvnfm/gvnfmadapter/driver/pub/config
 
+sed -i "s|MSB_SERVICE_IP.*|MSB_SERVICE_IP = '$MSB_IP'|" GVNFM_DRIVER_CONFIG_PATH/config.py
+sed -i "s|MSB_SERVICE_PORT.*|MSB_SERVICE_PORT = '$MSB_PORT'|" GVNFM_DRIVER_CONFIG_PATH/config.py
+sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" GVNFM_DRIVER_CONFIG_PATH/config.py
+cat GVNFM_DRIVER_CONFIG_PATH/config.py
+
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" GVNFM_DRIVER_PATH/run.sh
+sed -i "s|127\.0\.0\.1|$SERVICE_IP|" GVNFM_DRIVER_PATH/stop.sh
