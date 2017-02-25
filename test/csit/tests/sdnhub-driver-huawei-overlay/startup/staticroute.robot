@@ -21,8 +21,9 @@ ${staticroute_query_invalid_controller}    ${SCRIPTS}/sdnhub-driver-huawei-overl
 STATICROUTE create test
     [Documentation]    STATICROUTE create test
     ${staticmap}=    Create Dictionary    OVERLAYIP_IP=${OVERLAYIP_IP}    ESR_CNTRL_HTTP=${ESR_CNTRL_HTTP}
-    Replace variables and send REST    ${staticroute_create}    ${staticmap}    controllerId
     Set Suite Variable    ${staticmap}
+    Replace variables and send REST    ${staticroute_create}    ${staticmap}    controllerId
+
 
 STATICROUTE create invalid input
     [Documentation]    STATICROUTE create fail test with invalid input

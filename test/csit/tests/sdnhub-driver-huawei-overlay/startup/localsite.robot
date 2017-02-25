@@ -21,8 +21,9 @@ ${localsite_query_invalid_controller}    ${SCRIPTS}/sdnhub-driver-huawei-overlay
 LOCALSITE create test
     [Documentation]    LOCALSITE create test
     ${localsitemap}=    Create Dictionary    OVERLAYIP_IP=${OVERLAYIP_IP}    ESR_CNTRL_HTTP=${ESR_CNTRL_HTTP}
-    Replace variables and send REST    ${localsite_create}    ${localsitemap}    controllerId
     Set Suite Variable    ${localsitemap}
+    Replace variables and send REST    ${localsite_create}    ${localsitemap}    controllerId
+
 
 LOCALSITE create invalid ctrluuid
     [Documentation]    LOCALSITE create fail test with invalid ctrluuid
@@ -46,7 +47,7 @@ LOCALSITE update invalid conroller id
 
 LOCALSITE query test
     [Documentation]    LOCALSITE query test
-    ${retcode}=    Replace variables and send REST    ${localsite_query}    ${localsitemap}    status
+    Replace variables and send REST    ${localsite_query}    ${localsitemap}    status
 
 LOCALSITE query invalid ctrluuid
     [Documentation]    LOCALSITE query fail test with invalid ctrluuid
@@ -58,7 +59,7 @@ LOCALSITE query invalid conroller id
 
 LOCALSITE delete test
     [Documentation]    LOCALSITE delete test
-    ${retdcode}=    Replace variables and send REST    ${localsite_delete}    ${localsitemap}    status
+    Replace variables and send REST    ${localsite_delete}    ${localsitemap}    status
 
 LOCALSITE delete invalid ctrluuid
     [Documentation]    LOCALSITE delete fail test with invalid ctrluuid

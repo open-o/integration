@@ -20,7 +20,7 @@
             "trafficPolicyName": "test1",
             "interfaceName": "interfaceName",
             "direction": "inbound",
-            "filterAction": "2",
+            "filterAction": "{\"action\":{\"policy\":\"policy\",\"nextHopIp\":null,\"outInterFace\":null},\"ruleList\":[{\"policy\":\"policy\",\"srcIp\":null,\"desIp\":null,\"id\":null}],\"filter\":null,\"id\":null}",
             "id": "1",
             "actionState": "Normal",
             "createTime": 0,
@@ -35,23 +35,8 @@
                 "errorCode": {
                     "type": "string"
                 },
-                "descArg": {
-                    "type": "string"
-                },
-                "reasonArg": {
-                    "type": "string"
-                },
-                "detailArg": {
-                    "type": "string"
-                },
-                "adviceArg": {
-                    "type": "string"
-                },
                 "httpCode": {
                     "type": "integer"
-                },
-                "message": {
-                    "type": "string"
                 },
                 "successed": {
                     "type": "array",
@@ -62,6 +47,12 @@
                                 "type": "string"
                             },
                             "tenantId": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "deployStatus": {
                                 "type": "string"
                             },
                             "activeStatus": {
@@ -88,20 +79,27 @@
                             "interfaceName": {
                                 "type": "string"
                             },
+                            "direction": {
+                                "type": "string"
+                            },
+                            "filterAction": {
+                                "type": "string"
+                            },
                             "id": {
+                                "type": "string"
+                            },
+                            "actionState": {
                                 "type": "string"
                             }
                         },
                         "required": [
                             "name",
-                            "tenantId",
                             "deviceId",
-                            "controllerId",
-                            "externalId",
                             "nbiNeRouteId",
                             "trafficPolicyName",
                             "interfaceName",
-                            "id"
+                            "direction",
+                            "filterAction"
                         ]
                     }
                 },

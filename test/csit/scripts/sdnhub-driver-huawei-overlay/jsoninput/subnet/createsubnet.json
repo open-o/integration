@@ -16,9 +16,9 @@
                 "firstParentUuid": "1234a",
                 "id": "1234ab"
             }],
-            "operStatus": "active",
-            "adminStatus": "adminStatus",
-            "actionState": "actionState",
+            "operStatus": "none",
+            "adminStatus": "active",
+            "actionState": "Normal",
             "createTime": "60",
             "neId": "123",
             "controllerId": "ctrlid1024",
@@ -32,20 +32,19 @@
             "enableDhcp": "enableDhcp",
             "ipRangeStartIp": "10.10.10.1",
             "ipRangeEndIp": "255.255.255.254",
-            "useMode": "true",
+            "useMode": "terminal",
             "changedMode": "changedMode",
-            "dhcpMode": "dhcpMode",
-            "dnsServerMode": "dnsServerMode",
-            "unlimit": "unlimit",
+            "dhcpMode": "server",
+            "dnsServerMode": "systemsetting",
+            "unlimit": "true",
             "ipv6Address": "10.12.13.14.15.16",
             "prefixLength": "2",
-            "dhcp6Enable": "dhcp6Enable",
-            "dhcp6Mode": "dhcp6Mode",
+            "dhcp6Enable": "true",
+            "dhcp6Mode": "server",
             "priorDnsServer": "priorDnsServer",
             "standbyDnsServer": "standbyDnsServer",
             "id": "1234a"
         }
-
     },
     "response": {
         "status": 200,
@@ -67,6 +66,30 @@
                         "description": {
                             "type": "string"
                         },
+                        "additionalInfo": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "value": {
+                                        "type": "string"
+                                    },
+                                    "firstParentUuid": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "firstParentUuid",
+                                    "id"
+                                ]
+                            }
+                        },
                         "operStatus": {
                             "type": "string"
                         },
@@ -83,9 +106,6 @@
                             "type": "string"
                         },
                         "controllerId": {
-                            "type": "string"
-                        },
-                        "networkId": {
                             "type": "string"
                         },
                         "serviceSubnetId": {
@@ -124,9 +144,6 @@
                         "dhcpMode": {
                             "type": "string"
                         },
-                        "dnsServerMode": {
-                            "type": "string"
-                        },
                         "unlimit": {
                             "type": "string"
                         },
@@ -150,38 +167,39 @@
                         },
                         "id": {
                             "type": "string"
+                        },
+                        "dnsServerMode": {
+                            "type": "string"
                         }
                     },
                     "required": [
                         "tenantId",
                         "name",
-                        "neId",
                         "controllerId",
-                        "networkId",
                         "serviceSubnetId",
-                        "cidrIpAddress",
-                        "cidrMask",
+                        "enableDhcp",
                         "useMode",
-                        "id"
+                        "changedMode",
+                        "dhcpMode",
+                        "unlimit",
+                        "dhcp6Enable",
+                        "dhcp6Mode",
+                        "dnsServerMode"
                     ]
-                },
-                "descArg": {
-                    "type": "string"
-                },
-                "reasonArg": {
-                    "type": "string"
-                },
-                "detailArg": {
-                    "type": "string"
-                },
-                "adviceArg": {
-                    "type": "string"
                 },
                 "httpCode": {
                     "type": "integer"
                 },
                 "message": {
                     "type": "string"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {}
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
                 }
             }
         }

@@ -20,7 +20,7 @@
             "actionState": "None",
             "createTime": "12:00:00",
             "neId": "123",
-            "deviceId": "123455",
+            "deviceid": "123455",
             "controllerId": "1234",
             "natId": "123544",
             "internetGatewayId": "12354",

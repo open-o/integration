@@ -28,7 +28,6 @@
             "vxlanTunnels": ["123"],
             "vxlanInterfaceList": [],
             "vxlanTunnelList": [],
-            "vxlanGatewayList": [],
             "id": "123",
             "actionState": "Normal",
             "createTime": 123,

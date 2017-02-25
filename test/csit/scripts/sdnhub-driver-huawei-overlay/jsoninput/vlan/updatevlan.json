@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/localsite/vlan",
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/fab39a41-2579-4554-b55d-5edc990a4de7/vlan",
         "method": "put",
         "headers": {
             "Content-Type": "application/json",

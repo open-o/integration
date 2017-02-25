@@ -195,6 +195,81 @@
     }
 },
 {
+        "request": {
+            "uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
+            "method": "put",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "json": {"id":"1234","name":"Subnet model","use":"terminal","vni":0,"vlanId":0,"ipAddress":null,"maskAddress":null,"ipv6Address":null,"prefixLength":null,"description":"description","subnetList":null,"dhcpEnable":false,"dhcp6Enable":false,"dhcp6Config":{"dhcpMode":"server","dnsServer":"systemsetting","excludedAddresses6":null},"dhcpConfig":{"dhcpMode":"srever","masterWins":null,"slaveWins":null,"dnsConfig":{"dnsServerMode":"systemsetting","priorDnsServer":null,"standbyDnsServer":null},"timeConfig":{"unlimit":true,"day":0,"hour":0,"minute":0},"excludedAddresses":null,"staticBindings":null,"relayServerIps":null,"dhcpServerOptions":null},"isChangedMode":false}
+
+        },
+        "response": {
+            "status": 200,
+            "json": {
+                "errcode": "0",
+                "errmsg": null,
+                "pageIndex": 0,
+                "pageSize": 0,
+                "totalRecords": 0,
+                "data": {
+                    "id": "bc856ae5ffeb4768a89bb47ca7c196f1",
+                    "name": "test1",
+                    "use": "terminal",
+                    "description": "",
+                    "vni": null,
+                    "vlanId": 6,
+                    "ipAddress": "11.11.11.11",
+                    "maskAddress": "255.255.255.0",
+                    "mode": 1,
+                    "subnetList": null,
+                    "isChangedMode": false,
+                    "deviceId": null,
+                    "deviceNetworkConfigs": null,
+                    "dhcpEnable": true,
+                    "dhcpConfig": {
+                        "dhcpMode": "server",
+                        "masterWins": null,
+                        "slaveWins": null,
+                        "dnsConfig": {
+                            "dnsServerMode": "custom",
+                            "priorDnsServer": "121.121.121.1",
+                            "standbyDnsServer": "121.121.121.2"
+                        },
+                        "timeConfig": {
+                            "unlimit": false,
+                            "day": 200,
+                            "hour": 16,
+                            "minute": 30
+                        },
+                        "excludedAddresses": [{
+                            "startIpAddress": "11.11.11.1",
+                            "endIpAddress": "11.11.11.2"
+                        }, {
+                            "startIpAddress": "11.11.11.5",
+                            "endIpAddress": "11.11.11.6"
+                        }],
+                        "staticBindings": null,
+                        "relayServerIps": null,
+                        "dhcpServerOptions": null
+                    },
+                    "securityAuth": {
+                        "authType": "noAuth",
+                        "templateId": null,
+                        "authContent": null
+                    },
+                    "ipv6Address": null,
+                    "prefixLength": null,
+                    "dhcp6Enable": null,
+                    "dhcp6Config": null
+                },
+                "success": null,
+                "fail": null,
+                "sucess": true
+            }
+        }
+    },
+{
     "request": {
         "uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
         "method": "delete",

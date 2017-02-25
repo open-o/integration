@@ -16,11 +16,11 @@
                 "firstParentUuid": "1234a",
                 "id": "1234ab"
             }],
-            "operStatus": "active",
-            "adminStatus": "adminStatus",
-            "actionState": "actionState",
+            "operStatus": "none",
+            "adminStatus": "active",
+            "actionState": "Normal",
             "createTime": "60",
-            "neId": "1234",
+            "neId": "123",
             "controllerId": "ctrlid1024",
             "networkId": "1234",
             "serviceSubnetId": "abcdd123",
@@ -32,15 +32,15 @@
             "enableDhcp": "enableDhcp",
             "ipRangeStartIp": "10.10.10.1",
             "ipRangeEndIp": "255.255.255.254",
-            "useMode": "true",
+            "useMode": "terminal",
             "changedMode": "changedMode",
-            "dhcpMode": "dhcpMode",
-            "dnsServerMode": "dnsServerMode",
-            "unlimit": "unlimit",
+            "dhcpMode": "server",
+            "dnsServerMode": "systemsetting",
+            "unlimit": "true",
             "ipv6Address": "10.12.13.14.15.16",
             "prefixLength": "2",
-            "dhcp6Enable": "dhcp6Enable",
-            "dhcp6Mode": "dhcp6Mode",
+            "dhcp6Enable": "true",
+            "dhcp6Mode": "server",
             "priorDnsServer": "priorDnsServer",
             "standbyDnsServer": "standbyDnsServer",
             "id": "1234a"
@@ -48,144 +48,159 @@
 
     },
     "response": {
-        "status": 200,
-        "json":{
-            "type": "object",
-            "properties": {
-                "errorCode": {
-                    "type": "string"
-                },
-                "data": {
-                    "type": "object",
-                    "properties": {
-                        "tenantId": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "operStatus": {
-                            "type": "string"
-                        },
-                        "adminStatus": {
-                            "type": "string"
-                        },
-                        "actionState": {
-                            "type": "string"
-                        },
-                        "createTime": {
-                            "type": "string"
-                        },
-                        "neId": {
-                            "type": "string"
-                        },
-                        "controllerId": {
-                            "type": "string"
-                        },
-                        "networkId": {
-                            "type": "string"
-                        },
-                        "serviceSubnetId": {
-                            "type": "string"
-                        },
-                        "vni": {
-                            "type": "string"
-                        },
-                        "vlanId": {
-                            "type": "string"
-                        },
-                        "cidrIpAddress": {
-                            "type": "string"
-                        },
-                        "cidrMask": {
-                            "type": "string"
-                        },
-                        "gatewayIp": {
-                            "type": "string"
-                        },
-                        "enableDhcp": {
-                            "type": "string"
-                        },
-                        "ipRangeStartIp": {
-                            "type": "string"
-                        },
-                        "ipRangeEndIp": {
-                            "type": "string"
-                        },
-                        "useMode": {
-                            "type": "string"
-                        },
-                        "changedMode": {
-                            "type": "string"
-                        },
-                        "dhcpMode": {
-                            "type": "string"
-                        },
-                        "dnsServerMode": {
-                            "type": "string"
-                        },
-                        "unlimit": {
-                            "type": "string"
-                        },
-                        "ipv6Address": {
-                            "type": "string"
-                        },
-                        "prefixLength": {
-                            "type": "string"
-                        },
-                        "dhcp6Enable": {
-                            "type": "string"
-                        },
-                        "dhcp6Mode": {
-                            "type": "string"
-                        },
-                        "priorDnsServer": {
-                            "type": "string"
-                        },
-                        "standbyDnsServer": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
+        "type": "object",
+        "properties": {
+            "errorCode": {
+                "type": "string"
+            },
+            "data": {
+                "type": "object",
+                "properties": {
+                    "tenantId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "additionalInfo": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                },
+                                "firstParentUuid": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "firstParentUuid",
+                                "id"
+                            ]
                         }
                     },
-                    "required": [
-                        "tenantId",
-                        "name",
-                        "neId",
-                        "controllerId",
-                        "networkId",
-                        "serviceSubnetId",
-                        "cidrIpAddress",
-                        "cidrMask",
-                        "useMode",
-                        "id"
-                    ]
+                    "operStatus": {
+                        "type": "string"
+                    },
+                    "adminStatus": {
+                        "type": "string"
+                    },
+                    "actionState": {
+                        "type": "string"
+                    },
+                    "createTime": {
+                        "type": "string"
+                    },
+                    "neId": {
+                        "type": "string"
+                    },
+                    "controllerId": {
+                        "type": "string"
+                    },
+                    "serviceSubnetId": {
+                        "type": "string"
+                    },
+                    "vni": {
+                        "type": "string"
+                    },
+                    "vlanId": {
+                        "type": "string"
+                    },
+                    "cidrIpAddress": {
+                        "type": "string"
+                    },
+                    "cidrMask": {
+                        "type": "string"
+                    },
+                    "gatewayIp": {
+                        "type": "string"
+                    },
+                    "enableDhcp": {
+                        "type": "string"
+                    },
+                    "ipRangeStartIp": {
+                        "type": "string"
+                    },
+                    "ipRangeEndIp": {
+                        "type": "string"
+                    },
+                    "useMode": {
+                        "type": "string"
+                    },
+                    "changedMode": {
+                        "type": "string"
+                    },
+                    "dhcpMode": {
+                        "type": "string"
+                    },
+                    "unlimit": {
+                        "type": "string"
+                    },
+                    "ipv6Address": {
+                        "type": "string"
+                    },
+                    "prefixLength": {
+                        "type": "string"
+                    },
+                    "dhcp6Enable": {
+                        "type": "string"
+                    },
+                    "dhcp6Mode": {
+                        "type": "string"
+                    },
+                    "priorDnsServer": {
+                        "type": "string"
+                    },
+                    "standbyDnsServer": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "dnsServerMode": {
+                        "type": "string"
+                    }
                 },
-                "descArg": {
-                    "type": "string"
-                },
-                "reasonArg": {
-                    "type": "string"
-                },
-                "detailArg": {
-                    "type": "string"
-                },
-                "adviceArg": {
-                    "type": "string"
-                },
-                "httpCode": {
-                    "type": "integer"
-                },
-                "message": {
-                    "type": "string"
-                }
+                "required": [
+                    "tenantId",
+                    "name",
+                    "controllerId",
+                    "serviceSubnetId",
+                    "enableDhcp",
+                    "useMode",
+                    "changedMode",
+                    "dhcpMode",
+                    "unlimit",
+                    "dhcp6Enable",
+                    "dhcp6Mode",
+                    "dnsServerMode"
+                ]
+            },
+            "httpCode": {
+                "type": "integer"
+            },
+            "message": {
+                "type": "string"
+            },
+            "successed": {
+                "type": "array",
+                "items": {}
+            },
+            "fail": {
+                "type": "array",
+                "items": {}
             }
         }
-
-        
     }
+
 }

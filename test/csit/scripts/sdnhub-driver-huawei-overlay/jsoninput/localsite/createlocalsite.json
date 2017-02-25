@@ -25,7 +25,7 @@
             "controllerId": "1234",
             "natId": "123544",
             "internetGatewayId": "12354",
-            "subnetId": "123456",
+            "subnetid": "123456",
             "ifName": "ifName",
             "privatePrefix": "11",
             "aclNumber": "12345",

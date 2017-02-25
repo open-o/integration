@@ -19,27 +19,6 @@
                 "data": {
                     "type": "object",
                     "properties": {
-                        "tenantId": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "operStatus": {
-                            "type": "string"
-                        },
-                        "adminStatus": {
-                            "type": "string"
-                        },
-                        "actionState": {
-                            "type": "string"
-                        },
-                        "createTime": {
-                            "type": "string"
-                        },
                         "neId": {
                             "type": "string"
                         },
@@ -49,52 +28,13 @@
                         "networkId": {
                             "type": "string"
                         },
-                        "serviceSubnetId": {
-                            "type": "string"
-                        },
-                        "vni": {
-                            "type": "string"
-                        },
-                        "vlanId": {
-                            "type": "string"
-                        },
-                        "cidrIpAddress": {
-                            "type": "string"
-                        },
-                        "cidrMask": {
-                            "type": "string"
-                        },
-                        "gatewayIp": {
-                            "type": "string"
-                        },
-                        "enableDhcp": {
-                            "type": "string"
-                        },
-                        "ipRangeStartIp": {
-                            "type": "string"
-                        },
-                        "ipRangeEndIp": {
-                            "type": "string"
-                        },
-                        "useMode": {
-                            "type": "string"
-                        },
                         "changedMode": {
                             "type": "string"
                         },
                         "dhcpMode": {
                             "type": "string"
                         },
-                        "dnsServerMode": {
-                            "type": "string"
-                        },
                         "unlimit": {
-                            "type": "string"
-                        },
-                        "ipv6Address": {
-                            "type": "string"
-                        },
-                        "prefixLength": {
                             "type": "string"
                         },
                         "dhcp6Enable": {
@@ -103,46 +43,34 @@
                         "dhcp6Mode": {
                             "type": "string"
                         },
-                        "priorDnsServer": {
-                            "type": "string"
-                        },
-                        "standbyDnsServer": {
-                            "type": "string"
-                        },
-                        "id": {
+                        "dnsServerMode": {
                             "type": "string"
                         }
                     },
                     "required": [
-                        "tenantId",
-                        "name",
                         "neId",
                         "controllerId",
                         "networkId",
-                        "serviceSubnetId",
-                        "cidrIpAddress",
-                        "cidrMask",
-                        "useMode",
-                        "id"
+                        "changedMode",
+                        "dhcpMode",
+                        "dhcp6Enable",
+                        "dhcp6Mode",
+                        "dnsServerMode"
                     ]
-                },
-                "descArg": {
-                    "type": "string"
-                },
-                "reasonArg": {
-                    "type": "string"
-                },
-                "detailArg": {
-                    "type": "string"
-                },
-                "adviceArg": {
-                    "type": "string"
                 },
                 "httpCode": {
                     "type": "integer"
                 },
                 "message": {
                     "type": "string"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {}
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
                 }
             }
         }

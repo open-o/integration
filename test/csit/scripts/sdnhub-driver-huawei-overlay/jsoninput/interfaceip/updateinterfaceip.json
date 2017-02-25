@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/deviceid/81244ad0-b4ea-41ed-969e-d5588b32fd41/interfaces",
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/device/81244ad0-b4ea-41ed-969e-d5588b32fd41/interfaces",
         "method": "put",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8",
