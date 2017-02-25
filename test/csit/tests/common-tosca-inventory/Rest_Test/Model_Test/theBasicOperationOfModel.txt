@@ -1,9 +1,5 @@
 *** Settings ***
-Suite Setup
-Suite Teardown    Run Keyword    Delete useless model
-Test Teardown
 Library           json
-Library           requests
 Library           RequestsLibrary
 Library           Collections
 Resource          keyword.txt
@@ -14,7 +10,7 @@ Create a model
     ${modelData}    Set Variable    { \ \ "attributes":[ \ \ \ \ { \ \ \ \ \ \ "name":"_id", \ \ \ \ \ \ "label":"ObjectID" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"Name", \ \ \ \ \ \ "label":"Name", \ \ \ \ \ \ "type":"string", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":true, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"grade", \ \ \ \ \ \ "label":"grade", \ \ \ \ \ \ "type":"number", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":false, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ } \ \ ], \ \ "name":"transcript", \ \ "enable":true, \ \ "label":"transcript", \ \ "description":"", \ \ "display-attribute":"Name" }
     ${responseInsertModel}    Post Request    inventory    /openoapi/inventory/v1/model    data=${modelData}    headers=${header}
     Should Be Equal As Strings    ${responseInsertModel.status_code}    200
-    [Teardown]
+    [Teardown]    Run Keyword    Delete useless model
 
 Update a model
     [Setup]    Run Keyword    Prepare a test model called transcript
@@ -23,14 +19,14 @@ Update a model
     ${modifiedAttributes}    toJson    ${modifiedAttributes}
     ${responseModifyModel}    Put Request    inventory    /openoapi/inventory/v1/model/transcript    data=${modifiedAttributes}    headers=${header}
     Should Be Equal As Strings    ${responseModifyModel.status_code}    200
-    [Teardown]
+    [Teardown]    Run Keyword    Delete useless model
 
 Get the definition of a model
     Run Keyword    Prepare a test model called transcript
     ${header}    Define the header
     ${responseGetModel}    Get Request    inventory    /openoapi/inventory/v1/model/transcript    headers=${header}
     Should Be Equal As Strings    ${responseGetModel.status_code}    200
-    [Teardown]
+    [Teardown]    Run Keyword    Delete useless model
 
 Get all definitions of models
     [Setup]    Run Keyword    Prepare a test model called credits
@@ -38,4 +34,4 @@ Get all definitions of models
     ${header}    Define the header
     ${responseGetAllModel}    Get Request    inventory    /openoapi/inventory/v1/model    headers=${header}
     Should Be Equal As Strings    ${responseGetAllModel.status_code}    200
-    [Teardown]
+    [Teardown]    Run Keyword    Delete useless model

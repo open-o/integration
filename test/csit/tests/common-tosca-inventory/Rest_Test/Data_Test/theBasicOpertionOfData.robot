@@ -1,11 +1,9 @@
 *** Settings ***
-Suite Setup       Run Keyword    Prepare a test model called transcript
-Suite Teardown    Run Keyword    Delete useless model
+Test Setup        Run Keyword    Prepare a test model called transcript
+Test Teardown     Run Keyword    Delete useless model
 Library           Collections
-Library           requests
 Library           RequestsLibrary
 Library           json
-Library           demjson
 Resource          keyword.txt
 Resource          ../Model_Test/keyword.txt
 
@@ -23,7 +21,6 @@ Batch add the data for a model
     ${multipleData}    tojson    ${multipleData}
     ${responseComment}    Post Request    inventory    /openoapi/inventory/v1/data/transcript    data=${multipleData}    headers=${header}
     Should Be Equal As Strings    ${responseComment.status_code}    200
-    [Teardown]
 
 Update data by id
     [Setup]    Run Keyword    Prepare 10 data records for transcript
@@ -55,6 +52,7 @@ Query data of model by id
     Should Be Equal As Strings    ${responseContent.status_code}    200
 
 Query the total number of data for a model
+    [Setup]    Run Keyword    Prepare 10 data records for transcript
     ${header}    Define the header
     ${responseContent}    Get Request    inventory    /openoapi/inventory/v1/count/data/transcript
     Should Be Equal As Strings    ${responseContent.status_code}    200

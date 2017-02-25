@@ -1,7 +1,0 @@
-*** Settings ***
-Suite Setup       Create Session    inventory    http://10.74.24.149:8080/inventory
-Suite Teardown
-Library           json
-Library           requests
-Library           RequestsLibrary
-Library           Collections

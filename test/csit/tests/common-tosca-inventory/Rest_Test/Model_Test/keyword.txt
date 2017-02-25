@@ -8,6 +8,7 @@ Prepare a test model called transcript
     ${header}    Define the header
     ${modelData}    Set Variable    { \ \ "attributes":[ \ \ \ \ { \ \ \ \ \ \ "name":"_id", \ \ \ \ \ \ "label":"ObjectID" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"name", \ \ \ \ \ \ "label":"name", \ \ \ \ \ \ "type":"string", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":true, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "name":"grade", \ \ \ \ \ \ "label":"grade", \ \ \ \ \ \ "type":"string", \ \ \ \ \ \ "enable":true, \ \ \ \ \ \ "required":false, \ \ \ \ \ \ "is-array":false, \ \ \ \ \ \ "unique":false \ \ \ \ } \ \ ], \ \ "name":"transcript", \ \ "enable":true, \ \ "label":"transcript", \ \ "description":"", \ \ "display-attribute":"name" }
     ${response}    Post Request    inventory    /openoapi/inventory/v1/model    data=${modelData}    headers=${header}
+    Should Be Equal As Strings    ${response.status_code}    200
 
 Delete useless model
     ${responseDeleteModel}    Delete Request    inventory    /openoapi/inventory/v1/model/transcript

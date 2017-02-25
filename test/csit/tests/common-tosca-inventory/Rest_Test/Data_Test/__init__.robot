@@ -1,10 +1,7 @@
 *** Settings ***
-Suite Setup
-Suite Teardown
+Suite Setup       Create Session    inventory    http://10.74.24.149:8203/inventory
 Library           collections
-Library           requests
 Library           RequestsLibrary
 Library           json
-Library           demjson
 Resource          ../Model_Test/keyword.txt
 Resource          keyword.txt

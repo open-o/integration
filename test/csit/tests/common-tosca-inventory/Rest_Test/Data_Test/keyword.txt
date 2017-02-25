@@ -7,7 +7,9 @@ Prepare 10 data records
     [Return]    ${dataList}
 
 Prepare 10 data records for transcript
+    Run Keyword    Prepare a test model called transcript
     ${header}    Define the header
     ${multipleData}    Prepare 10 data records
     ${multipleData}    tojson    ${multipleData}
     ${responseComment}    Post Request    inventory    /openoapi/inventory/v1/data/transcript    data=${multipleData}    headers=${header}
+    Should Be Equal As Strings    ${responseComment.status_code}    200

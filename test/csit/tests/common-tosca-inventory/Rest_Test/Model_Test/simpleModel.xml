@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmdb>
+	<models>
+		<model name="simpleModel" label="自引用" display-attribute="_id" description="含有自引用，检测含有自引用信息导入时是否出错" enable="true">
+			<attribute name="_id" label="_id"></attribute>
+			<attribute name="name" label="名称" type="string"></attribute>
+			<attribute name="age" label="年龄" type="number"></attribute>
+			<attribute name="marryOr" label="婚否" type="boolean"></attribute>
+			<attribute name="birthday" label="出生日期" type="datetime"></attribute>
+			<attribute name="child" label="孩子名" type="reference" ref="simpleModel"></attribute>
+		</model>
+	</models>
+</cmdb>
