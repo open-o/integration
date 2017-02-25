@@ -15,13 +15,6 @@
 # limitations under the License.
 #
 
-#copy the logs files
-docker cp multivim-broker:/service/multivimbroker/logs/runtime*.log ${SCRIPTS}/../../../archives
-docker cp multivim-driver-newton:/service/newton/logs/runtime*.log ${SCRIPTS}/../../../archives
-docker cp multivim-driver-kilo:/service/kilo/logs/runtime*.log ${SCRIPTS}/../../../archives
-#docker cp multivim-driver-vio:/service/vio/logs/runtime*.log ${SCRIPTS}/../../../archives
-
-
 # This script is sourced by run-csit.sh after Robot test completion.
 kill-instance.sh i-msb
 #kill-instance.sh i-esr
