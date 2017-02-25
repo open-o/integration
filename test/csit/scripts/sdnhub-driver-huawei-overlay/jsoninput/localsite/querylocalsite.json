@@ -4,37 +4,45 @@
         "method": "get",
         "headers": {
             "Content-Type": "application/json",
-            "X-Driver-Parameter": "extSysID={ESR_CNTRL_HTTP}"
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
         },
         "json": null
     },
     "response": {
         "status": 200,
         "json": {
-            "type": "object",
-            "properties": {
-                "errorCode": {
-                    "type": "string"
-                },
-                "descArg": {
-                    "type": "string"
-                },
-                "reasonArg": {
-                    "type": "string"
-                },
-                "detailArg": {
-                    "type": "string"
-                },
-                "adviceArg": {
-                    "type": "string"
-                },
-                "httpCode": {
-                    "type": "integer"
-                },
-                "message": {
-                    "type": "string"
-                }
-            }
+    "type": "object",
+    "properties": {
+        "errorCode": {
+            "type": "string"
+        },
+        "descArg": {
+            "type": "string"
+        },
+        "reasonArg": {
+            "type": "string"
+        },
+        "detailArg": {
+            "type": "string"
+        },
+        "adviceArg": {
+            "type": "string"
+        },
+        "httpCode": {
+            "type": "integer"
+        },
+        "message": {
+            "type": "string"
+        },
+        "successed": {
+            "type": "array",
+            "items": {}
+        },
+        "fail": {
+            "type": "array",
+            "items": {}
         }
+    }
+}
     }
 }

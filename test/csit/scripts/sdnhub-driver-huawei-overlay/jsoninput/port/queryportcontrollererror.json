@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc1234/ports",
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc1234/ports?portName=port",
         "method": "get",
         "headers": {
             "Content-Type": "application/json",

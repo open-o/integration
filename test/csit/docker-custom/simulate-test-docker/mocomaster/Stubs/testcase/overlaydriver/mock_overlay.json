@@ -308,123 +308,149 @@
     "response": {
         "status": 200,
         "json": {
-            "errcode": "0",
-            "errmsg": "",
-            "data": {
-                "tenantId": "",
-                "name": "",
-                "description": "",
-                "operStatus": "none",
-                "adminStatus": "none",
-                "actionState": "Normal",
-                "createTime": "",
-                "neId": "123",
-                "controllerId": "1234",
-                "networkId": "12345",
-                "serviceSubnetId": "123456",
-                "vni": "",
-                "vlanId": "",
-                "cidrIpAddress": "",
-                "cidrMask": "",
-                "gatewayIp": "",
-                "enableDhcp": "",
-                "ipRangeStartIp": "",
-                "ipRangeEndIp": "",
-                "useMode": "",
-                "changedMode": "",
-                "dhcpMode": "",
-                "dnsServerMode": "",
-                "unlimit": "",
-                "ipv6Address": "",
-                "prefixLength": "",
-                "dhcp6Enable": "",
-                "dhcp6Mode": "",
-                "priorDnsServer": "",
-                "standbyDnsServer": "",
-                "id": "bc856ae5ffeb4768a89bb47ca7c196f1"
+                "errcode": "0",
+                "errmsg": "",
+                "data": {
+                    "id": "1234",
+                    "name": "Subnet model",
+                    "use": "terminal",
+                    "vni": 0,
+                    "vlanId": 0,
+                    "ipAddress": null,
+                    "maskAddress": null,
+                    "ipv6Address": null,
+                    "prefixLength": null,
+                    "description": null,
+                    "subnetList": null,
+                    "dhcpEnable": false,
+                    "dhcp6Enable": false,
+                    "dhcp6Config": {
+                        "dhcpMode": "server",
+                        "dnsServer": "systemsetting",
+                        "excludedAddresses6": null
+                    },
+                    "dhcpConfig": {
+                        "dhcpMode": "srever",
+                        "masterWins": null,
+                        "slaveWins": null,
+                        "dnsConfig": {
+                            "dnsServerMode": "systemsetting",
+                            "priorDnsServer": null,
+                            "standbyDnsServer": null
+                        },
+                        "timeConfig": {
+                            "unlimit": true,
+                            "day": 0,
+                            "hour": 0,
+                            "minute": 0
+                        },
+                        "excludedAddresses": null,
+                        "staticBindings": null,
+                        "relayServerIps": null,
+                        "dhcpServerOptions": null
+                    },
+                    "isChangedMode": false
+                }
             }
-        }
-
     }
 },
 {
-    "request": {
-        "uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
-        "method": "put",
-        "headers": {
-            "Content-Type": "application/json"
-        },
-        "json": {
-            "id": "1234",
-            "name": "Subnet model",
-            "use": "true",
-            "vni": 123,
-            "vlanId": 123,
-            "ipAddress": null,
-            "maskAddress": null,
-            "ipv6Address": "10.12.13.14.15.16",
-            "prefixLength": 2,
-            "description": "description",
-            "subnetList": [],
-            "dhcpEnable": false,
-            "dhcp6Enable": false,
-            "dhcp6Config": {
-                "dhcpMode": "dhcp6Mode",
-                "dnsServer": "10.11.12.13",
-                "excludedAddresses6": null
+        "request": {
+            "uri": "/controller/cloud/v2/northbound/config/abc123/device/network",
+            "method": "put",
+            "headers": {
+                "Content-Type": "application/json"
             },
-            "dhcpConfig": null,
-            "isChangedMode": false
-        }
+            "json": {
+                "id": "1234",
+                "name": "Subnet model",
+                "use": "terminal",
+                "vni": 123,
+                "vlanId": 123,
+                "ipAddress": null,
+                "maskAddress": null,
+                "ipv6Address": "10.12.13.14.15.16",
+                "prefixLength": 2,
+                "description": "description",
+                "subnetList": [],
+                "dhcpEnable": false,
+                "dhcp6Enable": true,
+                "dhcp6Config": {
+                    "dhcpMode": "server",
+                    "dnsServer": "10.11.12.13",
+                    "excludedAddresses6": null
+                },
+                "dhcpConfig": null,
+                "isChangedMode": false
+            }
 
-    },
-    "response": {
-        "status": 200,
-        "json": {
-            "errcode": "0",
-            "errmsg": "",
-            "pageIndex": 0,
-            "pageSize": 0,
-            "totalRecords": 0,
-            "data": {
-                "tenantId": "a",
-                "name": "a",
-                "description": "a",
-                "operStatus": "none",
-                "adminStatus": "none",
-                "actionState": "Normal",
-                "createTime": "a",
-                "neId": "123",
-                "controllerId": "1234",
-                "networkId": "12345",
-                "serviceSubnetId": "123456",
-                "vni": "a",
-                "vlanId": "a",
-                "cidrIpAddress": "a",
-                "cidrMask": "a",
-                "gatewayIp": "a",
-                "enableDhcp": "a",
-                "ipRangeStartIp": "a",
-                "ipRangeEndIp": "a",
-                "useMode": "a",
-                "changedMode": "a",
-                "dhcpMode": "a",
-                "dnsServerMode": "a",
-                "unlimit": "a",
-                "ipv6Address": "a",
-                "prefixLength": "a",
-                "dhcp6Enable": "a",
-                "dhcp6Mode": "a",
-                "priorDnsServer": "a",
-                "standbyDnsServer": "a",
-                "id": "bc856ae5ffeb4768a89bb47ca7c196f1"
-            },
-            "success": {},
-            "fail": {},
-            "sucess": true
+        },
+        "response": {
+            "status": 200,
+            "json": {
+                "errcode": "0",
+                "errmsg": null,
+                "pageIndex": 0,
+                "pageSize": 0,
+                "totalRecords": 0,
+                "data": {
+                    "id": "bc856ae5ffeb4768a89bb47ca7c196f1",
+                    "name": "test1",
+                    "use": "terminal",
+                    "description": "",
+                    "vni": null,
+                    "vlanId": 6,
+                    "ipAddress": "11.11.11.11",
+                    "maskAddress": "255.255.255.0",
+                    "mode": 1,
+                    "subnetList": null,
+                    "isChangedMode": false,
+                    "deviceId": null,
+                    "deviceNetworkConfigs": null,
+                    "dhcpEnable": true,
+                    "dhcpConfig": {
+                        "dhcpMode": "server",
+                        "masterWins": null,
+                        "slaveWins": null,
+                        "dnsConfig": {
+                            "dnsServerMode": "custom",
+                            "priorDnsServer": "121.121.121.1",
+                            "standbyDnsServer": "121.121.121.2"
+                        },
+                        "timeConfig": {
+                            "unlimit": false,
+                            "day": 200,
+                            "hour": 16,
+                            "minute": 30
+                        },
+                        "excludedAddresses": [{
+                            "startIpAddress": "11.11.11.1",
+                            "endIpAddress": "11.11.11.2"
+                        }, {
+                            "startIpAddress": "11.11.11.5",
+                            "endIpAddress": "11.11.11.6"
+                        }],
+                        "staticBindings": null,
+                        "relayServerIps": null,
+                        "dhcpServerOptions": null
+                    },
+                    "securityAuth": {
+                        "authType": "noAuth",
+                        "templateId": null,
+                        "authContent": null
+                    },
+                    "ipv6Address": null,
+                    "prefixLength": null,
+                    "dhcp6Enable": null,
+                    "dhcp6Config": null
+                },
+                "success": null,
+                "fail": null,
+                "sucess": true
+            }
         }
     }
-},
+,
 {
   "request" : {
     "uri" : "/controller/cloud/v2/northbound/config/81244ad0-b4ea-41ed-969e-d5588b32fd5d/device/staticroutes",
@@ -589,13 +615,28 @@
             "pageIndex": 0,
             "pageSize": 0,
             "totalRecords": 0,
-            "data": {
-                "ipv4": "192.168.1.2",
-                "ipv6": "",
-                "ipMask": "",
-                "prefixLength": "",
-                "id": ""                        
-            },
+            "data": [{
+    "id": null,
+    "name": null,
+    "runStatus": 0,
+    "mgrStatus": 0,
+    "index": null,
+    "alias": null,
+    "ipAddr": "12.23.23.34",
+    "ipv6Addr": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    "bandWith": null,
+    "mtu": 0,
+    "report": false,
+    "mode": 0,
+    "iccid": null,
+    "mac": null,
+    "terminationMode": null,
+    "ceLowVlan": null,
+    "ceHighVlan": null,
+    "peVlan": null,
+    "mask": "16",
+    "prefixLength": "16"
+}],
             "success": [],
             "fail": [],
             "sucess": true
@@ -1173,16 +1214,14 @@
             "Content-Type": "application/json"
         },
         "json": null
-
     },
     "response": {
         "status": 200,
         "json": {
             "errcode": "0",
             "errmsg": "",
-            "data": {
-                "trafficPolicyList": [{
-                    "id": "1",
+            "data": [{
+                    "id": "1234",
                     "uuid": "1",
                     "trafficpolicyName": "test1",
                     "filterActionList": [{
@@ -1222,11 +1261,8 @@
                         "interfaceName": "GigabitEthernet0/0/0",
                         "direction": "outbound"
                     }]
-                }]
-            }
+            }]
         }
-
-
     }
 },
 {

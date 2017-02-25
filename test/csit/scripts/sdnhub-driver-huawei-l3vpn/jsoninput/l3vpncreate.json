@@ -4,7 +4,7 @@
         "method": "post",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8",
-            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+            "X-Driver-Parameter": "extSysID=@#$"
         },
         "json": {
     "id": "00000000-0000-0000-0000-000000000001",

@@ -21,11 +21,11 @@
             "actionState": "None",
             "createTime": "12:00:00",
             "neId": "123",
-            "deviceId": "123455",
+            "deviceid": "123455",
             "controllerId": "1234",
             "natId": "123544",
             "internetGatewayId": "12354",
-            "subnetid": "123456",
+            "subnetId": "123456",
             "ifName": "ifName",
             "privatePrefix": "11",
             "aclNumber": "12345",
@@ -45,156 +45,161 @@
     "response": {
         "status": 200,
         "json": {
+    "type": "object",
+    "properties": {
+        "errorCode": {
+            "type": "string"
+        },
+        "data": {
             "type": "object",
             "properties": {
-                "errorCode": {
+                "tenantId": {
                     "type": "string"
                 },
-                "data": {
-                    "type": "object",
-                    "properties": {
-                        "tenantId": {
-                            "type": "string"
-                        },
-                        "name": {
-                            "type": "string"
-                        },
-                        "description": {
-                            "type": "string"
-                        },
-                        "additionalInfo": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "value": {
-                                        "type": "string"
-                                    },
-                                    "firstParentUuid": {
-                                        "type": "string"
-                                    },
-                                    "id": {
-                                        "type": "string"
-                                    }
-                                },
-                                "required": [
-                                    "firstParentUuid",
-                                    "id"
-                                ]
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "additionalInfo": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            },
+                            "firstParentUuid": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
                             }
                         },
-                        "operStatus": {
-                            "type": "string"
-                        },
-                        "adminStatus": {
-                            "type": "string"
-                        },
-                        "actionState": {
-                            "type": "string"
-                        },
-                        "createTime": {
-                            "type": "string"
-                        },
-                        "neId": {
-                            "type": "string"
-                        },
-                        "deviceId": {
-                            "type": "string"
-                        },
-                        "controllerId": {
-                            "type": "string"
-                        },
-                        "natId": {
-                            "type": "string"
-                        },
-                        "internetGatewayId": {
-                            "type": "string"
-                        },
-                        "subnetId": {
-                            "type": "string"
-                        },
-                        "ifName": {
-                            "type": "string"
-                        },
-                        "privatePrefix": {
-                            "type": "string"
-                        },
-                        "aclNumber": {
-                            "type": "string"
-                        },
-                        "aclId": {
-                            "type": "string"
-                        },
-                        "startPublicIpAddress": {
-                            "type": "string"
-                        },
-                        "endPublicIpAddress": {
-                            "type": "string"
-                        },
-                        "qosPreNat": {
-                            "type": "string"
-                        },
-                        "updatetime": {
-                            "type": "string"
-                        },
-                        "type": {
-                            "type": "string"
-                        },
-                        "id": {
-                            "type": "string"
-                        },
-                        "privateCidr": {
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "tenantId",
-                        "neId",
-                        "deviceId",
-                        "controllerId",
-                        "natId",
-                        "internetGatewayId",
-                        "subnetId",
-                        "ifName",
-                        "privatePrefix",
-                        "aclNumber",
-                        "aclId",
-                        "startPublicIpAddress",
-                        "endPublicIpAddress",
-                        "id",
-                        "privateCidr"
-                    ]
+                        "required": [
+                            "name",
+                            "value",
+                            "firstParentUuid",
+                            "id"
+                        ]
+                    }
                 },
-                "descArg": {
+                "operStatus": {
                     "type": "string"
                 },
-                "reasonArg": {
+                "adminStatus": {
                     "type": "string"
                 },
-                "detailArg": {
+                "actionState": {
                     "type": "string"
                 },
-                "adviceArg": {
+                "createTime": {
                     "type": "string"
                 },
-                "httpCode": {
-                    "type": "integer"
-                },
-                "message": {
+                "neId": {
                     "type": "string"
                 },
-                "successed": {
-                    "type": "array",
-                    "items": {}
+                "controllerId": {
+                    "type": "string"
                 },
-                "fail": {
-                    "type": "array",
-                    "items": {}
+                "natId": {
+                    "type": "string"
+                },
+                "internetGatewayId": {
+                    "type": "string"
+                },
+                "subnetId": {
+                    "type": "string"
+                },
+                "ifName": {
+                    "type": "string"
+                },
+                "privatePrefix": {
+                    "type": "string"
+                },
+                "aclNumber": {
+                    "type": "string"
+                },
+                "aclId": {
+                    "type": "string"
+                },
+                "startPublicIpAddress": {
+                    "type": "string"
+                },
+                "endPublicIpAddress": {
+                    "type": "string"
+                },
+                "qosPreNat": {
+                    "type": "string"
+                },
+                "createtime": {
+                    "type": "null"
+                },
+                "updatetime": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "deviceid": {
+                    "type": "string"
+                },
+                "privateCidr": {
+                    "type": "string"
                 }
-            }
+            },
+            "required": [
+                "tenantId",
+                "name",
+                "neId",
+                "controllerId",
+                "natId",
+                "internetGatewayId",
+                "subnetId",
+                "ifName",
+                "privatePrefix",
+                "id",
+                "deviceid",
+                "privateCidr"
+            ]
+        },
+        "descArg": {
+            "type": "string"
+        },
+        "reasonArg": {
+            "type": "string"
+        },
+        "detailArg": {
+            "type": "string"
+        },
+        "adviceArg": {
+            "type": "string"
+        },
+        "httpCode": {
+            "type": "integer"
+        },
+        "message": {
+            "type": "string"
+        },
+        "smallErrorCodeList": {
+            "type": "null"
+        },
+        "successed": {
+            "type": "array",
+            "items": {}
+        },
+        "fail": {
+            "type": "array",
+            "items": {}
         }
+    }
+}
     }
 }

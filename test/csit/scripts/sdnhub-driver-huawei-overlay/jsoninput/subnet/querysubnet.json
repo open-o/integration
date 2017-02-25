@@ -4,7 +4,7 @@
         "method": "get",
         "headers": {
             "Content-Type": "application/json",
-            "X-Driver-Parameter": "extSysID=250578f1-0a31-454a-909f-9fd544463d60"
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
         },
         "json": {}
     },

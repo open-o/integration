@@ -4,12 +4,45 @@
         "method": "delete",
         "headers": {
             "Content-Type": "application/json",
-            "X-Driver-Parameter": "extSysID={ESR_CNTRL_HTTP}"
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
         },
         "json": {}
     },
     "response": {
         "status": 200,
-        "json": {}
+        "json": {
+    "type": "object",
+    "properties": {
+        "errorCode": {
+            "type": "string"
+        },
+        "descArg": {
+            "type": "string"
+        },
+        "reasonArg": {
+            "type": "string"
+        },
+        "detailArg": {
+            "type": "string"
+        },
+        "adviceArg": {
+            "type": "string"
+        },
+        "httpCode": {
+            "type": "integer"
+        },
+        "message": {
+            "type": "string"
+        },
+        "successed": {
+            "type": "array",
+            "items": {}
+        },
+        "fail": {
+            "type": "array",
+            "items": {}
+        }
+    }
+}
     }
 }

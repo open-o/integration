@@ -48,6 +48,8 @@
 
     },
     "response": {
+    "status": 200,
+        "json": {
         "type": "object",
         "properties": {
             "errorCode": {
@@ -202,5 +204,5 @@
             }
         }
     }
-
+}
 }
