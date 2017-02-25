@@ -21,6 +21,13 @@ ${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
 MSB_IP=`get-instance-ip.sh i-msb`
 echo MSB_IP=${MSB_IP}
 
+# Wait for MSB and gateway instantiation 
+for i in {1..20}; do
+    curl -sS -m 1 ${MSB_IP}:8086 && curl -sS -m 1 ${MSB_IP}:80 && break
+    echo sleep $i
+    sleep $i
+done
+
 # Start vnflcm
 ${SCRIPTS}/gvnfm-vnflcm/startup.sh i-vnflcm ${MSB_IP}:80
 VNFLCM_IP=`get-instance-ip.sh i-vnflcm`
@@ -28,7 +35,7 @@ echo VNFLCM_IP=${VNFLCM_IP}
 
 # Wait for initialization
 for i in {1..20}; do
-    curl -sS -m 1 ${MSB_IP}:80/openoapi/vnflcm/v1/swagger.json && curl -sS -m 1 ${MSB_IP}:80/openoui/microservices/index.html && break
+    curl -sS -m 1 ${VNFLCM_IP}:8801/openoapi/vnflcm/v1/swagger.json && break
     echo sleep $i
     sleep $i
 done
