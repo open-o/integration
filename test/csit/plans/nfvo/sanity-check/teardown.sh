@@ -27,7 +27,4 @@ kill-instance.sh jujuvnfm
 kill-instance.sh resmgr
 kill-instance.sh hwvnfmdriver
 kill-instance.sh simulator
-kill-instance.sh nslcm
-kill-instance.sh gvnfmdriver
-kill-instance.sh ztevmanagerdriver
 
