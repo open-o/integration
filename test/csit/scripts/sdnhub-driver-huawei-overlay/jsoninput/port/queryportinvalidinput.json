@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc123/ports/portName=loopback",
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/abc123/ports?portName=loopback",
         "method": "get",
         "headers": {
             "Content-Type": "application/json"
