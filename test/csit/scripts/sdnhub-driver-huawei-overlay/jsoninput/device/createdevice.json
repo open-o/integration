@@ -10,19 +10,18 @@
             "name": "deviceOne",
             "esn": "esn-abcdef-123456780",
             "orgnizationName": "huawei",
-            "description": "create test device"
+            "description": "create test device",
+            "id": "1234"
         }]
     },
     "response": {
         "status": 200,
         "json": {
-
             "type": "object",
             "properties": {
                 "errorCode": {
                     "type": "string"
                 },
-                
                 "descArg": {
                     "type": "string"
                 },
