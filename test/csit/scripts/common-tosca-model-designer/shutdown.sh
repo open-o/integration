@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 ZTE Corporation.
+# Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# $1 nickname for the modeldesigner instance
 
-run-instance.sh openoint/common-tosca-modeldesigner $1 "-e MSB_ADDR=$2"
-
+docker kill modeldesigner
+docker rm modeldesigner

@@ -5,9 +5,7 @@ Library       RequestsLibrary
 Liveness Test
     [Documentation]        Check various endpoints for basic liveness check
     Create Session         modeldesigner         http://${MODELDESIGNER_IP}:8202
-    CheckUrl               modeldesigner         /modeldesign
-    CheckUrl               modeldesigner         /modeldesign/nodetypes.html
-    CheckUrl               modeldesigner         /modeldesign/servicetemplates.yaml
+    CheckUrl               modeldesigner         /modeldesigner/servicetemplates.html
 
 *** Keywords ***
 CheckUrl
