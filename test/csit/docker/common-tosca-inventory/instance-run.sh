@@ -15,4 +15,4 @@
 # limitations under the License.
 #
 # Start service
-bin/run.sh
+source bin/run.sh
