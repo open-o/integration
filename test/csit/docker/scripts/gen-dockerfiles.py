@@ -107,6 +107,7 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
             symlink(True, "10-basebuild.txt")
             symlink(row["python"], "15-python.txt")
             symlink(row["mysql"], "20-mysql.txt")
+            symlink(row["mongodb"], "25-mongodb.txt")
             symlink(row["tomcat"], "30-tomcat.txt")
             symlink(True, "90-entrypoint.txt")
 
