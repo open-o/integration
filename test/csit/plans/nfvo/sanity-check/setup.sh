@@ -42,7 +42,7 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 
 #Start juju-vnfm-driver
 run-instance.sh openoint/nfvo-driver-vnfm-juju jujuvnfm " -i -t -e MSB_ADDR=${MSB_IP}:80"
-extsys_ip=`get-instance-ip.sh jujuvnfm`
+JUJUVNFM_IP=`get-instance-ip.sh jujuvnfm`
 sleep_msg="Waiting_for_jujudriver"
 curl_path='http://'${MSB_IP}':80/openoapi/jujuvnfm/v1/config'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="debug"
