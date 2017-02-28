@@ -14,4 +14,4 @@ sdnhub-driver-huawei-overlay/startup/subnetbda.robot
 sdnhub-driver-huawei-overlay/startup/vlan.robot
 sdnhub-driver-huawei-overlay/startup/policyroute.robot
 sdnhub-driver-huawei-overlay/startup/subnet.robot
-#sdnhub-driver-huawei-overlay/startup/ipsec.robot
+sdnhub-driver-huawei-overlay/startup/ipsec.robot
