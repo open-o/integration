@@ -1,0 +1,235 @@
+{
+    "request": {
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-ipsec/v1/device/batch-update-ipsecs",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_CNTRL_HTTP}"
+        },
+        "json": [{
+            "name": "test123",
+            "tenantId": "456778",
+            "description": "testt",
+            "deployStatus": "deploy",
+            "activeStatus": "none",
+            "runningStatus": "none",
+            "additionalInfo": "test",
+            "controllerId": "288392",
+            "externalId": "450",
+            "connectionServiceId": "38920921",
+            "neId": "4989302",
+            "deviceId": "1234",
+            "peerDeviceId": "4993043",
+            "externalIpSecId": "450",
+            "sourceAddress": "1.1.1.1",
+            "peerAddress": "2.2.2.2",
+            "ikePolicy": {
+                "pfs": "group2",
+                "lifeTime": "3",
+
+                "ikeVersion": "v1",
+                "psk": "one",
+                "authAlgorithm": "md5",
+                "encryptionAlgorithm": "3des",
+                "id": "49956"
+            },
+            "ipSecPolicy": {
+                "pfs": "Group5",
+                "lifeTime": "3",
+                "transformProtocol": "esp",
+                "encapsulationMode": "tunnel",
+                "authAlgorithm": "md5",
+                "encryptionAlgorithm": "aes-128",
+                "id": "4567"
+            },
+            "workType": "work",
+            "sourceLanCidrs": null,
+            "peerLanCidrs": null,
+            "isTemplateType": "true",
+            "nqa": "nqa",
+            "localNeRole": "vpc",
+            "tenantName": null,
+            "protectionPolicy": null,
+            "qosPreClassify": null,
+            "id": "59904332",
+            "actionState": "Normal",
+            "createTime": 0,
+            "updateTime": 0,
+            "sourceIfId": "GigabitEthernet0/0/1"
+        }]
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "tenantId": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "deployStatus": {
+                                "type": "string"
+                            },
+                            "activeStatus": {
+                                "type": "string"
+                            },
+                            "runningStatus": {
+                                "type": "string"
+                            },
+                            "additionalInfo": {
+                                "type": "string"
+                            },
+                            "controllerId": {
+                                "type": "string"
+                            },
+                            "externalId": {
+                                "type": "string"
+                            },
+                            "connectionServiceId": {
+                                "type": "string"
+                            },
+                            "neId": {
+                                "type": "string"
+                            },
+                            "deviceId": {
+                                "type": "string"
+                            },
+                            "peerDeviceId": {
+                                "type": "string"
+                            },
+                            "externalIpSecId": {
+                                "type": "string"
+                            },
+                            "sourceAddress": {
+                                "type": "string"
+                            },
+                            "peerAddress": {
+                                "type": "string"
+                            },
+                            "ikePolicy": {
+                                "type": "object",
+                                "properties": {
+                                    "pfs": {
+                                        "type": "string"
+                                    },
+                                    "lifeTime": {
+                                        "type": "string"
+                                    },
+                                    "ikeVersion": {
+                                        "type": "string"
+                                    },
+                                    "psk": {
+                                        "type": "string"
+                                    },
+                                    "authAlgorithm": {
+                                        "type": "string"
+                                    },
+                                    "encryptionAlgorithm": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "ikeVersion",
+                                    "psk",
+                                    "authAlgorithm",
+                                    "encryptionAlgorithm",
+                                    "id"
+                                ]
+                            },
+                            "ipSecPolicy": {
+                                "type": "object",
+                                "properties": {
+                                    "pfs": {
+                                        "type": "string"
+                                    },
+                                    "lifeTime": {
+                                        "type": "string"
+                                    },
+                                    "transformProtocol": {
+                                        "type": "string"
+                                    },
+                                    "encapsulationMode": {
+                                        "type": "string"
+                                    },
+                                    "authAlgorithm": {
+                                        "type": "string"
+                                    },
+                                    "encryptionAlgorithm": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "transformProtocol",
+                                    "encapsulationMode",
+                                    "authAlgorithm",
+                                    "encryptionAlgorithm",
+                                    "id"
+                                ]
+                            },
+                            "workType": {
+                                "type": "string"
+                            },
+                            "isTemplateType": {
+                                "type": "string"
+                            },
+                            "nqa": {
+                                "type": "string"
+                            },
+                            "localNeRole": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "sourceIfId": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "tenantId",
+                            "controllerId",
+                            "externalId",
+                            "connectionServiceId",
+                            "neId",
+                            "deviceId",
+                            "peerDeviceId",
+                            "externalIpSecId",
+                            "ikePolicy",
+                            "ipSecPolicy",
+                            "workType",
+                            "isTemplateType",
+                            "nqa",
+                            "localNeRole",
+                            "id",
+                            "sourceIfId"
+                        ]
+                    }
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
+                }
+            }
+        }
+    }
+}

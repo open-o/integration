@@ -1739,7 +1739,7 @@
 },
 {
     "request": {
-        "uri": "/controller/cloud/v2/northbound/config/123/device/vpnsipsec",
+        "uri": "/controller/cloud/v2/northbound/config/1234/device/vpnsipsec",
         "method": "get",
         "headers": {
             "Content-Type": "application/json"
@@ -1752,11 +1752,11 @@
             "errcode": "0",
             "errmsg": "",
             "data": [{
-                "id": "1",
+                "id": "450",
                 "name": "ipseconn",
                 "interfaceName": "GigabitEthernet0/0/1",
                 "ipsecConnection": [{
-                    "seqNumber": 1,
+                    "seqNumber": 450,
                     "deleteMode": false,
                     "type": false,
                     "routeInject": null,
@@ -1787,6 +1787,162 @@
                 }]
             }]
         }
+    }
+},
+{
+        "request": {
+            "uri": "/controller/cloud/v2/northbound/config/1234/device/vpnsipsec",
+            "method": "put",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "json": {"ipsecList":[{"name":"8e8a2192e437a55","interfaceName":"GigabitEthernet0/0/1","ipsecConnection":[{"seqNumber":450,"deleteMode":false,"type":"true","ruleList":null,"routeInject":null,"ike":{"preSharedKey":null,"authAlgorithm":"3des","peerId":null,"localAddress":null,"peerAddress":null,"localId":null,"encryptionAlgorithm":null,"version":"v1"},"nqaId":null,"nqaState":null,"qosPreClassify":null,"ipsec":{"espAuthAlgorithm":"md5","espEncryptionAlgorithm":null}}],"id":"2ace53bdd02f481ea8ae9ffd2211c845"}]}
+        },
+        "response": {
+            "status": 200,
+            "json": {
+                "errcode": "0",
+                "errmsg": "",
+                "data": [{
+                    "id": "450",
+                    "name": "ipseconn",
+                    "interfaceName": "234562",
+                    "ipsecConnection": [{
+                        "seqNumber": "450",
+                        "deleteMode": false,
+                        "type": false,
+                        "routeInject": null,
+                        "ipsec": {
+                            "name": "proposal2",
+                            "espAuthAlgorithm": "md5",
+                            "espEncryptionAlgorithm": "3des"
+                        },
+                        "ike": {
+                            "id": 2,
+                            "authAlgorithm": "sha1",
+                            "encryptionAlgorithm": "des",
+                            "version": "v2",
+                            "localAddress": null,
+                            "peerAddress": "33.33.33.33",
+                            "preSharedKey": "huawei"
+                        },
+                        "aclNumber": 3000,
+                        "aclId": "bfd2e7ab23be41fbb9955d4baf3686bc",
+                        "ruleList": [{
+                            "id": 0,
+                            "policy": "permit",
+                            "srcIp": "1.1.1.1",
+                            "srcNetMask": "255.255.255.0",
+                            "desIp": "2.2.2.2",
+                            "desNetMask": "255.255.255.0"
+                        }]
+                    }]
+                }]
+            }
+        }
+    },
+    {
+        "request": {
+            "uri": "/controller/cloud/v2/northbound/config/1234/device/vpnsipsec",
+            "method": "put",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "json": {"ipsecList":[{"name":"ipseconn","interfaceName":"GigabitEthernet0/0/1","ipsecConnection":[{"seqNumber":450,"deleteMode":false,"type":"false","ruleList":[{"desIp":"2.2.2.2","desNetMask":"255.255.255.0","srcNetMask":"255.255.255.0","policy":"permit","srcIp":"1.1.1.1"}],"routeInject":null,"ike":{"preSharedKey":"huawei","authAlgorithm":"sha1","peerId":null,"localAddress":null,"peerAddress":"33.33.33.33","localId":null,"encryptionAlgorithm":"des","version":"v2"},"nqaId":null,"nqaState":null,"qosPreClassify":null,"ipsec":{"espAuthAlgorithm":"md5","espEncryptionAlgorithm":"3des"}}],"id":"450"}]}
+        },
+        "response": {
+            "status": 200,
+            "json": {
+                "errcode": "0",
+                "errmsg": "",
+                "data": [{
+                    "id": "450",
+                    "name": "ipseconn",
+                    "interfaceName": "234562",
+                    "ipsecConnection": [{
+                        "seqNumber": "450",
+                        "deleteMode": false,
+                        "type": false,
+                        "routeInject": null,
+                        "ipsec": {
+                            "name": "proposal2",
+                            "espAuthAlgorithm": "md5",
+                            "espEncryptionAlgorithm": "3des"
+                        },
+                        "ike": {
+                            "id": 2,
+                            "authAlgorithm": "sha1",
+                            "encryptionAlgorithm": "des",
+                            "version": "v2",
+                            "localAddress": null,
+                            "peerAddress": "33.33.33.33",
+                            "preSharedKey": "huawei"
+                        },
+                        "aclNumber": 3000,
+                        "aclId": "bfd2e7ab23be41fbb9955d4baf3686bc",
+                        "ruleList": [{
+                            "id": 0,
+                            "policy": "permit",
+                            "srcIp": "1.1.1.1",
+                            "srcNetMask": "255.255.255.0",
+                            "desIp": "2.2.2.2",
+                            "desNetMask": "255.255.255.0"
+                        }]
+                    }]
+                }]
+            }
+        }
+    },
+    {
+        "request": {
+            "uri": "/controller/cloud/v2/northbound/config/1234/device/vpnsipsec",
+            "method": "put",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "json": {"ipsecList":[{"name":"ipseconn","interfaceName":"GigabitEthernet0/0/1","ipsecConnection":[{"seqNumber":450,"deleteMode":true,"type":"false","ruleList":[{"desIp":"2.2.2.2","desNetMask":"255.255.255.0","srcNetMask":"255.255.255.0","policy":"permit","srcIp":"1.1.1.1"}],"routeInject":null,"ike":{"preSharedKey":"huawei","authAlgorithm":"sha1","peerId":null,"localAddress":null,"peerAddress":"33.33.33.33","localId":null,"encryptionAlgorithm":"des","version":"v2"},"nqaId":null,"nqaState":null,"qosPreClassify":null,"ipsec":{"espAuthAlgorithm":"md5","espEncryptionAlgorithm":"3des"}}],"id":"450"}]}
+        },
+        "response": {
+            "status": 200,
+            "json": {
+                "errcode": "0",
+                "errmsg": "",
+                "data": [{
+                    "id": "450",
+                    "name": "ipseconn",
+                    "interfaceName": "234562",
+                    "ipsecConnection": [{
+                        "seqNumber": "450",
+                        "deleteMode": false,
+                        "type": false,
+                        "routeInject": null,
+                        "ipsec": {
+                            "name": "proposal2",
+                            "espAuthAlgorithm": "md5",
+                            "espEncryptionAlgorithm": "3des"
+                        },
+                        "ike": {
+                            "id": 2,
+                            "authAlgorithm": "sha1",
+                            "encryptionAlgorithm": "des",
+                            "version": "v2",
+                            "localAddress": null,
+                            "peerAddress": "33.33.33.33",
+                            "preSharedKey": "huawei"
+                        },
+                        "aclNumber": 3000,
+                        "aclId": "bfd2e7ab23be41fbb9955d4baf3686bc",
+                        "ruleList": [{
+                            "id": 0,
+                            "policy": "permit",
+                            "srcIp": "1.1.1.1",
+                            "srcNetMask": "255.255.255.0",
+                            "desIp": "2.2.2.2",
+                            "desNetMask": "255.255.255.0"
+                        }]
+                    }]
+                }]
+            }
     }
 },
 {
