@@ -21,7 +21,7 @@ MSB_IP=`get-instance-ip.sh i-msb`
 echo MSB_IP=${MSB_IP}
 
 # Start inventory
-${SCRIPTS}/common-tosca-inventory/startup.sh i-inventory ${MSB_IP}
+source ${SCRIPTS}/common-tosca-inventory/startup.sh i-inventory ${MSB_IP}
 INVENTORY_IP=`get-instance-ip.sh i-inventory`
 echo INVENTORY_IP=${INVENTORY_IP}
 
