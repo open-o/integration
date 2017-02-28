@@ -492,6 +492,13 @@
       <type>zip</type>
       <classifier>linux64</classifier>
     </dependency>
+    <dependency>
+      <groupId>org.openo.holmes.rule-management</groupId>
+      <artifactId>holmes-rulemgt-standalone</artifactId>
+      <version>1.1.0-SNAPSHOT</version>
+      <type>zip</type>
+      <classifier>linux64</classifier>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
