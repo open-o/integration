@@ -6,7 +6,7 @@ Library           OperatingSystem
 *** Variables ***
 ${create_l2vpn_success_json}    ${SCRIPTS}/sdnhub-driver-zte-sptn/json/l2vpn/create_l2vpn_success.json
 ${delete_l2vpn_success_json}    ${SCRIPTS}/sdnhub-driver-zte-sptn/json/l2vpn/delete_l2vpn_success.json
-&{variable_map}    DRIVER_IP=${DRIVER_IP}    DRIVER_PORT=${DRIVER_PORT}    SPTN_CONTROLLER_ID=${SPTN_CONTROLLER_ID}
+&{variable_map}    DRIVER_IP=${DRIVER_IP}    DRIVER_PORT=${DRIVER_PORT}    SPTN_CONTROLLER_ID=${ESR_CNTRL_HTTP}
 
 *** Test Cases ***
 Create L2vpn Successful

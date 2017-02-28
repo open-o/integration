@@ -6,7 +6,7 @@ Library           OperatingSystem
 *** Variables ***
 ${create_l3vpn_success_json}    ${SCRIPTS}/sdnhub-driver-zte-sptn/json/l3vpn/create_l3vpn_success.json
 ${delete_l3vpn_success_json}    ${SCRIPTS}/sdnhub-driver-zte-sptn/json/l3vpn/delete_l3vpn_success.json
-&{variable_map}    DRIVER_IP=${DRIVER_IP}    DRIVER_PORT=${DRIVER_PORT}    SPTN_CONTROLLER_ID=${SPTN_CONTROLLER_ID}
+&{variable_map}    DRIVER_IP=${DRIVER_IP}    DRIVER_PORT=${DRIVER_PORT}    SPTN_CONTROLLER_ID=${ESR_CNTRL_HTTP}
 
 *** Test Cases ***
 Create L3vpn Successful
