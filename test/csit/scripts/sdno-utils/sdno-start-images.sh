@@ -3,126 +3,137 @@
 #Common functions used in other scripts
 source ../common_functions.sh
 
+#File containing variables
+source variables.sh
+
 #Stop existent docker instances
-docker rm -f `docker ps -a | grep -v CONTAINER | awk '{print $1}' `|| true
+docker rm -f $(docker ps -a --format={{.Names}}) || true
+
+parameters="$@"
+
+#Parameter method
+if [[ $parameters == *"Method"* ]]
+then
+    method=`echo $parameters | sed -e "s/.*Method=//g"`
+    method=`echo $method | sed -e "s/ .*//g"`
+else
+    method="simulate-drivers"
+fi
+
+#Lifecycle_Manager
+if [[ $parameters == *"Lifecycle_Manager"* ]]
+then
+    lc_manag=`echo $parameters | sed -e "s/.*Lifecycle_Manager=//g"`
+    lc_manag=`echo $lc_manag | sed -e "s/ .*//g"`
+    lc_manag="sdno-service-"$lc_manag
+else
+    lc_manag="sdno-service-lcm"
+fi
+
+#Wait
+if [[ $parameters == *"Start_wait"* ]]
+then
+    wait=`echo $parameters | sed -e "s/.*Start_wait=//g"`
+    wait=`echo $wait | sed -e "s/ .*//g"`
+else
+    wait="0"
+fi
+    
+function pull_docker(){
+    #Start the image from openoint with name $1
+    docker Start openoint/"$1"
+    return 0
+}
+
+function run_docker(){
+    #$1 docker image_name $1 
+    #$2 Docker name
+    #$3 Sleep time
+    if [[ $2 == *"common-services-msb"* ]]
+    then
+        docker run -d -i -t --name $1 -p :$MSB_PORT openoint/$2
+    else
+        docker run -d -i -t --name $1 -e MSB_ADDR=$MSB_ADDR openoint/$2
+    fi
+    #sleep sleep_time in seconds
+    sleep $wait
+}
 
 #Start MSB
-docker run -d -i -t --name i-msb openoint/common-services-msb
-MSB_IP=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' i-msb`:80
-MSB_ADDR=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' i-msb`:80
+MSB_PORT="80"
+run_docker i-msb common-services-msb
+#docker run -i -t --name i-msb -p $MSB_PORT:$MSB_PORT openoint/common-services-msb
+MSB_ADDR=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' i-msb`:$MSB_PORT
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 curl_path='http://'${MSB_ADDR}'/openoui/microservices/index.html'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
 #Start MSS
-docker run --name i-mss -i -t -e MSB_ADDR=$MSB_ADDR -d openoint/sdno-service-mss
+run_docker i-mss sdno-service-mss
 curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/'
 sleep_msg="Waiting_connection_for_url_for:i-mss"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="sdnomss"  REPEAT_NUMBER="25"
 
 #Start BRS
-docker run -d -i -t --name i-brs -e MSB_ADDR=$MSB_ADDR openoint/sdno-service-brs
+run_docker i-brs sdno-service-brs
 curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/'
 sleep_msg="Waiting_connection_for_url_for:i-brs"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="sdnobrs"  REPEAT_NUMBER="25"
 
 #Start openoint/common-services-extsys
-docker run -d -i -t --name i-common-services-extsys -e MSB_ADDR=$MSB_ADDR openoint/common-services-extsys
+run_docker i-common-services-extsys common-services-extsys
 sleep_msg="Waiting_for_i-common-services-extsys"
 curl_path='http://'${MSB_ADDR}'/openoapi/extsys/v1/vims'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
-
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
 
 #Start openoint/common-services-drivermanager
-docker run -d -i -t --name i-drivermgr -e MSB_ADDR=$MSB_ADDR openoint/common-services-drivermanager
+run_docker i-drivermgr common-services-drivermanager
 curl_path='http://'${MSB_ADDR}'/openoapi/drivermgr/v1/drivers'
-sleep_msg="Waiting_connection_for_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="25" 
-sleep 5
-
-#Start openoint/simulate-sdnhub-driver-zte-sptn
-docker run -d -i -t --name d-l2vpn -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-zte-sptn
-sleep 5
-
-#Start openoint/sdno-driver-simul-l3vpn
-docker run -d -i -t --name d-l3vpn -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-huawei-l3vpn
-sleep 5
-
-#Start openoint/sdno-driver-simul-sfc
-docker run -d -i -t --name d-sfc -e MSB_ADDR=$MSB_ADDR openoint/sdno-driver-simul-sfc
-sleep 5
-
-#Start openoint/simulate-sdnhub-driver-huawei-overlay
-docker run -d -i -t --name d-overlay -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-huawei-overlay
-sleep 5
-
-#Start openoint/simulate-sdnhub-driver-huawei-openstack
-docker run -d -i -t --name d-openstack -e MSB_ADDR=$MSB_ADDR openoint/simulate-sdnhub-driver-huawei-openstack
-sleep 5
-
-#Start openoint/sdno-service-nslcm
-docker run -d -i -t --name s-nslcm -e MSB_ADDR=$MSB_ADDR openoint/sdno-service-nslcm
-sleep 5
+sleep_msg="Waiting_connection_for_url_for: i-drivermgr"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15" 
 
 #Start openoint/sdno-service-vpc
-docker run -d -i -t --name s-vpc -e MSB_ADDR=$MSB_ADDR openoint/sdno-service-vpc
-sleep 5
+run_docker s-vpc sdno-service-vpc
 
 #Start openoint/sdnhub-driver-ct-te
-docker run -d -i -t --name d-ct-te -e MSB_ADDR=$MSB_ADDR openoint/sdnhub-driver-ct-te
-sleep 5
+run_docker d-ct-te sdnhub-driver-ct-te
 
-#Start openoint/sdno-ipsec
-docker run -d -i -t --name s-ipsec -e MSB_ADDR=$MSB_ADDR openoint/sdno-ipsec
-sleep 5
+#Start openoint/sdno-service-ipsec
+run_docker s-ipsec sdno-service-ipsec
 
-#Start openoint/sdno-l2vpn
-docker run -d -i -t --name s-l2vpn -e MSB_ADDR=$MSB_ADDR openoint/sdno-l2vpn
-sleep 5
+#Start openoint/sdno-service-l2vpn
+run_docker s-l2vpm sdno-service-l2vpn
 
-#Start openoint/sdno-l3vpn
-docker run -d -i -t --name s-l3vpn -e MSB_ADDR=$MSB_ADDR openoint/sdno-l3vpn
-sleep 5
+#Start openoint/sdno-service-l3vpn
+run_docker s-l3vpn sdno-service-l3vpn
 
-#Start openoint/sdno-lcm
-docker run -d -i -t --name s-lcm -e MSB_ADDR=$MSB_ADDR openoint/sdno-lcm
-sleep 5
+#Start openoint/lc_manag
+run_docker s-$lc_manag
 
-#Start openoint/sdno-monitoring
-docker run -d -i -t --name s-monitoring -e MSB_ADDR=$MSB_ADDR openoint/sdno-monitoring
-sleep 5
+#Start openoint/sdno-service-route
+run_docker s-route sdno-service-route
 
-#Start openoint/sdno-nslcm
-docker run -d -i -t --name s-nslcm -e MSB_ADDR=$MSB_ADDR openoint/sdno-nslcm
-sleep 5
+#Start openoint/sdno-service-servicechain
+run_docker s-servicechain sdno-service-servicechain
 
-#Start openoint/sdno-optimize
-docker run -d -i -t --name s-optimize -e MSB_ADDR=$MSB_ADDR openoint/sdno-optimize
-sleep 5
+#Start openoint/sdno-service-site
+run_docker s-site sdno-service-site
 
-#Start openoint/sdno-overlay
-docker run -d -i -t --name s-overlay -e MSB_ADDR=$MSB_ADDR openoint/sdno-overlay
-sleep 5
-
-#Start openoint/sdno-route
-docker run -d -i -t --name s-route -e MSB_ADDR=$MSB_ADDR openoint/sdno-route
-sleep 5
-
-#Start openoint/sdno-servicechain
-docker run -d -i -t --name s-servicechain -e MSB_ADDR=$MSB_ADDR openoint/sdno-servicechain
-sleep 5
-
-#Start openoint/sdno-site
-docker run -d -i -t --name s-site -e MSB_ADDR=$MSB_ADDR openoint/sdno-site
-sleep 5
-
-#Start openoint/sdno-vpc
-docker run -d -i -t --name s-vpc -e MSB_ADDR=$MSB_ADDR openoint/sdno-vpc
-sleep 5
+#Start openoint/sdno-service-vxlan
+run_docker s-vxlan sdno-service-vxlan
 
 #Start openoint/sdno-vsitemgr
-docker run -d -i -t --name s-vsitemgr -e MSB_ADDR=$MSB_ADDR openoint/sdno-vsitemgr
-sleep 5
+run_docker s-vsitemgr sdno-vsitemgr
 
-#Start openoint/sdno-vxlan
-docker run -d -i -t --name s-vxlan -e MSB_ADDR=$MSB_ADDR openoint/sdno-vxlan
+#Start drivers (simulated or real)
+temp=0
+while [ $temp -le 4 ]           
+do  
+    if [[ $method == "simulate-drivers" ]]
+    then
+        run_docker ${simulated_drivers_docker_name[$temp]} ${simulated_drivers[$temp]}
+    else
+        run_docker ${drivers_docker_name[$temp]} ${drivers[$temp]}
+    fi
+    temp=$((temp+1))
+done
