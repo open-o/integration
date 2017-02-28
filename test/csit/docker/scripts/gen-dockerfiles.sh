@@ -122,6 +122,12 @@ if [ -f $dir/20-mysql.txt ]; then
 su mysql -c /usr/bin/mysqld_safe &
 
 EOF
+if [ -f $dir/25-mongodb.txt ]; then
+    cat >> $dir/docker-entrypoint.sh <<EOF
+# Start mongodb
+su mongod &
+
+EOF
 fi
 cat >> $dir/docker-entrypoint.sh <<EOF
 # Perform one-time config
