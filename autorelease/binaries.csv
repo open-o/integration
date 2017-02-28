@@ -57,4 +57,4 @@ multivimdriver-openstack,newton,MultiVIM driver of OpenStack Newton,multivim-dri
 multivimdriver-openstack,kilo,MultiVIM driver of OpenStack Kilo,multivim-driver-kilo,org.openo.multivimdriver.openstack,multivimdriver-openstack-kilo,zip,,9002,TRUE,,,TRUE,
 multivimdriver-vmware-vio,vio,MultiVIM driver of VMware VIO,multivim-driver-vio,org.openo.multivimdriver.vmware.vio,multivimdriver-vio,zip,,9004,TRUE,,,TRUE,
 holmes-engine-management,,Holmes Engine D,holmes-engine-d-standalone,org.openo.holmes.engine-management,holmes-engine-d-standalone,zip,linux64,8750,TRUE,,,,
-holmes-rulemgt-standalone,,Holmes Rulemgt Standalone,holmes-rulemgt-standalone,org.openo.holmes.rule-management,holmes-rulemgt-standalone,zip,linux64,8751,TRUE,,,,
+holmes-rule-management,,Holmes Rulemgt Standalone,holmes-rulemgt-standalone,org.openo.holmes.rule-management,holmes-rulemgt-standalone,zip,linux64,8751,TRUE,,,,
