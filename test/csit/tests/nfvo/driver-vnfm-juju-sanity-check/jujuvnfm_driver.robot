@@ -16,8 +16,8 @@ ${queryconfig_url}    /openoapi/jujuvnfm/v1/config
 ${addvnf_url}    /openoapi/jujuvnfm/v1/${vnfmId}/vnfs
 ${getvnf_url}    /openoapi/jujuvnfm/v1/${vnfmId}/vnfs/${vnfInstanceId}
 ${delvnf_url}    /openoapi/jujuvnfm/v1/${vnfmId}/vnfs/${vnfInstanceId}/terminate
-${registration_extsys_url} /openoapi/extsys/v1/vnfms
-${get_extsys_url} /openoapi/extsys/v1/vnfms/${vnfmId}
+${registration_extsys_url}     /openoapi/extsys/v1/vnfms
+${get_extsys_url}     /openoapi/extsys/v1/vnfms/${vnfmId}
 
 #json files
 ${juju_addvnf_json}    ${SCRIPTS}/../plans/nfvo/sanity-check/jsoninput/juju_add_vnf.json
@@ -43,6 +43,7 @@ registerVnfmToExtSys
     ${resp}=    Post Request    web_session     ${registration_extsys_url}    ${json_string}
 	${response_json}    json.loads    ${resp.content}
     ${vnfmId}=    Convert To String      ${response_json['vnfmId']}
+	Set Global Variable     ${vnfmId}
 	
 jujuAddVnfTest
     ${json_value}=     json_from_file      ${juju_addvnf_json}
@@ -55,6 +56,8 @@ jujuAddVnfTest
     List Should Contain Value    ${return_ok_list}   ${response_code}
 	${response_json}    json.loads    ${resp.content}
     ${vnfInstanceId}=    Convert To String      ${response_json['vnfInstanceId']}
+	Set Global Variable     ${vnfInstanceId}
+	
 
 jujuGetVnfTest
     [Documentation]    query vnf info rest test
