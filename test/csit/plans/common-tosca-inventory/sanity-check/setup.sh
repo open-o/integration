@@ -26,7 +26,7 @@ INVENTORY_IP=`get-instance-ip.sh i-inventory`
 echo INVENTORY_IP=${INVENTORY_IP}
 
 # Wait for initialization
-for i in {1..10}; do
+for i in {1..20}; do
     curl -sS -m 1 ${INVENTORY_IP}:8203 && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
