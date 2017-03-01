@@ -26,6 +26,25 @@ curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
+
+# Start extsys
+${SCRIPTS}/common-services-external-system-registration/startup.sh i-extsys ${MSB_IP}:80
+EXTSYS_IP=`get-instance-ip.sh i-extsys`
+echo EXTSYS_IP=${EXTSYS_IP}
+
+# Wait for initialization
+for i in {1..20}; do
+#    curl -sS -m 1 ${MSB_IP}:80/openoapi/extsys/v1/common && curl -sS -m 1 ${MSB_IP}:80/openoui/microservices/index.html && break
+    HTTP_CODE=`curl -o /dev/null -s -w "%{http_code}" "${MSB_IP}:80/openoapi/extsys/v1/common"`
+    if [ ${HTTP_CODE} -eq 200 ]; then
+       break;
+    else
+       sleep $i
+    fi
+done
+
+
+
 #Start juju-vnfm-driver
 run-instance.sh openoint/nfvo-driver-vnfm-juju jujuvnfm " -i -t -e MSB_ADDR=${MSB_IP}:80"
 JUJUVNFM_IP=`get-instance-ip.sh jujuvnfm`

@@ -20,8 +20,8 @@ ${registration_extsys_url}     /openoapi/extsys/v1/vnfms
 ${get_extsys_url}     /openoapi/extsys/v1/vnfms/${vnfmId}
 
 #json files
-${juju_addvnf_json}    ${SCRIPTS}/../plans/nfvo/sanity-check/jsoninput/juju_add_vnf.json
-${register_vnfm_to_extsys}    ${SCRIPTS}/../plans/nfvo/sanity-check/jsoninput/register_vnfm_to_extsys.json
+${juju_addvnf_json}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/juju_add_vnf.json
+${register_vnfm_to_extsys}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/register_vnfm_to_extsys.json
 
 
 
