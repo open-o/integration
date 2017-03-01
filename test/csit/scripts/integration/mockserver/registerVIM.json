@@ -6,17 +6,22 @@
 			"Content-Type": "application/json" 
 		},
 		"json":{
-			"name":"vim",
-			"url":"http://${SERVICE_IP}:18008",
-			"userName":"admin",
-			"password":"admin",
-			"tenant":"admin",
-			"domain":"",
-			"vendor":"ZTE",
-			"version":"v1.0",
-			"description":"",
-			"type":"openstack"
-		}
+			  "id": "vimsid",
+			  "name": "vim",
+			  "vendor": "string",
+			  "version": "string",
+			  "description": "string",
+			  "type": "string",
+			  "createTime": "string",
+			  "category": "string",
+			  "url": "http://${SERVICE_IP}:18009",
+			  "userName": "admin",
+			  "password": "password",
+			  "domain": "default",
+			  "tenant": "default"
+			}
+
+
 	},
 	"response": {
 		"status": 201,

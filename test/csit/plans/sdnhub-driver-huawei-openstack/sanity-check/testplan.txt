@@ -1,3 +1,6 @@
 ## Test suites are relative paths under [integration.git]/test/csit/tests/.
 ## Place the suites in run order.
 sanity_test_drivers.robot
+simulator_registration.robot
+#sdnhub-driver-huawei-openstack/startup/healthcheck.robot
+sdnhub-driver-huawei-openstack/startup/ipsec.robot

@@ -1,39 +1,331 @@
 [{
+        "request": {
+            "uri": "/v2.0/vpn/ikepolicies",
+            "method": "post",
+            "json": {
+                "ikepolicy": {
+                    "phase1_negotiation_mode": "main",
+                    "auth_algorithm": "sha1",
+                    "encryption_algorithm": "aes-128",
+                    "pfs": "group5",
+                    "lifetime": {
+                        "units": "seconds",
+                        "value": 7200
+                    },
+                    "ike_version": "v1",
+                    "name": "ikepolicy1"
+                }
+            }
+        },
+        "response": {
+            "status": 200,
+            "json": {
+                "ikepolicy": {
+                    "id": "7b347d20-6fa3-4e22-b744-c49ee235a123",
+                    "name": "aaa",
+                    "description": "aaa",
+                    "pfs": "group5",
+                    "lifetime": {
+                        "units": "seconds",
+                        "value": 7200
+                    },
+                    "tenant_id": "tenantId1",
+                    "auth_algorithm": "sha1",
+                    "encryption_algorithm": "aes-128",
+                    "phase1_negotiation_mode": "main",
+                    "ike_version": "v1"
+                }
+            }
+        }
+    },
+{
     "request": {
         "uri": "/v2.0/vpn/ikepolicies",
         "method": "post",
+        "headers": {
+            "Content-Type": "application/json"
+        },
         "json": {
             "ikepolicy": {
-                "phase1_negotiation_mode": "main",
-                "auth_algorithm": "sha1",
-                "encryption_algorithm": "aes-128",
+                "name": "test123",
+                "description": "test123",
+                "pfs": "abc",
+                "tenant_id": "456778",
+                "auth_algorithm": "md5",
+                "encryption_algorithm": "des",
+                "ike_version": "v1"
+            }
+        }
+
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "ikepolicy": {
+                "id": "7b347d20-6fa3-4e22-b744-c49ee235a123",
+                "name": "aaa",
+                "description": "aaa",
                 "pfs": "group5",
                 "lifetime": {
                     "units": "seconds",
                     "value": 7200
                 },
-                "ike_version": "v1",
-                "name": "ikepolicy1"
+                "tenant_id": "tenantId1",
+                "auth_algorithm": "sha1",
+                "encryption_algorithm": "aes-128",
+                "phase1_negotiation_mode": "main",
+                "ike_version": "v1"
+            }
+        }
+    }
+}, {
+    "request": {
+        "uri": "/v2.0/vpn/ipsecpolicies",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json": {
+            "ipsecpolicy": {
+                "name": "test123",
+                "description": "test123",
+                "pfs": "Group5",
+                "tenant_id": "456778",
+                "transform_protocol": "esp",
+                "auth_algorithm": "md5"
             }
         }
     },
     "response": {
         "status": 200,
-        "json": { "ikepolicy": {
-            "id": "7b347d20-6fa3-4e22-b744-c49ee235a123",
-            "name": "aaa",
-            "description": "aaa",
-            "pfs": "group5",
-            "lifetime": {
-                "units": "seconds",
-                "value": 7200
-            },
-            "tenant_id": "tenantId1",
-            "auth_algorithm": "sha1",
-            "encryption_algorithm": "aes-128",
-            "phase1_negotiation_mode": "main",
-            "ike_version": "v1"
+        "json": {
+            "ipsecpolicy": {
+                "id": "22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+                "name": "aaa",
+                "description": "aaa",
+                "pfs": "Group5",
+                "lifetime": {
+                    "units": "seconds",
+                    "value": 7200
+                },
+                "tenant_id": "tenantId1",
+                "transform_protocol": "ESP",
+                "Encapsulation_mode": "tunnel",
+                "auth_algorithm": "sha1",
+                "encryption_algorithm": "aes-128"
+            }
         }
     }
+}, {
+    "request": {
+        "uri": "/v2.0/vpn/vpnservices",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json": {
+            "vpnservice": {
+                "name": "test123",
+                "description": "test123",
+                "tenant_id": "456778",
+                "admin_state_up": true
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "vpnservice": {
+                "id": "7b347d20-6fa3-4e22-b744-c49ee235ae4f",
+                "name": null,
+                "description": null,
+                "status": "PENDING_CREATE",
+                "tenant_id": "tenantId1",
+                "subnet_id": "subnetId1",
+                "router_id": "routeId1",
+                "admin_state_up": true
+            }
+        }
     }
-}]
+}, {
+    "request": {
+        "uri": "/v2.0/vpn/ipsec-site-connections",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json": {
+            "ipsec_site_connection": {
+                "name": "test123",
+                "description": "test123",
+                "mtu": 0,
+                "psk": "one",
+                "tenant_id": "456778",
+                "peer_address": "2.2.2.2",
+                "peer_id": "2.2.2.2",
+                "peer_cidrs": ["1", "2", "3"],
+                "admin_state_up": true,
+                "ikepolicy_id": "7b347d20-6fa3-4e22-b744-c49ee235a123",
+                "ipsecpolicy_id": "22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+                "vpnservice_id": "7b347d20-6fa3-4e22-b744-c49ee235ae4f"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "ipsec_site_connection": {
+                "id": "7b347d20-6fa3-4e22-b744-c49ee235a124",
+                "name": null,
+                "description": null,
+                "mtu": 1500,
+                "psk": "psk",
+                "initiator": "bi-directional",
+                "status": "PENDING_CREATE",
+                "dpd": {
+                    "action": "hold",
+                    "interval": 30,
+                    "timeout": 120
+                },
+                "subnets": null,
+                "tenant_id": "tenantId1",
+                "peer_address": "2.2.2.2",
+                "peer_id": "2.2.2.2",
+                "peer_cidrs": [
+                    "10.2.0.0/24"
+                ],
+                "route_mode": "static",
+                "auth_mode": "psk",
+                "admin_state_up": true,
+                "ikepolicy_id": null,
+                "ipsecpolicy_id": null,
+                "vpnservice_id": null
+            }
+        }
+    }
+}, {
+    "request": {
+        "uri": "/v2.0/vpn/ipsec-site-connections/7b347d20-6fa3-4e22-b744-c49ee235a124",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json": null
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "id": null,
+            "name": null,
+            "description": null,
+            "mtu": 0,
+            "psk": null,
+            "initiator": null,
+            "status": null,
+            "dpd": null,
+            "subnets": null,
+            "tenant_id": null,
+            "peer_address": null,
+            "peer_id": null,
+            "peer_cidrs": null,
+            "route_mode": null,
+            "auth_mode": null,
+            "admin_state_up": false,
+            "ikepolicy_id": null,
+            "ipsecpolicy_id": null,
+            "vpnservice_id": null
+        }
+    }
+}, {
+    "request": {
+        "uri": "/openoapi/sdnomss/v1/buckets/osdriverdb/resources/osdriverunderlays/objects",
+        "method": "get",
+        "json": null
+    },
+    "response": {
+        "status": "200",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Subject-Token": "junk"
+        },
+        "json": {
+            "total": 1,
+            "pageSize": 1,
+            "totalPageNum": 1,
+            "currentPage": 1,
+            "objects": [{
+                "overlayId": "1234",
+                "overlayType": "VPC",
+                "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+                "underlayId": "6fc00cf5-ff29-4f45-a8a6-f03d73674490",
+                "underlayType": "routerId",
+                "action": "d",
+                "underlayTenantId": "test"
+            }, {
+                "overlayId": "12342343",
+                "overlayType": "SUBNET",
+                "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+                "underlayId": "4bb48d3c-f53f-46b5-a3da-c7c70d4cd726",
+                "underlayType": "subnetId",
+                "action": "d",
+                "underlayTenantId": "test"
+            }, {
+                "overlayId": "123978655",
+                "overlayType": "SUBNET",
+                "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+                "underlayId": "da6f6681-3beb-4249-86bd-3a95690cc28f",
+                "underlayType": "networkId",
+                "action": "d",
+                "underlayTenantId": "test"
+            }, {
+                "overlayId": "123423434",
+                "overlayType": "IPSEC",
+                "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+                "underlayId": "7b347d20-6fa3-4e22-b744-c49ee235a124",
+                "underlayType": "vpnIpSecSiteConnectionId",
+                "action": "d",
+                "underlayTenantId": "test"
+            }, {
+                "overlayId": "123423434",
+                "overlayType": "IPSEC",
+                "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+                "underlayId": "7b347d20-6fa3-4e22-b744-c49ee235ae4f",
+                "underlayType": "vpnServiceId",
+                "action": "d",
+                "underlayTenantId": "test"
+            }, {
+                "overlayId": "1234234345",
+                "overlayType": "IPSEC",
+                "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+                "underlayId": "7b347d20-6fa3-4e22-b744-c49ee235a123",
+                "underlayType": "vpnIkePolicyId",
+                "action": "d",
+                "underlayTenantId": "test"
+            }, {
+                "overlayId": "12342343456",
+                "overlayType": "IPSEC",
+                "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+                "underlayId": "22b8abdc-e822-45b3-90dd-f2c8512acfa5",
+                "underlayType": "vpnIpSecPolicyId",
+                "action": "d",
+                "underlayTenantId": "test"
+            }]
+        }
+    }
+}, {
+    "request": {
+        "uri": {
+            "match": "/openoapi/sdnomss/v1/buckets/osdriverdb/resources/osdriverunderlays/objects"
+        },
+        "method": "post"
+    },
+    "response": {
+        "status": "200",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Subject-Token": "junk"
+        },
+        "json": {}
+    }
+}
+]

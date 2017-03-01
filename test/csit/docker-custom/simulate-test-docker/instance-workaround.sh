@@ -14,3 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+IPADDRESS=$(hostname -I)
+IPADDRESS=${IPADDRESS::-1}
+sed -i -- "s/localhost/$IPADDRESS/g" Stubs/testcase/osdriver/auth_token.json
+

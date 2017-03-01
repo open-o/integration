@@ -1,0 +1,83 @@
+{
+    "request": {
+        "uri": "http://${OPENSTACK_IP}:8539/openoapi/sbi-ipsec/v1/dc-gateway/ipsec-connections/59904332",
+        "method": "put",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=${ESR_VIM_HTTPS}"
+        },
+        "json": {
+            "name": "test123",
+            "tenantId": "456778",
+            "description": "testt",
+            "deployStatus": "deploy",
+            "activeStatus": "none",
+            "runningStatus": "none",
+            "additionalInfo": "test",
+            "controllerId": "288392",
+            "externalId": "399403",
+            "connectionServiceId": "38920921",
+            "neId": "4989302",
+            "deviceId": "1234",
+            "peerDeviceId": "4993043",
+            "externalIpSecId": "3012332",
+            "sourceAddress": "1.1.1.1",
+            "peerAddress": "2.2.2.2",
+            "ikePolicy": {
+                "pfs": "ABC",
+                "lifeTime": null,
+                "externalId": "1234",
+                "sbiServiceId": "2345",
+                "ikeVersion": "v1",
+                "psk": "one",
+                "authAlgorithm": "md5",
+                "encryptionAlgorithm": "des",
+                "id": "49956"
+            },
+            "ipSecPolicy": {
+                "pfs": "Group5",
+                "lifeTime": null,
+                "externalId": "1234",
+                "sbiServiceId": "2345",
+                "transformProtocol": "esp",
+                "encapsulationMode": null,
+                "authAlgorithm": "md5",
+                "encryptionAlgorithm": null,
+                "id": "4567"
+            },
+            "workType": "work",
+            "sourceLanCidrs": null,
+            "peerLanCidrs": "1,2,3",
+            "isTemplateType": "true",
+            "nqa": "nqa",
+            "localNeRole": "thincpe",
+            "tenantName": null,
+            "protectionPolicy": null,
+            "qosPreClassify": null,
+            "regionId": "3889291",
+            "id": "59904332",
+            "actionState": "Normal",
+            "createTime": 0,
+            "updateTime": 0,
+            "sourceIfId": "234562"
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "type": "object",
+            "properties": {
+                "errorCode": {
+                    "type": "string"
+                },
+                "httpCode": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "errorCode",
+                "httpCode"
+            ]
+        }
+    }
+}
