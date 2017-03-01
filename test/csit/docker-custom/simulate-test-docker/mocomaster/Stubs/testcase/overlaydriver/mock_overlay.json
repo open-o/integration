@@ -1621,7 +1621,7 @@
         "headers": {
             "Content-Type": "application/json"
         },
-        "json": {"ethInterfaceConfig":[{"id":"4b8a2551332a4016aef56692a53bb188","name":"GigabitEthernet0/0/2","enable":true,"autoNegotiationEnable":false,"ifAttr":"1","defaultVlan":"1234","trunkVlan":"1234","description":"Ethernet0/0/0 config","duplex":"half","nacType":"1","speed":"10"},{"id":"4b8a2551332a4016aef56692a53bb188","name":"GigabitEthernet0/0/2","enable":true,"autoNegotiationEnable":false,"ifAttr":"1","defaultVlan":"12341","trunkVlan":"12341","description":"Ethernet0/0/0 config","duplex":"half","nacType":"1","speed":"10"}]}
+        "json": {"ethInterfaceConfig":[{"id":"4b8a2551332a4016aef56692a53bb188","name":"GigabitEthernet0/0/2","enable":true,"autoNegotiationEnable":false,"ifAttr":"1","defaultVlan":1234,"trunkVlan":"1234","description":"Ethernet0/0/0 config","duplex":"half","nacType":"1","speed":"10"},{"id":"4b8a2551332a4016aef56692a53bb188","name":"GigabitEthernet0/0/2","enable":true,"autoNegotiationEnable":false,"ifAttr":"1","defaultVlan":12341,"trunkVlan":"12341","description":"Ethernet0/0/0 config","duplex":"half","nacType":"1","speed":"10"}]}
     },
     "response": {
         "status": 200,
