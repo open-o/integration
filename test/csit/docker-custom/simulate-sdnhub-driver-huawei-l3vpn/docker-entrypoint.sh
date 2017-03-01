@@ -17,9 +17,9 @@
 MOCO_JAR="moco-runner-0.11.0-standalone.jar"
 DRIVERMANAGER_URL="/openoapi/drivermgr/v1/drivers"
 
-L3VPN_TEMPLATE_FILE="template-l3vpn-driver.json"
+L3VPN_TEMPLATE_FILE="template-huawei-l3vpn-driver.json"
 L3VPN_SIMU_FILE="l3vpn_sim_file.json"
-L3VPN_DRIVER_SIMU_FILENAME="L3vpnDriver.json"
+L3VPN_DRIVER_SIMU_FILENAME="sdnhub-driver-huawei-l3vpn.json"
 
 SERVICE_TYPE="http"
 DRIVER_LISTEN_PORT="8533";
