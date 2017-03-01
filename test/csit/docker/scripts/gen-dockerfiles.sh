@@ -126,7 +126,7 @@ fi
 if [ -f $dir/25-mongodb.txt ]; then
     cat >> $dir/docker-entrypoint.sh <<EOF
 # Start mongodb
-# FIXME: su mongod &
+mongod &
 
 EOF
 fi

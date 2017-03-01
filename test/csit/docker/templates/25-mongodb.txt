@@ -2,6 +2,6 @@
 
 # Set up mongodb
 RUN mkdir -p /etc/yum.repos.d
-# FIXME: RUN echo "[mongodb-org-3.4]\nname=MongoDB Repository\nbaseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/\ngpgcheck=1\nenabled=1\ngpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc\n" > /etc/yum.repos.d/mongodb-org-3.4.repo
-# FIXME: RUN yum install -y mongodb-org
+RUN echo -e "[mongodb-org-3.4]\nname=MongoDB Repository\nbaseurl=https://repo.mongodb.org/yum/redhat/\$releasever/mongodb-org/3.4/x86_64/\ngpgcheck=1\nenabled=1\ngpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc\n" > /etc/yum.repos.d/mongodb-org-3.4.repo
+RUN yum install -y mongodb-org
 RUN mkdir -p /data/db
