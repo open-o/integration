@@ -15,6 +15,6 @@
 # limitations under the License.
 #
 # Configure MSB IP address
-sed -i "s|url:.*|url: jdbc:mysql://$URL_JDBC|" ./conf/rulemgt.yml
-sed -i "s|msbServerAddr:.*|msbServerAddr: http://$MSB_SERVER_ADDR|" ./conf/rulemgt.yml
+sed -i "s|url:.*|url: jdbc:mysql://$URL_JDBC/holmes|" ./conf/rulemgt.yml
+sed -i "s|msbServerAddr:.*|msbServerAddr: http://$MSB_ADDR|" ./conf/rulemgt.yml
 cat ./conf/rulemgt.yml

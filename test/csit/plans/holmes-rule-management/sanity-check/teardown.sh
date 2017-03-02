@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 
-kill-instance.sh i-mock
+kill-instance.sh i-rulemgt
+kill-instance.sh i-engine-d
 
 

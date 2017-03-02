@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+# Copyright 2017 ZTE Corporation.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,20 +15,39 @@
 # limitations under the License.
 #
 # Place the scripts in run order:
-source ${WORKSPACE}/test/csit/scripts/integration/script1.sh
+# Start MSB
+${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
+MSB_IP=`get-instance-ip.sh i-msb`
+echo MSB_IP=${MSB_IP}
 
-docker run --name i-mock -d jamesdbloom/mockserver
-MOCK_IP=`get-instance-ip.sh i-mock`
+# Start rulemgt
+${SCRIPTS}/holmes-rule-management/startup.sh i-rulemgt "127.0.0.1" ${MSB_IP}
+RULEMGT_IP=`get-instance-ip.sh i-rulemgt`
+echo RULEMGT_IP=${RULEMGT_IP}
+
 
 # Wait for initialization
-for i in {1..10}; do
-    curl -sS ${MOCK_IP}:1080 && break
+for i in {1..30}; do
+    curl -sS -m 1 ${RULEMGT_IP}:8901 && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
 done
 
-${WORKSPACE}/test/csit/scripts/integration/mock-hello.sh ${MOCK_IP}
 
-# Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MOCK_IP:${MOCK_IP}"
+# Start engine-d
+${SCRIPTS}/holmes-engine-d-management/startup.sh i-engine-d ${RULEMGT_IP} ${MSB_IP}
+ENGINE_D_IP=`get-instance-ip.sh i-engine-d`
+echo ENGINE_D_IP=${ENGINE_D_IP}
+
+
+
+# Wait for initialization
+for i in {1..30}; do
+    curl -sS -m 1 ${ENGINE_D_IP}:8902 && break
+    echo sleep $i
+    sleep $i
+done
+ 
+#Pass any variables required by Robot test suites in ROBOT_VARIABLES
+ROBOT_VARIABLES="-v MSB_IP:${MSB_IP} -v RULEMGT_IP:${RULEMGT_IP} -v ENGINE_D_IP:${ENGINE_D_IP}"
 

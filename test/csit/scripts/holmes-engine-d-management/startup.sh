@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+# Copyright 2017 ZTE Corporation.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# $1 nickname for the CATALOG instance
+# $2 IP address of MSB
 
-kill-instance.sh i-mock
-
-
+run-instance.sh openoint/holmes-engine-d-management $1 "-e  URL_JDBC=$2:9103 BROKER_IP=$3"

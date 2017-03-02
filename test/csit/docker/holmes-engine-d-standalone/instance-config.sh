@@ -15,6 +15,6 @@
 # limitations under the License.
 #
 # Configure MSB IP address
-sed -i "s|url:.*|url: jdbc:mysql://$URL_JDBC|" ./conf/engine-d.yml
+sed -i "s|url:.*|url: jdbc:mysql://$URL_JDB/holmes|" ./conf/engine-d.yml
 sed -i "s|brokerIp:.*|brokerIp: $BROKER_IP|" ./conf/engine-d.yml
 cat ./conf/engine-d.yml

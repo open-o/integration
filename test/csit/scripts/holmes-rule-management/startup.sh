@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+# Copyright 2017 ZTE Corporation.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,21 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# Place the scripts in run order:
-source ${WORKSPACE}/test/csit/scripts/integration/script1.sh
+# $1 nickname for the CATALOG instance
+# $2 IP address of MSB
 
-docker run --name i-mock -d jamesdbloom/mockserver
-MOCK_IP=`get-instance-ip.sh i-mock`
-
-# Wait for initialization
-for i in {1..10}; do
-    curl -sS ${MOCK_IP}:1080 && break
-    echo sleep $i
-    sleep $i
-done
-
-${WORKSPACE}/test/csit/scripts/integration/mock-hello.sh ${MOCK_IP}
-
-# Pass any variables required by Robot test suites in ROBOT_VARIABLES
-ROBOT_VARIABLES="-v MOCK_IP:${MOCK_IP}"
-
+run-instance.sh openoint/holmes-rule-management $1 "-e URL_JDBC=$2:3306 MSB_ADDR=$3 -p 3306:9103"
