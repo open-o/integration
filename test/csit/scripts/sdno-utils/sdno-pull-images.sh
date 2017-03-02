@@ -20,7 +20,7 @@ then
 else
     method="simulate-drivers"
 fi
-    
+
 function pull_docker(){
     #Pull the image from openoint with name $1
     docker pull openoint/"$1"
@@ -50,6 +50,9 @@ pull_docker sdno-service-vpc
 
 #Pull openoint/sdnhub-driver-ct-te
 pull_docker sdnhub-driver-ct-te
+
+#Pull openoint/sdno-service-overlayvpn
+openoint/sdno-service-overlayvpn
 
 #Pull openoint/sdno-service-ipsec
 pull_docker sdno-service-ipsec

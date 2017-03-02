@@ -4,7 +4,7 @@
 source ../common_functions.sh
 
 #File containing variables
-source variables.sh
+source ./variables.sh
 
 #Stop existent docker instances
 docker rm -f $(docker ps -a --format={{.Names}}) || true
@@ -38,20 +38,14 @@ then
 else
     wait="0"
 fi
-    
-function pull_docker(){
-    #Start the image from openoint with name $1
-    docker Start openoint/"$1"
-    return 0
-}
 
 function run_docker(){
-    #$1 docker image_name $1 
+    #$1 docker image_name $1
     #$2 Docker name
     #$3 Sleep time
     if [[ $2 == *"common-services-msb"* ]]
     then
-        docker run -d -i -t --name $1 -p :$MSB_PORT openoint/$2
+        docker run -d -i -t --name $1 -p 80:$MSB_PORT openoint/$2
     else
         docker run -d -i -t --name $1 -e MSB_ADDR=$MSB_ADDR openoint/$2
     fi
@@ -62,7 +56,6 @@ function run_docker(){
 #Start MSB
 MSB_PORT="80"
 run_docker i-msb common-services-msb
-#docker run -i -t --name i-msb -p $MSB_PORT:$MSB_PORT openoint/common-services-msb
 MSB_ADDR=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' i-msb`:$MSB_PORT
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 curl_path='http://'${MSB_ADDR}'/openoui/microservices/index.html'
@@ -90,7 +83,7 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING
 run_docker i-drivermgr common-services-drivermanager
 curl_path='http://'${MSB_ADDR}'/openoapi/drivermgr/v1/drivers'
 sleep_msg="Waiting_connection_for_url_for: i-drivermgr"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15" 
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
 
 #Start openoint/sdno-service-vpc
 run_docker s-vpc sdno-service-vpc
@@ -108,7 +101,7 @@ run_docker s-l2vpm sdno-service-l2vpn
 run_docker s-l3vpn sdno-service-l3vpn
 
 #Start openoint/lc_manag
-run_docker s-$lc_manag
+run_docker s-$lc_manag $lc_manag
 
 #Start openoint/sdno-service-route
 run_docker s-route sdno-service-route
@@ -119,6 +112,9 @@ run_docker s-servicechain sdno-service-servicechain
 #Start openoint/sdno-service-site
 run_docker s-site sdno-service-site
 
+#Start openoint/sdno-service-overlayvpn
+run_docker s-overlayvpn openoint/sdno-service-overlayvpn
+
 #Start openoint/sdno-service-vxlan
 run_docker s-vxlan sdno-service-vxlan
 
@@ -127,8 +123,8 @@ run_docker s-vsitemgr sdno-vsitemgr
 
 #Start drivers (simulated or real)
 temp=0
-while [ $temp -le 4 ]           
-do  
+while [ $temp -le 4 ]
+do
     if [[ $method == "simulate-drivers" ]]
     then
         run_docker ${simulated_drivers_docker_name[$temp]} ${simulated_drivers[$temp]}
