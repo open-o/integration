@@ -1,0 +1,4 @@
+{
+    "url": "http://${MSB_IP}:80",
+	"msbIp":"${MSB_IP}"
+}

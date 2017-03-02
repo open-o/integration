@@ -16,12 +16,15 @@ ${queryconfig_url}    /openoapi/jujuvnfm/v1/config
 ${addvnf_url}    /openoapi/jujuvnfm/v1/${vnfmId}/vnfs
 ${getvnf_url}    /openoapi/jujuvnfm/v1/${vnfmId}/vnfs/${vnfInstanceId}
 ${delvnf_url}    /openoapi/jujuvnfm/v1/${vnfmId}/vnfs/${vnfInstanceId}/terminate
+${setvnfminfo_url}    /openoapi/jujuvnfm/v1/vnfminfo
 ${registration_extsys_url}     /openoapi/extsys/v1/vnfms
 ${get_extsys_url}     /openoapi/extsys/v1/vnfms/${vnfmId}
 
 #json files
 ${juju_addvnf_json}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/juju_add_vnf.json
 ${register_vnfm_to_extsys}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/register_vnfm_to_extsys.json
+${set_vnfm_info}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/set_vnfm_info.json
+${set_vnfm_info2}    {"url":"http://${MSB_IP}:80}"}
 
 
 
@@ -33,6 +36,22 @@ jujuConfigTest
     ${resp}=  Get Request    web_session    ${queryconfig_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${responese_code}
+
+jujuSetVnfmInfos
+    ${json_value}=     json_from_file      ${set_vnfm_info}
+    ${json_string}=     string_from_json   ${json_value}
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    Set Request Body    ${json_string}
+    ${resp}=    Post Request    web_session     ${setvnfminfo_url}    ${json_string}
+	${response_json}    json.loads    ${resp.content}
+	
+jujuSetVnfmInfos2
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    Set Request Body    ${set_vnfm_info2}
+    ${resp}=    Post Request    web_session     ${setvnfminfo_url}    ${set_vnfm_info2}
+	${response_json}    json.loads    ${resp.content}
 
 registerVnfmToExtSys
     ${json_value}=     json_from_file      ${register_vnfm_to_extsys}
