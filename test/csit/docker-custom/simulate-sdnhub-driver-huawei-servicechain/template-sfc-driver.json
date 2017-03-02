@@ -1,0 +1,28 @@
+{
+    "driverInfo": {
+        "driverName": "sdnoservicechaindriver-0-1",
+        "instanceID": "sdnoservicechaindriver-0-1",
+        "ip": "SERVICECHAIN_IP",
+        "port": "8542",
+        "protocol": "http",
+        "services": [
+            {
+                "service_url": "/openoapi/sbi-servicechain/v1",
+                "support_sys": [
+                    {
+                        "type": "FW",
+                        "version": "USG6390"
+                    },
+                    {
+                        "type": "TOR",
+                        "version": "CE5850"
+                    },
+                    {
+                        "type": "TOR",
+                        "version": "CE6850"
+                    }
+                ]
+            }
+        ]
+    }
+}
