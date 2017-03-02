@@ -44,16 +44,16 @@ public class TransformatTopoResourceTest {
 
     @Test
     public void testTransformatTopoResource() throws Exception {
-        String controllerFileName = "/controller.json";
-        String commparamFileName = "/commparam.json";
-        String neFileName = "/networkelement.json";
+        final String controllerFileName = "/controller.json";
+        final String commparamFileName = "/commparam.json";
+        final String neFileName = "/networkelement.json";
         Map<String, Object> controllerMap = new HashMap<String, Object>();
         controllerMap.put("name", "ACController");
         controllerMap.put("hostName", "1.2.3.4");
         controllerMap.put("description", "private controller");
         TransformatTopoResource.buildControllerFile(TESTTOPODATA_PATH + controllerFileName, controllerMap);
 
-        Map<String, Object> commParamMap = new HashMap<String, Object>();
+        final Map<String, Object> commParamMap = new HashMap<String, Object>();
         Map<String, Object> commParamsMap = new HashMap<String, Object>();
         commParamsMap.put("username", "admin");
         commParamsMap.put("password", "Changeme_123");
@@ -80,7 +80,7 @@ public class TransformatTopoResourceTest {
 
     @Test
     public void testbuildControllerFile() throws Exception {
-        String controllerFileName = "/controller.json";
+        final String controllerFileName = "/controller.json";
         Map<String, Object> controllerMap = new HashMap<String, Object>();
         controllerMap.put("name", "snc1");
         controllerMap.put("controllerType", "SNC");
@@ -92,8 +92,8 @@ public class TransformatTopoResourceTest {
 
     @Test
     public void testBuildCommParamFile() throws Exception {
-        String commparamFileName = "/commparam.json";
-        Map<String, Object> commParamMap = new HashMap<String, Object>();
+        final String commparamFileName = "/commparam.json";
+        final Map<String, Object> commParamMap = new HashMap<String, Object>();
         Map<String, Object> commParamsMap = new HashMap<String, Object>();
         commParamsMap.put("username", "admin");
         commParamsMap.put("password", "Changeme_123");
@@ -111,7 +111,7 @@ public class TransformatTopoResourceTest {
 
     @Test
     public void testBuildNetworkElementFile() throws Exception {
-        String neFileName = "/networkelement.json";
+        final String neFileName = "/networkelement.json";
         Map<String, Object> neMap = new HashMap<String, Object>();
         neMap.put("name", "ne1");
         neMap.put("version", "v1r3");

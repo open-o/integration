@@ -43,6 +43,7 @@ public class PathReplaceTest {
         assertTrue(realUuid.equals(uuidResult));
     }
 
+    @Test
     public void testGetUuidFromUrlFailed() throws ServiceException {
         String key = "temId";
         String urlModel = "/rest/svc/v1/{tempId}/ne";
