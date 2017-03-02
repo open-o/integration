@@ -35,8 +35,8 @@ status-code
 
 content-dic-contain
     [Arguments]    ${response}    ${dictionary}    ${assertContent}    ${statusCode}
-    @{detail}    to json    ${response.content}
-    ${detail}    get from dictionary    @{detail}    ${dictionary}
+    ${detail}    to json    ${response.content}
+    ${detail}    get from dictionary    ${detail}    ${dictionary}
     should contain    ${detail}    ${assertContent}
     Should Be Equal As Strings    ${response.status_code}    ${statusCode}
 

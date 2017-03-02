@@ -23,7 +23,7 @@ class PostRequestWithFileKeyWords(object):
     
     def PostRequestFileUpload(self,url,uri,path,filename):
         finalurl = url+uri
-        files = {'file': ('tseti.csar', open(path,'rb'), 
+        files = {'file': ('gso_residence2Internet.csar', open(path,'rb'), 
                           'application/octet-stream', 
                           {'Content-Disposition':'form-data', 'name':'file','filename':filename})}
     

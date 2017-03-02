@@ -14,7 +14,7 @@ ${downloadUri}    ${empty}
 
 *** Keywords ***
 uploadCsaPackage
-    ${resp}    PostRequestWithFileKeyWords.PostRequestFileUpload    ${LOCAL_URL}    ${LOCAL_CATALOG_PATH}/csars    ${CURDIR}${/}../../resources/bm.csar    bm.csar
+    ${resp}    PostRequestWithFileKeyWords.PostRequestFileUpload    ${LOCAL_URL}    ${LOCAL_CATALOG_PATH}/csars    ${CURDIR}${/}../../resources/gso_residence2Internet.csar    gso_residence2Internet.csar
     ${dic_id}    simplejson.loads    ${resp.content}
     ${csarId_temp}    get from dictionary    ${dic_id}    csarId
     log    ${csarId_temp}
@@ -24,7 +24,7 @@ uploadCsaPackage
     [Return]    ${csarId_temp}
 
 queryCsarsListByCondition
-    ${name}    SET variable    bm
+    ${name}    SET variable    gso_residence2Internet
     ${provider}    SET variable
     ${version}    SET variable
     ${deletionPending}    SET variable
@@ -56,8 +56,8 @@ updateCsar
     log    ${resp}
     status-code    ${resp}    200
     ${resp}    Rest.getRequest    ${LOCAL_CATALOG_PATH}/csars/${csar_id}
-    @{detail}    to json    ${resp.content}
-    ${detail}    get from dictionary    @{detail}    onBoardState
+    ${detail}    to json    ${resp.content}
+    ${detail}    get from dictionary    ${detail}    onBoardState
     Should Be Equal As Strings    ${detail}    ${onBoardState}
 
 deleteCsarById
@@ -65,20 +65,12 @@ deleteCsarById
     log    ${csar_id}
     ${resp}    Rest.deleteRequest    ${LOCAL_CATALOG_PATH}/csars/${csar_id}
     status-code    ${resp}    204
-    delete all sessions
-    sleep    5
-    ${headers}    Create Dictionary    Content-Type    application/json    Accept    application/json
-    Create Session    openoaa    ${LOCAL_URL}    headers=${headers}
-    ${resp}    get request    openoaa    ${LOCAL_CATALOG_PATH}/csars/${csar_id}
-    status-code    ${resp}    200
-    log    ${resp.content}
-    content-dic-[]    ${resp}    200
 
 downloadCsarById
     ${headers}    Create Dictionary    Content-Type    application/json    Accept    application/json
     Create Session    openo    ${LOCAL_URL}    headers=${headers}
     log    ${csar_id}
-    ${path}    set variable    /Plans/nanoinit.zip
+    ${path}    set variable    /Definitions/gso__gso_residence2Internet.yaml
     ${params}    set variable    relativePath=${path}
     ${resp}    Get Request    openo    ${LOCAL_CATALOG_PATH}/csars/${csar_id}/files?${params}
     log    ${resp.content}

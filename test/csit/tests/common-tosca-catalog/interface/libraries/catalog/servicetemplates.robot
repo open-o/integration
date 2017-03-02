@@ -29,7 +29,7 @@ queryServiceTemplateByFilterConditions
     @{content}    to json    ${resp.content}
     : FOR    ${temp_content}    IN    @{content}
     \    ${serviceTemplateId}    get from dictionary    ${temp_content}    serviceTemplateId
-    \    ${service_csars_Id}    get from dictionary    ${temp_content}    csarid
+    \    ${service_csars_Id}    get from dictionary    ${temp_content}    csarId
     \    run keyword if    '${service_csars_Id}'=='${csar_id_temp}'    Exit For Loop
     Should Be Equal As Strings    '${service_csars_Id}'    '${csar_id_temp}'
     content-list-size-greater    ${resp}    1    200
@@ -57,9 +57,9 @@ queryeNodeTemplateByServiceTemplatId
     log    ${resp}
     status-code    ${resp}    200
     content-list-size-greater    ${resp}    1    200
-    @{detail}    to json    ${resp.content}
-    ${nodeTemplateId}    get from dictionary    @{detail}    id
-    ${nodeTemplateId}    set global variable    ${nodeTemplateId}
+    ${detail}    to json    ${resp.content}
+    ${nodeTemplateId}    get from dictionary    ${detail[0]}   id
+	${nodeTemplateId}    set global variable    ${nodeTemplateId}
 
 queryeNodeTemplateByServiceTemplatIdAndTypes
     ${types}    SET variable
