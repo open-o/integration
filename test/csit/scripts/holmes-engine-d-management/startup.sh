@@ -17,4 +17,4 @@
 # $1 nickname for the CATALOG instance
 # $2 IP address of MSB
 
-run-instance.sh openoint/holmes-engine-d-management $1 "-e  URL_JDBC=$2:9103 BROKER_IP=$3"
+run-instance.sh openoint/holmes-engine-d-standalone $1 "-e  URL_JDBC=$2:9103 -e BROKER_IP=$3 -e MSB_ADDR=$3"

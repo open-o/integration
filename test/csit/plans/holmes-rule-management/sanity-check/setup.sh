@@ -21,13 +21,13 @@ MSB_IP=`get-instance-ip.sh i-msb`
 echo MSB_IP=${MSB_IP}
 
 # Start rulemgt
-${SCRIPTS}/holmes-rule-management/startup.sh i-rulemgt "127.0.0.1" ${MSB_IP}
+source ${SCRIPTS}/holmes-rule-management/startup.sh i-rulemgt "127.0.0.1" ${MSB_IP}
 RULEMGT_IP=`get-instance-ip.sh i-rulemgt`
 echo RULEMGT_IP=${RULEMGT_IP}
 
 
 # Wait for initialization
-for i in {1..30}; do
+for i in {1..20}; do
     curl -sS -m 1 ${RULEMGT_IP}:8901 && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
@@ -35,14 +35,14 @@ done
 
 
 # Start engine-d
-${SCRIPTS}/holmes-engine-d-management/startup.sh i-engine-d ${RULEMGT_IP} ${MSB_IP}
+source ${SCRIPTS}/holmes-engine-d-management/startup.sh i-engine-d ${RULEMGT_IP} ${MSB_IP}
 ENGINE_D_IP=`get-instance-ip.sh i-engine-d`
 echo ENGINE_D_IP=${ENGINE_D_IP}
 
 
 
 # Wait for initialization
-for i in {1..30}; do
+for i in {1..20}; do
     curl -sS -m 1 ${ENGINE_D_IP}:8902 && break
     echo sleep $i
     sleep $i
