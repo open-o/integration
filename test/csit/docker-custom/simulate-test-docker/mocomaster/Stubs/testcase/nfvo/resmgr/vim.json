@@ -1,0 +1,14 @@
+{
+    "vimId": "123",
+    "name": "vim",
+    "url": "http://127.0.0.1:12306",
+    "userName": "admin",
+    "password": "admin",
+    "tenant": "admin",
+    "vendor": "HUAWEI",
+    "version": "v1.0",
+    "description": "",
+    "domain": "",
+    "type": "openstack",
+    "createTime": "2016-07-1812:22:53"
+}

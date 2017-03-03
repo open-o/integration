@@ -24,6 +24,9 @@ ${srvname_wso2bpel}    wso2bpel
 ${url_wso2bpel}    /openoapi/wso2bpel/v1
 ${srvname_vimdriver}    vimdriver
 ${url_vimdriver}    /openoapi/vimdriver/v1
+${srvname_multivim}    multivim
+${url_multivim}    /openoapi/multivim/v1
+
 *** Test Cases ***
 registerInventoryToMsb
     [Documentation]    register inventory simulator to msb
@@ -123,6 +126,22 @@ registerVimdriverToMsb
     Set To Dictionary  ${json_value}    serviceName   ${srvname_vimdriver}
     Remove From Dictionary  ${json_value}   url
     Set To Dictionary  ${json_value}    url   ${url_vimdriver}
+    Remove From Dictionary  ${json_value['nodes'][0]}   ip
+    Set To Dictionary  ${json_value['nodes'][0]}    ip   ${SIMULATOR_IP}
+    ${json_string}=     string_from_json   ${json_value}
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    Set Request Body    ${json_string}
+    ${resp}=    Post Request    web_session     ${register_msb_url}    ${json_string}
+    Log    ${resp}
+
+registerMultivimToMsb
+    [Documentation]    register multivim simulator to msb
+    ${json_value}=     json_from_file      ${register_json}
+    Remove From Dictionary  ${json_value}   serviceName
+    Set To Dictionary  ${json_value}    serviceName   ${srvname_multivim}
+    Remove From Dictionary  ${json_value}   url
+    Set To Dictionary  ${json_value}    url   ${url_multivim}
     Remove From Dictionary  ${json_value['nodes'][0]}   ip
     Set To Dictionary  ${json_value['nodes'][0]}    ip   ${SIMULATOR_IP}
     ${json_string}=     string_from_json   ${json_value}

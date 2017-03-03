@@ -1,0 +1,9 @@
+{
+    "tenants": [{
+            "id": "1234",
+            "name": "admin",
+            "vimId": "1234",
+            "vimName": "vim"
+        }
+    ]
+}

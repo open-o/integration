@@ -1,24 +1,26 @@
 [{
         "request": {
-            "method":"get",
-            "uri": "/openoapi/vimdriver/v1/limits/.*/cpumemory",
-            "queries":{
-                "vimId":"1234"
-            }
+            "method": "get",
+            "uri": "/openoapi/multivim/v1/1234/1234/limits"
         },
         "response": {
-            "file": "./Stubs/testcase/nfvo/resmgr/cpumemory.json"
+            "file": "./Stubs/testcase/nfvo/resmgr/limits.json"
         }
     }, {
         "request": {
-            "method":"get",
-            "uri": "/openoapi/vimdriver/v1/limits/.*/disk",
-            "queries":{
-                "vimId":"1234"
-            }
+            "method": "get",
+            "uri": "/openoapi/extsys/v1/vims/1234"
         },
         "response": {
-            "file": "./Stubs/testcase/nfvo/resmgr/disk.json"
+            "file": "./Stubs/testcase/nfvo/resmgr/vim.json"
+        }
+    }, {
+        "request": {
+            "method": "get",
+            "uri": "/openoapi/multivim/v1/1234/tenants"
+        },
+        "response": {
+            "file": "./Stubs/testcase/nfvo/resmgr/tenants.json"
         }
     }
 ]

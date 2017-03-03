@@ -47,6 +47,6 @@ curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=15 GREP_STRING="\["
 
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}  -v HWNFVM_IP:${HWNFVM_IP}"
-robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/sanity-check/register_simulator_to_msb.robot
+robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/driver-vnfm-huawei-sanity-check/register_simulator_to_msb.robot
 
 

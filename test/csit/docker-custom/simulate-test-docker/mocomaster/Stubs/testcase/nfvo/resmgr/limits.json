@@ -1,0 +1,8 @@
+{
+    "maxTotalCores": 100,
+    "maxTotalRAMSize": 100,
+    "maxTotalVolumes": 100,
+    "totalCoresUsed": 100,
+    "totalRAMUsed": 100,
+    "totalVolumesUsed": 100
+}
