@@ -1,0 +1,13 @@
+######### System Under Test ####################
+
+--variable SUT:192.168.4.47
+--variable SUT_NAME:SystemUnderTest
+--variable SUT_USERNAME:root
+--variable SUT_PASSWORD:root123
+
+
+
+##########TEST_MACHINE##########################
+
+--variable TEST_MACHINE:192.168.4.83
+
