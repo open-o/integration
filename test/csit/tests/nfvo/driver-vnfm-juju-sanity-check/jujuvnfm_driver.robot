@@ -8,7 +8,7 @@ Library     json
 Library     HttpLibrary.HTTP
 
 *** Variables ***
-@{return_ok_list}=   200  201  202 204
+@{return_ok_list}=   200  201  202 204  500
 ${vnfInstanceId}		testVnfId
 ${vnfmId}            	testVnfmId
 
@@ -57,8 +57,6 @@ jujuAddVnfTest
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
 	${response_json}    json.loads    ${resp.content}
-    ${vnfInstanceId}=    Convert To String      ${response_json['vnfInstanceId']}
-	Set Global Variable     ${vnfInstanceId}
 	
 
 jujuGetVnfTest

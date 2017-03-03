@@ -17,7 +17,10 @@
 	{
         "request": {
 		    "method": "get",
-            "uri": "/openoapi/jujuvnfm/v1/vnfms/status?modelName=.*"
+            "uri": "/openoapi/jujuvnfm/v1/vnfms/status",
+			"queries":{
+                "modelName":".*"
+            }
         },
         "response": {
 		"status": 200,
@@ -72,4 +75,5 @@
 			}
         }
     }
+	
 ]
