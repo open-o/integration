@@ -9,7 +9,7 @@ Library     HttpLibrary.HTTP
 
 *** Variables ***
 @{return_ok_list}=   200  201  202 204
-${vnfInstanceId}
+${vnfInstanceId}		testVnfId
 ${vnfmId}            	testVnfmId
 
 ${queryconfig_url}    /openoapi/jujuvnfm/v1/config
@@ -24,7 +24,6 @@ ${get_extsys_url}     /openoapi/extsys/v1/vnfms/${vnfmId}
 ${juju_addvnf_json}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/juju_add_vnf.json
 ${register_vnfm_to_extsys}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/register_vnfm_to_extsys.json
 ${set_vnfm_info}    ${SCRIPTS}/../plans/nfvo/driver-vnfm-juju-sanity-check/jsoninput/set_vnfm_info.json
-${set_vnfm_info2}    {"url":"http://${MSB_IP}:80}"}
 
 
 
@@ -39,30 +38,14 @@ jujuConfigTest
 
 jujuSetVnfmInfos
     ${json_value}=     json_from_file      ${set_vnfm_info}
+	Remove From Dictionary  ${json_value}   url
+    Set To Dictionary  ${json_value}    url   http://${SIMULATOR_IP}:18009
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
     ${resp}=    Post Request    web_session     ${setvnfminfo_url}    ${json_string}
 	${response_json}    json.loads    ${resp.content}
-	
-jujuSetVnfmInfos2
-    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    Set Request Body    ${set_vnfm_info2}
-    ${resp}=    Post Request    web_session     ${setvnfminfo_url}    ${set_vnfm_info2}
-	${response_json}    json.loads    ${resp.content}
-
-registerVnfmToExtSys
-    ${json_value}=     json_from_file      ${register_vnfm_to_extsys}
-    ${json_string}=     string_from_json   ${json_value}
-    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${registration_extsys_url}    ${json_string}
-	${response_json}    json.loads    ${resp.content}
-    ${vnfmId}=    Convert To String      ${response_json['vnfmId']}
-	Set Global Variable     ${vnfmId}
 	
 jujuAddVnfTest
     ${json_value}=     json_from_file      ${juju_addvnf_json}

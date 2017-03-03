@@ -17,7 +17,7 @@
 	{
         "request": {
 		    "method": "get",
-            "uri": "/openoapi/jujuvnfm/v1/vnfms/status?modelName=modelName007"
+            "uri": "/openoapi/jujuvnfm/v1/vnfms/status?modelName=.*"
         },
         "response": {
 		"status": 200,
@@ -56,7 +56,7 @@
             "uri": "/openoapi/jujuvnfm/v1/vnfms/deploy"
         },
         "response": {
-            "status": 200,
+            "status": 201,
 			"json": {
 				"vnfInfo":{
 					"vnfInstanceId":"",
