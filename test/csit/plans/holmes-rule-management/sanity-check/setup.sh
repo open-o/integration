@@ -42,7 +42,7 @@ echo ENGINE_D_IP=${ENGINE_D_IP}
 
 
 # Wait for initialization
-for i in {1..20}; do
+for i in {1..15}; do
     curl -sS -m 1 ${ENGINE_D_IP}:9102 && break
     echo sleep $i
     sleep $i
