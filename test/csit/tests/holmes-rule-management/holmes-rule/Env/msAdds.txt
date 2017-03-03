@@ -1,9 +1,0 @@
-*** Variables ***
-${ruleMgtHost}    http://10.74.156.206
-${ruleMgtUrl}     /api/correlation-mgt/v1/rule
-${engineHost}     http://10.74.156.206
-${engineUrl}      /api/correlation-engine/v1/rule
-${dsaHost}        http://10.74.156.206
-${dsaUrl_a}       /api/simulator/v1/mq/alarm
-${dsaUrl_r}       /api/simulator/v1/mq/alarm/random
-${dsaUrl_f}       /api/simulator/v1/mq/alarm/file
