@@ -39,5 +39,11 @@ CreateVnf Test
     Should Be Equal As Integers   ${resp.status_code}  201
     ${response_json}    json.loads    ${resp.content}
     ${vnfInstId}=    Convert To String      ${response_json['vnfInstanceId']}
+    Set Global Variable     ${vnfInstId}
 
-
+DeleteVnf Test
+    [Documentation]    Delete vnf function test
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    ${resp}=    Delete Request    web_session     ${deletevnf_url}/${vnfInstId}
+    Should Be Equal As Integers   ${resp.status_code}  204
