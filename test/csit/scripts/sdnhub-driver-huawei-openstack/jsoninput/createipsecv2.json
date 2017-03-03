@@ -70,7 +70,7 @@
                 "errorCode": {
                     "type": "string"
                 },
-                "data": {
+                "successed": {
                     "type": "array",
                     "items": {
                         "type": "object",

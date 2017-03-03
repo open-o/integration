@@ -6,7 +6,7 @@
             "Content-Type": "application/json",
             "X-Driver-Parameter": "extSysID=${ESR_VIM_HTTPS}"
         },
-        "json":[{
+        "json": [{
             "name": "test123",
             "tenantId": "456778",
             "description": "testt",
@@ -25,25 +25,25 @@
             "peerAddress": "2.2.2.2",
             "ikePolicy": {
                 "pfs": null,
-                 "lifeTime": null,
-                 "externalId": "1234",
-                 "sbiServiceId": "2345",
-                 "ikeVersion": "v1",
-                  "psk": "one",
-                  "authAlgorithm": "md5",
-                  "encryptionAlgorithm": "des",
-                 "id": "49956"
+                "lifeTime": null,
+                "externalId": "1234",
+                "sbiServiceId": "2345",
+                "ikeVersion": "v1",
+                "psk": "one",
+                "authAlgorithm": "md5",
+                "encryptionAlgorithm": "des",
+                "id": "49956"
             },
             "ipSecPolicy": {
-                "pfs":"Group5",
-                "lifeTime":null,
-                "externalId":"1234",
-                "sbiServiceId":"2345",
-                "transformProtocol":"esp",
-                "encapsulationMode":null,
-                "authAlgorithm":"md5",
-                "encryptionAlgorithm":null,
-                "id":"4567"
+                "pfs": "Group5",
+                "lifeTime": null,
+                "externalId": "1234",
+                "sbiServiceId": "2345",
+                "transformProtocol": "esp",
+                "encapsulationMode": null,
+                "authAlgorithm": "md5",
+                "encryptionAlgorithm": null,
+                "id": "4567"
             },
             "workType": "work",
             "sourceLanCidrs": null,
@@ -72,12 +72,171 @@
                 },
                 "httpCode": {
                     "type": "integer"
+                },
+                "successed": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "tenantId": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string"
+                            },
+                            "deployStatus": {
+                                "type": "string"
+                            },
+                            "activeStatus": {
+                                "type": "string"
+                            },
+                            "runningStatus": {
+                                "type": "string"
+                            },
+                            "additionalInfo": {
+                                "type": "string"
+                            },
+                            "controllerId": {
+                                "type": "string"
+                            },
+                            "externalId": {
+                                "type": "string"
+                            },
+                            "connectionServiceId": {
+                                "type": "string"
+                            },
+                            "neId": {
+                                "type": "string"
+                            },
+                            "deviceId": {
+                                "type": "string"
+                            },
+                            "peerDeviceId": {
+                                "type": "string"
+                            },
+                            "externalIpSecId": {
+                                "type": "string"
+                            },
+                            "sourceAddress": {
+                                "type": "string"
+                            },
+                            "peerAddress": {
+                                "type": "string"
+                            },
+                            "ikePolicy": {
+                                "type": "object",
+                                "properties": {
+                                    "externalId": {
+                                        "type": "string"
+                                    },
+                                    "sbiServiceId": {
+                                        "type": "string"
+                                    },
+                                    "ikeVersion": {
+                                        "type": "string"
+                                    },
+                                    "psk": {
+                                        "type": "string"
+                                    },
+                                    "authAlgorithm": {
+                                        "type": "string"
+                                    },
+                                    "encryptionAlgorithm": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "externalId",
+                                    "sbiServiceId",
+                                    "ikeVersion",
+                                    "psk",
+                                    "authAlgorithm",
+                                    "encryptionAlgorithm",
+                                    "id"
+                                ]
+                            },
+                            "ipSecPolicy": {
+                                "type": "object",
+                                "properties": {
+                                    "pfs": {
+                                        "type": "string"
+                                    },
+                                    "externalId": {
+                                        "type": "string"
+                                    },
+                                    "sbiServiceId": {
+                                        "type": "string"
+                                    },
+                                    "transformProtocol": {
+                                        "type": "string"
+                                    },
+                                    "authAlgorithm": {
+                                        "type": "string"
+                                    },
+                                    "id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "pfs",
+                                    "externalId",
+                                    "sbiServiceId",
+                                    "transformProtocol",
+                                    "authAlgorithm",
+                                    "id"
+                                ]
+                            },
+                            "workType": {
+                                "type": "string"
+                            },
+                            "isTemplateType": {
+                                "type": "string"
+                            },
+                            "nqa": {
+                                "type": "string"
+                            },
+                            "localNeRole": {
+                                "type": "string"
+                            },
+                            "regionId": {
+                                "type": "string"
+                            },
+                            "id": {
+                                "type": "string"
+                            },
+                            "sourceIfId": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "tenantId",
+                            "controllerId",
+                            "externalId",
+                            "connectionServiceId",
+                            "neId",
+                            "deviceId",
+                            "peerDeviceId",
+                            "externalIpSecId",
+                            "workType",
+                            "isTemplateType",
+                            "regionId",
+                            "id",
+                            "sourceIfId"
+                        ]
+                    }
+                },
+                "fail": {
+                    "type": "array",
+                    "items": {}
                 }
-            },
-            "required": [
-                "errorCode",
-                "httpCode"
-            ]
+            }
         }
     }
 }
