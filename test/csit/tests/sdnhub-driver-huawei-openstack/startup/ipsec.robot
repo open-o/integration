@@ -35,7 +35,7 @@ IpSec update test
 
 IpSec update invalid input
     [Documentation]    IpSec update fail test with invalid ctrluuid
-    Replace variables and send REST    ${ipsec_create_invalid_input}    ${ipsecmap}    status
+    Replace variables and send REST    ${ipsec_update_invalid_ctrluuid}    ${ipsecmap}    status
 
 IpSec update invalid conroller error
     [Documentation]    IpSec update fail test with controller error
