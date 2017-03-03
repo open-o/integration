@@ -946,7 +946,7 @@
     "headers" : {
         "Content-Type": "application/json"
     },
-    "json" : {"deviceList":[{"name":"deviceOne","esn":"esn-abcdef-123456780","orgnizationName":"huawei","description":"create test device", "id": "1234"}]}
+    "json" : {"deviceList":[{"name":"deviceOne","esn":"ESNABCDEFGH123456780","orgnizationName":"huawei","description":"create test device", "id": "1234"}]}
   },
   "response" : {
     "status" : "200",
@@ -989,7 +989,7 @@
     },
     "json" : {
         "name":"deviceOne",
-        "esn":"esn-abcdef-123456780",
+        "esn":"ESNABCDEFGH123456780",
         "orgnizationName":"huawei",
         "description":"create test device",
         "id":"81244ad0-b4ea-41ed-969e-d5588b32fd41",
