@@ -1,0 +1,104 @@
+[
+    {
+        "protocol": "https",
+        "port": "10001",
+        "shutdown_port": "20001",
+        "api_url": "/openoapi/extsys/v1/sdncontrollers",
+        "rsp_id_keyname": "sdnControllerId",
+        "id_placeholder": "AcBranchControllerID",
+        "reg_data":
+        {
+            "name":"ACBranch-Controller",
+            "url":"http://CONTROLLER_IPPORT/v2.0",
+            "userName":"admin",
+            "password":"1111111111111",
+            "version":"V200R002C00",
+            "description":"AC Branch Controller (IPSec, VxLAN, WanInterface, etc.)",
+            "protocol":"http",
+            "domain":"default",
+            "type":"Agile Controller-BRANCH"
+        }
+    },
+    {
+        "protocol": "http",
+        "port": "10002",
+        "shutdown_port": "20002",
+        "api_url": "/openoapi/extsys/v1/vims",
+        "rsp_id_keyname": "vimId",
+        "id_placeholder": "AcDcControllerID",
+        "reg_data":
+        {
+            "name":"Sdno_Vim",
+            "vendor": "OpenO",
+            "version": "V200R001C00",
+            "description": "OpenStack moco server",
+            "type": "openstack",
+            "url":"http://CONTROLLER_IPPORT/v3",
+            "userName": "admin",
+            "password": "password",
+            "domain": "domain",
+            "tenant": "admin"
+        }
+    },
+    {
+        "protocol": "http",
+        "protocol": "http",
+        "port": "10003",
+        "shutdown_port": "20003",
+        "api_url": "/openoapi/extsys/v1/sdncontrollers",
+        "rsp_id_keyname": "sdnControllerId",
+        "id_placeholder": "FwControllerID",
+        "reg_data":
+        {
+            "name":"Firewall",
+            "url":"http://CONTROLLER_IPPORT/v2.0",
+            "userName":"admin",
+            "password":"1111111111111",
+            "version":"USG6390",
+            "description":"Firewall Controller",
+            "protocol":"http",
+            "domain":"default",
+            "type":"FW"
+        }
+    },
+    {
+        "protocol": "http",
+        "port": "10004",
+        "shutdown_port": "20004",
+        "api_url": "/openoapi/extsys/v1/sdncontrollers",
+        "rsp_id_keyname": "sdnControllerId",
+        "id_placeholder":  "TorCE5850ControllerID",
+        "reg_data":
+        {
+            "name":"TOR-5850",
+            "url":"http://CONTROLLER_IPPORT/v2.0",
+            "userName":"admin",
+            "password":"1111111111111",
+            "version":"CE5850",
+            "description":"TOR CE5850 Controller",
+            "protocol":"http",
+            "domain":"default",
+            "type":"TOR"
+        }
+    },
+    {
+        "protocol": "http",
+        "port": "10005",
+        "shutdown_port": "20005",
+        "api_url": "/openoapi/extsys/v1/sdncontrollers",
+        "rsp_id_keyname": "sdnControllerId",
+        "id_placeholder": "TorCE6850ControllerID",
+        "reg_data":
+        {
+            "name":"TOR-6850",
+            "url":"http://CONTROLLER_IPPORT/v2.0",
+            "userName":"admin",
+            "password":"1111111111111",
+            "version":"CE6850",
+            "description":"TOR CE6850 Controller",
+            "protocol":"http",
+            "domain":"default",
+            "type":"TOR"
+        }
+    }
+]
