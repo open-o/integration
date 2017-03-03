@@ -37,3 +37,6 @@ ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"
 
 # Run Mock server
 run_simulator
+
+#Install archive library
+pip install robotframework-archivelibrary
