@@ -9,7 +9,7 @@ ${vnfsdkfunctest_json}    ${SCRIPTS}/../plans/vnf-sdk-function-test/sanity-check
 ${getresult_json}    ${SCRIPTS}/../plans/vnf-sdk-function-test/sanity-check/jsoninput/getresult_failure.json
 ${request_uri}       http://${MSB_IP}/openoapi/vnfsdk/v1/functest/
 ${request_body_filepath}    ${SCRIPTS}/../plans/vnf-sdk-function-test/sanity-check/reqinputfiles/RobotScript
-${request_body_zipfilepath}    ${SCRIPTS}/../plans/vnf-sdk-function-test/sanity-check/reqzipfiles/RobotScript.zip
+${request_body_zipfilepath}    ${SCRIPTS}/../plans/vnf-sdk-function-test/sanity-check/RobotScript.zip
 
 *** Test Cases ***
 Health Check and MSB registration
@@ -22,7 +22,7 @@ Execute Function test result
 
 Get Function test result
     [Documentation]    Get Function test result
-    replaceVariablesAndSendREST    ${getresult_json}    null    null
+    replaceVariablesAndSendREST    ${getresult_json}    ${null}    ${null}
 
 Create zip file for request
     Create Zip From Files In Directory    ${request_body_filepath}    ${request_body_zipfilepath}
@@ -33,5 +33,5 @@ Execute Function test result success
     Set Request Body    null=${request_body_zipfilepath}
     ${status}=    Get Response Status
     ${body}=    Get Response Body
-    Should Not Be Empty    ${body}
+    Should Be Empty    ${body}
 
