@@ -28,7 +28,7 @@ echo RULEMGT_IP=${RULEMGT_IP}
 
 # Wait for initialization
 for i in {1..20}; do
-    curl -sS -m 1 ${RULEMGT_IP}:8901 && curl -sS -m 1 ${MSB_IP}:80 && break
+    curl -sS -m 1 ${RULEMGT_IP}:9101 && curl -sS -m 1 ${MSB_IP}:80 && break
     echo sleep $i
     sleep $i
 done
@@ -43,7 +43,7 @@ echo ENGINE_D_IP=${ENGINE_D_IP}
 
 # Wait for initialization
 for i in {1..20}; do
-    curl -sS -m 1 ${ENGINE_D_IP}:8902 && break
+    curl -sS -m 1 ${ENGINE_D_IP}:9102 && break
     echo sleep $i
     sleep $i
 done
