@@ -78,32 +78,33 @@ function wait_curl_driver(){
         exclude_string="-v"
     fi
 
-    eval '
-        for i in {1..'"$repeat_max"'}; do
-            str=`curl -sS -m$max_time $curl_command | grep $grep_command` || str=''
-            if [[ ! -z $exclude_string ]] ; then
-                str_exclude=`echo $str | grep -v $grep_command`;
-                #break;
-                if [[ ! -z $str_exclude ]] ; then
-                    echo "Element found";
-                    break;
-                fi
-            fi
-            echo $str
-            if [ "$?" = "7" ]; then
-                echo 'Connection refused or cant connect to server/proxy';
-                str=''
-            fi
-            if [[ ! -z $str ]] ; then
+    for i in `eval echo {1..$repeat_max}`; do
+        str=`curl -sS -m$max_time $curl_command | grep $grep_command` || str=''
+        if [[ ! -z $exclude_string ]] ; then
+            str_exclude=`echo $str | grep -v $grep_command`;
+            #break;
+            if [[ ! -z $str_exclude ]] ; then
                 echo "Element found";
                 break;
-            else
-                echo "Element not found yet # "$i""
             fi
-            echo '$wait_message'
-            sleep $i
-        done
-    '
+        fi
+        echo $str
+        if [ "$?" = "7" ]; then
+            echo 'Connection refused or cant connect to server/proxy';
+            str=''
+        fi
+        if [[ ! -z $str ]] ; then
+            echo "Element found";
+            break;
+        else
+            echo "Element not found yet # "$i""
+        fi
+        echo $wait_message
+	top -bn1 | head -3
+        free -h
+        sleep $i
+    done
+
     return 0
 }
 
