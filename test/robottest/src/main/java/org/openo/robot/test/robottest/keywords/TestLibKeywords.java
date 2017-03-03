@@ -94,7 +94,7 @@ public class TestLibKeywords extends TestManager {
         HttpResponse httpResponse = execTestCase(httpRequest, new JsonSchemaValidator(httpObject.getResponse()));
 
         String strValue = "";
-        if(null != variable) {
+        if(("" != variable) && (null != httpResponse.getData())) {
             strValue = ValidationUtil.getInstance().getObject(variable, httpResponse.getData());
         }
 
@@ -147,7 +147,7 @@ public class TestLibKeywords extends TestManager {
                 execTestCase(httpRequest, new JsonSchemaValidator(httpCreateObject.getResponse()));
 
         String strValue = "";
-        if(null != variable) {
+        if(("" != variable) && (null != createResponse.getData())) {
             strValue = ValidationUtil.getInstance().getObject(variable, createResponse.getData());
         }
 
@@ -178,8 +178,10 @@ public class TestLibKeywords extends TestManager {
         Map<String, String> response = new HashMap<String, String>();
         Set<Entry<String, String>> keySet = mapValues.entrySet();
         for(Entry<String, String> entry : keySet) {
-            String strValue = ValidationUtil.getInstance().getObject(entry.getKey(), createResponse.getData());
-            response.put(entry.getKey(), strValue);
+            if(null != createResponse.getData()) {
+                String strValue = ValidationUtil.getInstance().getObject(entry.getKey(), createResponse.getData());
+                response.put(entry.getKey(), strValue);
+            }
         }
 
         return response;
