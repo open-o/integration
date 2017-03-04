@@ -17,4 +17,4 @@
 # $1 nickname for the CATALOG instance
 # $2 IP address of MSB
 
-run-instance.sh openoint/holmes-rulemgt-standalone $1 "-e URL_JDBC=$2:3306 -e MSB_ADDR=$3 -p 3306:9103"
+run-instance.sh openoint/holmes-rulemgt-standalone $1 "-e URL_JDBC=$2:3306 -e MSB_ADDR=$3 -p 9103:3306"
