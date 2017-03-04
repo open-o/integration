@@ -19,13 +19,14 @@
 		    "method": "get",
             "uri": "/openoapi/jujuvnfm/v1/vnfms/status",
 			"queries":{
-                "modelName":".*"
+                "modelName":""
             }
         },
         "response": {
 		"status": 200,
 		"json": {
-			"vnfInfo":{
+			"retCode":"0",
+			"data":{
 				"vnfInstanceId":"",
 				"vnfInstanceName":"testVnfmId",
 				"vnfInstanceDescription":"testVnfdId",
@@ -61,6 +62,7 @@
         "response": {
             "status": 201,
 			"json": {
+				"vnfId":"123vnfId",
 				"vnfInfo":{
 					"vnfInstanceId":"",
 					"vnfInstanceName":"testVnfmId",
