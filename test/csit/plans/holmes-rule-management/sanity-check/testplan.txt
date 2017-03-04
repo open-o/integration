@@ -1,5 +1,5 @@
 # Test suites are relative paths under [integration.git]/test/csit/tests/.
 # Place the suites in run order.
-# holmes-rule-management\testcase\CommonKeywords
-holmes-rule-management\testcase\EngineMgt
-holmes-rule-management\testcase\RuleMgt
+
+holmes-rule-management/testcase/EngineMgt
+holmes-rule-management/testcase/RuleMgt

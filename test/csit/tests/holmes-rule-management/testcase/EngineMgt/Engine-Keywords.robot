@@ -5,6 +5,10 @@ Resource          ../CommonKeywords/HttpRequest.robot
 Resource          EngineAddr.robot
 
 *** Keywords ***
+engineMgtSuiteVariable
+    ${ENGINERULEDIC}    create dictionary    content=package rule20170001
+    set suite variable    ${ENGINERULEDIC}
+
 deleteEngineRule
     [Arguments]    ${packageName}    ${codeFlag}=1
     [Documentation]    ${packageName} :The data type is string .

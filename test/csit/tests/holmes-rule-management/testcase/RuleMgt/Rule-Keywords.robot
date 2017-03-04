@@ -5,6 +5,10 @@ Resource          RuleAddr.robot
 Resource          ../CommonKeywords/HttpRequest.robot
 
 *** Keywords ***
+ruleMgtSuiteVariable
+    ${RULEDIC}    create dictionary    rulename=gy2017001    description=create a new rule!    content=package rule2017001    enabled=1
+    set suite variable    ${RULEDIC}
+
 queryConditionRule
     [Arguments]    ${queryParam}    ${codeFlag}=1
     [Documentation]    ${queryParam} : The data type is Json .

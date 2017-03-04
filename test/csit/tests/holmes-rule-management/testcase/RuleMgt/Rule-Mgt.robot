@@ -1,16 +1,17 @@
 *** Settings ***
+Suite Setup       ruleMgtSuiteVariable
+Suite Teardown    Delete All Sessions
+Test Timeout      1 minute
 Library           demjson
 Resource          Rule-Keywords.robot
 
 *** Test Cases ***
 add_invalid_content_rule
     [Documentation]    Add an invalid rule of which the content is incorrect.
-    ${RULEDIC}    create dictionary    rulename=gy2017001    description=create a valid rule!    content=hahahahahaha    enabled=1
-    set suite variable    ${RULEDIC}
-    remove from dictionary    ${RULEDIC}    content
-    set to dictionary     ${RULEDIC}    content=hahahahahaha
+    ${RULEDIC.content}    set variable    hahahahahahaha
     ${jsonParams}    encode    ${RULEDIC}
     ${response}    createRule    ${jsonParams}    -1
+    log    ${response.content}
 
 add_valid_rule
     [Documentation]    Add a valid rule.
@@ -29,8 +30,6 @@ add_deficient_rule
 
 query_rule_with_existing_id
     [Documentation]    Query a rule with an existing ID.
-    Comment    ${ruleIdDic}    create dictionary    ruleid=${RULEID}
-    Comment    ${ruleidJson}    encode    ${ruleIdDic}
     ${response}    queryConditionRule    {"ruleid":"${RULEID}"}
     ${respJson}    to json    ${response.content}
     ${count}    get from dictionary    ${respJson}    totalcount
@@ -80,7 +79,7 @@ query_rule_with_empty_status
 
 query_rule_with_combinational_fields
     [Documentation]    Query rules using the combination of different fields.
-    remove from dictionary     ${RULEDIC}    description    content
+    remove from dictionary    ${RULEDIC}    description    content
     ${paramJson}    encode    ${RULEDIC}
     ${response}    queryConditionRule    ${paramJson}
     ${respJson}    to json    ${response.content}
@@ -108,7 +107,7 @@ modify_rule_with_description
     ${dic}    create dictionary    ruleid=${RULEID}    description=now, i modifying the description of the rule.
     ${modifyParam}    encode    ${dic}
     ${modifyResp}    modifyRule    ${modifyParam}
-    ${response}    queryConditionRule    {"ruleid":${RULEID}}    1
+    ${response}    queryConditionRule    {"ruleid":"${RULEID}"}    1
     ${respJson}    to json    ${response.content}
     ${count}    get from dictionary    ${respJson}    totalcount
     run keyword if    ${count}!=1    fail    query rule fails!
@@ -116,6 +115,7 @@ modify_rule_with_description
 
 delete_existing_rule
     [Documentation]    Delete an existing rule.
+    should not be empty    ${RULEID}
     deleteRule    {"ruleid":"${RULEID}"}
 
 delete_non_existing_rule
