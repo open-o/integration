@@ -14,7 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# $1 nickname for the CATALOG instance
-# $2 IP address of MSB
-echo "URL_JDBC="$2
-run-instance.sh openoint/holmes-engine-d-standalone $1 "-e URL_JDBC=$2:9103 -e BROKER_IP=$3 -e MSB_ADDR=$3"
+# $1 nickname for the engined instance
+# $2 IP address of JDBC
+# $3 IP address of BrokerIP
+
+run-instance.sh openoint/holmes-engine-d-standalone $1 "-e URL_JDBC=$2:3306 -e BROKER_IP=$3 -e MSB_ADDR=$3"
