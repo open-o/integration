@@ -1,10 +1,9 @@
 #!/bin/bash
-
 #Common functions used in other scripts
-source ../common_functions.sh
+source ${SCRIPTS}/common_functions.sh
 
 #File containing variables
-source ./variables.sh
+source $CUR_DIR/variables.sh
 
 #Stop existent docker instances
 docker rm -f $(docker ps -a --format={{.Names}}) || true

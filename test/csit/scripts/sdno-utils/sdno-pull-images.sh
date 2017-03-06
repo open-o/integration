@@ -52,7 +52,7 @@ pull_docker sdno-service-vpc
 pull_docker sdnhub-driver-ct-te
 
 #Pull openoint/sdno-service-overlayvpn
-openoint/sdno-service-overlayvpn
+pull_docker sdno-service-overlayvpn
 
 #Pull openoint/sdno-service-ipsec
 pull_docker sdno-service-ipsec

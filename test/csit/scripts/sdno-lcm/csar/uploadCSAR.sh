@@ -39,7 +39,7 @@ curl -sS -X GET http://$MSB_ADDR/api/microservices/v1/services/catalog/version/v
 #check if common-tosca-aria is registered with MSB or not 
 curl -sS -X GET http://$MSB_ADDR/api/microservices/v1/services/tosca/version/v1 -H "Accept: application/json" -H "Content-Type: application/json"
 echo Sending POST request to Catalog
-CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$SCRIPT_DIR/../csar/enterprise2DC.csar" http://$MSB_ADDR/openoapi/catalog/v1/csars)
+CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$SCRIPT_DIR/enterprise2DC.csar" http://$MSB_ADDR/openoapi/catalog/v1/csars)
 #getting csarId from the json output
 CsarId=$(echo ${CsarIdString:11:36})
 echo $CsarId
