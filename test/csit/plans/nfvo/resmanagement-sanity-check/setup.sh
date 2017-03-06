@@ -37,14 +37,15 @@ echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"
 
+#18009 is using by simulator, if already a simulator running using port 18009 ,stop it
+docker ps | grep '18009' | awk '{print $1}' | xargs --no-run-if-empty docker kill
+docker ps | grep '18009' | awk '{print $1}' | xargs --no-run-if-empty docker rm
 #run simulator
-docker run -d -i -t --name simulator  -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
-
+docker run -d -i -t --name simulator -e SIMULATOR_JSON=Stubs/testcase/nfvo/main.json -p 18009:18009 -p 18008:18008  openoint/simulate-test-docker
 SIMULATOR_IP=`get-instance-ip.sh simulator`
-
 sleep_msg="Waiting_for_simulator"
 curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=15 GREP_STRING="\["
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
 
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
 robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/nfvo/resmanagement-sanity-check/register_simulator_to_msb.robot
