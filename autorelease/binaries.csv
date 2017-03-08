@@ -52,6 +52,7 @@ sdno-vpc,,SDNO Services VPC,sdno-service-vpc,org.openo.sdno.vpc,vpcservice-deplo
 sdno-vsitemgr,,SDNO Vsite Manager,sdno-vsitemgr,org.openo.sdno.vsitemgr,ct_vsitemgr,zip,,8600,TRUE,,,TRUE,
 sdno-vxlan,,SDNO Services VxLAN,sdno-service-vxlan,org.openo.sdno.vxlan,vxlanservice-deployment,zip,,8512,,,TRUE,,
 vnf-sdk-function-test,,VNF SDK Function Test,vnfsdk-function-test,org.openo.vnf-sdk.function-test,standalone,tar.gz,linux64,8701,TRUE,,,,
+vnf-sdk-marketplace,,VNF SDK Marketplace,vnf-sdk-marketplace,org.openo.vnf-sdk.marketplace,vnf-sdk-marketplace-deployment,zip,,8702,TRUE,,TRUE
 multivimdriver-broker,,MultiVIM broker,multivim-broker,org.openo.multivimdriver.broker,multivimbroker,zip,,9001,TRUE,,,TRUE,
 multivimdriver-openstack,newton,MultiVIM driver of OpenStack Newton,multivim-driver-newton,org.openo.multivimdriver.openstack,multivimdriver-openstack-newton,zip,,9003,TRUE,,,TRUE,
 multivimdriver-openstack,kilo,MultiVIM driver of OpenStack Kilo,multivim-driver-kilo,org.openo.multivimdriver.openstack,multivimdriver-openstack-kilo,zip,,9002,TRUE,,,TRUE,
