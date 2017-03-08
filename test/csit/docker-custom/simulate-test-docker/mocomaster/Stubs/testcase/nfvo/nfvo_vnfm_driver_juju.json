@@ -19,7 +19,7 @@
 		    "method": "get",
             "uri": "/openoapi/jujuvnfm/v1/vnfms/status",
 			"queries":{
-                "modelName":""
+				"modelName": {"match": "[a-zA-Z0-9\\-\\_]{0,36}"}
             }
         },
         "response": {
