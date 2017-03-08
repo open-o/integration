@@ -21,9 +21,10 @@ source ${SCRIPTS}/common_functions.sh
 # Start MSB
 ${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
 MSB_IP=`get-instance-ip.sh i-msb`
-curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
+
+curl_path='http://'${MSB_IP}'/api/microservices/v1/swagger.yaml'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE=$sleep_msg GREP_STRING="MicroService Bus rest API" REPEAT_NUMBER="10"
 
 ${SCRIPTS}/sdno-lcm/startup.sh s-lcm
 
@@ -32,7 +33,7 @@ SERVICE_PORT='8554'
 echo ${SERVICE_IP}
 
 curl_path='http://'$SERVICE_IP':'$SERVICE_PORT'/'
-sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="refused" EXCLUDE_STRING REPEAT_NUMBER="25" MAX_TIME=30
+sleep_msg="Waiting_connection_of_url_for:s-lcm"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE=$sleep_msg GREP_STRING="refused" EXCLUDE_STRING REPEAT_NUMBER="15" MAX_TIME=30
 
 ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP} -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT}"
