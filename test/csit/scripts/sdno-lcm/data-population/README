@@ -1,20 +1,24 @@
 import_data_to_esr_brs.pl:
 A script for registering network controllers to External System Resistration (ESR) and populating network devices (managed elements) into BRS.
 It first registers network controllers to ESR and remembers controller id returned by ESR.
-It then injects these controller ids into corresponding managed-element's meta data.
-Finally, managed elements with correct controller id will be created in BRS.
+It then creates site in BRS and remember site id (uuid) returned by BRS.
+After that, these controller ids and site id will be inserted into corresponding managed-element's meta data.
+Finally, managed elements with correct controller id and site id will be created in BRS.
 
 
 Controllers.json: 
 One sample of network controller meta-data
 It should be changed based on the network scenario to be tested.
 
+Site.json: 
+One sample of site meta-data
+It should be changed based on the network scenario to be tested.
 
 ManagedElements.json: 
-One sample of managed elwment meta-data
+One sample of managed element meta-data
 It should be changed based on the network scenario to be tested.
 
 
 
 Usage:
-import_data_to_esr_brs.pl     MSB_ADDR      CONTROLLER_SIMULATOR_IP      CONTROLLER_METADATA_FILENAME       ME_METADATA_FILENAME
+import_data_to_esr_brs.pl     MSB_ADDR      CONTROLLER_SIMULATOR_IP      CONTROLLER_METADATA_FILENAME       SITE_METADATA_FILENAME           ME_METADATA_FILENAME

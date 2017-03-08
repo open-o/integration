@@ -20,18 +20,25 @@ sub readFile {
 $MSB_ADDR=$ARGV[0];
 $CONTROLLERS_SIMULATOR_IP=$ARGV[1];
 $CONTROLLERS_FILE_NAME=$ARGV[2];
-$MES_FILE_NAME=$ARGV[3];
+$SITE_FILE_NAME=$ARGV[3];
+$MES_FILE_NAME=$ARGV[4];
 
 #place holder of controller address in the json files with controller information.
 $CONTROLLER_ADDRESS_PLACE_HOLDER = "CONTROLLER_IPPORT";
 
+#place holder of site id in managed-elements
+$SITE_ID_PLACE_HOLDER = "SITE-ID";
+
 #ME registration body prefix in JSON
 $ME_JSON_PREFIX="managedElement";
+
+#API urls for register site and MEs to BRS
 $ME_REG_API_URL="/openoapi/sdnobrs/v1/managed-elements";
+$SITE_REG_API_URL="/openoapi/sdnobrs/v1/sites";
 
 
 
-
+####################################IMPORT CONTROLLERS TO ESR##############################
 #used to hold the controller ids returned from ESR
 %controller_ids;
 
@@ -68,6 +75,33 @@ print Dumper(\%controller_ids);
 
 
 
+
+####################################IMPORT Site TO ESR###################################
+#used to hold uuid of the site (returned by BRS
+$site_id;
+
+#read request body
+my $site_str = readFile($SITE_FILE_NAME);
+##########################insert site to BRS
+my $site_str_in_command = "'$site_str'";
+$site_str_in_command =~ tr{\n}{ };
+
+my $site_url = "http://$MSB_ADDR$SITE_REG_API_URL";
+
+my $site_insert_command = "curl -X POST -d $site_str_in_command -H 'Content-Type: application/json;charset=UTF-8' $site_url";
+print $site_insert_command."\n";
+my $site_response = `$site_insert_command`;
+print $site_response."\n";
+
+########################get site id returned by BRS
+my $site_rsp_obj = decode_json($site_response);
+$site_id = $site_rsp_obj->{"site"}->{"id"};
+
+
+
+
+
+####################################IMPORT Managed Elements TO ESR#########################
 #used to hold the me ids returned from BRS
 %me_ids;
 
@@ -82,7 +116,10 @@ for my $me (@$all_elements) {
         $reg_str =~ s/$placeholder/$real_id/;
     }
 
-    ##########################insert to BRS
+    ###########################replace with real site_id
+    $reg_str =~ s/$SITE_ID_PLACE_HOLDER/$site_id/;
+
+    ##########################insert ME to BRS
     my $reg_str_in_command = "'{\"$ME_JSON_PREFIX\":".$reg_str."}'";
     $reg_str_in_command =~ tr{\n}{ };
 

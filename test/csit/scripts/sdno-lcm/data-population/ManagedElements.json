@@ -13,7 +13,8 @@
         "operState": "up",
         "controllerName": "ACBranch-Controller",
         "controllerID": ["AcBranchControllerID"],
-        "siteName": "Site"
+        "siteName": "Site4Test",
+        "siteID": ["SITE-ID"]
     },
     {
         "name": "vCPE",
@@ -29,7 +30,8 @@
         "operState": "up",
         "controllerName": "ACBranch-Controller",
         "controllerID": ["AcBranchControllerID"],
-        "siteName": "Site"
+        "siteName": "Site4Test",
+        "siteID": ["SITE-ID"]
     },
     {
         "name": "Gateway",
@@ -45,7 +47,7 @@
         "operState": "up",
         "controllerName": "Gateway-Controller",
         "controllerID": ["TorCE5850ControllerID"],
-        "siteName": "Site"
+        "siteName": "SiteDC"
     },
     {
         "name": "LoadBalancer",
@@ -61,7 +63,7 @@
         "operState": "up",
         "controllerName": "LoadBalancer-Controller",
         "controllerID": ["TorCE5850ControllerID"],
-        "siteName": "Site"
+        "siteName": "SiteDC"
     },
     {
         "name": "Firewall",
@@ -77,6 +79,6 @@
         "operState": "up",
         "controllerName": "FirewallController",
         "controllerID": ["FwControllerID"],
-        "siteName": "Site"
+        "siteName": "SiteDC"
     }
 ]
