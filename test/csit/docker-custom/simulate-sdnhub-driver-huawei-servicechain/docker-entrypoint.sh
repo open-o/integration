@@ -19,7 +19,7 @@ DRIVERMANAGER_URL="/openoapi/drivermgr/v1/drivers"
 
 SFC_TEMPLATE_FILE="template-sfc-driver.json"
 SFC_SIMU_FILE="sfc_sim_file.json"
-SFC_DRIVER_SIMU_FILENAME="SfcDriver.json"
+SFC_DRIVER_SIMU_FILENAME="sdnhub-driver-huawei-servicechain.json"
 
 SERVICE_TYPE="http"
 DRIVER_LISTEN_PORT="8542";
