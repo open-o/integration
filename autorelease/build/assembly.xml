@@ -43,6 +43,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>client-gui</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.client.gui:integration:zip</include>
+      </includes>
+      <outputFileNameMapping>client-gui-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>common-services-auth</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
@@ -118,7 +127,7 @@
       <outputDirectory>common-tosca-inventory</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
-        <include>org.openo.common-tosca.inventory:standalone:tar.gz:linux64</include>
+        <include>org.openo.common-tosca.inventory:inventory-standalone:zip:bin</include>
       </includes>
       <outputFileNameMapping>common-tosca-inventory-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
@@ -148,15 +157,6 @@
         <include>org.openo.gso:servicemanagerservice-deployment:zip</include>
       </includes>
       <outputFileNameMapping>gso-service-manager-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
-    </dependencySet>
-
-    <dependencySet>
-      <outputDirectory>gso-gui-portal</outputDirectory>
-      <useProjectArtifact>false</useProjectArtifact>
-      <includes>
-        <include>org.openo.gso.gui:portal-package:zip</include>
-      </includes>
-      <outputFileNameMapping>gso-gui-portal-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
     </dependencySet>
 
     <dependencySet>
