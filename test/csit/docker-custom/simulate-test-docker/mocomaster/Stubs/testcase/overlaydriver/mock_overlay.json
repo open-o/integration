@@ -458,7 +458,7 @@
     "headers" : {
         "Content-Type": "application/json"
     },
-    "json" : {"staticRouteConfigs":[{"id":"1234","bfdName":null,"description":null,"priority":"3","vpnName":null,"outInterface":"outer","nextHop":"2","dhcp":true,"vpnId":null,"mask":null,"nqaId":"nqa","ip":"192.168.1.1","ipv6Address":null}]}
+    "json" : {"staticRouteConfigs":[{"description":null,"priority":3,"vpnName":null,"outInterface":"outer","nextHop":"192.168.1.2","dhcp":false,"vpnId":null,"mask":"255.255.0.0","nqaId":"nqa","ip":"192.168.1.1","ipv6Address":null,"prefixLength":null,"id":"1234"}]}
   },
   "response" : {
     "status" : "200",
@@ -467,7 +467,7 @@
          "errmsg": "",
          "data": [
              {
-                 "id": "c3ebcbc532e3439499a9a15e52d49526",
+                 "id": "1234",
                   "ip": "192.168.1.1",
                   "mask": "255.255.0.0",
                   "ipv6Address": null,
@@ -501,7 +501,7 @@
          "errmsg": "",
          "data":
              {
-                 "id": "c3ebcbc532e3439499a9a15e52d49526",
+                 "id": "1234",
                   "ip": "192.168.1.1",
                   "mask": "255.255.0.0",
                   "ipv6Address": "",
@@ -579,7 +579,7 @@
   "response" : {
     "status" : "200",
     "json" : {
-         "errcode": "0",
+         "errocode": "0",
          "errmsg": "",
          "success": [
              {

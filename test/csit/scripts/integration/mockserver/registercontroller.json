@@ -1,32 +1,32 @@
 {
-	"request": {
-		"uri": "http://${MSB_IP}/openoapi/extsys/v1/sdncontrollers",
-		"method": "post",
-		"headers": {
-			"Content-Type": "application/json"
-		},
-		"json":{
-			    "name":"sdn",
-      		"url":"http://${SERVICE_IP}:18009",
-       		"userName":"admin",
-       		"password":"admin",
-       		"version":"v1.0",
-       		"vendor":"HUAWEI",
-       		"description":"",
-       		"protocol":"netconf",
-       		"productName":"",
-       		"type":"ODL"
-		}
-	},
-	"response": {
-		"status": 201,
-		"json":{
-			"type": "object",
-  			"properties": {
-  				"createTime": { "type": "string" },
-					"sdnControllerId": { "type": "string" }
-  			}
-		},
-  		"required": ["sdnControllerId"]
-	}
+    "request": {
+        "uri": "http://${MSB_IP}/openoapi/extsys/v1/sdncontrollers",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "json":{
+                "name":"sdn",
+            "url":"https://${SERVICE_IP}:18008",
+            "userName":"admin",
+            "password":"admin",
+            "version":"v1.0",
+            "vendor":"HUAWEI",
+            "description":"",
+            "protocol":"netconf",
+            "productName":"",
+            "type":"ODL"
+        }
+    },
+    "response": {
+        "status": 201,
+        "json":{
+            "type": "object",
+            "properties": {
+                "createTime": { "type": "string" },
+                    "sdnControllerId": { "type": "string" }
+            }
+        },
+        "required": ["sdnControllerId"]
+    }
 }

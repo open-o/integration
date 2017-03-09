@@ -18,14 +18,14 @@
             "controllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
             "externalId": "1234",
             "nbiNeRouteId": "123456",
-            "destIp": "192.168.1.1",
+            "destIp": "{\"ipv4\":\"192.168.1.1\",\"ipv6\":\"\",\"ipMask\":\"16\",\"prefixLength\":\"\"}",
             "enableDhcp": "false",
-            "nextHop": "2",
+            "nextHop": "{\"ipv4\":\"192.168.1.2\",\"ipv6\":\"\",\"ipMask\":\"16\",\"prefixLength\":\"\"}",
             "outInterface": "outer",
             "priority": "3",
             "nqa": "nqa",
             "id": "81244ad0-b4ea-41ed-969e-d5588b32fd5f",
-            "actionState": "Normal",
+            "actionState": "normal",
             "createTime": 0,
             "updateTime": 0
         }]
