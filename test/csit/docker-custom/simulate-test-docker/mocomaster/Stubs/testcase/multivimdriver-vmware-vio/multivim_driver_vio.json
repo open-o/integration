@@ -1,0 +1,30 @@
+[{
+        "request": {
+                "uri": "/openoapi/multivim/v1/01234/vms",
+                "method": "post",
+
+                "json": {
+                        "nsdId": "nsdIdtest",
+                        "nsName": "nsNametest",
+                        "description": "descriptiontest"
+                }
+        },
+        "response": {
+                "status": 200,
+                "json": {
+                        "vimid": "001",
+                        "vimname": "getserver",
+                        "vms": 111,
+                        "id": "001",
+                        "name": "testvm",
+                        "tenant": "001",
+                        "vmname": "test-vm",
+                        "boot": null,
+                        "nicArray": null,
+                        "volumeArray": null,
+                        "availabilityZone": null
+                }
+        }
+}
+]
+

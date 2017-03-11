@@ -1,0 +1,17 @@
+{
+"request": {
+    "uri": "http://${MSB_IP}/openoapi/multivim/v1/01234/vms",
+    "method": "get",
+    "headers": {
+       "Content-Type": "application/json;charset=UTF-8"
+    },
+    "json": {
+      "tenant": "001",
+      "name": "getserver"
+   }
+},
+"response": {
+    "status": 200
+    }
+}
+

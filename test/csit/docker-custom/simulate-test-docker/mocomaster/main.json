@@ -68,4 +68,6 @@
     "include": "Stubs/testcase/l3vpn/mock_l3vpn.json"
 }, {
     "include": "Stubs/testcase/nfvo/nfvo_vnfm_driver_juju.json"
+},{
+    "include": "Stubs/testcase/multivimdriver-vmware-vio/multivim_driver_vio.json"
 }]
