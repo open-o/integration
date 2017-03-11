@@ -1,6 +1,7 @@
 *** Settings ***
 Library           Collections
 Library           RequestsLibrary
+Resource          ../RuleMgt/Rule-Keywords.robot
 
 *** Keywords ***
 httpPut
