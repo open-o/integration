@@ -80,5 +80,39 @@
         "controllerName": "FirewallController",
         "controllerID": ["FwControllerID"],
         "siteName": "SiteDC"
+    },
+    {
+        "name": "UnderlayNe1",
+        "id": "NeId1",
+        "description": "TestNetworkElement",
+        "productName": "SNC",
+        "version": "V1R3",
+        "source": "os",
+        "logicID": "849494949",
+        "phyNeID": "8965969966906",
+        "nativeID": "networkwork1id",
+        "ipAddress": "192.168.250.10",
+        "adminState": "active",
+        "operState": "up",
+        "controllerName": "Controller1",
+        "controllerID": ["UnderlayControllerID"],
+        "siteName": "SitePE1"
+    },
+    {
+        "name": "UnderlayNe2",
+        "id": "NeId2",
+        "description": "TestNetworkElement",
+        "productName": "SNC",
+        "version": "V1R3",
+        "source": "os",
+        "logicID": "849494949",
+        "phyNeID": "8965969966906",
+        "nativeID": "networkwork2id",
+        "ipAddress": "192.168.249.11",
+        "adminState": "active",
+        "operState": "up",
+        "controllerName": "Controller1",
+        "controllerID": ["UnderlayControllerID"],
+        "siteName": "SitePE2"
     }
 ]

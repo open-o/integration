@@ -10,6 +10,9 @@ Creation.json:
 One sample of the request body (service creation request).
 "nsdId" should be changed based on the template used in the test.
 
+Creation_underlay.json:
+One sample request for underlay
+
 
 Usage:
 create-ns.pl     MSB_ADDR      JSON_FILE_WITH_CREATION_REQUEST_BODY
@@ -32,6 +35,9 @@ Instantiation.json:
 One sample of the request body (service instantiation request)
 IP addresses in this file should be same with the IP addresses of managed elements imported into BRS.
 Other fields may also need to be changed based on the test scenario, especially the information shared with NFV-O.
+
+Instantiation_underlay.json:
+One sample request for underlay
 
 
 Usage:

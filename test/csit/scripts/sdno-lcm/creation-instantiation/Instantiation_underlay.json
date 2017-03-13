@@ -1,0 +1,22 @@
+{
+    "nsInstanceId": "INSTANCE_ID_PLACEHOLDER",
+    "additionalParamForNs": {
+        "name": "Underlay L3VPN for Test",
+        "description": "Underlay L3VPN to be created for testing",
+        "serviceType": "l3vpn",
+        "topology": "point-to-point",
+        "technology": "mpls",
+        "pe1_ip": "192.168.250.10",
+        "ac1_port": "10",
+        "ac1_svlan": "100",
+        "ac1_ip": "192.168.250.20",
+        "ac1_peer_ip": "192.168.249.21",
+        "ac1_route": "static",
+        "pe1_ip": "192.168.249.11",
+        "ac1_port": "20",
+        "ac1_svlan": "200",
+        "ac1_ip": "192.168.249.21",
+        "ac1_peer_ip": "192.168.250.20",
+        "ac1_route": "static"
+    }
+}

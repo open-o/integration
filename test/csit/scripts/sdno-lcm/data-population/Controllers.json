@@ -42,7 +42,6 @@
     },
     {
         "protocol": "http",
-        "protocol": "http",
         "port": "10003",
         "shutdown_port": "20003",
         "api_url": "/openoapi/extsys/v1/sdncontrollers",
@@ -99,6 +98,26 @@
             "protocol":"http",
             "domain":"default",
             "type":"TOR"
+        }
+    },
+    {
+        "protocol": "http",
+        "port": "100011",
+        "shutdown_port": "20011",
+        "api_url": "/openoapi/extsys/v1/sdncontrollers",
+        "rsp_id_keyname": "sdnControllerId",
+        "id_placeholder": "UnderlayControllerID",
+        "reg_data":
+        {
+            "name":"UnderlayController1",
+            "url":"http://CONTROLLER_IPPORT/v2.0",
+            "userName":"admin",
+            "password":"1111111111111",
+            "version":"V200R002C00",
+            "description":"underlay controller",
+            "protocol":"http",
+            "domain":"default",
+            "type":"Agile Controller-BRANCH"
         }
     }
 ]

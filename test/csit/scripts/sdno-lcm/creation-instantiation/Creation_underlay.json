@@ -1,0 +1,5 @@
+{
+    "nsdId": "vpnUnderlayL3",
+    "nsName": "Underlay L3VPN for Test",
+    "description": "Underlay L3VPN to be created for testing"
+}
