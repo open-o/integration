@@ -1,0 +1,13 @@
+This is the docker images for simulating the microservices.
+
+Prerequisites:
+-MSB
+-MSS
+-BRS
+
+The docker instance can be started using the command: 
+docker run -d -t --name simulate-services -e MSB_ADDR=<ip of the msb> openoint/simulate-sdno-services
+
+One moco will be opened for each service on the corespondent port and one log file for each service simulated
+
+The services are authomatically registered to MSB and can be found on "/openoui/microservices/index.html" and "/openoapi/microservices/v1/services/"

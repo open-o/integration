@@ -1,0 +1,57 @@
+[
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnosfc/"
+            },
+            "method": "post"
+        },
+        "response": {
+            "status": "201"
+        }
+    },
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnosfc/"
+            },
+            "method": "put"
+        },
+        "response": {
+            "status": "200"
+        }
+    },
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnosfc/"
+            },
+            "method": "delete"
+        },
+        "response": {
+            "status": "200"
+        }
+    },
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnosfc/"
+            },
+            "method": "update"
+        },
+        "response": {
+            "status": "200"
+        }
+    },
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnosfc/"
+            },
+            "method": "get"
+        },
+        "response": {
+            "status": "200"
+        }
+    }
+]

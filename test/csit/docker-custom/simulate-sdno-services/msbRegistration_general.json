@@ -1,0 +1,14 @@
+{
+  "serviceName": "SERVICE_NAME",
+  "version": "v1",
+  "url": "/openoapi/SERVICE_NAME/v1",
+  "protocol": "REST",
+  "visualRange": "1",
+  "nodes": [
+    {
+      "ip": "SERVICE_IP",
+      "port": "SERVICE_PORT",
+      "ttl": 0
+    }
+  ]
+}
