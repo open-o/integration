@@ -22,6 +22,10 @@ function wait_curl_driver(){
     #WAIT_MESSAGE - the message displayed if the curl command needs to be repeated
     #REPEAT_NUMBER - the maxm number of times the curl command is allowed to be repeated
     #MAX_TIME - Maximum time allowed for the transfer (in seconds)
+    #STATUS_CODE - A HTTP status code desired to bo found by getting the link
+    #              For the moment there is a problem and the GREP_STRING still needs to exist
+    #              but its value isn't taken in consideration if the desired status code is found
+    #MEMORY_USAGE - If Parrameter exists show the memory usage
 
     repeat_max=15
     parameters="$@"
@@ -78,7 +82,34 @@ function wait_curl_driver(){
         exclude_string="-v"
     fi
 
+    status_code=""
+    #STATUS_CODE
+    if [[ $parameters == *"STATUS_CODE"* ]]
+    then
+        status_code=`echo $parameters | sed -e 's/.*STATUS_CODE=//g'`
+        status_code=`echo $status_code | sed -e 's/ .*//g'`
+    fi
+
+    #STATUS_CODE
+    if [[ $parameters == *"STATUS_CODE"* ]]
+    then
+        status_code=`echo $parameters | sed -e 's/.*STATUS_CODE=//g'`
+        status_code=`echo $status_code | sed -e 's/ .*//g'`
+    fi
+
     for i in `eval echo {1..$repeat_max}`; do
+        response_code=`curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_path`
+        echo "Obtained code = $response_code "
+        if [[ ! -z $status_code ]] ; then
+            if [ "$status_code" == "$response_code" ]
+            then
+                echo "Status code $response_code found"
+                return 0
+            else
+                echo "$response_code found "
+            fi
+        fi
+
         str=`curl -sS -m$max_time $curl_command | grep $grep_command` || str=''
         if [[ ! -z $exclude_string ]] ; then
             str_exclude=`echo $str | grep -v $grep_command`;
@@ -100,8 +131,13 @@ function wait_curl_driver(){
             echo "Element not found yet # "$i""
         fi
         echo $wait_message
-	top -bn1 | head -3
-        free -h
+
+        #MEMORY_USAGE
+        if [[ $parameters == *"MEMORY_USAGE"* ]]
+        then
+            top -bn1 | head -3
+            free -h
+        fi
         sleep $i
     done
 
@@ -110,7 +146,7 @@ function wait_curl_driver(){
 
 function run_simulator ()
 {
-   run_robottestlib 
+   run_robottestlib
    run_simulator_docker $1
 }
 
