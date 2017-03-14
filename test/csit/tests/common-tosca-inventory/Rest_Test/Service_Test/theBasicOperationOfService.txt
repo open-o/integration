@@ -6,7 +6,7 @@ Resource          ../Model_Test/keyword.txt
 
 *** Test Cases ***
 Query the Common Information of services
-    [Setup]    Create Session    service    http://${INVENTORY_IP}:8203/inventory
+    [Setup]    Create Session    service    http://${MSB_IP}
     ${header}    Define the header
     ${data}    Set Variable    { \ \ "sort":[ \ \ \ \ { \ \ \ \ \ \ "fieldName":"serviceName", \ \ \ \ \ \ "direction":"ASC" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "fieldName":"templateName", \ \ \ \ \ \ "direction":"DESC" \ \ \ \ }, \ \ \ \ { \ \ \ \ \ \ "fieldName":"createTime", \ \ \ \ \ \ "direction":"DESC" \ \ \ \ } \ \ ], \ \ "pagination":1, \ \ "pagesize":25, \ \ "condition":{ \ \ \ \ "serviceName":"ABC", \ \ \ \ "templateName":"DEF" \ \ }, \ \ "serviceId":"231433" }
     ${data}    toJson    ${data}
