@@ -1,3 +1,3 @@
 *** Variables ***
-${ruleMgtHost}    http://${RULEMGT_IP}:9101
+${ruleMgtHost}    http://${MSB_IP}
 ${ruleMgtUrl}     /openoapi/holmes-rule-mgmt/v1/rule

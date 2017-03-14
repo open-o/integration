@@ -1,3 +1,3 @@
 *** Variables ***
-${engineHost}     http://${ENGINE_D_IP}:9102
+${engineHost}     http://${MSB_IP}
 ${engineUrl}      /openoapi/holmes-engine-mgmt/v1/rule
