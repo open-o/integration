@@ -67,7 +67,7 @@ createRule
 modifyRule
     [Arguments]    ${jsonParams}    ${codeFlag}=1
     ${response}    httpPost    ${ruleMgtHost}    ${ruleMgtUrl}    ${jsonParams}
-    log    ${response.conten}
+    log    ${response.content}
     run keyword if    ${codeFlag}==1    Should be equal as strings    ${response.status_code}    200
     run keyword if    ${codeFlag}!=1    Should be equal as strings    ${response.status_code}    499
     [Return]    ${response}
