@@ -1,50 +1,27 @@
 [
-{
-    "request": {
-        "uri": {
-            "startsWith": "/openoapi/"
+    {
+        "request": {
+            "uri": "/openoapi/sbi-servicechain/v1/paths",
+            "method": "post"
         },
-        "method": "post"
+        "response": {
+            "status": 201,
+            "json": {
+                "serviceChainPath" : {
+                    "id": "servicechainId1"
+                }
+            }
+        }
     },
-    "response": {
-        "status": 200
-    }
-    "request": {
-        "uri": {
-            "startsWith": "/openoapi/"
+    {
+        "request": {
+            "uri": {
+                      "match": "/openoapi/sbi-servicechain/v1/paths/[a-zA-Z0-9\\-\\_]{1,36}"
+            },
+            "method": "delete"
         },
-        "method": "put"
-    },
-    "response": {
-        "status": 200
+        "response": {
+            "status": 200
+        }
     }
-    "request": {
-        "uri": {
-            "startsWith": "/openoapi/"
-        },
-        "method": "delete"
-    },
-    "response": {
-        "status": 200
-    }
-    "request": {
-        "uri": {
-            "startsWith": "/openoapi/"
-        },
-        "method": "update"
-    },
-    "response": {
-        "status": 200
-    }
-    "request": {
-        "uri": {
-            "startsWith": "/openoapi/"
-        },
-        "method": "get"
-    },
-    "response": {
-        "status": 200,
-		"message": "foo"
-    }
-}
 ]
