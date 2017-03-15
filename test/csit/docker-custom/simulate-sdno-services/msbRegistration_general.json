@@ -1,7 +1,7 @@
 {
   "serviceName": "SERVICE_NAME",
   "version": "v1",
-  "url": "/openoapi/SERVICE_NAME/v1",
+  "url": "/openoapi/SERVICE_PATH/v1",
   "protocol": "REST",
   "visualRange": "1",
   "nodes": [

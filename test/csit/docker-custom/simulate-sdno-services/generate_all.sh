@@ -24,7 +24,7 @@ cd /service
 for service_folder in `ls -d sdno*/ | cut -f1 -d'/'`
 do
     cd $service_folder
-    cat ../msbRegistration_general.json | sed -e 's/SERVICE_NAME/'$service_folder'/g' | sed -e 's/SERVICE_PORT/'${SERVICE_PORT[$index]}'/g'   > msbRegistration.json
+    cat ../msbRegistration_general.json | sed -e 's/SERVICE_NAME/'${SERVICE_NAME[$index]}'/g' | sed -e 's/SERVICE_PORT/'${SERVICE_PORT[$index]}'/g' | sed -e 's/SERVICE_PATH/'${SERVICE_PATH[$index]}'/g'  > msbRegistration.json
     cd ..
     index=$((index + 1))
 done

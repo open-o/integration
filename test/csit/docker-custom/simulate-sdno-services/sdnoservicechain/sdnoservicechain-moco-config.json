@@ -2,7 +2,7 @@
     {
         "request": {
             "uri": {
-                "startsWith": "/openoapi/sdnosfc/"
+                "startsWith": "/openoapi/sdnoservicechain/"
             },
             "method": "post"
         },
@@ -13,7 +13,7 @@
     {
         "request": {
             "uri": {
-                "startsWith": "/openoapi/sdnosfc/"
+                "startsWith": "/openoapi/sdnoservicechain/"
             },
             "method": "put"
         },
@@ -24,7 +24,7 @@
     {
         "request": {
             "uri": {
-                "startsWith": "/openoapi/sdnosfc/"
+                "startsWith": "/openoapi/sdnoservicechain/"
             },
             "method": "delete"
         },
@@ -35,7 +35,7 @@
     {
         "request": {
             "uri": {
-                "startsWith": "/openoapi/sdnosfc/"
+                "startsWith": "/openoapi/sdnoservicechain/"
             },
             "method": "update"
         },
@@ -46,7 +46,7 @@
     {
         "request": {
             "uri": {
-                "startsWith": "/openoapi/sdnosfc/"
+                "startsWith": "/openoapi/sdnoservicechain/"
             },
             "method": "get"
         },

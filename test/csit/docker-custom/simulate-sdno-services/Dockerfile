@@ -25,8 +25,8 @@ ADD sdnol3vpn/*-moco-config.json ./sdnol3vpn/
 RUN ["/bin/mkdir", "sdnooverlay"]
 ADD sdnooverlay/*-moco-config.json ./sdnooverlay/
 
-RUN ["/bin/mkdir", "sdnosfc"]
-ADD sdnosfc/*-moco-config.json ./sdnosfc/
+RUN ["/bin/mkdir", "sdnoservicechain"]
+ADD sdnoservicechain/*-moco-config.json ./sdnoservicechain/
 
 RUN ["/bin/mkdir", "sdnosite"]
 ADD sdnosite/*-moco-config.json ./sdnosite/
