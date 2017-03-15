@@ -1,0 +1,10 @@
+[{
+        "request": {
+            "method": "get",
+            "uri": {"match": "/v2/.*/limits"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/limits_response.json"
+        }
+    }
+]

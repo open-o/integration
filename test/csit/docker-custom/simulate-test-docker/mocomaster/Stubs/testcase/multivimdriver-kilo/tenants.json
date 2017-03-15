@@ -1,0 +1,11 @@
+[{
+        "request": {
+            "method": "get",
+            "uri": "/v2.0/tenants"
+        },
+
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/tenants_response.json"
+        }
+    }
+]

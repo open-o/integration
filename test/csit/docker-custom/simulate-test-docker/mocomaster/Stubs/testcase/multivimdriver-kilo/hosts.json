@@ -1,0 +1,18 @@
+[{
+        "request": {
+            "method": "get",
+            "uri":{"match": "/v2/.*/os-hosts"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/hosts_response.json"
+        }
+    },{
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/.*/os-hosts/kilo-controller-0"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/host_response.json"
+        }
+    }
+]

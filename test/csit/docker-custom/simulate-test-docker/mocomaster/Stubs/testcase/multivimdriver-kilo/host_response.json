@@ -1,0 +1,1 @@
+{"host": [{"resource": {"project": "(total)", "memory_mb": 7984, "host": "kilo-controller-0", "cpu": 4, "disk_gb": 92}}, {"resource": {"project": "(used_now)", "memory_mb": 512, "host": "kilo-controller-0", "cpu": 0, "disk_gb": 0}}, {"resource": {"project": "(used_max)", "memory_mb": 0, "host": "kilo-controller-0", "cpu": 0, "disk_gb": 0}}]}
