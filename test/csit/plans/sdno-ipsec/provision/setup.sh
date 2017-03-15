@@ -35,7 +35,6 @@ BRS_IP=`get-instance-ip.sh i-brs`
 run-instance.sh openoint/common-services-drivermanager d-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
 curl_c='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
 sleep_msg="DRIVER_MANAGER_load"
-#wait_curl_driver CURL_COMMAND=$curl_c WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=15 GREP_STRING="\["
 
 #Start openoint/common-services-extsys
 run-instance.sh openoint/common-services-extsys i-common-services-extsys " -i -t -e MSB_ADDR=${MSB_IP}:80"
@@ -56,8 +55,9 @@ run-instance.sh openoint/sdno-driver-huawei-openstack d-driver-huawei-openstack 
 # Copy json files used in tests
 cp ${WORKSPACE}/test/csit/${TESTPLAN}/*.json ${WORKDIR}
 
-cp ${WORKSPACE}/bootstrap/start-service-script/mocomaster/moco-runner-0.11.0-standalone.jar ${WORKSPACE}/test/csit/${TESTPLAN}/
-
+wget https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar
+mv moco-runner-0.11.0-standalone.jar ${WORKSPACE}/test/csit/${TESTPLAN}/
+ 
 # Start moco runner for openstack-dc-controller
 cd ${WORKSPACE}/test/csit/${TESTPLAN}/
 java -jar moco-runner-0.11.0-standalone.jar http -p 12306 -c moco-openstack-dc-controller.json &

@@ -56,16 +56,6 @@ function wait_curl_driver(){
         return 0
     fi
 
-    #GREP_STRING
-    if [[ $parameters == *"GREP_STRING"* ]]
-    then
-        grep_command=`echo $parameters | sed -e 's/.*GREP_STRING=//g'`
-        grep_command=`echo $grep_command | sed -e 's/ .*//g'`
-    else
-        echo "-Grep_command is empty-"  # Or no parameterseter passed.
-        return 0
-    fi
-
     #MAX_TIME
     if [[ $parameters == *"MAX_TIME"* ]]
     then
@@ -90,54 +80,59 @@ function wait_curl_driver(){
         status_code=`echo $status_code | sed -e 's/ .*//g'`
     fi
 
-    #STATUS_CODE
-    if [[ $parameters == *"STATUS_CODE"* ]]
-    then
-        status_code=`echo $parameters | sed -e 's/.*STATUS_CODE=//g'`
-        status_code=`echo $status_code | sed -e 's/ .*//g'`
-    fi
-
     for i in `eval echo {1..$repeat_max}`; do
+        curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_path
         response_code=`curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_path`
-        echo "Obtained code = $response_code "
         if [[ ! -z $status_code ]] ; then
-            if [ "$status_code" == "$response_code" ]
+            if [ "$status_code" -eq "$response_code" ]
             then
                 echo "Status code $response_code found"
                 return 0
             else
                 echo "$response_code found "
             fi
-        fi
+        else
+            #GREP_STRING
+            if [[ $parameters == *"GREP_STRING"* ]]
+            then
+                grep_command=`echo $parameters | sed -e 's/.*GREP_STRING=//g'`
+                grep_command=`echo $grep_command | sed -e 's/ .*//g'`
+            else
+                echo "-Grep_command is empty-"  # Or no parameterseter passed.
+                return 0
+            fi
 
-        str=`curl -sS -m$max_time $curl_command | grep $grep_command` || str=''
-        if [[ ! -z $exclude_string ]] ; then
-            str_exclude=`echo $str | grep -v $grep_command`;
-            #break;
-            if [[ ! -z $str_exclude ]] ; then
+            str=`curl -sS -m$max_time $curl_command | grep $grep_command`
+            echo "s1=" $str
+            if [[ ! -z $exclude_string ]] ; then
+                str_exclude=`echo $str | grep -v $grep_command`;
+                if [[ ! -z $str_exclude ]] ; then
+                    echo "Element found";
+                    break;
+                fi
+            fi
+
+            if [ "$?" = "7" ]; then
+                echo 'Connection refused or cant connect to server/proxy';
+                str=''
+            fi
+
+            if [[ ! -z $str ]] ; then
                 echo "Element found";
                 break;
+            else
+                echo "Element not found yet # "$i""
+            fi
+            echo $wait_message
+
+            #MEMORY_USAGE
+            if [[ $parameters == *"MEMORY_USAGE"* ]]
+            then
+                top -bn1 | head -3
+                free -h
             fi
         fi
-        echo $str
-        if [ "$?" = "7" ]; then
-            echo 'Connection refused or cant connect to server/proxy';
-            str=''
-        fi
-        if [[ ! -z $str ]] ; then
-            echo "Element found";
-            break;
-        else
-            echo "Element not found yet # "$i""
-        fi
-        echo $wait_message
-
-        #MEMORY_USAGE
-        if [[ $parameters == *"MEMORY_USAGE"* ]]
-        then
-            top -bn1 | head -3
-            free -h
-        fi
+        echo "Repeat number # "$i""
         sleep $i
     done
 
