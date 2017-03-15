@@ -35,14 +35,14 @@ BRS_IP=`get-instance-ip.sh i-brs`
 run-instance.sh openoint/common-services-drivermanager d-drivermgr " -i -t -e MSB_ADDR=${MSB_IP}:80"
 curl_path='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
 sleep_msg="Waiting_connection_for_url_for_DRIVER_MANAGER_load"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="25" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
 
 #Start openoint/common-services-extsys
 run-instance.sh openoint/common-services-extsys i-common-services-extsys " -i -t -e MSB_ADDR=${MSB_IP}:80"
 extsys_ip=`get-instance-ip.sh i-common-services-extsys`
 sleep_msg="Waiting_for_i-common-services-extsys"
 curl_path='http://'${MSB_IP}':80/openoapi/extsys/v1/vims'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="25" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
 
 #Added for SFC_SVC
 ${SCRIPTS}/sdno-servicechain/startup.sh s-servicechain ${MSB_IP}:80
