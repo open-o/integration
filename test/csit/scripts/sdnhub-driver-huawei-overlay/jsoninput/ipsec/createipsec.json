@@ -52,7 +52,7 @@
             "protectionPolicy": null,
             "qosPreClassify": null,
             "id": "59904332",
-            "actionState": "Normal",
+            "actionState": "normal",
             "createTime": 0,
             "updateTime": 0,
             "sourceIfId": "GigabitEthernet0/0/1"

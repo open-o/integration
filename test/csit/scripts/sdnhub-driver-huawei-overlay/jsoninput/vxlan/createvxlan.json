@@ -45,7 +45,7 @@
                 "portNativeId": null,
                 "dot1qVlanBitmap": null,
                 "id": null,
-                "actionState": "Normal",
+                "actionState": "normal",
                 "createTime": 0,
                 "updateTime": 0
             }],
@@ -71,12 +71,12 @@
                 "vxlanInstances": [],
                 "vnis": [],
                 "id": null,
-                "actionState": "Normal",
+                "actionState": "normal",
                 "createTime": 0,
                 "updateTime": 0
             }],
             "id": "123",
-            "actionState": "Normal",
+            "actionState": "normal",
             "createTime": 123,
             "updateTime": 120
         }]

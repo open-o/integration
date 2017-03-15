@@ -1310,7 +1310,7 @@
     "response": {
         "status": 200,
         "json": {
-            "errocode": "0",
+            "errcode": "0",
             "errmsg": "",
             "success": [{
                 "id": "9bdcd1809f194d208da3e72770cbdee6",

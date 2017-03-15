@@ -22,7 +22,7 @@
             "direction": "inbound",
             "filterAction": "{\"action\":{\"policy\":\"policy\",\"nextHopIp\":null,\"outInterFace\":null},\"ruleList\":[{\"policy\":\"policy\",\"srcIp\":null,\"desIp\":null,\"id\":null}],\"filter\":null,\"id\":null}",
             "id": "1",
-            "actionState": "Normal",
+            "actionState": "normal",
             "createTime": 0,
             "updateTime": 0
         }]

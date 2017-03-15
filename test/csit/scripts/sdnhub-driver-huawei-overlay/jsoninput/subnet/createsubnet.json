@@ -18,7 +18,7 @@
             }],
             "operStatus": "none",
             "adminStatus": "active",
-            "actionState": "Normal",
+            "actionState": "normal",
             "createTime": "60",
             "neId": "123",
             "controllerId": "ctrlid1024",
