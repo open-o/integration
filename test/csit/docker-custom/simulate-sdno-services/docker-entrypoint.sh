@@ -24,7 +24,7 @@ MSB_SERVICES_URL="/openoapi/microservices/v1/services"
 CREATED_SERVICE_IP=`ifconfig  eth0| grep "inet " | awk '{print $2}'`
 
 index=0
-array_size=${#SERVICE_IP[*]}
+array_size=${#SERVICE_NAME[*]}
 while [ $index -ne $array_size ]; do
     PROJECT_NAME=${SERVICE_NAME[$index]}
     MSB_REG_JSON="msbRegistration.json"
