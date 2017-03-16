@@ -7,6 +7,8 @@ RUN yum install -y wget unzip socat java-1.8.0-openjdk-headless
 RUN sed -i 's|#networkaddress.cache.ttl=-1|networkaddress.cache.ttl=10|' /usr/lib/jvm/jre/lib/security/java.security
 ENV JAVA_HOME /usr/lib/jvm/jre
 
+EXPOSE 8542
+
 WORKDIR /service
 
 #download moco

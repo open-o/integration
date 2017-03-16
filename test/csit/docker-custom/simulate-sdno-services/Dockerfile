@@ -15,6 +15,14 @@ WORKDIR /service
 #download moco
 RUN wget https://repo1.maven.org/maven2/com/github/dreamhead/moco-runner/0.11.0/moco-runner-0.11.0-standalone.jar
 
+#Expose the ports used by the simulated services
+EXPOSE 8509
+EXPOSE 8506
+EXPOSE 8503
+EXPOSE 8521
+EXPOSE 8548
+EXPOSE 8518
+
 #copy each list in servic folder
 RUN ["/bin/mkdir", "sdnol2vpn"]
 ADD sdnol2vpn/*-moco-config.json ./sdnol2vpn/
