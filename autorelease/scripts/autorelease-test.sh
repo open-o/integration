@@ -31,5 +31,5 @@ $ROOT/scripts/fix-relativepaths.sh
 $ROOT/scripts/set-version.sh
 
 TMPDIR=`mktemp -d`
-mvn -q clean deploy -DdisableJavaSdkAutoGeneration -DaltDeploymentRepository=staging::default::file:$TMPDIR -DskipTests=true -Dcheckstyle.skip=true
+mvn -q clean deploy -DaltDeploymentRepository=staging::default::file:$TMPDIR -DskipTests=true -Dcheckstyle.skip=true
 echo "TMPDIR=$TMPDIR"
