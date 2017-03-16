@@ -8,13 +8,24 @@ Resource          Rule-Keywords.robot
 *** Test Cases ***
 add_valid_rule
     [Documentation]    Add a valid rule.
-    ${dict2}    create dictionary    rulename=youbowu0314    description=create a new rule!    content=package rule03140002    enabled=1
+    ${dict2}    create dictionary    rulename=fengliang0316    description=create a new rule!    content=package rule031601    enabled=1
     ${jsonParams}    encode    ${dict2}
     ${response}    createRule    ${jsonParams}
     ${respJson}    to json    ${response.content}
     ${RULEID}    get from dictionary    ${respJson}    ruleid
     set global variable    ${RULEID}
     log    ${RULEID}
+    ${response1}    createRule    ${jsonParams}    -1
+
+add_repetitive_name_rule
+    ${dict2}    create dictionary    rulename=fengliang0316    description=create a new rule!    content=package rule031602    enabled=1
+    ${jsonParams}    encode    ${dict2}
+    ${response}    createRule    ${jsonParams}    -1
+
+add_repetitive_content_rule
+    ${dict2}    create dictionary    rulename=fengliang031601    description=create a new rule!    content=package rule031601    enabled=1
+    ${jsonParams}    encode    ${dict2}
+    ${response}    createRule    ${jsonParams}    -1
 
 add_invalid_content_rule
     [Documentation]    Add an invalid rule of which the content is incorrect!!
@@ -46,7 +57,7 @@ query_rule_with_non_existing_id
 
 query_rule_with_partial_existing_name
     [Documentation]    Query rules with (a part of) an existing name.
-    ${response}    queryConditionRule    {"rulename":"youbowu"}
+    ${response}    queryConditionRule    {"rulename":"fengliang"}
     ${respJson}    to json    ${response.content}
     ${count}    get from dictionary    ${respJson}    totalcount
     run keyword if    ${count}<1    fail    Can't find the rule with (a part of) an existing name
@@ -81,7 +92,7 @@ query_rule_with_empty_status
 
 query_rule_with_combinational_fields
     [Documentation]    Query rules using the combination of different fields.
-    ${dic}    create dictionary    rulename=youbowu0314    enabled=1
+    ${dic}    create dictionary    rulename=fengliang0316    enabled=1
     ${paramJson}    encode    ${dic}
     ${response}    queryConditionRule    ${paramJson}
     ${respJson}    to json    ${response.content}

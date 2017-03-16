@@ -16,7 +16,7 @@ verify_invalid_rule
 
 verify_valid_rule
     [Documentation]    Verify a rule with valid contents.
-    ${dic2}    create dictionary    content=package rule03080001
+    ${dic2}    create dictionary    content=package rule03160001
     ${Jsonparam}    encode    ${dic2}
     verifyEngineRule    ${Jsonparam}
 
@@ -28,14 +28,19 @@ deploy_invalid_rule
 
 deploy_valid_rule
     [Documentation]    Add a rule with valid contents to the engine.
-    ${dic4}    create dictionary    content=package rule03080002    engineid=""
+    ${dic4}    create dictionary    content=package rule03160002    engineid=""
     ${Jsonparam}    encode    ${dic4}
     ${response}    deployEngineRule    ${Jsonparam}
 
+deploy_repetitive_valid_rule
+    ${dic4}    create dictionary    content=package rule03160002    engineid=""
+    ${Jsonparam}    encode    ${dic4}
+    ${response}    deployEngineRule    ${Jsonparam}    -1
+
 delete_existing_rule
     [Documentation]    Delete an existing rule using an existing package ID from the engine.
-    deleteEngineRule    rule03080002
+    deleteEngineRule    rule03160002
 
 delete_non_existing_rule
     [Documentation]    Delete an existing rule using a non-existing package ID from the engine.
-    deleteEngineRule    rule03080002    -1
+    deleteEngineRule    rule03160002    -1
