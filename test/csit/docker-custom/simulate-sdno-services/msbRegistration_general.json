@@ -1,5 +1,5 @@
 {
-  "serviceName": "SERVICE_NAME",
+  "serviceName": "SERVICE_PATH",
   "version": "v1",
   "url": "/openoapi/SERVICE_PATH/v1",
   "protocol": "REST",
