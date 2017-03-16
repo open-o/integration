@@ -511,6 +511,24 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>vnf-sdk-marketplace</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.vnf-sdk.marketplace:vnf-sdk-marketplace-deployment:zip</include>
+      </includes>
+      <outputFileNameMapping>vnf-sdk-marketplace-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
+      <outputDirectory>vnf-sdk-validate-lc-test</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.vnf-sdk.validate-lc-test:lifecycle-test-deployment:zip</include>
+      </includes>
+      <outputFileNameMapping>vnf-sdk-validate-lc-test-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>multivim-broker</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
