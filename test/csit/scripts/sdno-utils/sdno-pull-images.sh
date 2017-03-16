@@ -1,6 +1,36 @@
 #!/bin/bash
+function helpMe(){
+    echo "USAGE: $0 <OPTIONS>"
+    echo "OPTIONS"
+    echo "     Method = {simulate-network-services, simulate-drivers, real-drivers} - default value simulate-network-services"
+    echo "     Lifecycle_Manager = {lcm, nslcm} - default value lcm"
+    echo "     --help: display this help"
+}
 
+function displayMessage(){
+    echo "******************************************************"
+    echo "**** PULL IMAGES STEPS ###############################"
+    if [[ $1 == "simulate-network-services" ]]
+    then
+      echo "************** SIMULATE-NETWORK-SERVICE **************"
+    else if [[ $1 == "simulate-drivers" ]]
+      echo "****************** SIMULATE-DRIVERS ******************"
+    else if [[ $1 == "real-drivers" ]]
+        echo "******************** REAL-DRIVERS ********************"
+    else if [[ $1 == "sdno-service-lcm" ]]
+        echo "*************** LIFE-CYCLE-MANAGER LCM ***************"
+    else if [[ $1 == "sdno-service-nslcm" ]]
+        echo "****** NETWORK-SERVICE-LIFE-CYCLE-MANAGER NSLCM  *****"
+    fi
+    echo "******************************************************"
+}
 parameters="$@"
+#display help
+if [[ $parameters == *"--help"* ]]
+then
+    helpMe
+    exit 0
+fi
 
 #Lifecycle_Manager
 if [[ $parameters == *"Lifecycle_Manager"* ]]
@@ -18,7 +48,7 @@ then
     method=`echo $parameters | sed -e "s/.*Method=//g"`
     method=`echo $method | sed -e "s/ .*//g"`
 else
-    method="simulate-drivers"
+    method="simulate-network-services"
 fi
 
 function pull_docker(){
@@ -39,77 +69,91 @@ pull_docker sdno-service-mss
 #Pull BRS
 pull_docker sdno-service-brs
 
-#Pull openoint/common-services-extsys
-pull_docker common-services-extsys
+#Common TOSCA: Catalog
+pull_docker common-tosca-catalog
 
-#Pull openoint/common-services-drivermanager
-pull_docker common-services-drivermanager
+#Common TOSCA: Tosca
+pull_docker common-tosca-aria
 
-#Pull openoint/sdno-service-vpc
-pull_docker sdno-service-vpc
-
-#Pull openoint/sdnhub-driver-ct-te
-pull_docker sdnhub-driver-ct-te
-
-#Pull openoint/sdno-service-overlayvpn
-pull_docker sdno-service-overlayvpn
-
-#Pull openoint/sdno-service-ipsec
-pull_docker sdno-service-ipsec
-
-#Pull openoint/sdno-service-l2vpn
-pull_docker sdno-service-l2vpn
-
-#Pull openoint/sdno-service-l3vpn
-pull_docker sdno-service-l3vpn
+#Common TOSCA: Tosca-inventory
+pull_docker common-tosca-inventory
 
 #Pull openoint/$lc_manag
+displayMessage $lc_manag
 pull_docker $lc_manag
 
-#Pull openoint/sdno-service-route
-pull_docker sdno-service-route
-
-#Pull openoint/sdno-service-servicechain
-pull_docker sdno-service-servicechain
-
-#Pull openoint/sdno-service-site
-pull_docker sdno-service-site
-
-#Pull openoint/sdno-service-vxlan
-pull_docker sdno-service-vxlan
-
-#Pull openoint/sdno-vsitemgr
-pull_docker sdno-vsitemgr
-
-if [[ $method == "simulate-drivers" ]]
+if [[ $method == "simulate-network-services" ]]
 then
-    #Pull openoint/simulate-sdnhub-driver-huawei-l3vpn
-    pull_docker simulate-sdnhub-driver-huawei-l3vpn
-
-    #Pull openoint/sdno-driver-simul-sfc
-    pull_docker sdno-driver-simul-sfc
-
-    #Pull openoint/simulate-sdnhub-driver-huawei-openstack
-    pull_docker simulate-sdnhub-driver-huawei-openstack
-
-    #Pull openoint/simulate-sdnhub-driver-huawei-overlay
-    pull_docker simulate-sdnhub-driver-huawei-overlay
-
-    #Pull openoint/simulate-sdnhub-driver-zte-sptn
-    pull_docker simulate-sdnhub-driver-zte-sptn
+    #SNDO Service simulator
+    displayMessage simulate-network-services
+    pull_docker simulate-sdno-services
 else
-    #Pull openoint/sdnhub-driver-huawei-l3vpn
-    pull_docker driver-huawei-l3vpn
+    #Pull openoint/common-services-extsys
+    pull_docker common-services-extsys
 
-    #Pull openoint/sdnhub-driver-huawei-servicechain
-    pull_docker sdnhub-driver-huawei-servicechain
+    #Pull openoint/common-services-drivermanager
+    pull_docker common-services-drivermanager
 
-    #Pull openoint/sdnhub-driver-huawei-openstack
-    pull_docker sdnhub-driver-huawei-openstack
+    #Pull openoint/sdno-service-vpc
+    pull_docker sdno-service-vpc
 
-    #Pull openoint/sdnhub-driver-huawei-overlay
-    pull_docker sdnhub-driver-huawei-overlay
+    #Pull openoint/sdno-service-overlayvpn
+    pull_docker sdno-service-overlayvpn
 
-    #Pull openoint/sdnhub-driver-zte-sptn
-    pull_docker sdnhub-driver-zte-sptn
+    #Pull openoint/sdno-service-ipsec
+    pull_docker sdno-service-ipsec
+
+    #Pull openoint/sdno-service-l2vpn
+    pull_docker sdno-service-l2vpn
+
+    #Pull openoint/sdno-service-l3vpn
+    pull_docker sdno-service-l3vpn
+
+    #Pull openoint/sdno-service-route
+    pull_docker sdno-service-route
+
+    #Pull openoint/sdno-service-servicechain
+    pull_docker sdno-service-servicechain
+
+    #Pull openoint/sdno-service-site
+    pull_docker sdno-service-site
+
+    #Pull openoint/sdno-service-vxlan
+    pull_docker sdno-service-vxlan
+
+    if [[ $method == "simulate-drivers" ]]
+    then
+        displayMessage simulate-drivers
+        #Pull openoint/simulate-sdnhub-driver-huawei-l3vpn
+        pull_docker simulate-sdnhub-driver-huawei-l3vpn
+
+        #Pull openoint/sdno-driver-simul-sfc
+        pull_docker sdno-driver-simul-sfc
+
+        #Pull openoint/simulate-sdnhub-driver-huawei-openstack
+        pull_docker simulate-sdnhub-driver-huawei-openstack
+
+        #Pull openoint/simulate-sdnhub-driver-huawei-overlay
+        pull_docker simulate-sdnhub-driver-huawei-overlay
+
+        #Pull openoint/simulate-sdnhub-driver-zte-sptn
+        pull_docker simulate-sdnhub-driver-zte-sptn
+
+    else
+        displayMessage real-drivers
+        #Pull openoint/sdnhub-driver-huawei-l3vpn
+        pull_docker driver-huawei-l3vpn
+
+        #Pull openoint/sdnhub-driver-huawei-servicechain
+        pull_docker sdnhub-driver-huawei-servicechain
+
+        #Pull openoint/sdnhub-driver-huawei-openstack
+        pull_docker sdnhub-driver-huawei-openstack
+
+        #Pull openoint/sdnhub-driver-huawei-overlay
+        pull_docker sdnhub-driver-huawei-overlay
+
+        #Pull openoint/sdnhub-driver-zte-sptn
+        pull_docker sdnhub-driver-zte-sptn
+    fi
 fi

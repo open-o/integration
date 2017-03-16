@@ -1,14 +1,50 @@
 #!/bin/bash
+#NB: This script is designed to be executed in automation
+# environment. In order to run this test locally
+# you need to replace the ${SCRIPTS} by the local value.
+function helpMe(){
+    echo "USAGE: $0 <OPTIONS>"
+    echo "OPTIONS"
+    echo "     Method = {simulate-network-services, simulate-drivers, real-drivers} - default value simulate-network-services"
+    echo "     Lifecycle_Manager = {lcm, nslcm} - default value lcm"
+    echo "     Start_wait = { Integer: number of seconds } - default value 0"
+    echo "     --help: display this help"
+}
+
+function displayMessage(){
+    echo "******************************************************"
+    echo "**** START IMAGES STEPS ##############################"
+    if [[ $1 == "simulate-network-services" ]]
+    then
+      echo "************** SIMULATE-NETWORK-SERVICE **************"
+    else if [[ $1 == "simulate-drivers" ]]
+      echo "****************** SIMULATE-DRIVERS ******************"
+    else if [[ $1 == "real-drivers" ]]
+        echo "******************** REAL-DRIVERS ********************"
+    else if [[ $1 == "lcm" ]]
+        echo "*************** LIFE-CYCLE-MANAGER LCM ***************"
+    else if [[ $1 == "nslcm" ]]
+        echo "****** NETWORK-SERVICE-LIFE-CYCLE-MANAGER NSLCM  *****"
+    fi
+    echo "******************************************************"
+}
+
 #Common functions used in other scripts
 source ${SCRIPTS}/common_functions.sh
 
 #File containing variables
-source $CUR_DIR/variables.sh
+source ${SCRIPTS}/sdno-utils/variables.sh
 
-#Stop existent docker instances
+#Stop existing docker instances
 docker rm -f $(docker ps -a --format={{.Names}}) || true
 
 parameters="$@"
+#display help
+if [[ $parameters == *"--help"* ]]
+then
+    helpMe
+    exit 0
+fi
 
 #Parameter method
 if [[ $parameters == *"Method"* ]]
@@ -16,7 +52,7 @@ then
     method=`echo $parameters | sed -e "s/.*Method=//g"`
     method=`echo $method | sed -e "s/ .*//g"`
 else
-    method="simulate-drivers"
+    method="simulate-network-services"
 fi
 
 #Lifecycle_Manager
@@ -61,74 +97,90 @@ curl_path='http://'${MSB_ADDR}'/openoui/microservices/index.html'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
 #Start MSS
+echo "Start MSS"
 run_docker i-mss sdno-service-mss
-curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/'
+curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/sdnomss/version/v1'
 sleep_msg="Waiting_connection_for_url_for:i-mss"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="sdnomss"  REPEAT_NUMBER="25"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="30" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
 
 #Start BRS
+echo "Start BRS"
 run_docker i-brs sdno-service-brs
-curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/'
-sleep_msg="Waiting_connection_for_url_for:i-brs"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="sdnobrs"  REPEAT_NUMBER="25"
-
-#Start openoint/common-services-extsys
-run_docker i-common-services-extsys common-services-extsys
-sleep_msg="Waiting_for_i-common-services-extsys"
-curl_path='http://'${MSB_ADDR}'/openoapi/extsys/v1/vims'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
-
-#Start openoint/common-services-drivermanager
-run_docker i-drivermgr common-services-drivermanager
-curl_path='http://'${MSB_ADDR}'/openoapi/drivermgr/v1/drivers'
-sleep_msg="Waiting_connection_for_url_for: i-drivermgr"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
-
-#Start openoint/sdno-service-vpc
-run_docker s-vpc sdno-service-vpc
-
-#Start openoint/sdnhub-driver-ct-te
-run_docker d-ct-te sdnhub-driver-ct-te
-
-#Start openoint/sdno-service-ipsec
-run_docker s-ipsec sdno-service-ipsec
-
-#Start openoint/sdno-service-l2vpn
-run_docker s-l2vpm sdno-service-l2vpn
-
-#Start openoint/sdno-service-l3vpn
-run_docker s-l3vpn sdno-service-l3vpn
+curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/sdnobrs/version/v1'
+sleep_msg="Waiting_connection_for_url_for: i-brs"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
 
 #Start openoint/lc_manag
+displayMessage $lc_manag
 run_docker s-$lc_manag $lc_manag
 
-#Start openoint/sdno-service-route
-run_docker s-route sdno-service-route
+#Start openoint/catalog
+run_docker i-catalog common-tosca-catalog
 
-#Start openoint/sdno-service-servicechain
-run_docker s-servicechain sdno-service-servicechain
+#Start openoint/tosca
+run_docker i-tosca common-tosca-aria
 
-#Start openoint/sdno-service-site
-run_docker s-site sdno-service-site
+#Start openoint/tosca-inventory
+run_docker i-tosca-inventory common-tosca-inventory
 
-#Start openoint/sdno-service-overlayvpn
-run_docker s-overlayvpn openoint/sdno-service-overlayvpn
+if [[ $method == "simulate-network-services" ]]
+then
+    #Start Service simulator
+    displayMessage simulate-network-services
+    run_docker s-simulate-sdno-services simulate-sdno-services
+else
+    #Start openoint/common-services-extsys
+    echo "Start openoint/common-services-extsys"
+    run_docker i-common-services-extsys common-services-extsys
+    sleep_msg="Waiting_for_i-common-services-extsys"
+    curl_path='http://'${MSB_ADDR}'/openoapi/microservices/v1/services/extsys/version/v1'
+    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
 
-#Start openoint/sdno-service-vxlan
-run_docker s-vxlan sdno-service-vxlan
+    #Start openoint/common-services-drivermanager
+    run_docker i-drivermgr common-services-drivermanager
+    curl_path='http://'${MSB_ADDR}'/openoapi/drivermgr/v1/drivers'
+    sleep_msg="Waiting_connection_for_url_for: i-drivermgr"
+    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
 
-#Start openoint/sdno-vsitemgr
-run_docker s-vsitemgr sdno-vsitemgr
+    #Start openoint/sdno-service-vpc
+    run_docker s-vpc sdno-service-vpc
 
-#Start drivers (simulated or real)
-temp=0
-while [ $temp -le 4 ]
-do
-    if [[ $method == "simulate-drivers" ]]
-    then
-        run_docker ${simulated_drivers_docker_name[$temp]} ${simulated_drivers[$temp]}
-    else
-        run_docker ${drivers_docker_name[$temp]} ${drivers[$temp]}
-    fi
-    temp=$((temp+1))
-done
+    #Start openoint/sdno-service-overlayvpn
+    run_docker s-overlayvpn sdno-service-overlayvpn
+
+    #Start openoint/sdno-service-ipsec
+    run_docker s-ipsec sdno-service-ipsec
+
+    #Start openoint/sdno-service-l2vpn
+    run_docker s-l2vpm sdno-service-l2vpn
+
+    #Start openoint/sdno-service-l3vpn
+    run_docker s-l3vpn sdno-service-l3vpn
+
+    #Start openoint/sdno-service-route
+    run_docker s-route sdno-service-route
+
+    #Start openoint/sdno-service-servicechain
+    run_docker s-servicechain sdno-service-servicechain
+
+    #Start openoint/sdno-service-site
+    run_docker s-site sdno-service-site
+
+    #Start openoint/sdno-service-vxlan
+    run_docker s-vxlan sdno-service-vxlan
+
+    #Start drivers (simulated or real)
+    temp=0
+    while [ $temp -le 4 ]
+    do
+        if [[ $method == "simulate-drivers" ]]
+        then
+            displayMessage simulate-drivers
+            run_docker ${simulated_drivers_docker_name[$temp]} ${simulated_drivers[$temp]}
+        else
+            displayMessage real-drivers
+            run_docker ${drivers_docker_name[$temp]} ${drivers[$temp]}
+        fi
+        temp=$((temp+1))
+    done
+fi
