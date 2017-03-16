@@ -1,5 +1,5 @@
-# This script is sourced by run-csit.sh after Robot test completion.
-
+#!/bin/bash
+#
 # Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,4 +14,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-docker rm -f `docker ps -a | grep -v CONTAINER | awk '{print $1}'`
+#Kill all docker instances
+docker ps -a | grep -v CONTAINER | awk '{print $n}' | xargs  bash kill-instance.sh
