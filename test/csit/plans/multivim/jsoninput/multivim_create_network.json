@@ -1,35 +1,8 @@
 {
-    "request": {
-        "uri": "/openoapi/multivim/v1/${vimid}/${tenantid}/networks",
-        "method": "post",
-        "headers": {
-            "Content-Type": "application/json"  
-        },
-        "json":
-{
     "name": "network-csit-1",
     "physicalNetwork": "default",
     "shared": true,
     "routerExternal": false,
     "networkType": "flat",
     "vlanTransparent": false
-}
-    },
-    "response": {
-        "status": 201,
-        "json":{
-               "name": "vl_vlan_101",
-               "networkType": "vlan",
-               "physicalNetwork": "default",
-               "segmentationId": 101,
-               "vlanTransparent": true,
-               "shared": true,
-               "routerExternal":false,
-               "id":"network_vl_vlan_101_uuid",
-               "status": "ACTIVE",
-               "returnCode": "1",
-               "vimId": "{vimid}",
-               "tenantId": "{tenantid}"
-        }
-    }
 }

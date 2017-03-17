@@ -11,56 +11,56 @@ Library     HttpLibrary.HTTP
 
 *** Variables ***
 @{return_ok_list}=   200  201  202
-@{delete_ok_list}=   200  204
+@{delete_ok_list}=   200  202  204
 
-${networks_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/networks
+${flavors_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/flavors
 
 
 #json files
-${multivim_create_network_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_network.json
+${multivim_create_flavor_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_flavor.json
 
 #global vars
-${network1Id}
+${flavor1Id} 
 
 *** Test Cases ***
-CreateNetworkFuncTest
-    [Documentation]    create network rest test
-    ${json_value}=     json_from_file      ${multivim_create_network_json}
+CreateFlavorFuncTest
+    [Documentation]    create flavor rest test
+    ${json_value}=     json_from_file      ${multivim_create_flavor_json}
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${networks_url}    ${json_string}
+    ${resp}=    Post Request    web_session     ${flavors_url}    ${json_string}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
     ${response_json}    json.loads    ${resp.content}
-    ${network1Id}=    Convert To String      ${response_json['id']}
-    Set Global Variable     ${network1Id}
+    ${flavor1Id}=    Convert To String      ${response_json['id']}
+    Set Global Variable     ${flavor1Id}
 
-ListNetworksFuncTest
-    [Documentation]    get a list of networks info rest test
+ListFlavorsFuncTest
+    [Documentation]    get a list of flavors info rest test
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    ${resp}=  Get Request    web_session    ${networks_url}
+    ${resp}=  Get Request    web_session    ${flavors_url}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${return_ok_list}   ${response_code}
     ${response_json}    json.loads    ${resp.content}
 
-GetNetworkFuncTest
-    [Documentation]    get the specific network info rest test
+GetFlavorFuncTest
+    [Documentation]    get the specific flavor info rest test
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    ${resp}=  Get Request    web_session    ${networks_url}/${network1Id}
+    ${resp}=  Get Request    web_session    ${flavors_url}/${flavor1Id}
     ${response_code}=     Convert To String      ${resp.status_code}
     ${response_json}    json.loads    ${resp.content}
     List Should Contain Value    ${return_ok_list}   ${response_code}
     ${response_json}    json.loads    ${resp.content}
 
-DeleteNetworkFuncTest
-    [Documentation]    delete the specific network info rest test
+DeleteFlavorFuncTest
+    [Documentation]    delete the specific flavor info rest test
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    ${resp}=  Delete Request    web_session    ${networks_url}/${network1Id}
+    ${resp}=  Delete Request    web_session    ${flavors_url}/${flavor1Id}
     ${response_code}=     Convert To String      ${resp.status_code}
     List Should Contain Value    ${delete_ok_list}   ${response_code}
 

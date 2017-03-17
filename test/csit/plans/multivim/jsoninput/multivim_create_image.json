@@ -1,0 +1,1 @@
+{"name": "image-csit-1", "imagePath":"http://localhost/catalog/v1/cirros-0.3.0-x86_64-disk.img", "imageType":"qcow2","containerFormat":"bare", "visibility":"public"}
