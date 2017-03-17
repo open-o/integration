@@ -1,0 +1,46 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2.0/subnets"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/subnet_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/subnets/.+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/subnet_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/subnets"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/subnet_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/subnets?name=subnet-csit-1"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/subnet_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2.0/subnets/.+"}
+        },
+        "response": {
+            "status": 204
+        }
+    }
+]

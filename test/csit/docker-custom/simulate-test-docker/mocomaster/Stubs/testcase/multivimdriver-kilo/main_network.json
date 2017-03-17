@@ -1,4 +1,6 @@
 [
 {    "include": "Stubs/testcase/multivimdriver-kilo/networks.json"},
+{    "include": "Stubs/testcase/multivimdriver-kilo/subnets.json"},
+{    "include": "Stubs/testcase/multivimdriver-kilo/ports.json"},
 {    "include": "Stubs/testcase/multivimdriver-kilo/quotas.json"}
 ]

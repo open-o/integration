@@ -1,4 +1,3 @@
 # Test suites are relative paths under [integration.git]/test/csit/tests/.
 # Place the suites in run order.
-
-multivim/tenants/sanity_test_multivim_tenants.robot
+multivim/provision/sanity_test_multivim.robot

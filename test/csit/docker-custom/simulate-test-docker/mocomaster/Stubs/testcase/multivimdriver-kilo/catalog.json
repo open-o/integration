@@ -1,0 +1,10 @@
+[{
+        "request": {
+            "method": "get",
+            "uri": {"match": "/openoapi/catalog/v1/cirros-0.3.0-x86_64-disk.img"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/cirros-0.3.0-x86_64-disk.img"
+        }
+    }
+]

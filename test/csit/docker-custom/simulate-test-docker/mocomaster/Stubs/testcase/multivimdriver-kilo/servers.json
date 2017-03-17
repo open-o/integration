@@ -1,0 +1,46 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2/.+/servers"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/server_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/servers/detail"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/server_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/servers/detail?name=server-csit-1"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/server_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/servers/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/server_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/servers/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "status": 204
+        }
+    }
+]

@@ -1,4 +1,6 @@
 [
+{    "include": "Stubs/testcase/multivimdriver-kilo/servers.json"},
+{    "include": "Stubs/testcase/multivimdriver-kilo/flavors.json"},
 {    "include": "Stubs/testcase/multivimdriver-kilo/limits.json"},
 {    "include": "Stubs/testcase/multivimdriver-kilo/hosts.json" }
 ]

@@ -1,0 +1,46 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2.0/ports"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/port_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/ports/.+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/port_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/ports"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/port_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/ports?name=port-csit-1"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/port_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2.0/ports/.+"}
+        },
+        "response": {
+            "status": 204
+        }
+    }
+]

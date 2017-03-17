@@ -1,15 +1,7 @@
 [{
         "request": {
             "method": "post",
-            "uri":{"match": "/v2.0/networks.json"},
-            "json": {
-    "network": {
-        "name": "network-csit-1",
-        "provider:physical_network": "default",
-        "provider:network_type": "flat",
-        "shared": true
-    }
-            }
+            "uri":{"match": "/v2.0/networks.json"}
         },
         "response": {
             "file": "./Stubs/testcase/multivimdriver-kilo/network_create_response.json"
@@ -18,7 +10,7 @@
     {
         "request": {
             "method": "get",
-            "uri": {"match":"/v2.0/networks/a4712bc9-0068-490d-be43-4b5f0a278341"}
+            "uri": {"match":"/v2.0/networks/.+"}
         },
         "response": {
             "file": "./Stubs/testcase/multivimdriver-kilo/network_get_response.json"
@@ -45,7 +37,7 @@
     {
         "request": {
             "method": "delete",
-            "uri": {"match":"/v2.0/networks/a4712bc9-0068-490d-be43-4b5f0a278341"}
+            "uri": {"match":"/v2.0/networks/.+"}
         },
         "response": {
             "status": 204
