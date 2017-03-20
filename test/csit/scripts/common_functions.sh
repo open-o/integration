@@ -14,6 +14,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+function memory_details(){
+    #General memory details
+    top -bn1 | head -3
+    free -h
+    echo ""
+    #Memory details per Docker
+    docker stats --no-stream
+}
+
 function wait_curl_driver(){
     #Parrameters:
     #CURL_COMMAND - the link on which the curl command will be executed
@@ -124,18 +133,17 @@ function wait_curl_driver(){
                 echo "Element not found yet # "$i""
             fi
             echo $wait_message
-
-            #MEMORY_USAGE
-            if [[ $parameters == *"MEMORY_USAGE"* ]]
-            then
-                top -bn1 | head -3
-                free -h
-            fi
+        fi
+        #MEMORY_USAGE
+        if [[ $parameters == *"MEMORY_USAGE"* ]]
+        then
+            echo "==========================MEMORY USAGE=================================="
+            memory_details
+            echo "========================================================================"
         fi
         echo "Repeat number # "$i""
         sleep $i
     done
-
     return 0
 }
 
