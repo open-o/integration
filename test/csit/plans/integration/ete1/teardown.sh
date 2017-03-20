@@ -15,6 +15,15 @@
 # limitations under the License.
 #
 
-kill-instance.sh i-mock
+#copy the logs files
+docker cp gso:/service/logs/lifecyclemgr.log ${SCRIPTS}/../../../archives
+docker cp gso-sgw:/service/logs/servicegateway.log ${SCRIPTS}/../../../archives
+# kill micro service
+kill-instance.sh i-msb
+kill-instance.sh gso-sgw
+kill-instance.sh gso
+kill-instance.sh gso_csit_simulator
+kill-instance.sh inventory
 
-
+kill-instance.sh i-catalog
+kill-instance.sh catalog-parser
