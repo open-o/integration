@@ -83,5 +83,3 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMB
 
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP} -v CATALOG_IP:${CATALOG_IP} -v PORT:8200"
-
-robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/gso/sanity-check/register_simulator_to_msb.robot
