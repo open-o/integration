@@ -1,0 +1,46 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2/.+/volumes"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/volume_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/detail"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/volume_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/detail?name=volume-csit-1"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/volume_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/volume_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "status": 204
+        }
+    }
+]

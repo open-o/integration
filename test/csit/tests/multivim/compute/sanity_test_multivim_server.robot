@@ -17,7 +17,8 @@ ${servers_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/servers
 
 
 #json files
-${multivim_create_server_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_server.json
+#${multivim_create_server_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_server.json
+${multivim_create_server_json}    ${CREATE_SERVER_JSON}
 
 #global vars
 ${server1Id} 

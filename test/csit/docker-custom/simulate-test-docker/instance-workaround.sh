@@ -21,4 +21,7 @@ sed -i -- "s/localhost/$IPADDRESS/g" Stubs/testcase/osdriver/auth_token.json
 if [ $SIMULATOR_JSON == "Stubs/testcase/multivimdriver-kilo/main.json" ]; then
   sed -i -- "s/localhost/$IPADDRESS/g" Stubs/testcase/multivimdriver-kilo/*
 fi
+if [ $SIMULATOR_JSON == "Stubs/testcase/multivimdriver-newton/main.json" ]; then
+  sed -i -- "s/localhost/$IPADDRESS/g" Stubs/testcase/multivimdriver-newton/*
+fi
 

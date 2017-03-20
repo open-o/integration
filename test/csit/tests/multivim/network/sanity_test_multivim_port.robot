@@ -19,9 +19,13 @@ ${ports_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/ports
 
 
 #json files
-${multivim_create_network_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_network.json
-${multivim_create_subnet_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_subnet.json
-${multivim_create_port_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_port.json
+#${multivim_create_network_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_network.json
+#${multivim_create_subnet_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_subnet.json
+#${multivim_create_port_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_port.json
+${multivim_create_network_json}    ${CREATE_NETWORK_JSON}
+${multivim_create_subnet_json}    ${CREATE_SUBNET_JSON}
+${multivim_create_port_json}    ${CREATE_PORT_JSON}
+
 
 #global vars
 ${network1Id}

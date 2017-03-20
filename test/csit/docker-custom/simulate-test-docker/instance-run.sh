@@ -31,6 +31,16 @@ if [ $SIMULATOR_JSON == "Stubs/testcase/multivimdriver-kilo/main.json" ]; then
  java -jar moco-runner-0.11.0-standalone.jar http -p 5000  -g Stubs/testcase/multivimdriver-kilo/main_identity.json &
 
 fi
+if [ $SIMULATOR_JSON == "Stubs/testcase/multivimdriver-newton/main.json" ]; then
+ java -jar moco-runner-0.11.0-standalone.jar http -p 8774  -g Stubs/testcase/multivimdriver-newton/main_compute.json &
+ java -jar moco-runner-0.11.0-standalone.jar http -p 9696  -g Stubs/testcase/multivimdriver-newton/main_network.json &
+ java -jar moco-runner-0.11.0-standalone.jar http -p 8776  -g Stubs/testcase/multivimdriver-newton/main_volume.json &
+ java -jar moco-runner-0.11.0-standalone.jar http -p 9292  -g Stubs/testcase/multivimdriver-newton/main_image.json &
+ java -jar moco-runner-0.11.0-standalone.jar http -p 35357 -g Stubs/testcase/multivimdriver-newton/main_identity.json &
+ java -jar moco-runner-0.11.0-standalone.jar http -p 5000  -g Stubs/testcase/multivimdriver-newton/main_identity.json &
+ java -jar moco-runner-0.11.0-standalone.jar http -p 80  -g Stubs/testcase/multivimdriver-newton/main_identity.json &
+
+fi
 
 java -jar moco-runner-0.11.0-standalone.jar http -p 18009 -g $SIMULATOR_JSON &
 java -jar moco-runner-0.11.0-standalone.jar https -p 18008 -g $SIMULATOR_JSON -https cert.jks -cert mocohttps --keystore mocohttps

@@ -1,0 +1,1 @@
+{"server": {"security_groups": [{"name": "default"}], "OS-DCF:diskConfig": "MANUAL", "id": "3d256022-738f-4590-8c6b-61ae57ac24dd", "links": [{"href": "http://localhost:8774/v2.1/servers/3d256022-738f-4590-8c6b-61ae57ac24dd", "rel": "self"}, {"href": "http://localhost:8774/servers/3d256022-738f-4590-8c6b-61ae57ac24dd", "rel": "bookmark"}], "adminPass": "iCyhVU3kuH2i"}}

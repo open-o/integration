@@ -1,0 +1,11 @@
+[{
+        "request": {
+            "method": "get",
+            "uri": "/identity/v2.0/tenants"
+        },
+
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/tenants_response.json"
+        }
+    }
+]

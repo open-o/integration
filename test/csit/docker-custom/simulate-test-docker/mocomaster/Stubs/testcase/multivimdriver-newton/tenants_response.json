@@ -1,0 +1,1 @@
+{"tenants_links": [], "tenants": [{"description": "", "enabled": true, "id": "3ad536e897e04760b017ac3f48cefbed", "name": "demo"}, {"description": "Bootstrap project for initializing the cloud.", "enabled": true, "id": "b277ea9b96c2403789f9e22a635885fa", "name": "admin"}, {"description": "", "enabled": true, "id": "ef0300eb53204addaf93418ed354ea1a", "name": "alt_demo"}]}

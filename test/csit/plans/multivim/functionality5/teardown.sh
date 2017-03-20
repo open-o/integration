@@ -23,10 +23,6 @@
 
 # This script is sourced by run-csit.sh after Robot test completion.
 kill-instance.sh i-msb
-#kill-instance.sh i-esr
-#kill-instance.sh multivim-driver-newton
 kill-instance.sh multivim-driver-kilo
 kill-instance.sh multivim-broker
 kill-instance.sh simulator
-#kill-instance.sh simulator-newton
-

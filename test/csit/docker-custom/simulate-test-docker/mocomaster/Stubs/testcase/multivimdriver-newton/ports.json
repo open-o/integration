@@ -1,0 +1,55 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2.0/ports"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/port_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/ports/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/port_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/ports"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/port_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/ports?name=port-csit-1"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/port_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2.0/ports/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "status": 204
+        }
+    },
+    {
+        "request": {
+            "method": "put",
+            "uri": {"match":"/v2.0/ports/[0-9a-zA-Z_-]+.json"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/port_put_response.json"
+        }
+    }
+]

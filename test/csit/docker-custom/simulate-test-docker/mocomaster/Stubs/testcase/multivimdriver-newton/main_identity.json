@@ -1,0 +1,4 @@
+[
+{    "include": "Stubs/testcase/multivimdriver-newton/token.json"},
+{    "include": "Stubs/testcase/multivimdriver-newton/tenants.json"}
+]

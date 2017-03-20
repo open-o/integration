@@ -1,0 +1,49 @@
+[
+    {
+        "request": {
+            "method": "get",
+            "uri": "/openoapi/extsys/v1/vims"
+        },
+        "response": {
+            "json": [{
+                "createTime": "2017-02-23 07:51:25",
+                "description": "VIM instance of Newton",
+                "domain": "",
+                "name": "vimname-simulator",
+                "password": "secret",
+                "tenant": "admin",
+                "type": "openstack",
+                "url": "http://localhost:5000/v2.0",
+                "userName": "admin",
+                "vendor": "WindRiver",
+                "version": "newton",
+                "vimId": "c70fec2d-226d-41ae-8a8a-a5b708f6503f"
+            }],
+            "status": 201
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": "/openoapi/extsys/v1/vims/c70fec2d-226d-41ae-8a8a-a5b708f6503f"
+        },
+        "response": {
+            "json": {
+                "createTime": "2017-02-23 07:51:25",
+                "description": "VIM instance of Newton",
+                "domain": "",
+                "name": "vimname-simulator",
+                "password": "secret",
+                "tenant": "admin",
+                "type": "openstack",
+                "url": "http://localhost:5000/v2.0",
+                "userName": "admin",
+                "vendor": "WindRiver",
+                "version": "newton",
+                "vimId": "c70fec2d-226d-41ae-8a8a-a5b708f6503f"
+            },
+            "status": 201
+        }
+    }
+]
+

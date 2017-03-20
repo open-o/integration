@@ -21,7 +21,8 @@ ${images_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/images
 
 
 #json files
-${multivim_create_image_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_image.json
+#${multivim_create_image_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_image.json
+${multivim_create_image_json}    ${CREATE_IMAGE_JSON}
 
 #global vars
 ${image1Id} 

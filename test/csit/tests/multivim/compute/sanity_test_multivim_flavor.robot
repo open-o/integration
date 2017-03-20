@@ -17,7 +17,8 @@ ${flavors_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/flavors
 
 
 #json files
-${multivim_create_flavor_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_flavor.json
+#${multivim_create_flavor_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_flavor.json
+${multivim_create_flavor_json}    ${CREATE_FLAVOR_JSON}
 
 #global vars
 ${flavor1Id} 

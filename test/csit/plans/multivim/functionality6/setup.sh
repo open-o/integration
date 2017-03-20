@@ -26,26 +26,12 @@ curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
-# Start ESR
-#run-instance.sh openoint/common-services-extsys i-esr  " -i -t -e MSB_ADDR=${MSB_IP}:80"
-#extsys_ip=`get-instance-ip.sh i-esr`
-#sleep_msg="Waiting_for_ESR"
-#curl_path='http://'${MSB_IP}':80/openoapi/extsys/v1/swagger.json'
-#wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
-
 # start multivim-broker
 run-instance.sh openoint/multivim-broker multivim-broker  " -i -t -e MSB_ADDR=${MSB_IP}:80"
 extsys_ip=`get-instance-ip.sh multivim-broker`
 sleep_msg="Waiting_for_multivim-broker"
 curl_path='http://'${MSB_IP}':80/openoapi/multivim/v1/swagger.json'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
-
-#start multivim-driver-newton
-#run-instance.sh openoint/multivim-driver-newton multivim-driver-newton  " -i -t -e MSB_ADDR=${MSB_IP}:80"
-#extsys_ip=`get-instance-ip.sh multivim-driver_newton`
-#sleep_msg="Waiting_for_multivim-driver-newton"
-#curl_path='http://'${MSB_IP}':80/openoapi/multivim-newton/v1/swagger.json'
-#wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
 
 #start multivim-driver-kilo
 run-instance.sh openoint/multivim-driver-kilo multivim-driver-kilo  " -i -t -e MSB_ADDR=${MSB_IP}:80"
@@ -63,12 +49,16 @@ SIMULATOR_IP=`get-instance-ip.sh simulator`
 sleep_msg="Waiting_for_simulator"
 curl_path='http://'${SIMULATOR_IP}':18009/openoapi/extsys/v1/vims'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+curl_path='http://'${SIMULATOR_IP}':5000/v2.0/tenants'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="tenants"
 
-#start simulator newton
 
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${SIMULATOR_IP}"
 VIM_ID=c70fec2d-226d-41ae-8a8a-a5b708f6503f
 TENANT_ID=93f742f6cd6f4ab9a779d5e474e20a34
 ROBOT_VARIABLES+=" -v VIMID:${VIM_ID}  -v TENANTID:${TENANT_ID}"
+ROBOT_VARIABLES+=" -v CREATE_NETWORK_JSON:${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_network.json"
+ROBOT_VARIABLES+=" -v CREATE_SUBNET_JSON:${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_subnet.json"
+ROBOT_VARIABLES+=" -v CREATE_PORT_JSON:${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_port.json"
 robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/multivim/provision/register_simulator_to_msb.robot
 

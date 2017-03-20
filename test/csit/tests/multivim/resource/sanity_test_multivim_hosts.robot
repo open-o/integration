@@ -14,7 +14,8 @@ Library     HttpLibrary.HTTP
 @{delete_ok_list}=  200 204
 ${hosts_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/hosts
 
-${hostname}    kilo-controller-0
+#${hostname}    kilo-controller-0
+${hostname}    ${HOSTNAME}
 ${host_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/hosts/${hostname}
 
 

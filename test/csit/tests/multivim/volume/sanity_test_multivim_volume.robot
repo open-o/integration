@@ -17,7 +17,8 @@ ${volumes_url}    /openoapi/multivim/v1/${VIMID}/${TENANTID}/volumes
 
 
 #json files
-${multivim_create_volume_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_volume.json
+#${multivim_create_volume_json}    ${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_volume.json
+${multivim_create_volume_json}    ${CREATE_VOLUME_JSON}
 
 #global vars
 ${volume1Id} 

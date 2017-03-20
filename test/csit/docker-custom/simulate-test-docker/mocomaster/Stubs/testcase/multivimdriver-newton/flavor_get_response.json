@@ -1,0 +1,1 @@
+{"flavor": {"name": "flavor-csit-1", "links": [{"href": "http://localhost:8774/v2.1/flavors/92", "rel": "self"}, {"href": "http://localhost:8774/flavors/92", "rel": "bookmark"}], "ram": 1024, "OS-FLV-DISABLED:disabled": false, "vcpus": 2, "swap": "", "os-flavor-access:is_public": true, "rxtx_factor": 1.0, "OS-FLV-EXT-DATA:ephemeral": 0, "disk": 2, "id": "92"}}

@@ -1,0 +1,6 @@
+[
+{    "include": "Stubs/testcase/multivimdriver-newton/networks.json"},
+{    "include": "Stubs/testcase/multivimdriver-newton/subnets.json"},
+{    "include": "Stubs/testcase/multivimdriver-newton/ports.json"},
+{    "include": "Stubs/testcase/multivimdriver-newton/quotas.json"}
+]

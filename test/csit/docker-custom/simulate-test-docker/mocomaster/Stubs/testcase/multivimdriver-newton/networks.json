@@ -1,0 +1,46 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2.0/networks"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/network_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/networks/.+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/network_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/networks"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/network_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.0/networks?name=network-csit-1"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/network_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2.0/networks/.+"}
+        },
+        "response": {
+            "status": 204
+        }
+    }
+]

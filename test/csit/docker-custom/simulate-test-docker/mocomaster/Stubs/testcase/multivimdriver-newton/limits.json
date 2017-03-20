@@ -1,0 +1,10 @@
+[{
+        "request": {
+            "method": "get",
+            "uri": {"match": "/v2.1/limits"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/limits_response.json"
+        }
+    }
+]
