@@ -13,17 +13,21 @@ function helpMe(){
 
 function displayMessage(){
     echo "******************************************************"
-    echo "**** START IMAGES STEPS ##############################"
+    echo "**** START IMAGES STEPS ###############################"
     if [[ $1 == "simulate-network-services" ]]
     then
       echo "************** SIMULATE-NETWORK-SERVICE **************"
-    else if [[ $1 == "simulate-drivers" ]]
+    elif [[ $1 == "simulate-drivers" ]]
+    then
       echo "****************** SIMULATE-DRIVERS ******************"
-    else if [[ $1 == "real-drivers" ]]
+    elif [[ $1 == "real-drivers" ]]
+    then
         echo "******************** REAL-DRIVERS ********************"
-    else if [[ $1 == "lcm" ]]
+    elif [[ $1 == "sdno-service-lcm" ]]
+    then
         echo "*************** LIFE-CYCLE-MANAGER LCM ***************"
-    else if [[ $1 == "nslcm" ]]
+    elif [[ $1 == "sdno-service-nslcm" ]]
+    then
         echo "****** NETWORK-SERVICE-LIFE-CYCLE-MANAGER NSLCM  *****"
     fi
     echo "******************************************************"
