@@ -23,21 +23,6 @@ ${url_sdnonslcm}    /openoapi/sdnonslcm/v1
 ${srvname_wso2bpel}    wso2bpel
 ${url_wso2bpel}    /openoapi/wso2bpel/v1
 *** Test Cases ***
-registerInventoryToMsb
-    [Documentation]    register inventory simulator to msb
-    ${json_value}=     json_from_file      ${register_json}
-    Remove From Dictionary  ${json_value}   serviceName
-    Set To Dictionary  ${json_value}    serviceName   ${srvname_inventory}
-    Remove From Dictionary  ${json_value}   url
-    Set To Dictionary  ${json_value}    url   ${url_inventory}
-    Remove From Dictionary  ${json_value['nodes'][0]}   ip
-    Set To Dictionary  ${json_value['nodes'][0]}    ip   ${SIMULATOR_IP}
-    ${json_string}=     string_from_json   ${json_value}
-    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${register_msb_url}    ${json_string}
-    Log   ${resp}
 registerCatalogToMsb
     [Documentation]    register catalog simulator to msb
     ${json_value}=     json_from_file      ${register_json}
@@ -45,21 +30,6 @@ registerCatalogToMsb
     Set To Dictionary  ${json_value}    serviceName   ${srvname_catalog}
     Remove From Dictionary  ${json_value}   url
     Set To Dictionary  ${json_value}    url   ${url_catalog}
-    Remove From Dictionary  ${json_value['nodes'][0]}   ip
-    Set To Dictionary  ${json_value['nodes'][0]}    ip   ${SIMULATOR_IP}
-    ${json_string}=     string_from_json   ${json_value}
-    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-    Set Request Body    ${json_string}
-    ${resp}=    Post Request    web_session     ${register_msb_url}    ${json_string}
-    Log    ${resp}
-registerExtsysToMsb
-    [Documentation]    register extsys simulator to msb
-    ${json_value}=     json_from_file      ${register_json}
-    Remove From Dictionary  ${json_value}   serviceName
-    Set To Dictionary  ${json_value}    serviceName   ${srvname_extsys}
-    Remove From Dictionary  ${json_value}   url
-    Set To Dictionary  ${json_value}    url   ${url_extsys}
     Remove From Dictionary  ${json_value['nodes'][0]}   ip
     Set To Dictionary  ${json_value['nodes'][0]}    ip   ${SIMULATOR_IP}
     ${json_string}=     string_from_json   ${json_value}
@@ -99,7 +69,7 @@ registerSDNONslcmToMsb
     ${resp}=    Post Request    web_session     ${register_msb_url}    ${json_string}
     Log    ${resp}
 registerWso2ToMsb
-    [Documentation]    register sdnonslcm simulator to msb
+    [Documentation]    register wso2 simulator to msb
     ${json_value}=     json_from_file      ${register_json}
     Remove From Dictionary  ${json_value}   serviceName
     Set To Dictionary  ${json_value}    serviceName   ${srvname_wso2bpel}
