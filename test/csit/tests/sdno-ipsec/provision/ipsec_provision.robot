@@ -75,6 +75,7 @@ Test: add elements to BRS
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    ${get_result}=    Get Request    web_session     uri=${elements_link}
     Set Request Body    ${json_string}
     ${resp}=    Post Request    web_session     uri=${elements_link}    data=${json_string}
     ${responese_code}=     Convert To String      ${resp.status_code}
