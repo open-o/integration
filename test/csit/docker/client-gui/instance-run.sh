@@ -14,4 +14,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+# Start tomcat
+./bin/startup.sh
 
+# Show log files
+echo Waiting for log file...
+while [ ! -f /service/logs/* ]; do
+    sleep 1
+done
+echo /service/logs/*
+tail -F /service/logs/*

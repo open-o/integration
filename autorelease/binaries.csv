@@ -1,6 +1,6 @@
 repo,job-trigger-string,service,filename,groupId,artifactId,extension,classifier,ports,mysql,mongodb,tomcat,python,unzip-dir
 client-cli,,Open-O Command-Line interface (CLI),client-cli,org.openo.client.cli,client-cli-deployment,zip,,,,,,,
-client-gui,,Open-O GUI,client-gui,org.openo.client.gui,integration,zip,,8300,,,TRUE,,webapps/openoui
+client-gui,,Open-O GUI,client-gui,org.openo.client.gui,integration,zip,,9150,,,TRUE,,webapps/openoui
 common-services-auth,,Common Services Authentication,common-services-auth,org.openo.common-services.auth,auth-service-deployment,zip,,8102,TRUE,,TRUE,TRUE,
 common-services-common-utilities,wso2bpel,Common Services WSO2 Extension,common-services-wso2ext,org.openo.common-services.common-utilities.wso2bpel-ext,standalone,tar.gz,linux64,8101,TRUE,,,,
 common-services-driver-mgr,,Common Services Driver Manager,common-services-drivermanager,org.openo.common-services.driver-mgr,drivermanager-service-deployment,zip,,8103,TRUE,,TRUE,,

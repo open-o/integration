@@ -14,4 +14,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
+# Set tomcat port
+sed -i 's|Connector port="8080"|Connector port="9150"|' conf/server.xml
