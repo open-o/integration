@@ -1,10 +1,15 @@
 # Test suites are relative paths under [integration.git]/test/csit/tests/.
 # Place the suites in run order.
 common-services-microservice-bus/startup
-integration/ete1/catalog-csars.robot
+integration/ete1/init_common-services-extsys.robot
+integration/ete1/init_common-services-wso2ext.robot
+integration/ete1/init_common-tosca-catalog.robot
+integration/ete1/init_common-tosca-inventory.robot
+integration/ete1/init_nfvo-lcm.robot
+integration/ete1/init_sdno-service-nslcm.robot
 integration/ete1/register_simulator_to_msb.robot
-integration/ete1/gso_sanity_test_sg.robot
-gso/sanity-check/sanity_test_gsolcm.robot
-gso/sanity-check/sanity_test_driver_gsons.robot
-gso/sanity-check/sanity_test_driver_nfvons.robot
-gso/sanity-check/sanity_test_driver_sdnons.robot
+integration/ete1/sanity_test_sg.robot
+integration/ete1/sanity_test_gsolcm.robot
+integration/ete1/sanity_test_driver_gsons.robot
+integration/ete1/sanity_test_driver_nfvons.robot
+integration/ete1/sanity_test_driver_sdnons.robot
