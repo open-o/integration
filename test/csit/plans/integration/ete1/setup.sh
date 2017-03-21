@@ -52,10 +52,20 @@ for i in {1..10}; do
 done
 
 
-# Start Inventory
-run-instance.sh openoint/common-tosca-inventory inventory " -i -t -e MSB_ADDR=${MSB_IP}:80"
-INV_ADDR=`get-instance-ip.sh inventory`
-sleep 8
+
+# Start inventory
+source ${SCRIPTS}/common-tosca-inventory/startup.sh i-inventory ${MSB_IP}
+INVENTORY_IP=`get-instance-ip.sh i-inventory`
+echo INVENTORY_IP=${INVENTORY_IP}
+INV_ADDR=$INVENTORY_IP
+
+# Wait for initialization
+for i in {1..50}; do
+    curl -sS -m 1 ${INVENTORY_IP}:8203 && break
+    echo sleep $i
+    sleep $i
+done
+
 
 # Start servicegateway
 run-instance.sh openoint/gso-service-gateway gso-sgw " -i -t -e MSB_ADDR=${MSB_IP}:80"

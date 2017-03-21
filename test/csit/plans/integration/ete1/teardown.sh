@@ -23,7 +23,7 @@ kill-instance.sh i-msb
 kill-instance.sh gso-sgw
 kill-instance.sh gso
 kill-instance.sh gso_csit_simulator
-kill-instance.sh inventory
+kill-instance.sh i-inventory
 
 kill-instance.sh i-catalog
 kill-instance.sh catalog-parser

@@ -3,7 +3,7 @@
 common-services-microservice-bus/startup
 common-tosca-catalog/interface
 integration/ete1/register_simulator_to_msb.robot
-gso/sanity-check/sanity_test_sg.robot
+integration/ete1/gso_sanity_test_sg.robot
 gso/sanity-check/sanity_test_gsolcm.robot
 gso/sanity-check/sanity_test_driver_gsons.robot
 gso/sanity-check/sanity_test_driver_nfvons.robot
