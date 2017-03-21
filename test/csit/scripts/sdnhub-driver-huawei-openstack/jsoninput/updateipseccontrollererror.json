@@ -47,7 +47,7 @@
             },
             "workType": "work",
             "sourceLanCidrs": null,
-            "peerLanCidrs": "1,2,3",
+            "peerLanCidrs": "[{\"ipv4\":\"10.21.3.0\",\"ipMask\":\"24\"}]",
             "isTemplateType": "true",
             "nqa": "nqa",
             "localNeRole": "thincpe",
