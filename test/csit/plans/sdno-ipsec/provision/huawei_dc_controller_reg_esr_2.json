@@ -12,6 +12,6 @@
         "adminState": "active",
         "operState": "up",
         "controllerID": ["0d7f3108-e4f5-4fd9-804c-4e2524648f44"],
-        "siteName": "Site1"
+        "siteID": ["Site1"]
     }
 }
