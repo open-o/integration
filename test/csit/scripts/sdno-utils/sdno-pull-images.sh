@@ -9,7 +9,7 @@ function helpMe(){
 
 function displayMessage(){
     echo "******************************************************"
-    echo "**** PULL IMAGES STEPS ###############################"
+    echo "**** PULL IMAGES STEPS *******************************"
     if [[ $1 == "simulate-network-services" ]]
     then
       echo "************** SIMULATE-NETWORK-SERVICE **************"
@@ -61,8 +61,12 @@ function pull_docker(){
     return 0
 }
 
-#Stop existent docker instances
-docker rm -f `docker ps -a | grep -v CONTAINER | awk '{print $1}' `|| true
+#Stop existing docker instances if there is any
+if [[ ! -z "$DOCKER_INSTANCES_ID" ]]
+then
+    echo "Docker list: $DOCKER_INSTANCES_ID"
+    docker rm -f $DOCKER_INSTANCES_ID
+fi
 
 #Pull MSB
 pull_docker common-services-msb

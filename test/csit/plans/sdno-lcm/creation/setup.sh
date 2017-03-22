@@ -18,17 +18,11 @@
 
 source ${SCRIPTS}/common_functions.sh
 
-# Pull down docker images 
+# Pull down docker images
 ${SCRIPTS}/sdno-utils/sdno-pull-images.sh
 
 # Start Images
 ${SCRIPTS}/sdno-utils/sdno-start-images.sh
 MSB_IP=`get-instance-ip.sh i-msb`
-LCM_IP=`get-instance-ip.sh s-sdno-service-lcm`
-for i in {1..10}; do
-    curl -sS -m 1 ${MSB_IP}:80 && curl -sS -m 30 ${LCM_IP}:8554 && break
-    echo sleep $i
-    sleep $i
-done
 ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP}"
 

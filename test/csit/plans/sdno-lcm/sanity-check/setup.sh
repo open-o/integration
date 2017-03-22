@@ -19,21 +19,20 @@
 source ${SCRIPTS}/common_functions.sh
 
 # Start MSB
-${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
+docker pull openoint/common-services-msb
+docker pull openoint/sdno-service-lcm
+
+docker run -d -i -t --name i-msb -p 80:80 openoint/common-services-msb
 MSB_IP=`get-instance-ip.sh i-msb`
 
 curl_path='http://'${MSB_IP}'/api/microservices/v1/swagger.yaml'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE=$sleep_msg GREP_STRING="MicroService Bus rest API" REPEAT_NUMBER="10"
-
-${SCRIPTS}/sdno-lcm/startup.sh s-lcm
-
-SERVICE_IP=`get-instance-ip.sh s-lcm`
-SERVICE_PORT='8554'
-echo ${SERVICE_IP}
-
-curl_path='http://'$SERVICE_IP':'$SERVICE_PORT'/'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" GREP_STRING="MicroService Bus rest API" REPEAT_NUMBER="10"
+echo "delay msb start and lcm start by 20 seconds"
+sleep 20
+docker run -d -i -t --name s-lcm -e MSB_ADDR=${MSB_IP} openoint/sdno-service-lcm
+curl_path='http://'${MSB_IP}'/openoapi/sdnonslcm/v1/swagger.json'
 sleep_msg="Waiting_connection_of_url_for:s-lcm"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE=$sleep_msg GREP_STRING="refused" EXCLUDE_STRING REPEAT_NUMBER="15" MAX_TIME=30
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="60" STATUS_CODE="200" EXCLUDE_STRING
 
-ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP} -v SERVICE_IP:${SERVICE_IP} -v SERVICE_PORT:${SERVICE_PORT}"
+ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP}"

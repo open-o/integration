@@ -15,4 +15,7 @@
 # limitations under the License.
 
 #Kill all docker instances
-docker ps -a | grep -v CONTAINER | awk '{print $n}' | xargs  bash kill-instance.sh
+DOKCER_LIST=`docker ps --format "{{.Names}}"`
+for docker in $DOCKER_LIST; do
+    kill-instance.sh $docker || true
+done

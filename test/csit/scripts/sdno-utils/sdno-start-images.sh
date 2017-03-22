@@ -13,7 +13,7 @@ function helpMe(){
 
 function displayMessage(){
     echo "******************************************************"
-    echo "**** START IMAGES STEPS ###############################"
+    echo "**** START IMAGES STEPS ******************************"
     if [[ $1 == "simulate-network-services" ]]
     then
       echo "************** SIMULATE-NETWORK-SERVICE **************"
@@ -39,8 +39,15 @@ source ${SCRIPTS}/common_functions.sh
 #File containing variables
 source ${SCRIPTS}/sdno-utils/variables.sh
 
-#Stop existing docker instances
-docker rm -f $(docker ps -a --format={{.Names}}) || true
+#List all running docker instance
+DOCKER_INSTANCES_NAME=`docker ps -a --format={{.Names}}`
+
+#Stop existing docker instances if there is any
+if [[ ! -z "$DOCKER_INSTANCES_NAME" ]]
+then
+    echo "Docker list: $DOCKER_INSTANCES_NAME"
+    docker rm -f $DOCKER_INSTANCES_NAME
+fi
 
 parameters="$@"
 #display help
@@ -117,6 +124,9 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING
 #Start openoint/lc_manag
 displayMessage $lc_manag
 run_docker s-$lc_manag $lc_manag
+curl_path='http://'$MSB_ADDR'/openoapi/sdnonslcm/v1/swagger.json'
+sleep_msg="Waiting_connection_for_url_for: s-$lc_manag"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="15" STATUS_CODE="200"
 
 #Start openoint/catalog
 run_docker i-catalog common-tosca-catalog
