@@ -24,17 +24,22 @@ function memory_details(){
 }
 
 function wait_curl_driver(){
-    #Parrameters:
-    #CURL_COMMAND - the link on which the curl command will be executed
-    #GREP_STRING - the string that should exist when returning the result of the curl command
-    #EXCLUDE_STRING - eliminates the string from the curl result
-    #WAIT_MESSAGE - the message displayed if the curl command needs to be repeated
-    #REPEAT_NUMBER - the maxm number of times the curl command is allowed to be repeated
+    #Parameters:
+    #CURL_COMMAND - the URL on which the curl command will be executed
+    #GREP_STRING - Desired string to be found inside the body response of the
+    #              previous curl command
+    #EXCLUDE_STRING - If the filtered string (GREP_STRING) must not exist in
+    #                 the body response of the curl
+    #WAIT_MESSAGE - the message to be displayed for logging purpose. (optional)
+    #REPEAT_NUMBER - the maximum number of tries before abandoning the curl
+    #                command (optional, by default = 15)
     #MAX_TIME - Maximum time allowed for the transfer (in seconds)
-    #STATUS_CODE - A HTTP status code desired to bo found by getting the link
-    #              For the moment there is a problem and the GREP_STRING still needs to exist
-    #              but its value isn't taken in consideration if the desired status code is found
-    #MEMORY_USAGE - If Parrameter exists show the memory usage
+    #STATUS_CODE - A HTTP status code desired to be found by getting the link
+    #  /!\ IMPORTANT NOTICE: the usage of STATUS_CODE option turn GREP_STRING/
+    #  /!\ EXCLUDE_STRING/and the MAX_TIME options becomes obsolete with no
+    #  /!\ execution impact
+    #MEMORY_USAGE - If Parameters exists shows the memory usage after curl
+    #               execution(s)
 
     repeat_max=15
     parameters="$@"
@@ -90,60 +95,68 @@ function wait_curl_driver(){
     fi
 
     for i in `eval echo {1..$repeat_max}`; do
-        curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_path
-        response_code=`curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_path`
+        echo "Iteration::$i out of $repeat_max"
+        response_code=`curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_command`
+        echo "..."
         if [[ ! -z $status_code ]] ; then
             if [ "$status_code" -eq "$response_code" ]
             then
-                echo "Status code $response_code found"
+                echo "Actual Status code <$response_code> match the expected code <$status_code>"
                 return 0
             else
-                echo "$response_code found "
+                echo "Expected <$status_code> but Actual <$response_code>"
             fi
         else
             #GREP_STRING
             if [[ $parameters == *"GREP_STRING"* ]]
             then
                 grep_command=`echo $parameters | sed -e 's/.*GREP_STRING=//g'`
-                grep_command=`echo $grep_command | sed -e 's/ .*//g'`
+                grep_command=`echo $grep_command | sed -e 's/ REPEAT_NUMBER=.*//g' | sed -e 's/ CURL_COMMAND=.*//g' | sed -e 's/ WAIT_MESSAGE=.*//g' | sed -e 's/ MAX_TIME=.*//g' | sed -e 's/ EXCLUDE_STRING.*//g'`
             else
-                echo "-Grep_command is empty-"  # Or no parameterseter passed.
+                echo "-Grep_command is empty-"  # Or no parameters passed.
                 return 0
             fi
 
-            str=`curl -sS -m$max_time $curl_command | grep $grep_command`
-            echo "s1=" $str
-            if [[ ! -z $exclude_string ]] ; then
-                str_exclude=`echo $str | grep -v $grep_command`;
-                if [[ ! -z $str_exclude ]] ; then
-                    echo "Element found";
+            str=`curl -sS -m$max_time $curl_command | grep "$grep_command"`
+            echo "..."
+            echo "BODY::$str"
+            if [[ ! -z $exclude_string ]]
+            then
+                if [[ -z $str ]]
+                then
+                    echo "SUCCESS: body response does not contains '$grep_command'";
                     break;
+                else
+                    echo "Fall_Short: Body response still contains '$grep_command'"
+                fi
+            else
+                if [[ ! -z $str ]]
+                then
+                    echo "SUCCESS: body response contains '$grep_command'";
+                break;
+                else
+                    echo "Fall_Short: Element not found yet # "$i""
                 fi
             fi
 
             if [ "$?" = "7" ]; then
-                echo 'Connection refused or cant connect to server/proxy';
+                echo 'Connection refused or can not connect to server/proxy';
                 str=''
             fi
 
-            if [[ ! -z $str ]] ; then
-                echo "Element found";
-                break;
-            else
-                echo "Element not found yet # "$i""
-            fi
             echo $wait_message
         fi
-        #MEMORY_USAGE
-        if [[ $parameters == *"MEMORY_USAGE"* ]]
-        then
-            echo "==========================MEMORY USAGE=================================="
-            memory_details
-            echo "========================================================================"
-        fi
+
         echo "Repeat number # "$i""
         sleep $i
     done
+    #MEMORY_USAGE
+    if [[ $parameters == *"MEMORY_USAGE"* ]]
+    then
+        echo "==========================MEMORY USAGE=================================="
+        memory_details
+        echo "========================================================================"
+    fi
     return 0
 }
 
