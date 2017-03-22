@@ -10,9 +10,9 @@
         "vpcName": "default/project4",
         "vpcSubnetName": "subnet1",
         "vpcSubnetCidr": "10.0.10.0/24",
-        "vpcVNI": "25",
-        "dcGWIP": "192.168.239.144",
-        "dcFWIP": "192.168.243.143",
-        "dcLBIP": "192.168.241.141"
+        "vpcVni": "25",
+        "dcGwIp": "192.168.239.144",
+        "dcFwIp": "192.168.243.143",
+        "dcLbIp": "192.168.241.141"
     }
 }
