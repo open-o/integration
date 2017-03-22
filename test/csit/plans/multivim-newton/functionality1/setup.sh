@@ -33,6 +33,13 @@ sleep_msg="Waiting_for_multivim-broker"
 curl_path='http://'${MSB_IP}':80/openoapi/multivim/v1/swagger.json'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
 
+#start multivim-driver-kilo
+run-instance.sh openoint/multivim-driver-kilo multivim-driver-kilo  " -i -t -e MSB_ADDR=${MSB_IP}:80"
+extsys_ip=`get-instance-ip.sh multivim-driver-kilo`
+sleep_msg="Waiting_for_multivim-driver-kilo"
+curl_path='http://'${MSB_IP}':80/openoapi/multivim-kilo/v1/swagger.json'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="swagger"
+
 #start multivim-driver-newton
 run-instance.sh openoint/multivim-driver-newton multivim-driver-newton  " -i -t -e MSB_ADDR=${MSB_IP}:80"
 extsys_ip=`get-instance-ip.sh multivim-driver-newton`
