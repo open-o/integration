@@ -14,11 +14,12 @@
 
 # This script is sourced by run-csit.sh after Robot test completion.
 
-kill-instance.sh d-driver-huawei-openstack || true
-kill-instance.sh s-vpc || true
-kill-instance.sh i-common-services-extsys || true
-kill-instance.sh d-drivermgr || true
-kill-instance.sh i-brs || true
-kill-instance.sh i-mss || true
-kill-instance.sh i-msb || true
+#Kill all docker instances
+DOKCER_LIST=`docker ps --format "{{.Names}}"`
+for docker in $DOCKER_LIST; do
+    kill-instance.sh $docker || true
+done
+
+#Kill and remove moco simulator
 kill  `ps -ax | grep java| grep moco | awk '{print $1}'` || true 
+rm -rf moco*.jar || true
