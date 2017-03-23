@@ -29,10 +29,10 @@ curl_path='http://'${MSB_IP}'/api/microservices/v1/swagger.yaml'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" GREP_STRING="MicroService Bus rest API" REPEAT_NUMBER="10"
 echo "delay msb start and lcm start by 20 seconds"
-sleep 20
-docker run -d -i -t --name s-lcm -e MSB_ADDR=${MSB_IP} openoint/sdno-service-lcm
+
+docker run -d -i -t --name s-lcm -e MSB_ADDR="${MSB_IP}:80" openoint/sdno-service-lcm
 curl_path='http://'${MSB_IP}'/openoapi/sdnonslcm/v1/swagger.json'
 sleep_msg="Waiting_connection_of_url_for:s-lcm"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="60" STATUS_CODE="200" EXCLUDE_STRING
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="60" STATUS_CODE="200"
 
 ROBOT_VARIABLES="-L TRACE -v MSB_IP:${MSB_IP}"
