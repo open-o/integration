@@ -1,0 +1,67 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2/.+/volumes"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/volume_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/volume_version_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": "/v2/[0-9a-zA-Z_-]+/volumes",
+            "queries": {
+                "marker": "19dd4298-cbd4-4ef4-84db-e71b4bce78a6"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/volume_limit_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/detail"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/volume_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/detail?name=volume-csit-1"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/volume_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/volume_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "status": 204
+        }
+    }
+]

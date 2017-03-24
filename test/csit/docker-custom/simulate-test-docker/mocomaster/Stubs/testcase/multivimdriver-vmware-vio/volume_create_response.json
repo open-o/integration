@@ -1,0 +1,34 @@
+{
+  "volume": {
+    "status": "creating",
+    "migration_status": null,
+    "user_id": "74ef52bb6dfa4f64b05ea967811770f7",
+    "attachments": [],
+    "links": [
+      {
+        "href": "http://localhost:8776/v2/6d75a4dfac7b4526bb023b0a07e555a7/volumes/19dd4298-cbd4-4ef4-84db-e71b4bce78a6",
+        "rel": "self"
+      },
+      {
+        "href": "http://localhost:8776/6d75a4dfac7b4526bb023b0a07e555a7/volumes/19dd4298-cbd4-4ef4-84db-e71b4bce78a6",
+        "rel": "bookmark"
+      }
+    ],
+    "availability_zone": "nova",
+    "bootable": "false",
+    "encrypted": false,
+    "created_at": "2017-03-24T05:11:32.538137",
+    "description": null,
+    "updated_at": null,
+    "volume_type": null,
+    "name": "volume-for-open-o",
+    "replication_status": "disabled",
+    "consistencygroup_id": null,
+    "source_volid": null,
+    "snapshot_id": null,
+    "multiattach": false,
+    "metadata": {},
+    "id": "19dd4298-cbd4-4ef4-84db-e71b4bce78a6",
+    "size": 5
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "volume": {
+    "migration_status": null,
+    "attachments": [],
+    "links": [
+      {
+        "href": "http://localhost:8776/v2/6d75a4dfac7b4526bb023b0a07e555a7/volumes/dac12e36-18d9-4d81-860d-e52d7eb77fe6",
+        "rel": "self"
+      },
+      {
+        "href": "http://localhost:8776/6d75a4dfac7b4526bb023b0a07e555a7/volumes/dac12e36-18d9-4d81-860d-e52d7eb77fe6",
+        "rel": "bookmark"
+      }
+    ],
+    "availability_zone": "nova",
+    "os-vol-host-attr:host": "loadbalancer01#VMwareVcVmdkDriver",
+    "encrypted": false,
+    "updated_at": "2017-03-24T06:19:05.000000",
+    "replication_status": "disabled",
+    "snapshot_id": null,
+    "id": "dac12e36-18d9-4d81-860d-e52d7eb77fe6",
+    "size": 5,
+    "user_id": "74ef52bb6dfa4f64b05ea967811770f7",
+    "os-vol-tenant-attr:tenant_id": "6d75a4dfac7b4526bb023b0a07e555a7",
+    "os-vol-mig-status-attr:migstat": null,
+    "metadata": {},
+    "status": "available",
+    "description": null,
+    "multiattach": false,
+    "source_volid": null,
+    "consistencygroup_id": null,
+    "os-vol-mig-status-attr:name_id": null,
+    "name": "test-volume",
+    "bootable": "false",
+    "created_at": "2017-03-24T06:19:05.000000",
+    "volume_type": null
+  }
+}
