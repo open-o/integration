@@ -1,0 +1,85 @@
+[{
+        "request": {
+            "method": "post",
+            "uri":{"match": "/v2/images"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/image_create_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/image_version_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/images?name=test-image"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/image_list_filtered_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": "/v2/images",
+            "queries": {
+                "marker": "e338f296-dba6-4f69-8023-ef5fff62bfe8"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/image_limit_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": "/v2/images"
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/image_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/images/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/image_get_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/images/[0-9a-zA-Z_-]+/file"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/image_get_file_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "put",
+            "uri": {"match":"/v2/images/[0-9a-zA-Z_-]+/file"}
+        },
+        "response": {
+            "status": 204
+        }
+    },
+    {
+        "request": {
+            "method": "delete",
+            "uri": {"match":"/v2/images/.+"}
+        },
+        "response": {
+            "status": 204
+        }
+    }
+]

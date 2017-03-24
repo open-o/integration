@@ -1,0 +1,320 @@
+{
+  "token": {
+    "methods": [
+      "password"
+    ],
+    "roles": [
+      {
+        "id": "9fe2ff9ee4384b1894a90878d3e92bab",
+        "name": "_member_"
+      },
+      {
+        "id": "ba00aa932ed44b55952032fee4f9de1e",
+        "name": "admin"
+      }
+    ],
+    "expires_at": "2017-03-23T10:02:24.794896Z",
+    "project": {
+      "domain": {
+        "id": "default",
+        "name": "Default"
+      },
+      "id": "6d75a4dfac7b4526bb023b0a07e555a7",
+      "name": "demo"
+    },
+    "catalog": [
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8000/v1",
+            "region": "nova",
+            "interface": "admin",
+            "id": "28363e9d11dc46ce89595402da44e3d0"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8000/v1",
+            "region": "nova",
+            "interface": "internal",
+            "id": "6365004db3404b709d727f2a9424b7b7"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8000/v1",
+            "region": "nova",
+            "interface": "public",
+            "id": "7ad24415c6d64cd196624b0e6cb25ccf"
+          }
+        ],
+        "type": "cloudformation",
+        "id": "162a824220a848f4aa666bb8068211c8",
+        "name": "heat-cfn"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v3/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "internal",
+            "id": "00a176fd18194ff7a1c893908334d6df"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v3/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "admin",
+            "id": "3017029b73e94715b6b4597a429fefc3"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v3/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "public",
+            "id": "3448d16fb7884fa0b4223d31ba9771ca"
+          }
+        ],
+        "type": "volumev3",
+        "id": "4258c6fd90b146208cf6e2d7bf14a390",
+        "name": "cinderv3"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:9696",
+            "region": "nova",
+            "interface": "admin",
+            "id": "5c79790f30a34d0184a3b870bc2bf83d"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:9696",
+            "region": "nova",
+            "interface": "public",
+            "id": "b3c8d9f280984ca3a491d87e0d419442"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:9696",
+            "region": "nova",
+            "interface": "internal",
+            "id": "e2cd4379dcd14156ac5162ba1cdd1e26"
+          }
+        ],
+        "type": "network",
+        "id": "6269211db97d4d768724e96fb94ed4f7",
+        "name": "neutron"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8774/v2.1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "internal",
+            "id": "b07e73e7628f40cf8b490abde0e9fb88"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8774/v2.1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "public",
+            "id": "d1fd2ebd16f74030855b004d06956c8d"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8774/v2.1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "admin",
+            "id": "fde1fac9c2304927a5d8d4f16ebfc067"
+          }
+        ],
+        "type": "compute",
+        "id": "64632c6fbc674301add2d28281e3d368",
+        "name": "nova"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v2/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "internal",
+            "id": "0b329c3c9b31404ea3bfb59c78d5dd9a"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v2/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "admin",
+            "id": "7d6c41ea229f46b69f833b610d1aeb2e"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v2/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "public",
+            "id": "8a2525eb1b3f4898bcde7e02812baa6a"
+          }
+        ],
+        "type": "volumev2",
+        "id": "6e16008c724f4688b648c96c993c2c8f",
+        "name": "cinderv2"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8774/v2/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "internal",
+            "id": "0ca97675b05647c483d53647beca4449"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8774/v2/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "admin",
+            "id": "a3a52b5d158342dda4e55fc6cb48c27a"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8774/v2/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "public",
+            "id": "c1e1a1408cb5432cbe2c2c3e60bb9a45"
+          }
+        ],
+        "type": "compute_legacy",
+        "id": "902d5d82fb02430688b80ad709600219",
+        "name": "nova_legacy"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8004/v1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "public",
+            "id": "6a8a04f2602240f9b48fff539231f58f"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8004/v1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "admin",
+            "id": "b8c2cda644d3449e843e2b18138aab9f"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8004/v1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "internal",
+            "id": "bfb9bd73905840daa86f8752f65e1875"
+          }
+        ],
+        "type": "orchestration",
+        "id": "91dda061ce864a968409443b98734d84",
+        "name": "heat"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:9292",
+            "region": "nova",
+            "interface": "internal",
+            "id": "8c8ed0e2226241d69a29d76d11794355"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:9292",
+            "region": "nova",
+            "interface": "admin",
+            "id": "8cb744c0d5ba46158abedd7daa253a2d"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:9292",
+            "region": "nova",
+            "interface": "public",
+            "id": "c59c0b151d6b47859bddcb070277fede"
+          }
+        ],
+        "type": "image",
+        "id": "bce47d5080bb48d4884e5d852c99dc0b",
+        "name": "glance"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "internal",
+            "id": "42bd172078db4b799d054e1f2fa39630"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "public",
+            "id": "ad6af07a6e0248d2a58eb8fb82005825"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:8776/v1/6d75a4dfac7b4526bb023b0a07e555a7",
+            "region": "nova",
+            "interface": "admin",
+            "id": "c820f7b5d9d448d487208e7fe3b0e233"
+          }
+        ],
+        "type": "volume",
+        "id": "c4fb98f570c9418992a03d8501c38406",
+        "name": "cinder"
+      },
+      {
+        "endpoints": [
+          {
+            "region_id": "nova",
+            "url": "https://localhost:5000/v3",
+            "region": "nova",
+            "interface": "internal",
+            "id": "6413873b7f0947e6b246f9ad918ccc7f"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:5000/v3",
+            "region": "nova",
+            "interface": "public",
+            "id": "65ecfebbd4044dbcbe482321cfb60d2b"
+          },
+          {
+            "region_id": "nova",
+            "url": "https://localhost:35357/v3",
+            "region": "nova",
+            "interface": "admin",
+            "id": "ee619e24f67f4763bb35cb37c4165508"
+          }
+        ],
+        "type": "identity",
+        "id": "f385b6b52f504af8a764e35e017eb1e4",
+        "name": "keystone"
+      }
+    ],
+    "user": {
+      "domain": {
+        "id": "default",
+        "name": "Default"
+      },
+      "id": "74ef52bb6dfa4f64b05ea967811770f7",
+      "name": "admin"
+    },
+    "audit_ids": [
+      "CHNncW1ESCysDLcYU76rhA"
+    ],
+    "issued_at": "2017-03-23T08:02:24.000000Z"
+  }
+}

@@ -1,0 +1,4 @@
+[
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/extsys_vim.json"},
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/catalog.json"}
+]

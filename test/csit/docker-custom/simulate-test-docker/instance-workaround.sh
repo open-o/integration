@@ -24,4 +24,7 @@ fi
 if [ $SIMULATOR_JSON == "Stubs/testcase/multivimdriver-newton/main.json" ]; then
   sed -i -- "s/localhost/$IPADDRESS/g" Stubs/testcase/multivimdriver-newton/*
 fi
+if [ $SIMULATOR_JSON == "Stubs/testcase/multivimdriver-vmware-vio/main.json" ]; then
+  sed -i -- "s/localhost/$IPADDRESS/g" Stubs/testcase/multivimdriver-vmware-vio/*
+fi
 

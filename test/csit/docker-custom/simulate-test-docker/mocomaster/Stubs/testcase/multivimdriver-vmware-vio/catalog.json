@@ -1,0 +1,10 @@
+[{
+        "request": {
+            "method": "get",
+            "uri": {"match": "/openoapi/catalog/v1/cirros-0.3.2-i386-so-disk.vmdk"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/cirros-0.3.2-i386-so-disk.vmdk"
+        }
+ }
+]

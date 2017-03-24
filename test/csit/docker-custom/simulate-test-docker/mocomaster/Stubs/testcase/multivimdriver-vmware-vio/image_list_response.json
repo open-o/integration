@@ -1,0 +1,60 @@
+{
+  "images": [
+    {
+      "container_format": "bare",
+      "min_ram": 0,
+      "vmware_disktype": "sparse",
+      "updated_at": "2017-03-23T07:20:01Z",
+      "file": "/v2/images/ee0b2945-975f-412f-bf68-d73f51453ad7/file",
+      "owner": "6d75a4dfac7b4526bb023b0a07e555a7",
+      "id": "ee0b2945-975f-412f-bf68-d73f51453ad7",
+      "size": null,
+      "self": "/v2/images/ee0b2945-975f-412f-bf68-d73f51453ad7",
+      "disk_format": "vmdk",
+      "schema": "/v2/schemas/image",
+      "status": "queued",
+      "tags": [],
+      "visibility": "public",
+      "locations": [],
+      "min_disk": 0,
+      "virtual_size": null,
+      "name": "test-image",
+      "checksum": null,
+      "created_at": "2017-03-23T07:20:01Z",
+      "protected": false,
+      "vmware_ostype": "ubuntu64Guest"
+    },
+    {
+      "file": "/v2/images/e338f296-dba6-4f69-8023-ef5fff62bfe8/file",
+      "container_format": "bare",
+      "min_ram": 0,
+      "vmware_disktype": "streamOptimized",
+      "locations": [
+        {
+          "url": "vi://10.154.8.17/vm-dc/vm/OpenStack/Project (6d75a4dfac7b4526bb023b0a07e555a7)/Images/e338f296-dba6-4f69-8023-ef5fff62bfe8?managed=True",
+          "metadata": {}
+        }
+      ],
+      "vmware_adaptertype": "lsiLogic",
+      "owner": "6d75a4dfac7b4526bb023b0a07e555a7",
+      "id": "e338f296-dba6-4f69-8023-ef5fff62bfe8",
+      "size": 933466624,
+      "self": "/v2/images/e338f296-dba6-4f69-8023-ef5fff62bfe8",
+      "disk_format": "vmdk",
+      "direct_url": "vi://10.154.8.17/vm-dc/vm/OpenStack/Project (6d75a4dfac7b4526bb023b0a07e555a7)/Images/e338f296-dba6-4f69-8023-ef5fff62bfe8?managed=True",
+      "schema": "/v2/schemas/image",
+      "status": "active",
+      "tags": [],
+      "visibility": "public",
+      "updated_at": "2017-03-14T01:07:38Z",
+      "min_disk": 0,
+      "virtual_size": 4294967296,
+      "name": "test-ubuntu",
+      "checksum": null,
+      "created_at": "2017-03-14T01:06:34Z",
+      "protected": false
+    }
+  ],
+  "schema": "/v2/schemas/images",
+  "first": "/v2/images"
+}
