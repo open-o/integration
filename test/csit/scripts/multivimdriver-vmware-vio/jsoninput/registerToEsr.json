@@ -1,0 +1,15 @@
+{
+  "id": "string",
+  "name": "vio_user",
+  "vendor": "VMware",
+  "version": "v1.0",
+  "description": "vio user for csit",
+  "type": "vmware",
+  "createTime": "string",
+  "category": "string",
+  "url": "https://192.168.1.3:5000/v3",
+  "userName": "admin",
+  "password": "vmware",
+  "domain": "default",
+  "tenant": "demo"
+}
