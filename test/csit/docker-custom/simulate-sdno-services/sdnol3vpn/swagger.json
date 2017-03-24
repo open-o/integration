@@ -1,0 +1,1062 @@
+[
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnol3vpn/v1/swagger.json"
+            },
+            "method": "get"
+        },
+        "response": {
+            "status": "200",
+            "json": {
+                "swagger": "2.0",
+                "info": {
+                    "version": "1.0.0",
+                    "title": "L3VPN NBI",
+                    "description": "API of SDN-O Lifecycle WAN VPN service (L3VPN)"
+                },
+                "basePath": "/openoapi/sdnol3vpn/v1",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "paths": {
+                    "/l3vpns": {
+                        "post": {
+                            "description": "",
+                            "operationId": "createL3vpn",
+                            "parameters": [
+                                {
+                                    "in": "body",
+                                    "name": "body",
+                                    "description": "the VPN to be created including PWSchema, TunnelSchema, PathConstraints",
+                                    "required": true,
+                                    "schema": {
+                                        "$ref": "#/definitions/VpnVo"
+                                    }
+                                }
+                            ],
+                            "responses": {
+                                "201": {
+                                    "description": "Vpn creation request is accepted and Vpn service started to process it. To find the progress of Vpn creation, use GET on returned Vpn'",
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpn"
+                                    }
+                                },
+                                "400": {
+                                    "description": "Vpn resource provided in body is missing with required properties."
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "not found"
+                                },
+                                "500": {
+                                    "description": "Vpn service failed to process the request."
+                                }
+                            }
+                        }
+                    },
+                    "/l3vpns/{uuid}": {
+                        "get": {
+                            "description": "",
+                            "operationId": "readL3vpn",
+                            "parameters": [
+                                {
+                                    "name": "uuid",
+                                    "in": "path",
+                                    "description": "VPN ID.",
+                                    "required": true,
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "details of VPN",
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpn"
+                                    }
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "Not Found"
+                                },
+                                "500": {
+                                    "description": "VPN service failed to process the request."
+                                }
+                            }
+                        },
+                        "delete": {
+                            "description": "",
+                            "operationId": "deleteL3vpn",
+                            "parameters": [
+                                {
+                                    "name": "uuid",
+                                    "in": "path",
+                                    "description": "VPN ID.",
+                                    "required": true,
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            ],
+                            "responses": {
+                                "204": {
+                                    "description": "VPN deleted"
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "VPN is not found"
+                                },
+                                "500": {
+                                    "description": "VPN service failed to process the request."
+                                }
+                            }
+                        },
+                        "put": {
+                            "description": "",
+                            "operationId": "updateL3vpn",
+                            "parameters": [
+                                {
+                                    "name": "uuid",
+                                    "in": "path",
+                                    "description": "VPN ID.",
+                                    "required": true,
+                                    "type": "string",
+                                    "format": "uuid"
+                                },
+                                {
+                                    "in": "body",
+                                    "name": "body",
+                                    "description": "the VPN details for the update operation",
+                                    "required": true,
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpn"
+                                    }
+                                }
+                            ],
+                            "responses": {
+                                "201": {
+                                    "description": "Vpn update request is accepted and Vpn service started to process it. To find the progress of Vpn update, use GET on returned Vpn'",
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpn"
+                                    }
+                                },
+                                "400": {
+                                    "description": "Vpn resource provided in body is missing with required properties."
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "not found"
+                                },
+                                "500": {
+                                    "description": "Vpn service failed to process the request."
+                                }
+                            }
+                        }
+                    },
+                    "/l3vpns/{uuid}/status": {
+                        "get": {
+                            "description": "",
+                            "operationId": "readL3vpnStatus",
+                            "parameters": [
+                                {
+                                    "name": "uuid",
+                                    "in": "path",
+                                    "description": "VPN ID.",
+                                    "required": true,
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "status of VPN",
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpn"
+                                    }
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "Not Found"
+                                },
+                                "500": {
+                                    "description": "VPN service failed to process the request."
+                                }
+                            }
+                        }
+                    }
+                },
+                "definitions": {
+                    "VpnVo": {
+                        "type": "object",
+                        "properties": {
+                            "pwSchema": {
+                                "$ref": "#/definitions/PWSchema"
+                            },
+                            "tunnelSchema": {
+                                "$ref": "#/definitions/TunnelSchema"
+                            },
+                            "pathConstraints": {
+                                "$ref": "#/definitions/PathConstraints"
+                            },
+                            "vpn": {
+                                "$ref": "#/definitions/Vpn"
+                            }
+                        }
+                    },
+                    "PWSchema": {
+                        "type": "object",
+                        "properties": {
+                            "pwTech": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "TunnelSchema": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "tunnelTech": {
+                                "type": "string",
+                                "enum": [
+                                    "NOP",
+                                    "LDP",
+                                    "RSVP-TE",
+                                    "SR-TE",
+                                    "MPLS-TP",
+                                    "TE-ANY"
+                                ]
+                            },
+                            "pwTech": {
+                                "$ref": "#/definitions/PWSpec"
+                            },
+                            "tunnelLatency": {
+                                "type": "string",
+                                "format": "integerMin0Max60000000"
+                            },
+                            "tunnelSelectMode": {
+                                "type": "string",
+                                "enum": [
+                                    "AutoCreate",
+                                    "AutoSelect",
+                                    "MannualSelect"
+                                ]
+                            },
+                            "tunnelCreatePolicy": {
+                                "$ref": "#/definitions/MplsTESpec"
+                            },
+                            "tunnelAutoSelectPolicy": {
+                                "$ref": "#/definitions/SelectTunnelPolicy"
+                            }
+                        }
+                    },
+                    "PWSpec": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "controlWord": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "pwVlanAction": {
+                                "type": "string",
+                                "enum": [
+                                    "Raw",
+                                    "tagged"
+                                ]
+                            }
+                        }
+                    },
+                    "MplsTESpec": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "bestEffort": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "shareMode": {
+                                "type": "string",
+                                "enum": [
+                                    "delegate",
+                                    "1:1",
+                                    "N:1"
+                                ]
+                            },
+                            "coRoute": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "bfdEnable": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "pathConstraint": {
+                                "$ref": "#/definitions/TunnelPathConstraint"
+                            }
+                        }
+                    },
+                    "TunnelPathConstraint": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "setupPriority": {
+                                "type": "string",
+                                "format": "intMin0Max7"
+                            },
+                            "holdupPriority": {
+                                "type": "string",
+                                "format": "intMin0Max7"
+                            }
+                        }
+                    },
+                    "SelectTunnelPolicy": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "loadBalanceNum": {
+                                "type": "string",
+                                "format": "intMin1Max32"
+                            },
+                            "selectTunnels": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/SelectTunnel"
+                                }
+                            }
+                        }
+                    },
+                    "SelectTunnel": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "priority": {
+                                "type": "string",
+                                "format": "intMin1Max3"
+                            },
+                            "tunnelTech": {
+                                "type": "string",
+                                "enum": [
+                                    "NOP",
+                                    "LDP",
+                                    "RSVP-TE",
+                                    "SR-TE",
+                                    "MPLS-TP",
+                                    "TE-ANY"
+                                ]
+                            }
+                        }
+                    },
+                    "PathConstraints": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "tunnelConstraints": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/TunnelSpecificPathConstraint"
+                                }
+                            }
+                        }
+                    },
+                    "TunnelSpecificPathConstraint": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "pathConnection": {
+                                "$ref": "#/definitions/PathConnection"
+                            },
+                            "tunnelWorkMode": {
+                                "type": "string",
+                                "enum": [
+                                    "AutoCreate",
+                                    "AutoSelect",
+                                    "MannualSelect"
+                                ]
+                            },
+                            "tunnelTech": {
+                                "type": "string",
+                                "enum": [
+                                    "NOP",
+                                    "LDP",
+                                    "RSVP-TE",
+                                    "SR-TE",
+                                    "MPLS-TP",
+                                    "TE-ANY"
+                                ]
+                            },
+                            "bodMode": {
+                                "type": "string",
+                                "enum": [
+                                    "realBod",
+                                    "renewBod"
+                                ]
+                            },
+                            "bandwidth": {
+                                "type": "integer"
+                            },
+                            "bindingTunnels": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "Vpn": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "description": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "vpnBasicInfo": {
+                                "$ref": "#/definitions/VpnBasicInfo"
+                            },
+                            "operStatus": {
+                                "type": "string",
+                                "enum": [
+                                    "up",
+                                    "down",
+                                    "partial",
+                                    "nop"
+                                ]
+                            },
+                            "syncStatus": {
+                                "type": "string",
+                                "enum": [
+                                    "sync",
+                                    "out-sync"
+                                ]
+                            },
+                            "accessPointList": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/Tp"
+                                }
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            }
+                        }
+                    },
+                    "Tp": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "name": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "description": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "adminStatus": {
+                                "type": "string",
+                                "enum": [
+                                    "active",
+                                    "inactive",
+                                    "partial",
+                                    "nop"
+                                ]
+                            },
+                            "operStatus": {
+                                "type": "string",
+                                "enum": [
+                                    "up",
+                                    "down",
+                                    "partial",
+                                    "nop"
+                                ]
+                            },
+                            "neId": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "edgePointRole": {
+                                "type": "string",
+                                "enum": [
+                                    "ASBR",
+                                    "nop"
+                                ]
+                            },
+                            "hubSpoke": {
+                                "type": "string",
+                                "enum": [
+                                    "hub",
+                                    "spoke",
+                                    "spokeBridge",
+                                    "other"
+                                ]
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "PTP",
+                                    "CTP",
+                                    "TRUNK",
+                                    "LoopBack",
+                                    "TPPool",
+                                    "nop"
+                                ]
+                            },
+                            "workingLayer": {
+                                "type": "string",
+                                "enum": [
+                                    "LR_Ethernet",
+                                    "LR_IP",
+                                    "LR_Vxlan",
+                                    "LR_PW",
+                                    "LR_NOP",
+                                    "LR_MPLS_TE"
+                                ]
+                            },
+                            "typeSpecList": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/TpTypeSpec"
+                                }
+                            },
+                            "peerCeTp": {
+                                "$ref": "#/definitions/CeTp"
+                            },
+                            "qosProfileId": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "inboundQosPolicyId": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "outboundQosPolicyId": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "inboundQueueProfileId": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "outboundQueueProfileId": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "containedMainTP": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "routeProtocolSpecs": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/RouteProtocolSpec"
+                                }
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            }
+                        }
+                    },
+                    "TpTypeSpec": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "layerRate": {
+                                "type": "string",
+                                "enum": [
+                                    "LR_Ethernet",
+                                    "LR_IP",
+                                    "LR_Vxlan",
+                                    "LR_PW",
+                                    "LR_NOP",
+                                    "LR_MPLS_TE"
+                                ]
+                            },
+                            "ethernetTpSpec": {
+                                "$ref": "#/definitions/EthernetTpSpec"
+                            },
+                            "ipTpSpec": {
+                                "$ref": "#/definitions/IpTpSpec"
+                            }
+                        }
+                    },
+                    "EthernetTpSpec": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "accessType": {
+                                "type": "string",
+                                "enum": [
+                                    "eth",
+                                    "vlan"
+                                ]
+                            },
+                            "vlanAction": {
+                                "type": "string",
+                                "enum": [
+                                    "nop",
+                                    "untag",
+                                    "cvlan 1:1 mapping",
+                                    "1:2 mapping",
+                                    "2:1 mapping",
+                                    "stacking"
+                                ]
+                            },
+                            "actionValue": {
+                                "type": "string",
+                                "format": "maxLen400"
+                            },
+                            "qinqCvlanList": {
+                                "type": "string",
+                                "format": "maxLen400"
+                            },
+                            "qinqSvlanList": {
+                                "type": "string",
+                                "format": "maxLen400"
+                            },
+                            "dot1qVlanList": {
+                                "type": "string",
+                                "format": "maxLen400"
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            }
+                        }
+                    },
+                    "IpTpSpec": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "masterIp": {
+                                "type": "string"
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            }
+                        }
+                    },
+                    "NVString": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "TePath": {
+                        "type": "object",
+                        "properties": {
+                            "pathRole": {
+                                "type": "string"
+                            },
+                            "pathStatus": {
+                                "type": "string"
+                            },
+                            "ingressNeid": {
+                                "type": "string"
+                            },
+                            "egressNeid": {
+                                "type": "string"
+                            },
+                            "pathList": {
+                                "items": {
+                                    "$ref": "#/definitions/ServiceTePath"
+                                }
+                            }
+                        }
+                    },
+                    "ServiceTePath": {
+                        "type": "object",
+                        "properties": {
+                            "neId": {
+                                "type": "string"
+                            },
+                            "neName": {
+                                "type": "string"
+                            },
+                            "ingressTpId": {
+                                "type": "string"
+                            },
+                            "egressTpId": {
+                                "type": "string"
+                            },
+                            "ingressTpName": {
+                                "type": "string"
+                            },
+                            "egressTpName": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "PathConnection": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "aObject": {
+                                "$ref": "#/definitions/ObjectIdentifier"
+                            },
+                            "zObject": {
+                                "$ref": "#/definitions/ObjectIdentifier"
+                            },
+                            "direction": {
+                                "type": "string",
+                                "enum": [
+                                    "uni",
+                                    "bi"
+                                ]
+                            },
+                            "linkPoolLabel": {
+                                "type": "string",
+                                "format": "maxLen255"
+                            }
+                        }
+                    },
+                    "ObjectIdentifier": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "objectId": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "objectRouteRole": {
+                                "type": "string",
+                                "enum": [
+                                    "msPwSw",
+                                    "abs"
+                                ]
+                            },
+                            "objectType": {
+                                "type": "string",
+                                "enum": [
+                                    "Nop",
+                                    "SEG-VPN",
+                                    "TP",
+                                    "TPL",
+                                    "NE",
+                                    "COMPOSED-VPN",
+                                    "RESOURCE-POOL"
+                                ]
+                            },
+                            "appendix": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            }
+                        }
+                    },
+                    "VpnBasicInfo": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "topology": {
+                                "type": "string",
+                                "enum": [
+                                    "full-mesh",
+                                    "point_to_multipoint",
+                                    "point_to_point",
+                                    "singlePoint",
+                                    "hubspoke",
+                                    "hubspoke_via_hubce",
+                                    "hubspoke_disjoint"
+                                ]
+                            },
+                            "serviceType": {
+                                "type": "string",
+                                "enum": [
+                                    "l3vpn",
+                                    "l2vpn",
+                                    "other"
+                                ]
+                            },
+                            "technology": {
+                                "type": "string",
+                                "enum": [
+                                    "mpls",
+                                    "rosen multivpn",
+                                    "ng multivpn",
+                                    "vxlan overlay l3vpn",
+                                    "eth over sdh"
+                                ]
+                            },
+                            "adminStatus": {
+                                "type": "string",
+                                "enum": [
+                                    "active",
+                                    "inactive",
+                                    "partial",
+                                    "nop"
+                                ]
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            },
+                            "ipMtu": {
+                                "type": "string",
+                                "format": "intMin46Max9600"
+                            },
+                            "ipVpnSpec": {
+                                "$ref": "#/definitions/IpVpnSpec"
+                            }
+                        }
+                    },
+                    "IpVpnSpec": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "labelMode": {
+                                "type": "string",
+                                "enum": [
+                                    "PerInstance",
+                                    "PerRoute"
+                                ]
+                            },
+                            "frrEnable": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "RouteProtocolSpec": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "staticRouting",
+                                    "bgp",
+                                    "rip",
+                                    "ospf",
+                                    "isis"
+                                ]
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            },
+                            "bgpRoute": {
+                                "$ref": "#/definitions/BgpProtocolItem"
+                            },
+                            "staticRoute": {
+                                "$ref": "#/definitions/StaticRouteTable"
+                            }
+                        }
+                    },
+                    "BgpProtocolItem": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "idx": {
+                                "type": "integer"
+                            },
+                            "peerAsNumber": {
+                                "type": "integer"
+                            },
+                            "keepAliveTime": {
+                                "type": "integer",
+                                "format": "intMin0Max21845"
+                            },
+                            "holdTime": {
+                                "type": "integer",
+                                "format": "intMin0Max65535"
+                            },
+                            "password": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "bgpMaxPrefix": {
+                                "type": "integer"
+                            },
+                            "bgpMaxPrefixAlarm": {
+                                "type": "integer"
+                            },
+                            "peerIp": {
+                                "type": "string"
+                            },
+                            "community": {
+                                "type": "string",
+                                "enum": [
+                                    "true",
+                                    "false"
+                                ]
+                            },
+                            "extCommunity": {
+                                "type": "string",
+                                "enum": [
+                                    "true",
+                                    "false"
+                                ]
+                            }
+                        }
+                    },
+                    "StaticRouteTable": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36"
+                            },
+                            "destinationCidr": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "routePreference": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "nextHopIp": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            }
+                        }
+                    },
+                    "CeTp": {
+                        "type": "object",
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "ceID": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "ceDirectNeID": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "ceDirectTPID": {
+                                "type": "string",
+                                "format": "maxLen36AlphaNumericDashUnderscore"
+                            },
+                            "siteName": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "ceName": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "ceIfmasterIp": {
+                                "type": "string"
+                            },
+                            "location": {
+                                "type": "string",
+                                "format": "maxLen200"
+                            },
+                            "additionalInfo": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/NVString"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]

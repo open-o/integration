@@ -1,57 +1,8 @@
 [
     {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnol2vpn/"
-            },
-            "method": "post"
-        },
-        "response": {
-            "status": "201"
-        }
+        "include": "swagger.json"
     },
     {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnol2vpn/"
-            },
-            "method": "put"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnol2vpn/"
-            },
-            "method": "delete"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnol2vpn/"
-            },
-            "method": "update"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnol2vpn/"
-            },
-            "method": "get"
-        },
-        "response": {
-            "status": "200"
-        }
+        "include": "general.json"
     }
 ]

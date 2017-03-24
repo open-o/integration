@@ -1,0 +1,280 @@
+[
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnoservicechain/v1/swagger.json"
+            },
+            "method": "get"
+        },
+        "response": {
+            "status": "200",
+            "json": {
+                "swagger": "2.0",
+                "info": {
+                    "title": "SFC NBI API",
+                    "description": "Service Function Chain Northbound Interface API",
+                    "version": "1.0.0"
+                },
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "basePath": "/openoapi/sdnoservicechain/v1",
+                "paths": {
+                    "/paths": {
+                        "post": {
+                            "summary": "SFC Creates",
+                            "description": "Create a SFC instance.\n",
+                            "parameters": [
+                                {
+                                    "name": "serviceChainPath",
+                                    "in": "body",
+                                    "description": "Service Function Chain Path",
+                                    "required": true,
+                                    "schema": {
+                                        "$ref": "#/definitions/ServiceChainPath"
+                                    }
+                                }
+                            ],
+                            "responses": {
+                                "201": {
+                                    "description": "OK",
+                                    "schema": {
+                                        "$ref": "#/definitions/ServiceChainPathResult"
+                                    }
+                                },
+                                "400": {
+                                    "description": "Bad Request"
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "Not Found"
+                                },
+                                "500": {
+                                    "description": "Internal Server Error"
+                                }
+                            }
+                        }
+                    },
+                    "/paths/{uuid}": {
+                        "parameters": [
+                            {
+                                "name": "uuid",
+                                "in": "path",
+                                "description": "ID of the Service Function Chain",
+                                "type": "string",
+                                "required": true
+                            }
+                        ],
+                        "delete": {
+                            "responses": {
+                                "200": {
+                                    "description": "OK"
+                                },
+                                "400": {
+                                    "description": "Bad Request"
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "Not Found"
+                                },
+                                "409": {
+                                    "description": "Conflict"
+                                },
+                                "500": {
+                                    "description": "Internal Server Error"
+                                }
+                            }
+                        }
+                    }
+                },
+                "definitions": {
+                    "ServiceChainPathResult": {
+                        "type": "object",
+                        "required": [
+                            "id",
+                            "operationId",
+                            "createTime"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "The ID of the ServiceChainPath"
+                            },
+                            "operationId": {
+                                "type": "string",
+                                "description": "The ID of the operation."
+                            },
+                            "createTime": {
+                                "type": "string",
+                                "description": "The time of the ServiceChainPath"
+                            }
+                        }
+                    },
+                    "ServicePathHop": {
+                        "type": "object",
+                        "required": [
+                            "hopNumber",
+                            "sfiId"
+                        ],
+                        "properties": {
+                            "hopNumber": {
+                                "type": "integer",
+                                "description": "Hop Number of the SFC.Starting from 1.",
+                                "minimum": 1
+                            },
+                            "sfiId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "The identity of service function instance."
+                            },
+                            "sfgId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "Reserved.The identity of service function group instance."
+                            }
+                        }
+                    },
+                    "ServiceChainPath": {
+                        "type": "object",
+                        "required": [
+                            "name",
+                            "scfNeId"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "The name of service function path"
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "The description of service function path"
+                            },
+                            "id": {
+                                "type": "string",
+                                "description": "The ID of the ServiceChainPath"
+                            },
+                            "sfcName": {
+                                "type": "string",
+                                "description": "The name of service function chain template"
+                            },
+                            "sfcId": {
+                                "type": "string",
+                                "description": "The id of service function chain template"
+                            },
+                            "popId": {
+                                "type": "string",
+                                "description": "The id of pop"
+                            },
+                            "scfNeId": {
+                                "type": "string",
+                                "description": "The id of scf NE"
+                            },
+                            "symmetric": {
+                                "type": "boolean",
+                                "description": "Whetehr symmetric"
+                            },
+                            "transportType": {
+                                "type": "string",
+                                "description": "The type of the transport"
+                            },
+                            "servicePathHops": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/ServicePathHop"
+                                },
+                                "description": "Hop Number of the SFC"
+                            },
+                            "classifiers": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/ServiceClassifer"
+                                },
+                                "description": "The list of scf"
+                            }
+                        }
+                    },
+                    "ServiceClassifer": {
+                        "type": "object",
+                        "required": [
+                            "interfaceName",
+                            "zone"
+                        ],
+                        "properties": {
+                            "interfaceName": {
+                                "type": "string",
+                                "description": "The name of interface"
+                            },
+                            "zone": {
+                                "type": "string",
+                                "description": "trust zone or untrust zone"
+                            },
+                            "rules": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/Rule"
+                                }
+                            }
+                        }
+                    },
+                    "Rule": {
+                        "type": "object",
+                        "required": [
+                            "protocol",
+                            "policy",
+                            "srcPort",
+                            "destPort",
+                            "srcIp",
+                            "srcMask",
+                            "destIp",
+                            "destMask"
+                        ],
+                        "properties": {
+                            "protocol": {
+                                "type": "string",
+                                "description": "The protocol type of the rule"
+                            },
+                            "policy": {
+                                "type": "string",
+                                "description": "The policy name of the rule"
+                            },
+                            "srcPort": {
+                                "type": "string",
+                                "description": "The srcPort name"
+                            },
+                            "destPort": {
+                                "type": "string",
+                                "description": "The destPort name"
+                            },
+                            "srcIp": {
+                                "type": "string",
+                                "description": "The src IP address"
+                            },
+                            "srcMask": {
+                                "type": "string",
+                                "description": "The src IP mask address"
+                            },
+                            "destIp": {
+                                "type": "string",
+                                "description": "The dest IP address"
+                            },
+                            "destMask": {
+                                "type": "string",
+                                "description": "The dest IP mask address"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]

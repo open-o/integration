@@ -39,7 +39,7 @@ while [ $index -ne $array_size ]; do
     #Register to MSB services
     curl -d @$MSB_REG_JSON -H "Content-Type: application/json;charset=UTF-8" http://$MSB_ADDR$MSB_SERVICES_URL
     #Start Moco
-    java -jar ../$MOCO_JAR $SERVICE_TYPE -p $MICROSERVICE_LISTEN_PORT  -c  $JSON_COMPLETE | tee -a $PROJECT_NAME.log  ../common.log &
+    java -jar ../$MOCO_JAR $SERVICE_TYPE -p $MICROSERVICE_LISTEN_PORT  -g  $JSON_COMPLETE | tee -a $PROJECT_NAME.log  ../common.log &
     
     cd ..
     index=$((index + 1))

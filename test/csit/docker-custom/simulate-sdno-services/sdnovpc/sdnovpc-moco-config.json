@@ -1,57 +1,8 @@
 [
     {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnovpc/"
-            },
-            "method": "post"
-        },
-        "response": {
-            "status": "201"
-        }
+        "include": "swagger.json"
     },
     {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnovpc/"
-            },
-            "method": "put"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnovpc/"
-            },
-            "method": "delete"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnovpc/"
-            },
-            "method": "update"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnovpc/"
-            },
-            "method": "get"
-        },
-        "response": {
-            "status": "200"
-        }
+        "include": "general.json"
     }
 ]

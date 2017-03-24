@@ -1,57 +1,8 @@
 [
     {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnooverlay/"
-            },
-            "method": "post"
-        },
-        "response": {
-            "status": "201"
-        }
+        "include": "swagger.json"
     },
     {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnooverlay/"
-            },
-            "method": "put"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnooverlay/"
-            },
-            "method": "delete"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnooverlay/"
-            },
-            "method": "update"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnooverlay/"
-            },
-            "method": "get"
-        },
-        "response": {
-            "status": "200"
-        }
+        "include": "general.json"
     }
 ]

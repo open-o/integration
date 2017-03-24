@@ -1,57 +1,5 @@
 [
     {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnolocalsite/"
-            },
-            "method": "post"
-        },
-        "response": {
-            "status": "201"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnolocalsite/"
-            },
-            "method": "put"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnolocalsite/"
-            },
-            "method": "delete"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnolocalsite/"
-            },
-            "method": "update"
-        },
-        "response": {
-            "status": "200"
-        }
-    },
-    {
-        "request": {
-            "uri": {
-                "startsWith": "/openoapi/sdnolocalsite/"
-            },
-            "method": "get"
-        },
-        "response": {
-            "status": "200"
-        }
+        "include": "general.json"
     }
 ]

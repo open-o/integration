@@ -1,0 +1,376 @@
+[
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnooverlay/v1/swagger.json"
+            },
+            "method": "get"
+        },
+        "response": {
+            "status": "200",
+            "json": {
+                "swagger": "2.0",
+                "info": {
+                    "version": "v1",
+                    "title": "SDN-O E2E NBI",
+                    "description": "NBI of End-To-End Service in SDN-O Lifecycle"
+                },
+                "basePath": "/openoapi/sdnooverlay/v1",
+                "schemes": [
+                    "http"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "paths": {
+                    "/site2dc-vpn": {
+                        "post": {
+                            "summary": "create site to DC",
+                            "description": "it will create a stie to DC with one call.",
+                            "operationId": "SiteToDcVpnPost",
+                            "consumes": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "produces": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "parameters": [
+                                {
+                                    "in": "body",
+                                    "name": "site2dc-vpn",
+                                    "description": "the Site to DC object to be created",
+                                    "required": true,
+                                    "schema": {
+                                        "$ref": "#/definitions/SiteToDcVpn"
+                                    }
+                                }
+                            ],
+                            "responses": {
+                                "201": {
+                                    "description": "create site to DC success.",
+                                    "schema": {
+                                        "$ref": "#/definitions/SiteToDcVpnResponse"
+                                    }
+                                },
+                                "400": {
+                                    "description": "create site to DC failure as parameters invalid."
+                                },
+                                "401": {
+                                    "description": "unauthorized."
+                                },
+                                "404": {
+                                    "description": "create site to DC failure as can't reach server."
+                                },
+                                "500": {
+                                    "description": "create site to DC failure as inner error."
+                                }
+                            }
+                        }
+                    },
+                    "/site2dc-vpn/{site-to-dc-id}": {
+                        "get": {
+                            "summary": "query site to DC",
+                            "description": "it will return the configuration of a specific site to DC",
+                            "operationId": "SiteToDcVpnGet",
+                            "consumes": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "produces": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "parameters": [
+                                {
+                                    "name": "site-to-dc-id",
+                                    "in": "path",
+                                    "description": "VPN UUID",
+                                    "required": true,
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "query site to DC success.",
+                                    "schema": {
+                                        "$ref": "#/definitions/SiteToDcVpn"
+                                    }
+                                },
+                                "400": {
+                                    "description": "query site to DC failure as parameters invalid."
+                                },
+                                "401": {
+                                    "description": "unauthorized."
+                                },
+                                "404": {
+                                    "description": "query site to DC failure as can't reach server."
+                                },
+                                "500": {
+                                    "description": "query site to DC failure as inner error."
+                                }
+                            }
+                        },
+                        "delete": {
+                            "summary": "delete site to DC",
+                            "description": "it will delete a stie to DC with one call.",
+                            "operationId": "SiteToDcVpnDelete",
+                            "consumes": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "produces": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "parameters": [
+                                {
+                                    "name": "site-to-dc-id",
+                                    "in": "path",
+                                    "description": "VPN UUID",
+                                    "required": true,
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "delete site to DC success.",
+                                    "schema": {
+                                        "$ref": "#/definitions/SiteToDcVpnResponse"
+                                    }
+                                },
+                                "400": {
+                                    "description": "delete site to DC failure as parameters invalid."
+                                },
+                                "401": {
+                                    "description": "unauthorized."
+                                },
+                                "404": {
+                                    "description": "delete site to DC failure as can't reach server."
+                                },
+                                "500": {
+                                    "description": "delete site to DC failure as inner error."
+                                }
+                            }
+                        },
+                        "put": {
+                            "summary": "update site to DC",
+                            "description": "it will update a stie to DC with one call.",
+                            "operationId": "SiteToDcVpnUpdate",
+                            "consumes": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "produces": [
+                                "application/json;charset=UTF-8"
+                            ],
+                            "parameters": [
+                                {
+                                    "name": "site-to-dc-id",
+                                    "in": "path",
+                                    "description": "VPN UUID",
+                                    "required": true,
+                                    "type": "string",
+                                    "format": "uuid"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "update site to DC success.",
+                                    "schema": {
+                                        "$ref": "#/definitions/SiteToDcVpnResponse"
+                                    }
+                                },
+                                "400": {
+                                    "description": "update site to DC failure as parameters invalid."
+                                },
+                                "401": {
+                                    "description": "unauthorized."
+                                },
+                                "404": {
+                                    "description": "update site to DC failure as can't reach server."
+                                },
+                                "500": {
+                                    "description": "update site to DC failure as inner error."
+                                }
+                            }
+                        }
+                    }
+                },
+                "definitions": {
+                    "SiteToDcVpn": {
+                        "description": "site to DC instance",
+                        "type": "object",
+                        "required": [
+                            "name",
+                            "site",
+                            "vpc",
+                            "sfp"
+                        ],
+                        "properties": {
+                            "uuid": {
+                                "type": "string",
+                                "description": "uuid of Site2DC"
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "name of Site2DC"
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "description of Site2DC"
+                            },
+                            "site": {
+                                "$ref": "#/definitions/Site"
+                            },
+                            "vpc": {
+                                "$ref": "#/definitions/Vpc"
+                            },
+                            "sfp": {
+                                "$ref": "#/definitions/Sfp"
+                            }
+                        }
+                    },
+                    "Site": {
+                        "description": "site instance",
+                        "type": "object",
+                        "required": [
+                            "cidr",
+                            "thinCpeId",
+                            "portAndVlan",
+                            "vCPEId"
+                        ],
+                        "properties": {
+                            "cidr": {
+                                "type": "string",
+                                "description": "the cidr information"
+                            },
+                            "thinCpeId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "the thin CPE UUID"
+                            },
+                            "portAndVlan": {
+                                "type": "string",
+                                "description": "the port UUID and Vlan ID"
+                            },
+                            "vCPEId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "the vCPE UUID"
+                            }
+                        }
+                    },
+                    "Vpc": {
+                        "description": "vpc instance",
+                        "type": "object",
+                        "required": [
+                            "name",
+                            "site"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "the name of VPC"
+                            },
+                            "site": {
+                                "$ref": "#/definitions/Subnet"
+                            }
+                        }
+                    },
+                    "Subnet": {
+                        "description": "subnet instance",
+                        "type": "object",
+                        "required": [
+                            "name",
+                            "cidr",
+                            "vni"
+                        ],
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "the name of subnet"
+                            },
+                            "cidr": {
+                                "type": "string",
+                                "description": "the cidr information"
+                            },
+                            "vni": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "vxlan id"
+                            }
+                        }
+                    },
+                    "Sfp": {
+                        "description": "service function path instance",
+                        "type": "object",
+                        "required": [
+                            "scfNeId"
+                        ],
+                        "properties": {
+                            "scfNeId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "CPE UUID"
+                            },
+                            "servicePathHop": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/definitions/ServicePathHop"
+                                },
+                                "description": "the list of service function path hop"
+                            }
+                        }
+                    },
+                    "ServicePathHop": {
+                        "description": "the list of service function path hop",
+                        "type": "object",
+                        "required": [
+                            "hopNumber",
+                            "sfiId"
+                        ],
+                        "properties": {
+                            "hopNumber": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "hop number, start at 1"
+                            },
+                            "sfiId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "service function instance UUID"
+                            },
+                            "sfgId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "service function group UUID"
+                            }
+                        }
+                    },
+                    "SiteToDcVpnResponse": {
+                        "description": "the response of site to DC",
+                        "type": "object",
+                        "required": [
+                            "errorCode"
+                        ],
+                        "properties": {
+                            "vpnId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "the VPN UUID"
+                            },
+                            "errorCode": {
+                                "type": "string",
+                                "description": "the operation response code"
+                            },
+                            "errorMsg": {
+                                "type": "string",
+                                "description": "the message information"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]

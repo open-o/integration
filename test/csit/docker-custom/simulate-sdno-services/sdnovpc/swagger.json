@@ -1,0 +1,416 @@
+[
+    {
+        "request": {
+            "uri": {
+                "startsWith": "/openoapi/sdnovpc/v1/swagger.json"
+            },
+            "method": "get"
+        },
+        "response": {
+            "status": "200",
+            "json": {
+                "swagger": "2.0",
+                "info": {
+                    "title": "VPC Service API",
+                    "description": "It provides Virtual Private cloud service in SDN-O on given OpenStack based clouds.",
+                    "version": "1.0.0"
+                },
+                "host": "sdno.openo.org",
+                "schemes": [
+                    "https",
+                    "http"
+                ],
+                "basePath": "/openoapi/sdnovpc/v1",
+                "paths": {
+                    "/vpcs": {
+                        "post": {
+                            "summary": "Create VPC",
+                            "description": "Create new VPC in OpenStack cloud.",
+                            "operationId": "createVpc",
+                            "consumes": [
+                                "application/json"
+                            ],
+                            "produces": [
+                                "application/json"
+                            ],
+                            "parameters": [
+                                {
+                                    "in": "body",
+                                    "name": "vpc",
+                                    "description": "Provide required properties of VPC.",
+                                    "required": true,
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpc"
+                                    }
+                                }
+                            ],
+                            "responses": {
+                                "201": {
+                                    "description": "VPC creation request is accepted and VPC service started to process it. To find the progress of VPC creation, use GET on returned vpc'",
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpc"
+                                    }
+                                },
+                                "400": {
+                                    "description": "VPC resource provided in body is missing with required properties."
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "not found"
+                                },
+                                "500": {
+                                    "description": "VPC service failed to process the request."
+                                }
+                            }
+                        }
+                    },
+                    "/vpcs/{vpcId}": {
+                        "get": {
+                            "summary": "Retrieve VPC",
+                            "description": "Retrieves the given VPC for the vpcId",
+                            "operationId": "getVpc",
+                            "parameters": [
+                                {
+                                    "name": "vpcId",
+                                    "in": "path",
+                                    "description": "VPC Id",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "details of VPC",
+                                    "schema": {
+                                        "$ref": "#/definitions/Vpc"
+                                    }
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "VPC Not Found"
+                                },
+                                "500": {
+                                    "description": "VPC service failed to process the request."
+                                }
+                            }
+                        },
+                        "delete": {
+                            "summary": "Delete VPC",
+                            "description": "Delete the given VPC for the vpcId",
+                            "operationId": "deleteVpc",
+                            "parameters": [
+                                {
+                                    "name": "vpcId",
+                                    "in": "path",
+                                    "description": "VPC Id",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "204": {
+                                    "description": "VPC deleted"
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "VPC is not found"
+                                },
+                                "500": {
+                                    "description": "VPC service failed to process the request."
+                                }
+                            }
+                        }
+                    },
+                    "/subnets": {
+                        "post": {
+                            "summary": "Create Subnet",
+                            "description": "Create new Subnet under given VPC in OpenStack cloud.",
+                            "operationId": "createSubnet",
+                            "consumes": [
+                                "application/json"
+                            ],
+                            "produces": [
+                                "application/json"
+                            ],
+                            "parameters": [
+                                {
+                                    "in": "body",
+                                    "name": "subnet",
+                                    "description": "Provide required properties of Subnet.",
+                                    "required": true,
+                                    "schema": {
+                                        "$ref": "#/definitions/Subnet"
+                                    }
+                                }
+                            ],
+                            "responses": {
+                                "201": {
+                                    "description": "Subnet creation request is accepted and VPC service started to process it. To find the progress of Subnet creation, use GET on return Subnet->id'",
+                                    "schema": {
+                                        "$ref": "#/definitions/Subnet"
+                                    }
+                                },
+                                "400": {
+                                    "description": "Subnet resource provided in body is missing with required properties."
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "500": {
+                                    "description": "VPC service failed to process the request."
+                                }
+                            }
+                        }
+                    },
+                    "/subnets/{subnetId}": {
+                        "get": {
+                            "summary": "Retrieve Subnet",
+                            "description": "Retrieves the Subnet for the subnetId under given VPC",
+                            "operationId": "getSubnet",
+                            "parameters": [
+                                {
+                                    "name": "subnetId",
+                                    "in": "path",
+                                    "description": "Subnet Id",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "200": {
+                                    "description": "details of Subnet",
+                                    "schema": {
+                                        "$ref": "#/definitions/Subnet"
+                                    }
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "VPC or Subnet Not Found"
+                                },
+                                "500": {
+                                    "description": "VPC service failed to process the request."
+                                }
+                            }
+                        },
+                        "delete": {
+                            "summary": "Delete Subnet",
+                            "description": "Delete the Subnet under given VPC",
+                            "operationId": "deleteSubnet",
+                            "parameters": [
+                                {
+                                    "name": "subnetId",
+                                    "in": "path",
+                                    "description": "Subnet Id",
+                                    "required": true,
+                                    "type": "string"
+                                }
+                            ],
+                            "responses": {
+                                "204": {
+                                    "description": "Subnet deleted"
+                                },
+                                "401": {
+                                    "description": "Unauthorized"
+                                },
+                                "404": {
+                                    "description": "VPC or Subnet Not found"
+                                },
+                                "500": {
+                                    "description": "VPC service failed to process the request."
+                                }
+                            }
+                        }
+                    }
+                },
+                "definitions": {
+                    "Vpc": {
+                        "type": "object",
+                        "description": "VPC encapsulate an external IP for the given project in a domain. Each property description is provided with 1. required 2. update allowed 3. format. whenever its needs to be mentioned explicitly.",
+                        "required": [
+                            "id",
+                            "name",
+                            "externalIp",
+                            "osControllerId"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "VPC identifier. UUID4 format. VPC service set this property during create operation."
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "VPC name in the format of Keystone <domain>/<project> (max 512 char in length). required."
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "Describes the details about VPC, Update allowed"
+                            },
+                            "statusReason": {
+                                "type": "string",
+                                "description": "In case on ERROR status, it will have the reason for the error. Otherwise its empty. It is required to make create process to be asynchronous."
+                            },
+                            "externalIp": {
+                                "type": "string",
+                                "description": "External IP assigned to the VPC. ipv4 supported. Used by SNAT and IPSec VPN Service. VPC service set this property after VPC is created."
+                            },
+                            "osControllerId": {
+                                "type": "string",
+                                "description": "Before VPC is created, user configures the OpenStack controller connection credentials in BRS service and it’s the Id of that BRS OpenStack controller, UUID4 format. required"
+                            },
+                            "createdAt": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "VPC creation time in YYYYMMDDHHMMSS in UTC time zone. VPC service set this property."
+                            },
+                            "updatedAt": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Lastest VPC update time in YYYYMMDDHHMMSS in UTC time zone. VPC service set this property."
+                            },
+                            "attributes": {
+                                "$ref": "#/definitions/UnderlayResources"
+                            }
+                        }
+                    },
+                    "UnderlayResources": {
+                        "type": "object",
+                        "description": "Having underlay projectId, domainId and routerId. Map format. VPC service set this property during create or update operations.",
+                        "required": [
+                            "id",
+                            "parentId",
+                            "projectId",
+                            "routerId"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "underlay resource identifier"
+                            },
+                            "parentId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "VPC UUID."
+                            },
+                            "projectId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "OpenStack keystone project UUID created as part of VPC creation"
+                            },
+                            "routerId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "Underlay rounter UUID. VPC service set this property as part of create operation"
+                            }
+                        }
+                    },
+                    "Subnet": {
+                        "type": "object",
+                        "description": "Under given VPC, one or many Subnets are created with different CIDR. Each property description is provided with 1. required 2. update allowed 3. format. whenever its needs to be mentioned explicitly.",
+                        "required": [
+                            "id",
+                            "name",
+                            "adminStatus",
+                            "cidr",
+                            "vni",
+                            "vpcId",
+                            "gatewayIp"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "Subnet identifier in UUID4 format. VPC service set this property"
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "Subnet name (max 255 char in length). required."
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "Describes the details about subnet. Update allowed"
+                            },
+                            "statusReason": {
+                                "type": "string",
+                                "description": "In case of ERROR status, it will have the reason for the error. Otherwise its empty. It is required to make create process to be asynchronous."
+                            },
+                            "adminStatus": {
+                                "type": "string",
+                                "description": "VPC subnet admin status(active, inactive). Active --- activate the subnet, Inactive - inactivate the subnet."
+                            },
+                            "cidr": {
+                                "type": "string",
+                                "description": "VPC subnet IP network, should be in format CIDR format. required."
+                            },
+                            "vni": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "The Vxlan id"
+                            },
+                            "vpcId": {
+                                "type": "string",
+                                "description": "VPC owns the subnet. required."
+                            },
+                            "gatewayIp": {
+                                "type": "string",
+                                "description": "Gateway Ip addressed used for this subnet. ipv4 supported. VPC service set this property when Subnet is created."
+                            },
+                            "createdAt": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "VPC creation time in YYYYMMDDHHMMSS in UTC time zone. VPC service set this property."
+                            },
+                            "updatedAt": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Lastest VPC update time in YYYYMMDDHHMMSS in UTC time zone. VPC service set this property."
+                            },
+                            "attributes": {
+                                "$ref": "#/definitions/subnetAttributes"
+                            }
+                        }
+                    },
+                    "subnetAttributes": {
+                        "type": "object",
+                        "description": "Having underlay networkId, subnetId. Map format. VPC service set this property during create or update operations.",
+                        "required": [
+                            "id",
+                            "parentId",
+                            "networkId",
+                            "subnetId"
+                        ],
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "subnet attribute identifier"
+                            },
+                            "parentId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "subnet UUID"
+                            },
+                            "networkId": {
+                                "type": "string",
+                                "description": "Underlay network UUID. VPC service set this property as part of create operation"
+                            },
+                            "subnetId": {
+                                "type": "string",
+                                "description": "Underlay subnet UUID. VPC service set this property as part of create operation"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
