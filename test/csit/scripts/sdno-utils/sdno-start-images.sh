@@ -98,7 +98,8 @@ function run_docker(){
     #sleep sleep_time in seconds
     sleep $wait
 }
-
+echo "@Before Starting Dockers:Memory State"
+memory_details
 #Start MSB
 MSB_PORT="80"
 run_docker i-msb common-services-msb
@@ -130,9 +131,15 @@ wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER
 
 #Start openoint/catalog
 run_docker i-catalog common-tosca-catalog
+curl_path='http://'$MSB_ADDR'/openoapi/catalog/v1/swagger.json'
+sleep_msg="Waiting_connection_for_url_for: i-catalog"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="20" STATUS_CODE="200"
 
 #Start openoint/tosca
 run_docker i-tosca common-tosca-aria
+curl_path='http://'$MSB_ADDR'/openoapi/tosca/v1/swagger.json'
+sleep_msg="Waiting_connection_for_url_for: i-tosca"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="20" STATUS_CODE="200"
 
 #Start openoint/tosca-inventory
 run_docker i-tosca-inventory common-tosca-inventory
@@ -198,3 +205,5 @@ else
         temp=$((temp+1))
     done
 fi
+echo "@After Starting Dockers: Memory State"
+memory_details

@@ -146,8 +146,6 @@ function wait_curl_driver(){
 
             echo $wait_message
         fi
-
-        echo "Repeat number # "$i""
         sleep $i
     done
     #MEMORY_USAGE

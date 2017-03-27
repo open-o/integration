@@ -41,8 +41,4 @@ curl -sS -X GET http://$MSB_ADDR/api/microservices/v1/services/tosca/version/v1 
 echo Sending POST request to Catalog
 CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$SCRIPT_DIR/enterprise2DC.csar" http://$MSB_ADDR/openoapi/catalog/v1/csars)
 #getting csarId from the json output
-CsarId=$(echo ${CsarIdString:11:36})
-echo $CsarId
 echo $CsarIdString
-#csar is sucessfully stored and csarId will be written into output.txt in current directory
-echo "====finished======"
