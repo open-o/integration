@@ -40,38 +40,38 @@ TestCaseGetVimID
 #    Log To Console        ${VIMID}
 
 
-#TestCaseCreateImage
-#    [Documentation]    Sanity Test - Create Image
-#    ${json_value}=     json_from_file      ${multivim_create_image_json}
-#    Remove From Dictionary  ${json_value}   imagePath
-#    Set To Dictionary  ${json_value}   imagePath   http://${SIMULATOR_IP}:18009/openoapi/catalog/v1/cirros-0.3.0-x86_64-disk.img
-#    ${json_string}=     string_from_json   ${json_value}
-#    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-#    Create Session    web_session    http://${MSB_IP}     headers=${headers}
-#    Set Request Body    ${json_string}
+TestCaseCreateImage
+    [Documentation]    Sanity Test - Create Image
+    ${json_value}=     json_from_file      ${multivim_create_image_json}
+    Remove From Dictionary  ${json_value}   imagePath
+    Set To Dictionary  ${json_value}   imagePath   http://${SIMULATOR_IP}:18009/openoapi/catalog/v1/cirros-0.3.2-i386-so-disk.vmdk
+    ${json_string}=     string_from_json   ${json_value}
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}     headers=${headers}
+    Set Request Body    ${json_string}
 #    Log To Console  ${json_string}
 #    Log To Console  ${VIMID}
 #    Log To Console  ${TENANTID}
-#    ${resp}=    Post Request    web_session     /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/images    ${json_string}
+    ${resp}=    Post Request    web_session     /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/images    ${json_string}
 #    Log To Console  ${resp}
-#    ${response_code}=     Convert To String      ${resp.status_code}
+    ${response_code}=     Convert To String      ${resp.status_code}
 #    Log To Console  ${response_code}
-#    List Should Contain Value    ${return_ok_list}   ${response_code}
-#    ${response_json}    json.loads    ${resp.content}
+    List Should Contain Value    ${return_ok_list}   ${response_code}
+    ${response_json}    json.loads    ${resp.content}
 #    Log To Console  ${response_json}
 #    Log To Console  ${resp.content}
-#    ${image1Id}=    Convert To String      ${response_json['id']}
-#    Set Global Variable     ${image1Id}
+    ${image1Id}=    Convert To String      ${response_json['id']}
+    Set Global Variable     ${image1Id}
 
-#TestCaseListImages
-#    [Documentation]    Sanity Test - Get Images List
-#    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-#    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-##    ${resp}=  Get Request    web_session    ${images_url}
-#    ${resp}=  Get Request    web_session    /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/images
-#    ${response_code}=     Convert To String      ${resp.status_code}
-#    List Should Contain Value    ${return_ok_list}   ${response_code}
-#    ${response_json}    json.loads    ${resp.content}
+TestCaseListImages
+    [Documentation]    Sanity Test - Get Images List
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+#    ${resp}=  Get Request    web_session    ${images_url}
+    ${resp}=  Get Request    web_session    /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/images
+    ${response_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${response_code}
+    ${response_json}    json.loads    ${resp.content}
 
 TestCaseGetImage
     [Documentation]    Sanity Test - Get Image
