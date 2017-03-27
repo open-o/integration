@@ -42,5 +42,14 @@
         "response": {
             "status": 204
         }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/limits"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/volume_limits_get_response.json"
+        }
     }
 ]
