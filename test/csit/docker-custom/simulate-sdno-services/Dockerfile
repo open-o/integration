@@ -25,28 +25,29 @@ EXPOSE 8518
 
 #copy each list in servic folder
 RUN ["/bin/mkdir", "sdnol2vpn"]
-ADD sdnol2vpn/*-moco-config.json ./sdnol2vpn/
+ADD sdnol2vpn/*.json ./sdnol2vpn/
 
 RUN ["/bin/mkdir", "sdnol3vpn"]
-ADD sdnol3vpn/*-moco-config.json ./sdnol3vpn/
+ADD sdnol3vpn/*.json ./sdnol3vpn/
 
 RUN ["/bin/mkdir", "sdnooverlay"]
-ADD sdnooverlay/*-moco-config.json ./sdnooverlay/
+ADD sdnooverlay/*.json ./sdnooverlay/
 
 RUN ["/bin/mkdir", "sdnoservicechain"]
-ADD sdnoservicechain/*-moco-config.json ./sdnoservicechain/
+ADD sdnoservicechain/*.json ./sdnoservicechain/
 
 RUN ["/bin/mkdir", "sdnosite"]
-ADD sdnosite/*-moco-config.json ./sdnosite/
+ADD sdnosite/*.json ./sdnosite/
 
 RUN ["/bin/mkdir", "sdnovpc"]
-ADD sdnovpc/*-moco-config.json ./sdnovpc/
+ADD sdnovpc/*.json ./sdnovpc/
 
 #Copy license to the docker image
 COPY License.txt ./
 
 #Copy entrypoint (start service script) to the docker image
 COPY docker-entrypoint.sh ./
+COPY docker-entrypoint-allinone.sh ./
 
 COPY msbRegistration_general.json ./
 
