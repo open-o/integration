@@ -15,7 +15,7 @@
 # This script is sourced by run-csit.sh after Robot test completion.
 
 #Kill all docker instances
-DOKCER_LIST=`docker ps --format "{{.Names}}"`
+DOCKER_LIST=`docker ps --format "{{.Names}}"`
 for docker in $DOCKER_LIST; do
     kill-instance.sh $docker || true
 done

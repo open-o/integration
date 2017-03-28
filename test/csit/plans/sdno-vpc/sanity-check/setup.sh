@@ -21,15 +21,24 @@ source ${SCRIPTS}/common_functions.sh
 # Start MSB
 ${SCRIPTS}/common-services-microservice-bus/startup.sh i-msb
 MSB_IP=`get-instance-ip.sh i-msb`
-curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
-sleep_msg="Waiting_connection_for_url_for:i-msb"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
+MSB_ADDR=${MSB_IP}:80
+sleep_msg="Waiting_connection_for:i-msb"
+curl_path='http://'${MSB_ADDR}'/api/microservices/v1/swagger.yaml'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="15" STATUS_CODE="200"
 
-# Start BRS
-${SCRIPTS}/sdno-brs/startup.sh i-brs ${MSB_IP}:80
-BRS_IP=`get-instance-ip.sh i-brs`
+#Start MSS
+run-instance.sh openoint/sdno-service-mss i-mss "-e MSB_ADDR=${MSB_ADDR}"
+curl_path='http://'${MSB_ADDR}'/openoapi/microservices/v1/services/sdnomss/version/v1'
+sleep_msg="Waiting_connection_for_url_for:i-mss"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="50" STATUS_CODE="200"
 
-${SCRIPTS}/sdno-vpc/startup.sh s-vpc ${MSB_IP}:80
+#Start BRS
+run-instance.sh openoint/sdno-service-brs i-brs " -i -t -e MSB_ADDR=${MSB_ADDR}"
+curl_path='http://'${MSB_ADDR}'/openoapi/sdnobrs/v1/swagger.json'
+sleep_msg="Waiting_connection_for_url_for:i-brs"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="50" STATUS_CODE="200"
+
+${SCRIPTS}/sdno-vpc/startup.sh s-vpc ${MSB_ADDR}
 SERVICE_IP=`get-instance-ip.sh s-vpc`
 
 SERVICE_PORT='8518'

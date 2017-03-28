@@ -104,41 +104,39 @@ memory_details
 MSB_PORT="80"
 run_docker i-msb common-services-msb
 MSB_ADDR=`docker inspect --format '{{ .NetworkSettings.IPAddress }}' i-msb`:$MSB_PORT
-sleep_msg="Waiting_connection_for_url_for:i-msb"
-curl_path='http://'${MSB_ADDR}'/openoui/microservices/index.html'
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
+sleep_msg="Waiting_connection_for:i-msb"
+curl_path='http://'${MSB_ADDR}'/api/microservices/v1/swagger.yaml'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="15" STATUS_CODE="200"
 
 #Start MSS
-echo "Start MSS"
 run_docker i-mss sdno-service-mss
 curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/sdnomss/version/v1'
-sleep_msg="Waiting_connection_for_url_for:i-mss"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200"
+sleep_msg="Waiting_connection_for:i-mss"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="50" STATUS_CODE="200"
 
 #Start BRS
-echo "Start BRS"
 run_docker i-brs sdno-service-brs
-curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/sdnobrs/version/v1'
-sleep_msg="Waiting_connection_for_url_for: i-brs"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200"
+curl_path='http://'$MSB_ADDR'/openoapi/sdnobrs/v1/swagger.json'
+sleep_msg="Waiting_connection_for:i-brs"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="50" STATUS_CODE="200"
 
 #Start openoint/lc_manag
 displayMessage $lc_manag
 run_docker s-$lc_manag $lc_manag
 curl_path='http://'$MSB_ADDR'/openoapi/sdnonslcm/v1/swagger.json'
-sleep_msg="Waiting_connection_for_url_for: s-$lc_manag"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="15" STATUS_CODE="200"
+sleep_msg="Waiting_connection_for:s-$lc_manag"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="20" STATUS_CODE="200"
 
 #Start openoint/catalog
 run_docker i-catalog common-tosca-catalog
 curl_path='http://'$MSB_ADDR'/openoapi/catalog/v1/swagger.json'
-sleep_msg="Waiting_connection_for_url_for: i-catalog"
+sleep_msg="Waiting_connection_for:i-catalog"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="20" STATUS_CODE="200"
 
 #Start openoint/tosca
 run_docker i-tosca common-tosca-aria
 curl_path='http://'$MSB_ADDR'/openoapi/tosca/v1/swagger.json'
-sleep_msg="Waiting_connection_for_url_for: i-tosca"
+sleep_msg="Waiting_connection_for:i-tosca"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="20" STATUS_CODE="200"
 
 #Start openoint/tosca-inventory
@@ -155,13 +153,13 @@ else
     run_docker i-common-services-extsys common-services-extsys
     sleep_msg="Waiting_for_i-common-services-extsys"
     curl_path='http://'${MSB_ADDR}'/openoapi/microservices/v1/services/extsys/version/v1'
-    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200"
+    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="50" STATUS_CODE="200"
 
     #Start openoint/common-services-drivermanager
     run_docker i-drivermgr common-services-drivermanager
     curl_path='http://'${MSB_ADDR}'/openoapi/drivermgr/v1/drivers'
-    sleep_msg="Waiting_connection_for_url_for: i-drivermgr"
-    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="\[" REPEAT_NUMBER="15"
+    sleep_msg="Waiting_connection_for: i-drivermgr"
+    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" GREP_STRING="\[" REPEAT_NUMBER="15"
 
     #Start openoint/sdno-service-vpc
     run_docker s-vpc sdno-service-vpc

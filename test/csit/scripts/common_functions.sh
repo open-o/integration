@@ -22,7 +22,26 @@ function memory_details(){
     #Memory details per Docker
     docker stats --no-stream
 }
-
+function fibonacci_number(){
+    if [ $1 -le 1 ]
+    then
+        echo "1"
+    elif [ $1 -le 10 ]
+    then
+        Num=$1
+        f1=0
+        f2=1
+        fn=-1
+        for i in `eval echo {1..$Num}`;do
+            fn=$((f1+f2))
+            f1=$f2
+            f2=$fn
+        done
+        echo $fn
+    else
+        echo "30"
+    fi
+}
 function wait_curl_driver(){
     #Parameters:
     #CURL_COMMAND - the URL on which the curl command will be executed
@@ -50,7 +69,7 @@ function wait_curl_driver(){
         wait_message=`echo $parameters | sed -e "s/.*WAIT_MESSAGE=//g"`
         wait_message=`echo $wait_message | sed -e "s/ .*//g"`
     else
-        wait_message=""
+        wait_message="wait ..."
     fi
 
     #REPEAT_NUMBER
@@ -95,16 +114,17 @@ function wait_curl_driver(){
     fi
 
     for i in `eval echo {1..$repeat_max}`; do
+        echo $wait_message
         echo "Iteration::$i out of $repeat_max"
         response_code=`curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_command`
         echo "..."
         if [[ ! -z $status_code ]] ; then
             if [ "$status_code" -eq "$response_code" ]
             then
-                echo "Actual Status code <$response_code> match the expected code <$status_code>"
+                echo "SUCCESS:Actual Status code <$response_code> match the expected code <$status_code>"
                 return 0
             else
-                echo "Expected <$status_code> but Actual <$response_code>"
+                echo "WARNING:Expected <$status_code> but Actual <$response_code>"
             fi
         else
             #GREP_STRING
@@ -143,10 +163,10 @@ function wait_curl_driver(){
                 echo 'Connection refused or can not connect to server/proxy';
                 str=''
             fi
-
-            echo $wait_message
         fi
-        sleep $i
+        seconds2sleep=`fibonacci_number $i`
+        echo "Quite time for $seconds2sleep seconds ..."
+        sleep $seconds2sleep
     done
     #MEMORY_USAGE
     if [[ $parameters == *"MEMORY_USAGE"* ]]

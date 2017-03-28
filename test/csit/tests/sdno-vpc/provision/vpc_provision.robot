@@ -32,8 +32,8 @@ Test: Register the moco with the driver manager
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     Set Request Body    ${json_string}
     ${resp}=    Post Request    web_session     ${osControllerVIM_link}    ${json_string}
-    ${responese_code}=     Convert To String      ${resp.status_code}
-    List Should Contain Value    ${return_ok_list}   ${responese_code}
+    ${response_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${response_code}
     ${response_json}    json.loads    ${resp.content}
     ${generated_id}=    Convert To String      ${response_json['vimId']}
     Set Global Variable     ${generated_id}
@@ -49,8 +49,8 @@ Test: Create VPC request sent
     Set Request Body    ${json_string}
     Sleep  25s      # without this static sleep value create VPC fails because the post request is too fast
     ${resp}=    Post Request    web_session     ${createVPC_link}    ${json_string}
-    ${responese_code}=     Convert To String      ${resp.status_code}
-    List Should Contain Value    ${return_ok_list}   ${responese_code}  VPC request not created
+    ${response_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${response_code}  VPC request not created
     ${id}=   Convert To String      ${json_value['id']}
     Set Global Variable     ${vpc_id}   ${id}
 
@@ -64,5 +64,5 @@ Test: Create subnet request sent
     Create Session    web_session    http://${VPC_IP}:8518    headers=${subnet_headers}
     Set Request Body    ${json_subnet_string}
     ${resp}=    Post Request    web_session     ${createSubner_link}    ${json_subnet_string}
-    ${responese_code}=     Convert To String      ${resp.status_code}
-    List Should Contain Value    ${return_ok_list}   ${responese_code}
+    ${response_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${response_code}

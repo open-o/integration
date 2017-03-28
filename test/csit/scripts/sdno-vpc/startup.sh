@@ -22,5 +22,5 @@ echo $@
 #Start VPC
 run-instance.sh openoint/sdno-service-vpc $1 " -i -t -e MSB_ADDR=$2"
 curl_path='http://'$2'/openoapi/microservices/v1/services/sdnovpc/version/v1'
-sleep_msg="Waiting_connection_of_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' STATUS_CODE="200" REPEAT_NUMBER="25"
+sleep_msg="Waiting_connection_for:$1"
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" STATUS_CODE="200" REPEAT_NUMBER="25"
