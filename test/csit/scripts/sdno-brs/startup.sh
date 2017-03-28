@@ -1,4 +1,4 @@
-#!/bin/bash -v
+#!/bin/bash
 #
 # Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
@@ -24,11 +24,11 @@ echo "Start MSS"
 run-instance.sh openoint/sdno-service-mss i-mss "-e MSB_ADDR=$2"
 curl_path='http://'$2'/openoapi/microservices/v1/services/sdnomss/version/v1'
 sleep_msg="Waiting_connection_for_url_for:i-mss"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="30" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" STATUS_CODE="200"
 
 #Start BRS
 echo "Start BRS"
 run-instance.sh openoint/sdno-service-brs $1 " -i -t -e MSB_ADDR=$2"
 curl_path='http://'$2'/openoapi/microservices/v1/services/sdnobrs/version/v1'
 sleep_msg="Waiting_connection_for_url_for:"$1
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="30" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" STATUS_CODE="200"

@@ -113,14 +113,14 @@ echo "Start MSS"
 run_docker i-mss sdno-service-mss
 curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/sdnomss/version/v1'
 sleep_msg="Waiting_connection_for_url_for:i-mss"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="30" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200"
 
 #Start BRS
 echo "Start BRS"
 run_docker i-brs sdno-service-brs
 curl_path='http://'$MSB_ADDR'/openoapi/microservices/v1/services/sdnobrs/version/v1'
 sleep_msg="Waiting_connection_for_url_for: i-brs"
-wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200"
 
 #Start openoint/lc_manag
 displayMessage $lc_manag
@@ -155,7 +155,7 @@ else
     run_docker i-common-services-extsys common-services-extsys
     sleep_msg="Waiting_for_i-common-services-extsys"
     curl_path='http://'${MSB_ADDR}'/openoapi/microservices/v1/services/extsys/version/v1'
-    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="microservice not found" REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200" EXCLUDE_STRING
+    wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER="50" MAX_TIME="60" STATUS_CODE="200"
 
     #Start openoint/common-services-drivermanager
     run_docker i-drivermgr common-services-drivermanager
