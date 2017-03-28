@@ -8,8 +8,10 @@ Library     BuiltIn
 Library     HttpLibrary.HTTP
 
 *** Variables ***
+#${register_json}    ${SCRIPTS}/../plans/multivim/jsoninput/register_to_msb.json
+${register_json}    ${MSB_SERVICES_JSON}
+
 ${register_msb_url}    /openoapi/microservices/v1/services
-${register_json}    ${SCRIPTS}/../plans/multivim/jsoninput/register_to_msb.json
 ${srvname_inventory}    inventory
 ${url_inventory}    /openoapi/inventory/v1
 ${srvname_catalog}    catalog

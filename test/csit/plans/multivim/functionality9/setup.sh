@@ -57,6 +57,7 @@ ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}  -v SIMULATOR_IP:${S
 VIM_ID=c70fec2d-226d-41ae-8a8a-a5b708f6503f
 TENANT_ID=93f742f6cd6f4ab9a779d5e474e20a34
 ROBOT_VARIABLES+=" -v VIMID:${VIM_ID}  -v TENANTID:${TENANT_ID}"
+ROBOT_VARIABLES+=" -v MSB_SERVICES_JSON:${SCRIPTS}/../plans/multivim/jsoninput/register_to_msb.json"
 ROBOT_VARIABLES+=" -v CREATE_SERVER_JSON:${SCRIPTS}/../plans/multivim/jsoninput/multivim_create_server.json"
 robot ${ROBOT_VARIABLES} ${SCRIPTS}/../tests/multivim/provision/register_simulator_to_msb.robot
 
