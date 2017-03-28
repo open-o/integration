@@ -1,0 +1,31 @@
+{
+  "versions": [
+    {
+      "status": "SUPPORTED",
+      "updated": "2011-01-21T11:33:21Z",
+      "links": [
+        {
+          "href": "http://172.17.3.154:8774/v2/",
+          "rel": "self"
+        }
+      ],
+      "min_version": "",
+      "version": "",
+      "id": "v2.0"
+    },
+    {
+      "status": "CURRENT",
+      "updated": "2013-07-23T11:33:21Z",
+      "links": [
+        {
+          "href": "http://172.17.3.154:8774/v2.1/",
+          "rel": "self"
+        }
+      ],
+      "min_version": "2.1",
+      "version": "2.25",
+      "id": "v2.1"
+    }
+  ]
+}
+
