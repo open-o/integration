@@ -1,3 +1,4 @@
 [
-
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/networks.json"},
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/subnets.json"}
 ]

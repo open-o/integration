@@ -1,0 +1,1 @@
+{"network": {"status": "ACTIVE", "subnets": [], "name": "network-csit-1", "provider:physical_network": "default", "router:external": false, "tenant_id": "93f742f6cd6f4ab9a779d5e474e20a34", "admin_state_up": true, "mtu": 0, "shared": true, "provider:network_type": "flat", "id": "a4712bc9-0068-490d-be43-4b5f0a278341", "provider:segmentation_id": null}}

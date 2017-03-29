@@ -1,0 +1,18 @@
+{
+        "vimId":"11111",
+        "vimName":"111",
+        "networks":
+         [{
+                "status": "ACTIVE",
+                "id": "3c9eebdbbfd345658269340b9ea6fb73",
+                "name": "net1",
+                "tenant": "tenant1",
+                "networkName": "ommnet",
+                "shared": 1,
+                "vlanTransparent": 1,
+                "networkType":"vlan",
+                "segmentationId":202,
+                "physicalNetwork ":"ctrl",
+                "routerExternal ":0
+        }]
+}

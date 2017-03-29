@@ -1,0 +1,20 @@
+{
+"vimId":"1111",
+"vimName":"vmware-vio",
+"status":" ACTIVE",
+"id":" d62019d3-bc6e-4319-9c1d-6722fc136a23",
+"tenant": "tenant1",
+"network_id":"d32019d3-bc6e-4319-9c1d-6722fc136a22",
+"networkName":"vmwarenet",
+"name": "subnet1",
+"cidr": "10.43.35.0/24",
+"ipVersion": 4,
+"enableDhcp": 1,
+"gatewayIp": "10.43.35.1",
+"dnsNameservers": [],
+"allocationPools":[{
+"start": "192.168.199.2",
+"end": "192.168.199.254"
+}],
+"hostRoutes": []
+}
