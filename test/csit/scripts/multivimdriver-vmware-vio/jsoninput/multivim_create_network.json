@@ -1,0 +1,8 @@
+{
+    "name": "network-csit-1",
+    "shared": true,
+    "vlanTransparent": 0,
+    "networkType": "flat",
+    "physicalNetwork": "ctrl",
+    "routerExternal": 0
+}

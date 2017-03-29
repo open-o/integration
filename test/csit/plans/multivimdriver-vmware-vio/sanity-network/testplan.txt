@@ -1,0 +1,6 @@
+# Test suites are relative paths under [integration.git]/test/csit/tests/.
+# Place the suites in run order.
+multivimdriver-vmware-vio/provision/register_simulator_to_msb.robot
+multivimdriver-vmware-vio/provision/register_simulator_to_esr.robot
+multivimdriver-vmware-vio/network/sanity-network.robot
+multivimdriver-vmware-vio/network/sanity-subnet.robot
