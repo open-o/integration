@@ -1,0 +1,1 @@
+{"name": "server-csit-1", "boot":{"type":2, "imageId": "f4870751-bbee-46da-bc48-4021ff3c8b6e"}, "flavorId": "1",  "nicArray": [{"portId": "5dd33d73-93e5-407e-ba49-beff1b27e1c1"}]}
