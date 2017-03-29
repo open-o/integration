@@ -27,17 +27,6 @@ VERSION="1.1.0-SNAPSHOT"
 # docker root dir
 ROOT=`git rev-parse --show-toplevel`/test/csit/docker
 
-TOMCAT_VERSION=`$ROOT/scripts/get-tomcat-version.sh`
-cat > $ROOT/templates/30-tomcat.txt <<EOF
-# 30-tomcat.txt
-
-# Set up tomcat
-RUN wget -q http://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && tar --strip-components=1 -xf apache-tomcat-${TOMCAT_VERSION}.tar.gz && rm -f apache-tomcat-${TOMCAT_VERSION}.tar.gz && rm -rf webapps && mkdir -p webapps/ROOT
-RUN echo 'export CATALINA_OPTS="\$CATALINA_OPTS -Xms64m -Xmx256m -XX:MaxPermSize=64m"' > /service/bin/setenv.sh
-ENV CATALINA_HOME /service
-EOF
-
-
 cd $ROOT
 for dirsrc in `$ROOT/scripts/ls-microservices.py | sort`; do
     $ROOT/scripts/gen-dockerfiles.sh $dirsrc $BUILD &

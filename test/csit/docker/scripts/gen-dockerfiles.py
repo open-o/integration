@@ -54,8 +54,7 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
                 pass
 
             # create empty Dockerfile if not exists
-            dockerfile=open( "{}/Dockerfile".format(dir), "a" )
-            dockerfile.close()
+            open( "{}/Dockerfile".format(dir), "a" ).close()
 
             outfile = open( "{}/50-microservice.txt".format(dir), "w" )
             
@@ -109,8 +108,10 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
             symlink(True, "10-basebuild.txt")
             symlink(row["python"], "15-python.txt")
             symlink(row["mysql"], "20-mysql.txt")
+            if row["tomcat"]:
+                # create empty 30-tomcat.txt as marker for gen-dockerfiles.sh
+                open( "{}/30-tomcat.txt".format(dir), "a" ).close()
             symlink(row["mongodb"], "25-mongodb.txt")
-            symlink(row["tomcat"], "30-tomcat.txt")
             symlink(True, "90-entrypoint.txt")
 
 if not found:
