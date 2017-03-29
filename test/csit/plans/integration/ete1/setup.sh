@@ -26,30 +26,39 @@ curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
+# Start ESR
+run-instance.sh openoint/common-services-extsys i-esr "-e MSB_ADDR=${MSB_IP}:80"
+ESR_IP=`get-instance-ip.sh i-esr`
+echo ESR_IP=${ESR_IP}
+sleep_msg="Waiting_for_ESR (External System Registration)"
+curl_path='http://'${MSB_IP}':80/openoapi/extsys/v1/sdncontrollers'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+
+# Start Driver Manager
+run-instance.sh openoint/common-services-drivermanager i-driver-manager "-e MSB_ADDR=${MSB_IP}:80"
+DRIVER_MANAGER_IP=`get-instance-ip.sh i-driver-manager`
+echo DRIVER_MANAGER_IP=${DRIVER_MANAGER_IP}
+sleep_msg="Waiting_for_driver-manager"
+curl_path='http://'${MSB_IP}':80/openoapi/drivermgr/v1/drivers'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+
 
 
 # Start catalog
 ${SCRIPTS}/common-tosca-catalog/startup.sh i-catalog ${MSB_IP}:80
 CATALOG_IP=`get-instance-ip.sh i-catalog`
 echo CATALOG_IP=${CATALOG_IP}
-
-# Wait for initialization
-for i in {1..10}; do
-    curl -sS -m 1 ${CATALOG_IP}:8200/api-doc/index.html && curl -sS -m 1 ${MSB_IP}:80 && break
-    echo sleep $i
-    sleep $i
-done
+curl_path='http://'${MSB_IP}':80/openoapi/microservices/v1/services'
+sleep_msg="Waiting_for Catalog... "
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="100" GREP_STRING="catalog"
 
 # Start parser
 run-instance.sh openoint/common-tosca-aria catalog-parser "-e MSB_ADDR=${MSB_IP}:80"
 PARSER_IP=`get-instance-ip.sh catalog-parser`
 echo PARSER_IP=${PARSER_IP}
-# Wait for COMMON_TOSCA_ARIA instantiation
-for i in {1..10}; do
-    curl -sS -m 1 ${PARSER_IP}:8204 && break
-    echo sleep $i
-    sleep $i
-done
+curl_path='http://'${MSB_IP}':80/openoapi/microservices/v1/services'
+sleep_msg="Waiting_for Aria Parser... "
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="100" GREP_STRING="tosca"
 
 
 
@@ -58,13 +67,9 @@ source ${SCRIPTS}/common-tosca-inventory/startup.sh i-inventory ${MSB_IP}
 INVENTORY_IP=`get-instance-ip.sh i-inventory`
 echo INVENTORY_IP=${INVENTORY_IP}
 INV_ADDR=$INVENTORY_IP
-
-# Wait for initialization
-for i in {1..50}; do
-    curl -sS -m 1 ${INVENTORY_IP}:8203 && break
-    echo sleep $i
-    sleep $i
-done
+curl_path='http://'${MSB_IP}':80/openoapi/microservices/v1/services'
+sleep_msg="Waiting_for Inventory... "
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="100" GREP_STRING="inventory"
 
 
 # Start servicegateway
@@ -78,6 +83,14 @@ run-instance.sh openoint/gso-service-manager gso " -i -t -e MSB_ADDR=${MSB_IP}:8
 sleep_msg="Waiting_for_gso-sgw"
 curl_path='http://'${MSB_IP}':80/openoapi/gso/v1/services'
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' REPEAT_NUMBER=25 GREP_STRING="\["
+
+
+#Start sdno micro-services
+./setup_sdno.sh ${MSB_IP}:80 ${INVENTORY_IP}:3306
+
+#Start sdn-hub drivers
+./setup_sdnhub.sh ${MSB_IP}:80
+
 
 echo SCRIPTS
 # Pass any variables required by Robot test suites in ROBOT_VARIABLES

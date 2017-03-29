@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright 2016-2017 Huawei Technologies Co., Ltd.
+# Copyright 2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,18 +15,17 @@
 # limitations under the License.
 #
 
-#copy the logs files
-docker cp gso:/service/logs/lifecyclemgr.log ${SCRIPTS}/../../../archives
-docker cp gso-sgw:/service/logs/servicegateway.log ${SCRIPTS}/../../../archives
-# kill micro service
-kill-instance.sh i-msb
-kill-instance.sh gso-sgw
-kill-instance.sh gso
-kill-instance.sh gso_csit_simulator
-kill-instance.sh i-inventory
 
-kill-instance.sh i-catalog
-kill-instance.sh catalog-parser
+CONTAINERS=(i-sdnhub-ct-te i-sdnhub-zte-sptn
+            i-sdnhub-hw-l3vpn i-sdnhub-hw-openstack
+            i-sdnhub-hw-overlay i-sdnhub-hw-sfc
+            )
 
-./teardown_sdno.sh
-./teardown_sdnhub.sh
+i=0
+len=${#CONTAINERS[*]}
+while [ $i -lt $len ]; do
+    container=${CONTAINERS[$i]}
+    kill-instance.sh $container
+
+    let i++
+done
