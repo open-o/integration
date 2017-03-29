@@ -15,18 +15,20 @@
 # limitations under the License.
 #
 
-CONTAINERS=(i-sdno-mss i-sdno-brs
+SDNO_CONTAINERS=(i-sdno-mss i-sdno-brs
             i-sdno-vxlan i-sdno-ipsec i-sdno-route i-sdno-site
             i-sdno-nslcm i-sdno-overlay i-sdno-sfc i-sdno-vpc
             i-sdno-monitor i-sdno-optimize i-sdno-vsite
             i-sdno-l2vpn i-sdno-l3vpn
             )
 
-i=0
-len=${#CONTAINERS[*]}
-while [ $i -lt $len ]; do
-    container=${CONTAINERS[$i]}
+sdnoloop_i=0
+sdnoloop_len=${#SDNO_CONTAINERS[*]}
+while [ $sdnoloop_i -lt $sdnoloop_len ]; do
+    container=${SDNO_CONTAINERS[$sdnoloop_i]}
     kill-instance.sh $container
 
-    let i++
+    echo "I=$sdnoloop_i; Len=$sdnoloop_len; Container=$container"
+
+    let sdnoloop_i++
 done

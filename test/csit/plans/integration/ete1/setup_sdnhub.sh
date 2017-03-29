@@ -18,34 +18,36 @@
 
 source ${SCRIPTS}/common_functions.sh
 
-CONTAINERS=(i-sdnhub-ct-te i-sdnhub-zte-sptn
+SDNHUB_CONTAINERS=(i-sdnhub-ct-te i-sdnhub-zte-sptn
             i-sdnhub-hw-l3vpn i-sdnhub-hw-openstack
             i-sdnhub-hw-overlay i-sdnhub-hw-sfc
             )
 
-IMAGES=(sdnhub-driver-ct-te sdnhub-driver-zte-sptn
+SDNHUB_IMAGES=(sdnhub-driver-ct-te sdnhub-driver-zte-sptn
         sdnhub-driver-huawei-l3vpn sdnhub-driver-huawei-openstack
         sdnhub-driver-huawei-overlay sdnhub-driver-huawei-servicechain
         )
 
-NAMES=(CT-TE-Driver ZTE-SPTN-Driver
+SDNHUB_NAMES=(CT-TE-Driver ZTE-SPTN-Driver
        HW-L3VPN-Driver HW-Openstack-Driver
        HW-Overlay-Driver HW-SFC-Driver
        )
 
-VALIDATIONS=(sdnhub-driver-ct-te sdno-zte-sptn-driver-1
+SDNHUB_VALIDATIONS=(sdnhub-driver-ct-te sdno-zte-sptn-driver-1
              sdnhubl3vpndriver-0-1 sdnhubopenstackdriver-0-1
              sdnhuboverlaydriver-0-1 sdnhubservicechaindriver-0-1
              )
 
 
-i=0
-len=${#CONTAINERS[*]}
-while [ $i -lt $len ]; do
-    container=${CONTAINERS[$i]}
-    image="openoint/${IMAGES[$i]}"
-    name=${NAMES[$i]}
-    validation=${VALIDATIONS[$i]}
+sdnhubloop_i=0
+sdnhubloop_len=${#SDNHUB_CONTAINERS[*]}
+while [ $sdnhubloop_i -lt $sdnhubloop_len ]; do
+    container=${SDNHUB_CONTAINERS[$sdnhubloop_i]}
+    image="openoint/${SDNHUB_IMAGES[$sdnhubloop_i]}"
+    name=${SDNHUB_NAMES[$sdnhubloop_i]}
+    validation=${SDNHUB_VALIDATIONS[$sdnhubloop_i]}
+
+    echo "I=$sdnhubloop_i; Len=$sdnhubloop_len; Container=$container"
 
     # Start corresponding docker container
     if  [ "$container" == "i-sdnhub-ct-te" ]
@@ -60,5 +62,5 @@ while [ $i -lt $len ]; do
     sleep_msg="Waiting_for: "$name
     wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="100" GREP_STRING=$validation
 
-    let i++
+    let sdnhubloop_i++
 done

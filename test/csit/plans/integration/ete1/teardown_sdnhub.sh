@@ -16,16 +16,18 @@
 #
 
 
-CONTAINERS=(i-sdnhub-ct-te i-sdnhub-zte-sptn
+SDNHUB_CONTAINERS=(i-sdnhub-ct-te i-sdnhub-zte-sptn
             i-sdnhub-hw-l3vpn i-sdnhub-hw-openstack
             i-sdnhub-hw-overlay i-sdnhub-hw-sfc
             )
 
-i=0
-len=${#CONTAINERS[*]}
-while [ $i -lt $len ]; do
-    container=${CONTAINERS[$i]}
+sdnhubloop_i=0
+sdnhubloop_len=${#SDNHUB_CONTAINERS[*]}
+while [ $sdnhubloop_i -lt $sdnhubloop_len ]; do
+    container=${SDNHUB_CONTAINERS[$sdnhubloop_i]}
     kill-instance.sh $container
 
-    let i++
+    echo "I=$sdnhubloop_i; Len=$sdnhubloop_len; Container=$container"
+
+    let sdnhubloop_i++
 done

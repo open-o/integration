@@ -17,41 +17,43 @@
 
 source ${SCRIPTS}/common_functions.sh
 
-CONTAINERS=(i-sdno-mss i-sdno-brs
+SDNO_CONTAINERS=(i-sdno-mss i-sdno-brs
             i-sdno-vxlan i-sdno-ipsec i-sdno-route i-sdno-site
             i-sdno-nslcm i-sdno-overlay i-sdno-sfc i-sdno-vpc
             i-sdno-monitor i-sdno-optimize i-sdno-vsite
             i-sdno-l2vpn i-sdno-l3vpn
             )
 
-IMAGES=(sdno-service-mss sdno-service-brs
+SDNO_IMAGES=(sdno-service-mss sdno-service-brs
         sdno-service-vxlan sdno-service-ipsec sdno-service-route sdno-service-site
         sdno-service-nslcm sdno-service-overlayvpn sdno-service-servicechain sdno-service-vpc
         sdno-monitoring sdno-optimize sdno-vsitemgr
         sdno-service-l2vpn sdno-service-l3vpn
         )
 
-NAMES=(MSS BRS
+SDNO_NAMES=(MSS BRS
        VxLAN IPSec Route Site
        Nslcm Overlay SFC VPC
        Monitoring Optimizer VSiteMAnager
        L2VPN L3VPN
        )
 
-VALIDATIONS=(sdnomss sdnobrs
+SDNO_VALIDATIONS=(sdnomss sdnobrs
              sdnovxlan sdnoipsec sdnoroute sdnolocalsite
              sdnonslcm sdnooverlay sdnoservicechain sdnovpc
              link_flow_monitor mpls-optimizer vsite_mgr
              sdnol2vpn sdnol3vpn
              )
 
-i=0
-len=${#CONTAINERS[*]}
-while [ $i -lt $len ]; do
-    container=${CONTAINERS[$i]}
-    image="openoint/${IMAGES[$i]}"
-    name=${NAMES[$i]}
-    validation=${VALIDATIONS[$i]}
+sdnoloop_i=0
+sdnoloop_len=${#SDNO_CONTAINERS[*]}
+while [ $sdnoloop_i -lt $sdnoloop_len ]; do
+    container=${SDNO_CONTAINERS[$sdnoloop_i]}
+    image="openoint/${SDNO_IMAGES[$sdnoloop_i]}"
+    name=${SDNO_NAMES[$sdnoloop_i]}
+    validation=${SDNO_VALIDATIONS[$sdnoloop_i]}
+
+    echo "I=$sdnoloop_i; Len=$sdnoloop_len; Container=$container"
 
     # Start corresponding docker container
     if  [ "$container" == "i-sdno-nslcm" ]
@@ -69,5 +71,5 @@ while [ $i -lt $len ]; do
     sleep_msg="Waiting_for: "$name
     wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="100" GREP_STRING=$validation
 
-    let i++
+    let sdnoloop_i++
 done
