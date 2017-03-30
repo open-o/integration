@@ -42,5 +42,14 @@
         "response": {
             "status": 204
         }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/servers/[0-9a-zA-Z_-]+/os-interface"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-kilo/server_ports_list_response.json"
+        }
     }
 ]

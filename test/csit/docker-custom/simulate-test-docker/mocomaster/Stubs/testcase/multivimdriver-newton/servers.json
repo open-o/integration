@@ -46,6 +46,15 @@
     {
         "request": {
             "method": "get",
+            "uri": {"match":"/v2.1/servers/[0-9a-zA-Z_-]+/os-interface"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-newton/server_ports_list_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
             "uri": {"match":"/v2.0/extensions.json"}
         },
         "response": {
