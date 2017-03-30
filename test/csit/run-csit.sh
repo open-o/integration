@@ -19,7 +19,7 @@
 # $3 ci-management repo location
 
 
-function memory_details(){
+function docker_stats(){
     #General memory details
     echo "> top -bn1 | head -3"
     top -bn1 | head -3
@@ -116,7 +116,7 @@ if [ -f ${SETUP} ]; then
 fi
 
 # show memory consumption after all docker instances initialized
-memory_details | tee $WORKSPACE/archives/_sysinfo-1-after-setup.txt
+docker_stats | tee $WORKSPACE/archives/_sysinfo-1-after-setup.txt
 
 # Run test plan
 cd $WORKDIR
@@ -138,7 +138,7 @@ rsync -av $WORKDIR/ $WORKSPACE/archives
 docker ps --format "{{.Image}}" > $WORKSPACE/archives/_docker-images.log
 
 # show memory consumption after all docker instances initialized
-memory_details | tee $WORKSPACE/archives/_sysinfo-2-after-robot.txt
+docker_stats | tee $WORKSPACE/archives/_sysinfo-2-after-robot.txt
 
 # Run teardown script plan if it exists
 cd ${TESTPLANDIR}

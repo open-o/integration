@@ -16,11 +16,22 @@
 
 function memory_details(){
     #General memory details
+    echo "> top -bn1 | head -3"
     top -bn1 | head -3
+    echo
+
+    echo "> free -h"
     free -h
-    echo ""
+    echo
+
     #Memory details per Docker
+    echo "> docker ps"
+    docker ps
+    echo
+
+    echo "> docker stats --no-stream"
     docker stats --no-stream
+    echo
 }
 function fibonacci_number(){
     if [ $1 -le 1 ]
@@ -114,8 +125,6 @@ function wait_curl_driver(){
     fi
 
     for i in `eval echo {1..$repeat_max}`; do
-        echo $wait_message
-        echo "Iteration::$i out of $repeat_max"
         response_code=`curl -o /dev/null --silent --head --write-out '%{http_code}' $curl_command`
         echo "..."
         if [[ ! -z $status_code ]] ; then
@@ -138,7 +147,6 @@ function wait_curl_driver(){
             fi
 
             str=`curl -sS -m$max_time $curl_command | grep "$grep_command"`
-            echo "..."
             echo "BODY::$str"
             if [[ ! -z $exclude_string ]]
             then
@@ -155,7 +163,7 @@ function wait_curl_driver(){
                     echo "SUCCESS: body response contains '$grep_command'";
                 break;
                 else
-                    echo "Fall_Short: Element not found yet # "$i""
+                    echo "Fall_Short: Element '$grep_command' not found yet # "$i""
                 fi
             fi
 
@@ -165,8 +173,16 @@ function wait_curl_driver(){
             fi
         fi
         seconds2sleep=`fibonacci_number $i`
-        echo "Quite time for $seconds2sleep seconds ..."
+        echo -n $wait_message
+        echo -n " Iteration::$i out of $repeat_max "
+        echo " - Quiet time for $seconds2sleep seconds ..."
         sleep $seconds2sleep
+
+	# if waiting for a long time, log system load
+	if [ $seconds2sleep -gt 10 ]
+	then
+            memory_details
+	fi
     done
     #MEMORY_USAGE
     if [[ $parameters == *"MEMORY_USAGE"* ]]
