@@ -18,6 +18,27 @@
 # $2 robot options
 # $3 ci-management repo location
 
+
+function memory_details(){
+    #General memory details
+    echo "> top -bn1 | head -3"
+    top -bn1 | head -3
+    echo
+
+    echo "> free -h"
+    free -h
+    echo
+
+    #Memory details per Docker
+    echo "> docker ps"
+    docker ps
+    echo
+
+    echo "> docker stats --no-stream"
+    docker stats --no-stream
+    echo
+}
+
 if [ $# -eq 0 ]
 then
     echo 
@@ -94,6 +115,9 @@ if [ -f ${SETUP} ]; then
     source ${SETUP}
 fi
 
+# show memory consumption after all docker instances initialized
+memory_details | tee $WORKSPACE/archives/_sysinfo-1-after-setup.txt
+
 # Run test plan
 cd $WORKDIR
 echo "Reading the testplan:"
@@ -112,6 +136,9 @@ rsync -av $WORKDIR/ $WORKSPACE/archives
 
 # Record list of active docker containers
 docker ps --format "{{.Image}}" > $WORKSPACE/archives/_docker-images.log
+
+# show memory consumption after all docker instances initialized
+memory_details | tee $WORKSPACE/archives/_sysinfo-2-after-robot.txt
 
 # Run teardown script plan if it exists
 cd ${TESTPLANDIR}
