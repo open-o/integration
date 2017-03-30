@@ -39,20 +39,20 @@ GetVimID
 
 
 
-#CreateServerFuncTest
-#    [Documentation]    create server rest test
-#    ${json_value}=     json_from_file      ${multivim_create_server_json}
-#    ${json_string}=     string_from_json   ${json_value}
-#    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-#    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-#    Set Request Body    ${json_string}
-#    ${resp}=    Post Request    web_session     /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/servers    ${json_string}
-#    ${response_code}=     Convert To String      ${resp.status_code}
-#    List Should Contain Value    ${return_ok_list}   ${response_code}
-#    ${response_json}    json.loads    ${resp.content}
-#    ${server1Id}=    Convert To String      ${response_json['id']}
-#    Set Global Variable     ${server1Id}
-#    Log To Console        ${server1Id}
+CreateServerFuncTest
+    [Documentation]    create server rest test
+    ${json_value}=     json_from_file      ${multivim_create_server_json}
+    ${json_string}=     string_from_json   ${json_value}
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    Set Request Body    ${json_string}
+    ${resp}=    Post Request    web_session     /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/servers    ${json_string}
+    ${response_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${response_code}
+    ${response_json}    json.loads    ${resp.content}
+    ${server1Id}=    Convert To String      ${response_json['id']}
+    Set Global Variable     ${server1Id}
+    Log To Console        ${server1Id}
 
 
 
