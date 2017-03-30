@@ -1,3 +1,6 @@
 [
-{    "include": "Stubs/testcase/multivimdriver-vmware-vio/servers.json"}
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/servers.json"},
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/flavors.json"},
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/limits.json"}
+
 ]
