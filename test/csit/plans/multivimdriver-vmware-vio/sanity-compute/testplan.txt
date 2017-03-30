@@ -3,3 +3,5 @@
 multivimdriver-vmware-vio/provision/register_simulator_to_msb.robot
 multivimdriver-vmware-vio/provision/register_simulator_to_esr.robot
 multivimdriver-vmware-vio/compute/sanity-server.robot
+multivimdriver-vmware-vio/compute/sanity-flavor.robot
+multivimdriver-vmware-vio/compute/sanity-limits.robot
