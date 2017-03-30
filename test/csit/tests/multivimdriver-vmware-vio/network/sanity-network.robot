@@ -36,20 +36,20 @@ TestCaseGetVimID
     Set Global Variable   ${VIMID}
 #    Log To Console        ${VIMID}
 
-#CreateNetworkFuncTest
-#    [Documentation]    create network rest test
-#    ${json_value}=     json_from_file      ${multivim_create_network_json}
-#    ${json_string}=     string_from_json   ${json_value}
-#    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
-#    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-#    Set Request Body    ${json_string}
-##    ${resp}=    Post Request    web_session     ${networks_url}    ${json_string}
-#     ${resp}=    Post Request    web_session     /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/networks    ${json_string}
-#    ${response_code}=     Convert To String      ${resp.status_code}
-#    List Should Contain Value    ${return_ok_list}   ${response_code}
-#    ${response_json}    json.loads    ${resp.content}
-#    ${network1Id}=    Convert To String      ${response_json['id']}
-#    Set Global Variable     ${network1Id}
+CreateNetworkFuncTest
+    [Documentation]    create network rest test
+    ${json_value}=     json_from_file      ${multivim_create_network_json}
+    ${json_string}=     string_from_json   ${json_value}
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    Set Request Body    ${json_string}
+#    ${resp}=    Post Request    web_session     ${networks_url}    ${json_string}
+    ${resp}=    Post Request    web_session     /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/networks    ${json_string}
+    ${response_code}=     Convert To String      ${resp.status_code}
+    List Should Contain Value    ${return_ok_list}   ${response_code}
+    ${response_json}    json.loads    ${resp.content}
+    ${network1Id}=    Convert To String      ${response_json['id']}
+    Set Global Variable     ${network1Id}
 
 TestCaseListNetworks
     [Documentation]    Sanity Test - List Networks

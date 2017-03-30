@@ -4,3 +4,4 @@ multivimdriver-vmware-vio/provision/register_simulator_to_msb.robot
 multivimdriver-vmware-vio/provision/register_simulator_to_esr.robot
 multivimdriver-vmware-vio/network/sanity-network.robot
 multivimdriver-vmware-vio/network/sanity-subnet.robot
+multivimdriver-vmware-vio/network/sanity-port.robot
