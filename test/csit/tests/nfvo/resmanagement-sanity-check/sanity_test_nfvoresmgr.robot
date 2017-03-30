@@ -266,6 +266,5 @@ QueryLimitsFuncTest
     ${resp}=  Get Request    web_session    ${querylimits_url}
     ${responese_code}=     Convert To String      ${resp.status_code}
     ${response_json}    json.loads    ${resp.content}
-    List Should Contain Value    ${return_ok_list}   ${responese_code}
 
 
