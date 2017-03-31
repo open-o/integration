@@ -17,6 +17,7 @@
 # These scripts are sourced by run-csit.sh.
 function getRandomIpAddress(){
     while
+    set +x
       set $(dd if=/dev/urandom bs=4 count=1 2>/dev/null | od -An -tu1)
       [ $1 -lt 224 ] &&
       [ $1 -ne 10 ] &&
