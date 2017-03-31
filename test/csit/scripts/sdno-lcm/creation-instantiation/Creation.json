@@ -1,5 +1,5 @@
 {
-    "nsdId": "enterprise2Dc",
+    "nsdId": "TEMPLATE_ID_PLACEHOLDER",
     "nsName": "EnterpriseDc Service for Test",
     "description": "Enterprise2Dc overlay network service to be created for testing"
 }

@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 # These scripts are sourced by run-csit.sh.
+# JQ install function
 function getRandomIpAddress(){
     while
     set +x
@@ -29,6 +30,8 @@ function getRandomIpAddress(){
 
 #Local Var:
 CSAR_DIR=${SCRIPTS}/sdno-lcm/uploadCSAR
+DATA_DIR=${SCRIPTS}/sdno-lcm/data-population
+CREATION_INSTANTIATION_DIR=${SCRIPTS}/sdno-lcm/creation-instantiation
 source ${SCRIPTS}/common_functions.sh
 
 # Pull down docker images
@@ -40,11 +43,20 @@ echo "Step 2: Start docker images ..."
 ${SCRIPTS}/sdno-utils/sdno-start-images.sh
 MSB_IP=`get-instance-ip.sh i-msb`
 
+echo "Start openoint/common-services-extsys"
+docker run -d -i -t --name i-common-services-extsys -e MSB_ADDR=${MSB_IP}:80 openoint/common-services-extsys
+sleep_msg="Waiting_for_i-common-services-extsys"
+curl_path='http://'${MSB_IP}:80'/openoapi/microservices/v1/services/extsys/version/v1'
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="50" STATUS_CODE="200"
+
 CONTROLLER_SIMULATOR_IP=`getRandomIpAddress`
 echo "Random ip::$CONTROLLER_SIMULATOR_IP"
 
 echo "Step 3: chmod +x CSAR script..."
 chmod +x $CSAR_DIR/uploadCSAR.sh
+chmod +x $DATA_DIR/import_data_to_esr_brs.sh
+chmod +x $CREATION_INSTANTIATION_DIR/create-ns.sh
+chmod +x $CREATION_INSTANTIATION_DIR/instantiate-ns.sh
 
 echo "Log memory details # @BEFORE TESTS"
 memory_details

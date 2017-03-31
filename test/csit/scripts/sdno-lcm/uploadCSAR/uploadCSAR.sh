@@ -21,6 +21,7 @@ echo $SCRIPT_DIR
 if [ -z "$1" ]
 then
    echo "There is no MSB_ADDR"
+   echo "USAGE: $0 <MSB_ADDR[ipv4:port]>"
    exit 1
 fi
 MSB_ADDR=$1
@@ -42,3 +43,5 @@ echo Sending POST request to Catalog
 CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$SCRIPT_DIR/enterprise2DC.csar" http://$MSB_ADDR/openoapi/catalog/v1/csars)
 #getting csarId from the json output
 echo $CsarIdString
+CsarId=$(echo ${CsarIdString} | jq -c '.csarId'| sed 's/\"//g')
+echo ${CsarId}
