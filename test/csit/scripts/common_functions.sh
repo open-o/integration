@@ -34,6 +34,7 @@ function memory_details(){
     echo
 }
 function fibonacci_number(){
+    set +x
     if [ $1 -le 1 ]
     then
         echo "1"
