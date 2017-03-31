@@ -4,7 +4,7 @@
             "uri":{"match": "/v2.0/networks.json"}
         },
         "response": {
-            "file": "./Stubs/testcase/multivimdriver-kilo/network_create_response.json"
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/network_create_response.json"
         }
     },
     {
@@ -22,7 +22,7 @@
             "uri": {"match":"/v2.0/networks/.+"}
         },
         "response": {
-            "file": "./Stubs/testcase/multivimdriver-kilo/network_get_response.json"
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/network_get_response.json"
         }
     },
     {
@@ -31,7 +31,7 @@
             "uri": {"match":"/v2.0/networks"}
         },
         "response": {
-            "file": "./Stubs/testcase/multivimdriver-kilo/network_list_response.json"
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/network_list_response.json"
         }
     },
     {
@@ -40,7 +40,7 @@
             "uri": {"match":"/v2.0/networks?name=network-csit-1"}
         },
         "response": {
-            "file": "./Stubs/testcase/multivimdriver-kilo/network_list_filtered_response.json"
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/network_list_filtered_response.json"
         }
     },
     {
