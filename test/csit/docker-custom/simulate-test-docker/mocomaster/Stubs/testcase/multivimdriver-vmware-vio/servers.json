@@ -1,4 +1,4 @@
-[{
+[    {
         "request": {
             "method": "post",
             "uri":{"match": "/v2.1/.+/servers"}
@@ -17,6 +17,18 @@
         }
     },
 
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.1/[0-9a-zA-Z_-]+/servers/detail"},
+            "queries": {
+                "marker": "0feb8671-2717-4c2d-849a-e7289a10251a"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/server_limit_response.json"
+        }
+    },
     {
         "request": {
             "method": "get",

@@ -10,6 +10,18 @@
     {
         "request": {
             "method": "get",
+            "uri": {"match":"/v2.1/[0-9a-zA-Z_-]+/flavors/detail"},
+            "queries": {
+                "marker": "1"
+            }
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/flavor_limit_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
             "uri": {"match":"/v2.1/[0-9a-zA-Z_-]+/flavors/detail"}
         },
         "response": {

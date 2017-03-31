@@ -1,0 +1,5 @@
+{
+  "flavors": [],
+  "first": "/v2.1/1/flavors?limit=1",
+  "schema": "/v2.1/1/schemas/flavors"
+}

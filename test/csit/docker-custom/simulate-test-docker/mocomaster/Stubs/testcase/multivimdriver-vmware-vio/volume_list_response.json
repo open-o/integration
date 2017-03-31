@@ -1,20 +1,6 @@
 {
   "volumes": [
     {
-      "id": "dac12e36-18d9-4d81-860d-e52d7eb77fe6",
-      "links": [
-        {
-          "href": "http://localhost:8776/v2/6d75a4dfac7b4526bb023b0a07e555a7/volumes/dac12e36-18d9-4d81-860d-e52d7eb77fe6",
-          "rel": "self"
-        },
-        {
-          "href": "http://localhost:8776/6d75a4dfac7b4526bb023b0a07e555a7/volumes/dac12e36-18d9-4d81-860d-e52d7eb77fe6",
-          "rel": "bookmark"
-        }
-      ],
-      "name": "test-volume"
-    },
-    {
       "id": "19dd4298-cbd4-4ef4-84db-e71b4bce78a6",
       "links": [
         {

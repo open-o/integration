@@ -1,3 +1,5 @@
 {
-  "volumes": []
+  "volumes": [],
+  "first": "/v2/19dd4298-cbd4-4ef4-84db-e71b4bce78a6/volumes?limit=1",
+  "schema": "/v2/19dd4298-cbd4-4ef4-84db-e71b4bce78a6/schemas/volumes"
 }

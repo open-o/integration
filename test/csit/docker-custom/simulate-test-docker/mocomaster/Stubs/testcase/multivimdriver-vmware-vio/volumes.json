@@ -19,7 +19,7 @@
     {
         "request": {
             "method": "get",
-            "uri": "/v2/[0-9a-zA-Z_-]+/volumes",
+            "uri": {"match":"/v2/[0-9a-zA-Z_-]+/volumes/detail"},
             "queries": {
                 "marker": "19dd4298-cbd4-4ef4-84db-e71b4bce78a6"
             }
