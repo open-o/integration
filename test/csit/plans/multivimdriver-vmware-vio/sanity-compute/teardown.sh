@@ -16,9 +16,9 @@
 #
 
 # This script is sourced by run-csit.sh after Robot test completion.
-#kill-instance.sh i-msb
-#kill-instance.sh multivim-driver-vio
-#kill-instance.sh simulator
+kill-instance.sh i-msb
+kill-instance.sh multivim-driver-vio
+kill-instance.sh simulator
 #kill-instance.sh multivim-broker
-#kill-instance.sh extsys
+kill-instance.sh extsys
 #

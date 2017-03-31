@@ -40,7 +40,7 @@ GetVimID
 
 
 CreateServerFuncTest
-    [Documentation]    create server rest test
+    [Documentation]    Sanity Test - Create Server
     ${json_value}=     json_from_file      ${multivim_create_server_json}
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
@@ -57,7 +57,7 @@ CreateServerFuncTest
 
 
 GetServerFuncTest
-    [Documentation]    get information about a particular server
+    [Documentation]    Sanity Test - Get Server
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json  X-Auth-Token=junk
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Get Request    web_session    /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/servers/${server1Id}
@@ -67,20 +67,20 @@ GetServerFuncTest
     ${response_json}    json.loads    ${resp.content}
 #    Log To Console        ${response_json}
 
-#ListServerFuncTest
-#    [Documentation]    get a list of servers info rest test
-#    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json  X-Auth-Token=junk
-#    Create Session    web_session    http://${MSB_IP}    headers=${headers}
-#    ${resp}=  Get Request    web_session    /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/servers
-#    Log To Console        ${resp}
-#    ${response_code}=     Convert To String      ${resp.status_code}
-#    Log To Console        ${response_code}
-#    List Should Contain Value    ${return_ok_list}   ${response_code}
-#    ${response_json}    json.loads    ${resp.content}
-#    Log To Console        ${response_json}
+ListServerFuncTest
+    [Documentation]    Sanity Test - List Server
+    ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json  X-Auth-Token=junk
+    Create Session    web_session    http://${MSB_IP}    headers=${headers}
+    ${resp}=  Get Request    web_session    /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/servers    params=name=server-csit-1
+    Log To Console        ${resp}
+    ${response_code}=     Convert To String      ${resp.status_code}
+    Log To Console        ${response_code}
+    List Should Contain Value    ${return_ok_list}   ${response_code}
+    ${response_json}    json.loads    ${resp.content}
+    Log To Console        ${response_json}
 
 DeleteServerFuncTest
-    [Documentation]    delete the specific server info rest test
+    [Documentation]    Sanity Test - Delete Server
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
     Create Session    web_session    http://${MSB_IP}    headers=${headers}
     ${resp}=  Delete Request    web_session    /openoapi/multivim-vio/v1/${VIMID}/${TENANTID}/servers/${server1Id}

@@ -1,0 +1,1 @@
+{"tenant": "tenant1","volumeName": "volume-csit-1","volumeSize": 3,"imageName": "cirros.vmdk","volumeType": "volumetype1","availabilityZone": "zone1"}
