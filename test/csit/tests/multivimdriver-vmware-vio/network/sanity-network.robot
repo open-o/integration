@@ -36,8 +36,8 @@ TestCaseGetVimID
     Set Global Variable   ${VIMID}
 #    Log To Console        ${VIMID}
 
-CreateNetworkFuncTest
-    [Documentation]    create network rest test
+TestCaseCreateNetwork
+    [Documentation]    Sanity Test - Create Network
     ${json_value}=     json_from_file      ${multivim_create_network_json}
     ${json_string}=     string_from_json   ${json_value}
     ${headers}    Create Dictionary    Content-Type=application/json    Accept=application/json
