@@ -21,6 +21,7 @@ nfvo,gvnfm-gvnfmadapter,NFVO VNFM Driver GVNFM,nfvo-driver-vnfm-gvnfm,org.openo.
 nfvo,svnfm-huawei,NFVO VNFM Driver Huawei,nfvo-driver-vnfm-huawei,org.openo.nfvo,hw-vnfmadapter-deployment,zip,,8482,TRUE,,TRUE,,
 nfvo,gvnfm-juju,NFVO VNFM Driver JUJU,nfvo-driver-vnfm-juju,org.openo.nfvo,juju-vnfmadapterservice-deployment,zip,,8483,TRUE,,TRUE,,
 nfvo,svnfm-zte,NFVO VNFM Driver ZTE,nfvo-driver-vnfm-zte,org.openo.nfvo,drivers-vnfm-svnfm-zte-vmanager,zip,,8410,,,,TRUE,
+nfvo,,NFVO VNFM Driver Ericsson,nfvo-driver-vnfm-ericsson,org.openo.nfvo,ericsson-vnfm-driver-deployment,zip,,8485,,,TRUE,,
 nfvo,lcm,NFVO Lifecycle Management,nfvo-lcm,org.openo.nfvo,nfvo-lcm,zip,,8403,TRUE,,,TRUE,
 nfvo,resmanagement,NFVO Resource Manager,nfvo-resmanagement,org.openo.nfvo,resmanagement-deployment,zip,,8480,TRUE,,TRUE,,
 nfvo,monitor-dac,NFVO Monitor Data Acquire Component,nfvo-dac,org.openo.nfvo.monitor.dac.dac-api,dac-standalone,zip,,8206,,,,,
