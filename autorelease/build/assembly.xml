@@ -232,6 +232,15 @@
     </dependencySet>
 
     <dependencySet>
+      <outputDirectory>nfvo-driver-vnfm-ericsson</outputDirectory>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.openo.nfvo:ericsson-vnfm-driver-deployment:zip</include>
+      </includes>
+      <outputFileNameMapping>nfvo-driver-vnfm-ericsson-${artifact.version}${dashClassifier?}.${artifact.extension}</outputFileNameMapping>
+    </dependencySet>
+
+    <dependencySet>
       <outputDirectory>nfvo-lcm</outputDirectory>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
