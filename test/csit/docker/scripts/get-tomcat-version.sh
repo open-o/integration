@@ -16,4 +16,4 @@
 #
 
 # get latest 8.5 tomcat version
-curl -sS http://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/ | grep v8.5 | sed 's|<[^>]*>||g' | sed -r 's|\s+||g' | sed 's|/.*||g' | sed 's|v||g'
+curl -sS http://mirrors.ocf.berkeley.edu/apache/tomcat/tomcat-8/ | grep v8.5 | sed 's|<[^>]*>||g' | sed -r 's|\s+||g' | sed 's|/.*||g' | sed 's|v||g' | tail -1
