@@ -1,0 +1,31 @@
+[{
+        "request": {
+            "method": "get",
+            "uri": "/v2.0/tenants"
+        },
+
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/tenants_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": {"match":"/"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/identity_version_response.json"
+        }
+    },
+    {
+        "request": {
+            "method": "get",
+            "uri": "/v3/projects"
+        },
+
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/projects_response.json"
+        }
+    }	
+
+]

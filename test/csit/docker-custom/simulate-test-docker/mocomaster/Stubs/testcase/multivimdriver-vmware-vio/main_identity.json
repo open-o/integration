@@ -1,3 +1,4 @@
 [
-{    "include": "Stubs/testcase/multivimdriver-vmware-vio/token.json"}
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/token.json"},
+{    "include": "Stubs/testcase/multivimdriver-vmware-vio/tenants.json"}
 ]

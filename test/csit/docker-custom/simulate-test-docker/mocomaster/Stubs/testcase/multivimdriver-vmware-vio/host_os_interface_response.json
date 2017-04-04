@@ -1,0 +1,45 @@
+{
+  "services": [
+    {
+      "status": "enabled",
+      "binary": "nova-conductor",
+      "host": "loadbalancer01",
+      "zone": "internal",
+      "state": "up",
+      "disabled_reason": null,
+      "id": 4,
+      "updated_at": "2017-04-03T01:00:28.000000"
+    },
+    {
+      "status": "enabled",
+      "binary": "nova-scheduler",
+      "host": "loadbalancer01",
+      "zone": "internal",
+      "state": "up",
+      "disabled_reason": null,
+      "id": 5,
+      "updated_at": "2017-04-03T01:00:21.000000"
+    },
+    {
+      "status": "enabled",
+      "binary": "nova-consoleauth",
+      "host": "loadbalancer01",
+      "zone": "internal",
+      "state": "up",
+      "disabled_reason": null,
+      "id": 6,
+      "updated_at": "2017-04-03T01:00:28.000000"
+    },
+    {
+      "status": "enabled",
+      "binary": "nova-compute",
+      "host": "compute01",
+      "zone": "nova",
+      "state": "up",
+      "disabled_reason": null,
+      "id": 7,
+      "updated_at": "2017-04-03T01:00:25.000000"
+    }
+  ]
+}
+

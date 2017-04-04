@@ -1,0 +1,42 @@
+{
+            "cpu": 1,
+            "disk_gb": 1028,
+            "name": "c1a7de0ac9d94e4baceae031d05caae3",
+            "memory_mb": 8192,
+            "vimId": "123", 
+            "vimName": "vimName",
+            "tenantId": "tenantId1",
+    "host": [
+        {
+                "memory_mb": 4960,
+                "name": " c1a7de0ac9d94e4baceae031d05caae3",
+                "disk_gb": 92,
+                "project": "(total)",
+                "cpu": 4
+        },
+        {
+                "memory_mb": 1536,
+                "name": " c1a7de0ac9d94e4baceae031d05caae3",
+                "disk_gb": 2,
+                "project": "(used_now)",
+                "cpu": 2
+        },
+        {
+                "memory_mb": 1024,
+                "name": " c1a7de0ac9d94e4baceae031d05caae3",
+                "disk_gb": 2,
+                "project": "(used_max)",
+                "cpu": 2
+        },
+        {
+                "memory_mb": 1024,
+                "name": " c1a7de0ac9d94e4baceae031d05caae3",
+                "disk_gb": 2,
+                "project": "568f7ec425db472ba348251bf1e7eebd",
+                "cpu": 2
+        }
+    ],
+    "vimName": "openstack_newton",
+    "vimId": "dd5b6da9-5984-401f-b89f-78a9776b1a73",
+    "tenantId": "568f7ec425db472ba348251bf1e7eebd"
+}

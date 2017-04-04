@@ -1,0 +1,26 @@
+[{
+        "request": {
+            "method": "get",
+            "uri":{"match": "/v2.1/os-hosts"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/host_list_response.json"
+        }
+    },{
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.1/[0-9a-zA-Z_-]+/os-hypervisors/[0-9a-zA-Z_-]+"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/host_get_response.json"
+        }
+    },{
+        "request": {
+            "method": "get",
+            "uri": {"match":"/v2.1/[0-9a-zA-Z_-]+/os-services"}
+        },
+        "response": {
+            "file": "./Stubs/testcase/multivimdriver-vmware-vio/host_os_interface_response.json"
+        }
+    }
+]

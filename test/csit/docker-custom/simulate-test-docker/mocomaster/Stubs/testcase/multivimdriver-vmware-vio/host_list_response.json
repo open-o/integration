@@ -1,0 +1,27 @@
+{
+  "vimId":"11111",
+  "vimName":"vmware",
+  "tenantId": "0001",
+  "hosts": [
+    {
+      "zone": "internal",
+      "host_name": "loadbalancer01",
+      "service": "conductor"
+    },
+    {
+      "zone": "internal",
+      "host_name": "loadbalancer01",
+      "service": "scheduler"
+    },
+    {
+      "zone": "internal",
+      "host_name": "loadbalancer01",
+      "service": "consoleauth"
+    },
+    {
+      "zone": "nova",
+      "host_name": "compute01",
+      "service": "compute"
+    }
+  ]
+}

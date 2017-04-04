@@ -1,0 +1,82 @@
+{
+  "links": {
+    "self": "https://localhost:5000/v3/projects",
+    "previous": null,
+    "next": null
+  },
+  "projects": [
+    {
+      "is_domain": false,
+      "description": "Admin Project",
+      "links": {
+        "self": "https://localhost:5000/v3/projects/10a90b39412b4ff882643f336ee28f90"
+      },
+      "enabled": true,
+      "id": "10a90b39412b4ff882643f336ee28f90",
+      "parent_id": "b566ae0fb47d4bc8aee54f0209c02d05",
+      "domain_id": "b566ae0fb47d4bc8aee54f0209c02d05",
+      "name": "admin"
+    },
+    {
+      "is_domain": false,
+      "description": "",
+      "links": {
+        "self": "https://localhost:5000/v3/projects/19d57c26236e4d3991a11d4b632216a4"
+      },
+      "enabled": true,
+      "id": "19d57c26236e4d3991a11d4b632216a4",
+      "parent_id": "default",
+      "domain_id": "default",
+      "name": "demo"
+    },
+    {
+      "is_domain": false,
+      "description": "Bootstrap project for initializing the cloud.",
+      "links": {
+        "self": "https://localhost:5000/v3/projects/2e28d2db35204b2cb769666375424053"
+      },
+      "enabled": true,
+      "id": "2e28d2db35204b2cb769666375424053",
+      "parent_id": "default",
+      "domain_id": "default",
+      "name": "admin"
+    },
+    {
+      "is_domain": false,
+      "description": "Heat stack user project",
+      "links": {
+        "self": "https://localhost:5000/v3/projects/3a6404fd35534a94acefc313f7fed77e"
+      },
+      "enabled": true,
+      "id": "3a6404fd35534a94acefc313f7fed77e",
+      "parent_id": "b566ae0fb47d4bc8aee54f0209c02d05",
+      "domain_id": "b566ae0fb47d4bc8aee54f0209c02d05",
+      "name": "df66f60a50484e3f9f63debc9e93651a-1ac484a8-3b7e-42da-b035-8e6a4a6"
+    },
+    {
+      "is_domain": false,
+      "description": "Service Project",
+      "links": {
+        "self": "https://localhost:5000/v3/projects/c3efcfabb10c4e7fb91ef951bc2217bd"
+      },
+      "enabled": true,
+      "id": "c3efcfabb10c4e7fb91ef951bc2217bd",
+      "parent_id": "b566ae0fb47d4bc8aee54f0209c02d05",
+      "domain_id": "b566ae0fb47d4bc8aee54f0209c02d05",
+      "name": "service"
+    },
+    {
+      "is_domain": false,
+      "description": "",
+      "links": {
+        "self": "https://localhost:5000/v3/projects/df66f60a50484e3f9f63debc9e93651a"
+      },
+      "enabled": true,
+      "id": "df66f60a50484e3f9f63debc9e93651a",
+      "parent_id": "default",
+      "domain_id": "default",
+      "name": "ecomp"
+    }
+  ]
+}
+
