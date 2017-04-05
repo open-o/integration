@@ -27,9 +27,7 @@ BODY_FILE_NAME=$3
 body=$(cat $BODY_FILE_NAME | sed 's/INSTANCE_ID_PLACEHOLDER/'$INSTANCE_ID'/ig')
 
 #prepare curl command. quiet mode is used since we use stdout to return the job id.
-response=$(curl -s -X POST -d "$body" -H 'Content-Type: application/json;charset=UTF-8' http://"$MSB_ADDR"/openoapi/sdnonslcm/v1/ns/"$INSTANCE_ID"/instantiate)
-echo "RESPONSE::$response"
-jobId=$(echo $response | jq '.jobId')
-
+response=$(curl -s -m60 -X POST -d "$body" -H 'Content-Type: application/json;charset=UTF-8' http://"$MSB_ADDR"/openoapi/sdnonslcm/v1/ns/"$INSTANCE_ID"/instantiate)
+jobId=$(echo ${response} | jq -c '.jobId' | sed 's/\"//g'))
 #return job id (needed to query instantiation job status)
-echo $jobId
+echo ${jobId}

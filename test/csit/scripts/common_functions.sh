@@ -174,13 +174,13 @@ function wait_curl_driver(){
             fi
         fi
         seconds2sleep=`fibonacci_number $i`
-        echo -n $wait_message
-        echo -n " Iteration::$i out of $repeat_max "
-        echo " - Quiet time for $seconds2sleep seconds ..."
+        echo $wait_message
+        echo "Iteration::$i out of $repeat_max "
+        echo "Quiet time for $seconds2sleep seconds ..."
         sleep $seconds2sleep
 
 	# if waiting for a long time, log system load
-	if [ $seconds2sleep -gt 10 ]
+	if [ $i -gt 45 ]
 	then
             memory_details
 	fi
