@@ -27,6 +27,15 @@ fi
 MSB_ADDR=$1
 echo $MSB_ADDR
 
+#CHECK IF CSAR filename IS GIVEN IN COMMAND. "enterprise2SC.csar" is the default value to avoid breaking exist scripts.
+if [ -z "$2" ]
+then
+   CSAR_FILENAME="$SCRIPT_DIR/enterprise2DC.csar"
+else
+   CSAR_FILENAME=$2
+fi
+echo $CSAR_FILENAME
+
 # Wait for MSB initialization
 echo Wait for MSB initialization
 for i in {1..20}; do
@@ -40,7 +49,7 @@ curl -sS -X GET http://$MSB_ADDR/api/microservices/v1/services/catalog/version/v
 #check if common-tosca-aria is registered with MSB or not 
 curl -sS -X GET http://$MSB_ADDR/api/microservices/v1/services/tosca/version/v1 -H "Accept: application/json" -H "Content-Type: application/json"
 echo Sending POST request to Catalog
-CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$SCRIPT_DIR/enterprise2DC.csar" http://$MSB_ADDR/openoapi/catalog/v1/csars)
+CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$CSAR_FILENAME" http://$MSB_ADDR/openoapi/catalog/v1/csars)
 #getting csarId from the json output
 echo $CsarIdString
 CsarId=$(echo ${CsarIdString} | jq -c '.csarId'| sed 's/\"//g')

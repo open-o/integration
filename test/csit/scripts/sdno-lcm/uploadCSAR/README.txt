@@ -16,5 +16,7 @@
 ###############################################################################
 
 NEED TO GIVE THE MSB ADDRESS WHILE RUNNING THE SCRIPT
-EX: ./startup.sh 172.168.4.47:80
+EX: ./startup.sh 172.168.4.47:80 [CSAR_FILENAME]
 csarId will be written into a text file in the current directory
+
+CSAR_FILENAME is currently one optional argument with a default value "enterprise2DC.csar".
