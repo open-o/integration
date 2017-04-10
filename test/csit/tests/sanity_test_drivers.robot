@@ -3,20 +3,40 @@ Library  Collections
 Library  requests
 *** test cases ***
 
-testDriverPort
+Driver added to Driver Manager
+    [Documentation]    Verify that the driver is register correctly on driver manager
     ${result} =  get  http://${DRIVERMGR_IP}:${DRIVERMGR_PORT}/openoapi/drivermgr/v1/drivers
-    ${json} =  Set Variable  ${result.json()}
     Should Be Equal  ${result.status_code}  ${200}
-    ${dName} =  Get From Dictionary  ${json[0]}  driverName
-    Should Be Equal  ${dName}  ${DRIVER_NAME}
-    ${port} =  Get From Dictionary  ${json[0]}  port
-    Should Be Equal  ${port}  ${DRIVER_PORT}
+    ${json_list} =  Set Variable  ${result.json()}
+#   Search for the desired elements in the array of json elements
+    :FOR    ${ELEMENT}    IN    @{json_list}
+    \    Log    ${ELEMENT}
+    \    ${dName} =  Get From Dictionary  ${ELEMENT}  driverName
+    \    ${port} =  Get From Dictionary  ${ELEMENT}  port
+    \    ${equal_name}     Evaluate    "${dName}" == "${DRIVER_NAME}"
+    \    ${equal_port}     Evaluate    "${port}" == "${DRIVER_PORT}"
+    \    ${element_found}    Evaluate     ${equal_name} and ${equal_port}
+    \    Run Keyword If    ${element_found}    Exit For Loop
+    \    Log    "element not found yet"
+    \    Log    ${dName}
+    Should Be True    ${element_found}
 
-testAddedToMSB
+
+Driver retrieved from Driver Manager through MSB
+    [Documentation]    Verify that the driver registration is visible through MSB
     ${result} =  get  http://${MSB_IP}/openoapi/drivermgr/v1/drivers
-    ${json} =  Set Variable  ${result.json()}
     Should Be Equal  ${result.status_code}  ${200}
-    ${dName} =  Get From Dictionary  ${json[0]}  driverName
-    Should Be Equal As Strings    ${dName}  ${DRIVER_NAME}
-    ${port} =  Get From Dictionary  ${json[0]}  port
-    Should Be Equal  ${port}  ${DRIVER_PORT}
+    ${json_list} =  Set Variable  ${result.json()}
+#   Search for the desired element in the array of json elements
+    :FOR    ${ELEMENT}    IN    @{json_list}
+    \    Log    ${ELEMENT}
+    \    ${dName} =  Get From Dictionary  ${ELEMENT}  driverName
+    \    ${port} =  Get From Dictionary  ${ELEMENT}  port
+    \    ${equal_name}     Evaluate    "${dName}" == "${DRIVER_NAME}"
+    \    ${equal_port}     Evaluate    "${port}" == "${DRIVER_PORT}"
+    \    ${element_found}    Evaluate     ${equal_name} and ${equal_port}
+    \    Run Keyword If    ${element_found}    Exit For Loop
+    \    Log    "element not found yet"
+    \    Log    ${dName}
+    Should Be True    ${element_found}
+
