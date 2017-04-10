@@ -16,6 +16,7 @@ sub readFile {
 ####MSB address and the json file with request body.
 $MSB_ADDR=$ARGV[0];
 $BODY_FILE_NAME=$ARGV[1];
+$CSAR_ID=$ARGV[2];
 
 
 ##############################Get All Templates from Catalog ################
@@ -23,19 +24,16 @@ my $extract_command = "curl -s http://".$MSB_ADDR."/openoapi/catalog/v1/servicet
 my $templates_response = `$extract_command`;
 my $all_templates = decode_json($templates_response);
 
-
-##############################Prepare Creation Request&Command #############
-#Read creation request from JSON file
-my $body = decode_json(readFile($BODY_FILE_NAME));
-my $template_name = $body->{"nsdId"};
-
-for my $template (@$all_templates) {
-    my $name = $template->{"id"};
-    if($name eq $template_name) {
-        $body->{"nsdId"} = $template->{"serviceTemplateId"};
-        last;
+my $csarTemplateId = "";
+foreach my $element (@$all_templates) {
+    if( $element->{"csarId"} eq $CSAR_ID ){
+         $csarTemplateId = $element->{"serviceTemplateId"};
+         last;
     }
 }
+
+my $body = readFile($BODY_FILE_NAME);
+$body =~ s/TEMPLATE_ID_PLACEHOLDER/$csarTemplateId/ig;
 
 ####prepare curl command. quiet mode is used since we use stdout to return the created service id.
 my $body_in_curl = "'".encode_json($body)."'";

@@ -16,7 +16,7 @@
 #use JSON qw( encode_json decode_json );
 
 #### Check arguments
-[ $# -ne 3 ] && { echo "Usage: $0 <MSB_ADDR[ipv4:port]> <JSON_FILE_NAME> <JSON_CSAR_ID[{\"csarId\":\"uuid\"}]>"; exit 1;}
+[ $# -ne 3 ] && { echo "Usage: $0 <MSB_ADDR[ipv4:port]> <JSON_FILE_NAME> <CSAR_ID[uuid]>"; exit 1;}
 
 ####MSB address and the json file with request body.
 MSB_ADDR=$1;
