@@ -26,6 +26,9 @@ sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
 
+#Start market place
+docker run -d -i -t --name=marketplace -e MSB_ADDR=$MSB_IP  -p 8702:8702 openoint/vnf-sdk-marketplace
+
 # Start vnfsdk
 docker run -d -i -t --name=functest -e MSB_ADDR=$MSB_IP  -p 8701:8701 openoint/vnfsdk-function-test
 
@@ -34,8 +37,6 @@ docker run -d -i -t --name=catalog -e  MSB_ADDR=$MSB_IP  -p 8200:8200 -p 8201:82
 
 docker run -d -i -t  --name=aria -e  MSB_ADDR=$MSB_IP  -p 8204:8204  openoint/common-tosca-aria
 
-#Start market place
-docker run -d -i -t --name=marketplace -e MSB_ADDR=$MSB_IP  -p 8702:8702 openoint/vnf-sdk-marketplace
 
 
 echo SCRIPTS
