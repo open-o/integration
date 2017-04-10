@@ -17,4 +17,6 @@
 # This script is sourced by run-csit.sh after Robot test completion.
 
 kill-instance.sh functest
-
+kill-instance.sh marketplace
+kill-instance.sh catalog
+kill-instance.sh aria

@@ -25,11 +25,18 @@ curl_path='http://'${MSB_IP}'/openoui/microservices/index.html'
 sleep_msg="Waiting_connection_for_url_for:i-msb"
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE='"$sleep_msg"' GREP_STRING="org_openo_msb_route_title" REPEAT_NUMBER="15"
 
-# Start extsys
-docker run -d -i -t -e MSB_ADDR=$MSB_IP  -p 8100:8100 openoint/common-services-extsys
 
 # Start vnfsdk
 docker run -d -i -t --name=functest -e MSB_ADDR=$MSB_IP  -p 8701:8701 openoint/vnfsdk-function-test
+
+#Start catalogue, aria
+docker run -d -i -t --name=catalog -e  MSB_ADDR=$MSB_IP  -p 8200:8200 -p 8201:8201 openoint/common-tosca-catalog
+
+docker run -d -i -t  --name=aria -e  MSB_ADDR=$MSB_IP  -p 8204:8204  openoint/common-tosca-aria
+
+#Start market place
+docker run -d -i -t --name=marketplace -e MSB_ADDR=$MSB_IP  -p 8702:8702 openoint/vnf-sdk-marketplace
+
 
 echo SCRIPTS
 
@@ -37,4 +44,4 @@ echo SCRIPTS
 ROBOT_VARIABLES="-v MSB_IP:${MSB_IP}  -v SCRIPTS:${SCRIPTS}"
 
 # Run Mock server
-run_simulator
+run_robottestlib
