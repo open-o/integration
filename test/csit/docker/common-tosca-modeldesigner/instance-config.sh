@@ -14,3 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+sed -i "s|msbServerAddr:.*|msbServerAddr: http://$MSB_ADDR|" conf/winery.yml
+
+cat conf/winery.yml
