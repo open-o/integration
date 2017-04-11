@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/devices?deviceIds=[\"81244ad0-b4ea-41ed-969e-d5588b32fd41\"]",
+        "uri": "http://${OVERLAYIP_IP}:8536/openoapi/sbi-localsite/v1/devices?deviceIds=[81244ad0-b4ea-41ed-969e-d5588b32fd41]",
         "method": "delete",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8",
@@ -9,33 +9,7 @@
         "json": null
     },
     "response": {
-        "status": 200,
-        "json": {
-
-            "type": "object",
-            "properties": {
-                "errorCode": {
-                    "type": "string"
-                },
-                "descArg": {
-                    "type": "string"
-                },
-                "reasonArg": {
-                    "type": "string"
-                },
-                "detailArg": {
-                    "type": "string"
-                },
-                "adviceArg": {
-                    "type": "string"
-                },
-                "httpCode": {
-                    "type": "integer"
-                },
-                "message": {
-                    "type": "string"
-                }
-            }
-        }
+        "status": 500,
+        "json": null
     }
 }
