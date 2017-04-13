@@ -21,7 +21,7 @@ ${jobId}    -1
 CreateAndInstantiate
     [Documentation]    Load CSAR files [output=csarId], verify csarId match uuid pattern, import data to ESR and BSR, Create and instantiate NS.
 
-    ${result} =    Run Process    bash ${csar_dir}/uploadCSAR.sh ${MSB_IP}:80 | tail -1    shell=true
+    ${result} =    Run Process    bash ${csar_dir}/uploadCSAR.sh ${MSB_IP}:80 ${csar_dir} | tail -1    shell=true
     BuiltIn.log    ${result}
     Should Be Empty    ${result.stderr}
 

@@ -14,41 +14,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ###############################################################################
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-echo $SCRIPT_DIR
+#CHECK IF MSB_ADDR and SCRIPT DIR are given in command
+[ $# -lt 2 ] || [ $# -gt 3 ] && { echo "Usage: $0 <MSB_ADDR[ipv4:port]> <CSAR_DIR> <CSAR_FILENAME:default[enterprise2DC.csar]>"; exit 1;}
 
-#CHECK IF MSB_ADDR IS GIVEN IN COMMAND
-if [ -z "$1" ]
-then
-   echo "There is no MSB_ADDR"
-   echo "USAGE: $0 <MSB_ADDR[ipv4:port]>"
-   exit 1
-fi
 MSB_ADDR=$1
 echo $MSB_ADDR
+CSAR_DIR=$2
+echo $CSAR_DIR
 
 #CHECK IF CSAR filename IS GIVEN IN COMMAND. "enterprise2SC.csar" is the default value to avoid breaking exist scripts.
-if [ -z "$2" ]
+if [ -z "$3" ]
 then
-   CSAR_FILENAME="$SCRIPT_DIR/enterprise2DC.csar"
+     CSAR_FILENAME="$CSAR_DIR/enterprise2DC.csar"
 else
-   CSAR_FILENAME=$2
+   CSAR_FILENAME="$CSAR_DIR/$3"
 fi
-echo $CSAR_FILENAME
+if [ -e $CSAR_FILENAME ]
+then 
+    echo "$CSAR_FILENAME found and it is a file ..."
+else
+    echo "$CSAR_FILENAME is not a file ...."
+    echo "Usage: $0 <MSB_ADDR[ipv4:port]> <CSAR_SCRIPT_DIR> <CSAR_FILENAME:default[enterprise2DC.csar]> "
+    exit 1
+fi
 
-# Wait for MSB initialization
-echo Wait for MSB initialization
-for i in {1..20}; do
-    curl -sS -m 1 $MSB_ADDR > /dev/null && break
-    sleep $i
-done
-#MSB initialized 
-
-#Check if common-tosca-catalog  is registered with MSB or not
-curl -sS -X GET http://$MSB_ADDR/api/microservices/v1/services/catalog/version/v1 -H "Accept: application/json" -H "Content-Type: application/json" 
-#check if common-tosca-aria is registered with MSB or not 
-curl -sS -X GET http://$MSB_ADDR/api/microservices/v1/services/tosca/version/v1 -H "Accept: application/json" -H "Content-Type: application/json"
-echo Sending POST request to Catalog
+echo "Sending POST request to Catalog"
 CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$CSAR_FILENAME" http://$MSB_ADDR/openoapi/catalog/v1/csars)
 #getting csarId from the json output
 echo $CsarIdString

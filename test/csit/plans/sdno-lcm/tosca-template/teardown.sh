@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
-###############################################################################
-# Copyright 2017 Huawei Technologies Co., Ltd.
+#!/bin/bash
+#
+# Copyright 2016-2017 Huawei Technologies Co., Ltd.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +13,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-###############################################################################
 
-NEED TO GIVE THE MSB ADDRESS WHILE RUNNING THE SCRIPT
-EX: ./startup.sh 172.168.4.47:80 [CSAR_FILENAME]
-csarId will be written into a text file in the current directory
-
-CSAR_FILENAME is currently one optional argument with a default value "enterprise2DC.csar".
+#Kill all docker instances
+DOCKER_LIST=`docker ps --format "{{.Names}}"`
+for docker in $DOCKER_LIST; do
+    kill-instance.sh $docker || true
+done
