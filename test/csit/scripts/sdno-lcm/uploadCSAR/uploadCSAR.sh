@@ -39,7 +39,7 @@ else
 fi
 
 echo "Sending POST request to Catalog"
-CsarIdString=$(curl -sS -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$CSAR_FILENAME" http://$MSB_ADDR/openoapi/catalog/v1/csars)
+CsarIdString=$(curl -sS -m60 -X POST -H "Content-Type: multipart/form-data; boundary=-WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Cache-Control: no-cache" -H "Postman-Token: abcb6497-b225-c592-01be-e9ff460ca188" -F "file=@$CSAR_FILENAME" http://$MSB_ADDR/openoapi/catalog/v1/csars)
 #getting csarId from the json output
 echo $CsarIdString
 CsarId=$(echo ${CsarIdString} | jq -c '.csarId'| sed 's/\"//g')
