@@ -52,6 +52,7 @@ initialize_schema()
 	openstack endpoint create --region RegionOne   identity admin http://controller:35357/v2.0
 
 	#Create domain, projects, users
+	openstack domain create --description "Default Domain" default
 	openstack project create --domain default   --description "Admin Project" admin
 	openstack user create --domain default --password  Changeme_123 admin
 
