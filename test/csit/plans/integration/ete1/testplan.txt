@@ -13,3 +13,4 @@ integration/ete1/sanity_test_gsolcm.robot
 integration/ete1/sanity_test_driver_gsons.robot
 integration/ete1/sanity_test_driver_nfvons.robot
 integration/ete1/sanity_test_driver_sdnons.robot
+integration/ete1/del_common-tosca-catalog.robot

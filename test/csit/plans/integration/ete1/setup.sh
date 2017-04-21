@@ -60,7 +60,13 @@ curl_path='http://'${MSB_IP}':80/openoapi/microservices/v1/services'
 sleep_msg="Waiting_for Aria Parser... "
 wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="100" GREP_STRING="tosca"
 
-
+# Start wso2
+run-instance.sh openoint/common-services-wso2ext i-wso2bpel "-e MSB_ADDR=${MSB_IP}:80"
+WSO2BPEL_IP=`get-instance-ip.sh i-wso2bpel`
+echo WSO2BPEL_IP=${WSO2BPEL_IP}
+curl_path='http://'${MSB_IP}':80/openoapi/microservices/v1/services'
+sleep_msg="Waiting_for wso2bpel-ext... "
+wait_curl_driver CURL_COMMAND=$curl_path WAIT_MESSAGE="$sleep_msg" REPEAT_NUMBER="100" GREP_STRING="wso2"
 
 # Start inventory
 source ${SCRIPTS}/common-tosca-inventory/startup.sh i-inventory ${MSB_IP}

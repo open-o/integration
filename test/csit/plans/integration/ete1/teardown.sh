@@ -26,6 +26,7 @@ kill-instance.sh gso_csit_simulator
 kill-instance.sh i-inventory
 
 kill-instance.sh i-catalog
+kill-instance.sh i-wso2bpel
 kill-instance.sh catalog-parser
 
 ./teardown_sdno.sh
