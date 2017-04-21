@@ -39,5 +39,5 @@ sed -i "s|DB_PORT.*|DB_PORT = $MYSQL_PORT|" nfvo/lcm/lcm/pub/config/config.py
 
 cat nfvo/lcm/lcm/pub/config/config.py
 
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" nfvo/lcm/run.sh
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" nfvo/lcm/stop.sh
+sed -i "s|sip=.*|sip=$SERVICE_IP|" nfvo/lcm/run.sh
+sed -i "s|sip=.*|sip=$SERVICE_IP|" nfvo/lcm/stop.sh

@@ -23,5 +23,5 @@ sed -i "s|MSB_SERVICE_PORT.*|MSB_SERVICE_PORT = '$MSB_PORT'|" nfvo/drivers/vnfm/
 sed -i "s|\"ip\": \".*\"|\"ip\": \"$SERVICE_IP\"|" nfvo/drivers/vnfm/gvnfm/gvnfmadapter/driver/pub/config/config.py
 cat nfvo/drivers/vnfm/gvnfm/gvnfmadapter/driver/pub/config/config.py
 
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" nfvo/drivers/vnfm/gvnfm/gvnfmadapter/run.sh
-sed -i "s|127\.0\.0\.1|$SERVICE_IP|" nfvo/drivers/vnfm/gvnfm/gvnfmadapter/stop.sh
+sed -i "s|sip=.*|sip=$SERVICE_IP|" nfvo/drivers/vnfm/gvnfm/gvnfmadapter/run.sh
+sed -i "s|sip=.*|sip=$SERVICE_IP|" nfvo/drivers/vnfm/gvnfm/gvnfmadapter/stop.sh
