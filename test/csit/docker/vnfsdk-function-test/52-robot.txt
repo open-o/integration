@@ -3,6 +3,6 @@
 RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
 RUN python get-pip.py
 RUN pip install robotframework
-RUN yum install gcc libffi-devel python-devel openssl-devel
+RUN yum -y install gcc libffi-devel python-devel openssl-devel
 RUN pip install robotframework-sshlibrary
 
