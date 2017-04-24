@@ -73,7 +73,7 @@ with open( "{}/autorelease/binaries.csv".format(root), "r" ) as f:
       </includes>
       <outputFileNameMapping>{}-${{artifact.version}}${{dashClassifier?}}.${{artifact.extension}}</outputFileNameMapping>
     </dependencySet>"""
-        print txt.format(row["filename"], include, row["filename"])
+        # print txt.format(row["filename"], include, row["filename"])
         
 
     print """
