@@ -1,6 +1,6 @@
 [{
-    "name": "create",
-    "description": "create plan",
+    "name": "init",
+    "description": "init plan",
     "processId": "{http://ode/bpel/unit-test}init-18",
     "inputs": [{
         "name": "param1",
