@@ -22,7 +22,7 @@
             "peerDeviceId": "4993043",
             "externalIpSecId": "3012332",
             "sourceAddress": "1.1.1.1",
-            "peerAddress": "2.2.2.2",
+            "peerAddress": "{\"ipv4\":\"10.21.3.0\",\"ipMask\":\"24\"}",
             "ikePolicy": {
                 "pfs": "ABC",
                  "lifeTime": null,
