@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-VERSION="2.0.0-RC0"
+VERSION="2.0.0"
 
 # autorelease root dir
 ROOT=`git rev-parse --show-toplevel`/autorelease
